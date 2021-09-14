@@ -1,5 +1,6 @@
 body {
     margin: 0px;
+    font-family: 'Lato', sans-serif;
 }
 
 .container {
@@ -40,4 +41,17 @@ body {
 
 .navy a:hover {
     color: blue;
+}
+
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.image img {
+    width: 100%;
+}
+
+.profile {
+    padding: 30px;
 }
