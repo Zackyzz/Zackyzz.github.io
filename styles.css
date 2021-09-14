@@ -1,0 +1,43 @@
+body {
+    margin: 0px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.navy {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.lhs {
+    display: flex;
+}
+
+.navy {
+    height: 10 px;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.5s;
+}
+
+.navy>.lhs>div {
+    margin-right: 10px;
+    text-decoration: royalblue;
+}
+
+.link-wrapper a {
+    color: red;
+    text-decoration: none;
+    transition: color 0.5s;
+}
+
+.navy:hover {
+    border-bottom: 1px solid black;
+}
+
+.navy a:hover {
+    color: blue;
+}
