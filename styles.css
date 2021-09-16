@@ -30,7 +30,7 @@ body {
 }
 
 .link-wrapper a {
-    color: red;
+    color: black;
     text-decoration: none;
     transition: color 0.5s;
 }
@@ -49,9 +49,10 @@ body {
 }
 
 .image img {
-    width: 100%;
+    padding: 30px;
+    width: 50%;
 }
 
-.profile {
+.about {
     padding: 30px;
 }
