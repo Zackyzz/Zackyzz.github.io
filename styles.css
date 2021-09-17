@@ -25,11 +25,11 @@ body {
 }
 
 .navy>.lhs>div {
-    margin-right: 10px;
+    margin-right: 25px;
     text-decoration: royalblue;
 }
 
-.link-wrapper a {
+.lhs a {
     color: black;
     text-decoration: none;
     transition: color 0.5s;
@@ -49,10 +49,14 @@ body {
 }
 
 .image img {
-    padding: 30px;
-    width: 50%;
+    padding: 50px;
+    width: 40%;
 }
 
 .about {
+    padding: 30px;
+}
+
+.seal {
     padding: 30px;
 }

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>QQ</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="navy">
+
+            <div class="lhs">
+                <div class="link-wrapper">
+                    <a href="index.html">Home</a>
+                </div>
+                <div class="link-wrapper">
+                    <a href="programming.html">Programming</a>
+                </div>
+                <div class="link-wrapper">
+                    <a href="math.html">Mathematics</a>
+                </div>
+                <div class="link-wrapper">
+                    <a href="about.html">About</a>
+                </div>
+            </div>
+
+            <div class="rhs">
+                <div>
+                    Zacky
+                </div>
+            </div>
+        </div>
+        <div class="seal">
+            <h1>
+                Beautiful Integrals
+            </h1>
+            <p>
+                In future this can use a better introduction, but for now we'll just go at it.
+            </p>
+            <p>
+                The first time that I saw Feynman's trick I was in awe, to be honest that was also the time that I started loving integrals. In order to describe the trick it's easier to just show an integral that can be solved by that method. We'll start with the following
+                integral: $$I_1=\int_0^1 \frac{x-1}{\ln x}dx$$
+            </p>
+            <p>
+                Mainly the idea is to introduce a new parameter, take a derivative with respect to it, evaluate the integral and then integrate back to undo the derivative step. $$I_1(t)=\int_0^1 \frac{x^t-1}{\ln x}dx\Rightarrow I_1'(t)=\int_0^1x^tdx=\frac{x^{t+1}}{t+1}\bigg|_0^1
+                =\frac{1}{t+1}$$
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>
