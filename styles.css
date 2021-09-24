@@ -19,8 +19,6 @@ body {
 }
 
 .navy {
-    position: -webkit-sticky;
-    position: sticky;
     height: 10 px;
     border-bottom: 1px solid transparent;
     transition: border-bottom 0.5s;
@@ -55,7 +53,9 @@ body {
     width: 40%;
 }
 
-.about {
+.about,
+.welcome,
+.ylisp {
     padding: 30px;
 }
 
@@ -65,4 +65,10 @@ body {
 
 .active {
     border-bottom: 1px solid;
+}
+
+.ylisp,
+.welcome {
+    width: 50%;
+    display: table-cell;
 }
