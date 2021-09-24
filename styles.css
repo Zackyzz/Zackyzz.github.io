@@ -19,6 +19,8 @@ body {
 }
 
 .navy {
+    position: -webkit-sticky;
+    position: sticky;
     height: 10 px;
     border-bottom: 1px solid transparent;
     transition: border-bottom 0.5s;
@@ -59,4 +61,8 @@ body {
 
 .seal {
     padding: 30px;
+}
+
+.active {
+    border-bottom: 1px solid;
 }
