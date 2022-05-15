@@ -35,6 +35,7 @@
             <h1>
                 Beautiful Integrals
             </h1>
+            <hr>
             <p>
                 The first time that I saw Feynman's trick I was in awe, that was also the time that I started loving integrals. In order to describe the trick it's easier to just show an integral that can be solved by that method. We'll start with the following integral:
                 $$I=\int_0^1 \frac{x-1}{\ln x}dx$$
@@ -44,7 +45,34 @@
                 with respect to the intoduced parameter to undo the derivative step. $$I(t)=\int_0^1 \frac{x^t-1}{\ln x}dx\Rightarrow I'(t)=\int_0^1x^tdx=\frac{x^{t+1}}{t+1}\bigg|_0^1 =\frac{1}{t+1}$$
             </p>
             <p>
-                When we integrate back with respect to $t$ we can notice that $I=I(1)$ and also that $I(0)=0$, so using the fundamental theorem of calculus we have: $$I=I(1)-I(0)=\int_0^1 \frac{1}{1+t}dt=\ln(1+t)\bigg|_0^1 = \ln 2.$$
+                When we integrate back with respect to $t$ we can notice that \(I=I(1)\) and also that \(I(0)=0\), so using the fundamental theorem of calculus we have: $$I=I(1)-I(0)=\int_0^1 \frac{1}{1+t}dt=\ln(1+t)\bigg|_0^1 = \ln 2.$$
+            </p>
+            <hr>
+            <p>
+                The tricky part with this technique is finding how to introduce the parameter so that afterwards we can differentiate under the integral sign. Let's take a look at another example.
+            </p>
+            <p>
+                $$I=\int_0^\infty \frac{\ln(1+x^2+x^4)}{1+x^2}dx$$ Now we can consider: $$I(a)=\int_0^\infty \frac{\ln((1+x^2)a+x^4)}{1+x^2}dx$$ Differentiating under the integral sign with respect to \(a\) gives: $$I'(a)=\int_0^\infty \frac{1+x^2}{(1+x^2)a+x^4}\frac{dx}{1+x^2}=\int_0^\infty
+                \frac{1}{x^4+ax^2+a}dx\overset{\large{x=\frac{\sqrt a}{t}}}=\int_0^\infty \frac{\frac{t^2}{\sqrt a}}{t^4+at^2+a}dt$$ $$2I'(a)=\int_0^\infty \frac{\frac{t^2}{\sqrt a}+1}{t^4+at^2+a}dt\Rightarrow I'(a)=\frac{1}{2\sqrt a}\int_0^\infty \frac{t^2+\sqrt
+                a}{t^4+at^2+a}dt$$ $$=\frac{1}{2\sqrt a}\int_0^\infty \frac{1+\frac{\sqrt a}{t^2}}{\left(t-\frac{\sqrt a}{t}\right)^2+a+2\sqrt a}dt=\frac{1}{2\sqrt a}\int_0^\infty \frac{d\left(t-\frac{\sqrt a}{t}\right)}{\left(t-\frac{\sqrt a}{t}\right)^2+\left(\sqrt{a+2\sqrt
+                a}\,\right)^2}$$ $$=\frac{1}{2\sqrt a}\frac{1}{\sqrt{a+2\sqrt a}}\arctan\left(\frac{t-\frac{\sqrt a}{t}}{\sqrt{a+2\sqrt a}}\right)\bigg|_0^\infty \Rightarrow I'(a)=\frac{\pi}{2\sqrt a}\frac{1}{\sqrt{a+2\sqrt a}}$$ Finally taking in account
+                that \(I(0)=0\), using the fundamental theorem of calculus we have: $$I=I(1)-I(0)=\int_0^1 I'(a)da=\frac{\pi}{2}\int_0^1 \frac{1}{\sqrt a \sqrt {a+2\sqrt a}}da\overset{\sqrt a = x}=\pi \int_0^1 \frac{1}{\sqrt{(x+1)^2-1}}dx=\pi\ln(2+\sqrt
+                3)$$
+            </p>
+            <hr>
+            <p>
+                Moving on to a more complicated example, we'll see that sometimes the integral needs to be manipulated a bit at first in order to make room for the parameter. There isn't a general algorithm for this unfortunatelly and mainly you just feel it after having
+                more experience.
+            </p>
+            <p>
+                $$I=\int_0^\frac{\pi}{2}\arctan\left(\frac{2\sin x}{2\cos x -1}\right)\frac{\sin\left(\frac{x}{2}\right)}{\sqrt{\cos x}}dx$$ We'll first do some substitutions until it's clear how to simplify that \(\arctan\) term. $$I=\int_0^\frac{\pi}{2}\arctan\left(\frac{2\sin
+                x}{2\cos x -1}\right)\frac{\sin\left(\frac{x}{2}\right)}{\sqrt{\cos x}}dx\overset{\cos x=t}=\frac1{\sqrt 2}\int_0^1 \arctan \left(\frac{2\sqrt{1-t^2}}{2t-1}\right)\frac{dt}{\sqrt t\sqrt{1+t}}\overset{\large t=\frac{1-x}{1+x}}=\int_0^1
+                \frac{\arctan\left(\frac{4\sqrt x}{1-3x}\right)}{\sqrt{1-x}(1+x)}dx$$ $$=\int_0^1\frac{\arctan (\sqrt x)+\arctan(3\sqrt x)}{\sqrt{1-x}(1+x)}dx-\int_\frac13^1\frac{\pi}{\sqrt{1-x}(1+x)}dx=\mathcal J-\frac{\pi}{\sqrt2}\ln(2+\sqrt 3)$$ The
+                second integral appears since for \(x>\frac13\) we have \(\sqrt x \cdot 3\sqrt x>1\). Now in order to evaluate \(\mathcal J\) we can differentiate under the integral sign, considering: $$\mathcal J(a)=\int_0^1\frac{\arctan(a\sqrt x)+\arctan(3\sqrt
+                x)}{\sqrt{1-x}(1+x)}dx$$ $$\Rightarrow \mathcal J'(a)=\int_0^1 \frac{\sqrt x}{\sqrt{1-x}(1+x)(1+a^2 x)}dx\overset{\frac{1-x}{x}=t}=\int_0^\infty \frac{dt}{\sqrt t(2+t)(1+a^2+t)}$$ $$\overset{t=x^2}=\frac{2}{1-a^2}\int_0^\infty \left(\frac{1}{1+a^2+x^2}-\frac{1}{2+x^2}\right)dx=\frac{\pi}{1-a^2}\left(\frac{1}{\sqrt{1+a^2}}-\frac{1}{\sqrt
+                2}\right)$$ We are looking to find \(\mathcal J(1)=\mathcal J\), but \(\mathcal J(-3)=0\) therefore our integral is: $$\mathcal J=\int_{-3}^1 \frac{\pi}{1-a^2}\left(\frac{1}{\sqrt{1+a^2}}-\frac{1}{\sqrt 2}\right)da\overset{-a=\frac{1-x}{1+x}}=\frac{\pi}{2\sqrt
+                2}\int_0^2\frac{1}{x}\left(1-\frac{1-x}{\sqrt{1+x^2}}\right)dx$$ $$=\frac{\pi}{2\sqrt 2}\left(\ln\left(x+\sqrt{1+x^2}\right)+\ln\left(1+\sqrt{1+x^2}\right)\right)\bigg|_0^2=\sqrt 2 \pi \ln \varphi$$ Finally, combining the two results we
+                get: $$\int_0^\frac{\pi}{2}\arctan\left(\frac{2\sin x}{2\cos x -1}\right)\frac{\sin\left(\frac{x}{2}\right)}{\sqrt{\cos x}}dx=\sqrt 2 \pi \ln \varphi-\frac{\pi}{\sqrt2}\ln(2+\sqrt 3), \ \varphi = \frac{1+\sqrt 5}{2}.$$
             </p>
         </div>
     </div>
