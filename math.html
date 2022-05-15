@@ -43,6 +43,9 @@
                 Mainly the idea behind Feynman's trick (alternatively also called Leibniz integral rule or simply differentiation under the integral sign) is to introduce a new parameter, differentiate with respect to it, evaluate the integral and then integrate back
                 with respect to the intoduced parameter to undo the derivative step. $$I(t)=\int_0^1 \frac{x^t-1}{\ln x}dx\Rightarrow I'(t)=\int_0^1x^tdx=\frac{x^{t+1}}{t+1}\bigg|_0^1 =\frac{1}{t+1}$$
             </p>
+            <p>
+                When we integrate back with respect to $t$ we can notice that $I=I(1)$ and also that $I(0)=0$, so using the fundamental theorem of calculus we have: $$I=I(1)-I(0)=\int_0^1 \frac{1}{1+t}dt=\ln(1+t)\bigg|_0^1 = \ln 2.$$
+            </p>
         </div>
     </div>
 
