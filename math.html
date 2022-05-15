@@ -36,12 +36,12 @@
                 Beautiful Integrals
             </h1>
             <p>
-                The first time that I saw Feynman's trick I was in awe, to be honest that was also the time that I started loving integrals. In order to describe the trick it's easier to just show an integral that can be solved by that method. We'll start with the following
-                integral: $$I_1=\int_0^1 \frac{x-1}{\ln x}dx$$
+                The first time that I saw Feynman's trick I was in awe, that was also the time that I started loving integrals. In order to describe the trick it's easier to just show an integral that can be solved by that method. We'll start with the following integral:
+                $$I=\int_0^1 \frac{x-1}{\ln x}dx$$
             </p>
             <p>
-                Mainly the idea is to introduce a new parameter, take a derivative with respect to it, evaluate the integral and then integrate back to undo the derivative step. $$I_1(t)=\int_0^1 \frac{x^t-1}{\ln x}dx\Rightarrow I_1'(t)=\int_0^1x^tdx=\frac{x^{t+1}}{t+1}\bigg|_0^1
-                =\frac{1}{t+1}$$
+                Mainly the idea behind Feynman's trick (alternatively also called Leibniz integral rule or simply differentiation under the integral sign) is to introduce a new parameter, differentiate with respect to it, evaluate the integral and then integrate back
+                with respect to the intoduced parameter to undo the derivative step. $$I(t)=\int_0^1 \frac{x^t-1}{\ln x}dx\Rightarrow I'(t)=\int_0^1x^tdx=\frac{x^{t+1}}{t+1}\bigg|_0^1 =\frac{1}{t+1}$$
             </p>
         </div>
     </div>
