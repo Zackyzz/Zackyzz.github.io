@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Feynman's Trick</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="navy">
+            <div class="lhs">
+                <div class="link-wrapper">
+                    <a href="index.html">Home</a>
+                </div>
+                <div class="link-wrapper">
+                    <a href="quantum.html">Quantum Computing</a>
+                </div>
+                <div class="link-wrapper">
+                    <a class="active" href="feynman.html">Feynman's Trick</a>
+                </div>
+                <div class="link-wrapper">
+                    <a href="about.html">About</a>
+                </div>
+            </div>
+        </div>
+        <div class="feynman">
+            <h1>
+                Feynman's Trick
+            </h1>
+
+            <hr>
+            <p>
+                The first time that I saw Feynman's trick it was also the time that I started to love evaluating integrals. At that point I was only finishing high school and mostly have dealt with basic integrals, however afterwards I started to approach math as a hobby and evaluating integrals became for me something like a puzzle.. similar to how some people enjoy solve anagrams, sudoku games and so on. Feynman's trick provided a cheat code to deal with integrals.
+			</p>
+			<p>
+				In order to describe the trick it's easier to just show how an integral is evaluated using this method. We'll start with the following integral:
+                $$I=\int_0^1 \frac{x-1}{\ln x}dx$$
+            </p>
+            <p>
+				The first step is to complicate a bit the integral by introducing a new parameter, a dummy variable, which we can call \(t\), thus the integral becomes:
+				$$I(t)=\int_0^1 \frac{x^t-1}{\ln x}dx$$
+				Keep in mind that our original integral is just \(I(1)\). Also surely, we could've placed the dummy variable in many different places, such as:
+				$$I(a)=\int_0^1 \frac{x-a}{\ln x}dx, \quad I(b)=\int_0^1 \frac{x-1}{b-\ln x}dx, \quad I(c)=\int_0^1 \frac{x-1}{\ln (cx)}dx\ ...$$
+				The reason why the original \(I(t)\) was chosen is to be seen in the next step, which is to differentiate the integral with respect to \(t\). This looks like:
+				$$I'(t)=\int_0^1 \frac{\partial}{\partial t}\left(\frac{x^t-1}{\ln x}\right)dx  = \int_0^1x^tdx=\frac{x^{t+1}}{t+1}\bigg|_0^1 =\frac{1}{t+1}$$
+				Notice how easy was to evaluate the integral \(I'(t)=\int_0^1x^tdx\) above, had we kept \(I(a)\) or \(I(b)\) the things wouldn't had simplified at all after differentiating with respect to \(a\) or respectively \(b\).<br>
+				We can already sense that the following might be an important question in the future: Where to put the parameter when using Feynman's Trick?
+            </p>
+            <p>
+                But we will worry about that later, for now let's finish the integral as we only found \(I'(t)\).<br>
+				Since we are looking to find \(I(t=1)\) we need to integrate \(I'(t)\) back in order to arrive there. Here it's useful to recall that:
+				$$\int_a^b f'(x) dx = f(x)\bigg|_a^b$$
+				For us \(f(x)\) is just \(I(t)\) in the above expression. Luckily \(I(0)=0\) and as we are looking for \(I=I(1)\) we can replace \(a\) with \(0\) and \(b\) with \(1\) yielding:
+				$$I=\int_0^1 I'(t)dt = \int_0^1 \frac{1}{1+t}dt=\ln(1+t)\bigg|_0^1 = \ln 2.$$
+				So that's the big picture of Feynman's trick.
+            </p>
+			<p>
+				Here is a follow up integral for you in order to practice with the method presented above:
+				$$\int_0^1 \frac{x^2-x}{\ln x}dx = ?$$
+			</p>
+
+            <hr>
+            <p>
+                TBA
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
