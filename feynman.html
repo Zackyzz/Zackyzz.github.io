@@ -35,13 +35,20 @@
                 Feynman's Trick
             </h1>
 
-            <hr>
             <p>
-                The first time that I saw Feynman's trick it was also the time that I started to love evaluating integrals. At that point I was only finishing high school and mostly have dealt with basic integrals, however afterwards I started to approach math as a hobby and evaluating integrals became for me something like a puzzle.. similar to how some people enjoy solve anagrams, sudoku games and so on. Feynman's trick provided a cheat code to deal with integrals.
+                The first time that I saw Feynman's trick it was also the time that I started to love evaluating integrals. For me it felt like Feynman's trick provided a cheat code to deal with integrals. At that point I was only finishing high school and mostly have dealt with basic integrals, however afterwards I started to approach math as a hobby and evaluating integrals became for me something like a puzzle.. similar to how some people enjoy solve anagrams, sudoku games and so on.
+            </p>
+            <p>
+                In the following we will go into a journey to find out what is Feynman's trick about and how we can employ it to evaluate some beautiful integrals. This will be done while gradually increasing the difficulty, however some basic integrals knowledge is assumed. Also we won't go into things rigorously, meaning that the focus won't be on doing burden tasks, like proving the convergence of some integrals or detailing how the partial fraction is done, but rather we will have Feynman's trick in the center of our attention.
 			</p>
+            <hr>
 			<p>
-				In order to describe the trick it's easier to just show how an integral is evaluated using this method. We'll start with the following integral:
+                One common thing that I found while approaching something new, be it a game like chess or sudoku or a new field like quantum computing is that I could read and read the rules many times, but without practicing nothing would stick with me. Therefore I would like here to jump straightforward into practice in order to understand the trick.
+            </p>
+            <p>
+                We'll start with the following integral:
                 $$I=\int_0^1 \frac{x-1}{\ln x}dx$$
+                Although I can't remember where I first saw this integral, this was the first integral that I saw evaluated using Feynman's trick, being one of the classics.
             </p>
             <p>
 				The first step is to complicate a bit the integral by introducing a new parameter, a dummy variable, which we can call \(t\), thus the integral becomes:
@@ -64,6 +71,45 @@
 			<p>
 				Here is a follow up integral for you in order to practice with the method presented above:
 				$$\int_0^1 \frac{x^2-x}{\ln x}dx = ?$$
+			</p>
+
+            <hr>
+            <p>
+                Another classic integral for this method is the following:
+                $$I=\int_0^1 \frac{\ln(1+x)}{1+x^2}dx$$
+                Here it might be worth mentioning that there's no need to use Feynman's trick as we can make the substitution \(x\to\frac{1-x}{1+x}\) and then add the resulting integral with the original one, which gives \(2I=\int_0^1 \frac{\ln 2}{1+x^2}dx\Rightarrow I=\frac{\pi}{8}\ln 2\). However it's also a good exercise to get along with Feynman's trick.
+            </p>
+            <p>
+                The first thing we need to do is to figure out where to put the parameter, so after differentiating with respect to it to obtain a simpler integral. The most annoying thing for us is the logarithm, therefore if we get rid of it everything should be straightforward, so there are a few parameter possibilities which makes sense to consider, namely:
+                $$I(a)=\int_0^1\frac{\ln(a+x)}{1+x^2}dx, \quad I(b) = \int_0^1 \frac{\ln(1+bx)}{1+x^2}dx$$
+                With the first one we are out of luck, as differentiating with respect to \(a\) gives:
+                $$I'(a)=\int_0^1 \frac{1}{(a+x)(1+x^2)}dx = \frac{\ln(1+a)}{1+a^2}-\frac{\ln a}{1+a^2} +\frac{\pi}{4}\frac{a}{1+a^2}-\frac{\ln 2}{2}\frac{1}{1+a^2}$$
+                Therefore if we would try to go back to what we're looking, which is \(I(a=1)\), we would end up with something like \(I=I+\text{other stuff}\), which cancels out \(I\) and we wouldn't we able to recover it
+            </p>
+            <p>
+                Things work out nicely with the second choice from above:
+                $$I'(b)=\int_0^1\frac{x}{(1+bx)(1+x^2)}dx=\frac{\pi}{4}\frac{1}{1+b^2}+\frac{\ln 2}{2}\frac{1}{1+b^2}-\frac{\ln(1+b)}{1+b^2}$$
+                Since we are looking to find \(I(b=1)\) and \(I(b=0)\) is \(0\) we have:
+                $$I=I(1)-I(0)=\int_0^1 I'(b)db \Rightarrow 2I=\int_0^1 \left(\frac{\pi}{4}\frac{1}{1+b^2}+\frac{\ln 2}{2}\frac{1}{1+b^2}\right)db \Rightarrow I=\frac{\pi}{8}\ln 2$$
+            </p>
+            <p>
+                However one thing that I always try to look for when using Feynman's trick is to simplify something from the integrand (in this case the denominator) while getting rid of the annoying stuff (the logarithm). With \(I(b)\) we only achieved the second thing, so perhaps we can even do better that before.
+            </p>
+            <p>
+                In order to achieve both things mentioned above, let's rewrite the original integral as:
+                $$I=\int_0^1\frac{\ln(1+x)}{1+x^2}dx=\frac12\int_0^1\frac{\ln(1+2x+x^2)}{1+x^2}dx$$
+            </p>
+            <p>
+                For this one it's naturally to choose the dummy variable so that it simplifies \(1+x^2\) when we differentiate with respect to \(t\), therefore we have:
+                $$I(t)=\frac12\int_0^1 \frac{\ln(2x+t(1+x^2))}{1+x^2}dx\Rightarrow I'(t)=\frac12\int_0^1 \frac{1}{2x+t(1+x^2)}dx=\frac14\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}$$
+                Similarly to \(I(b)\) we are looking to find \(I(t=1)\), however here \(I(t=0)\) is equal to \(\frac12\int_0^1\frac{\ln(2x)}{1+x^2}dx\) not \(0\):
+                $$I=I(1)-I(0)+I(0)=\frac14\int_0^1\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}dt+\frac12\int_0^1\frac{\ln(2x)}{1+x^2}dx$$
+                $$\int_0^1\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}dt\overset{\frac{1+\sqrt{1-t^2}}{t}=x}=-2\int_0^1 \frac{\ln x}{1+x^2}dx\Rightarrow I = \frac12\int_0^1 \frac{\ln 2}{1+x^2}dx=\frac{\pi}{8}\ln 2$$
+                Let's summarise what we saw so far. When using Feynman's trick it's acceptable to complicate the integral in the beggining (or rather we should try to bring it to a more manageable form) and as a rule of thumb that we could stick with in the future: <b>When using Feynman's trick placing the parameter so that we always simplify something from the integrand after differentiating is to be desired. </b> However it might require more examples in order to show the above statement (in this case even using Feynman's trick was an overkill).
+            </p>
+            <p>
+				Like previously, here is a follow up integral for you in order to practice with the method(s) presented above:
+				$$\int_0^1 \frac{x\ln(1+x)}{1+x^2}dx = ?$$
 			</p>
 
             <hr>
