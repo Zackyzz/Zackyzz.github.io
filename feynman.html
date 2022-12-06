@@ -19,10 +19,10 @@
             <li><a href="quantum.html">Quantum Computing</a></li>
             <li><a class="active" href="feynman.html">Feynman's Trick</a></li>
             <ul>
-                <li><a href="#hello-world">Chapter 1</a></li>
-                <li><a href="#simplify">Chapter 2</a></li>
-                <li><a href="#consistence">Chapter 3</a></li>
-                <li><a href="#accelerated">Chapter 4</a></li>
+                <li><a href="#chapter1">Hello, World!</a></li>
+                <li><a href="#chapter2">Placing the parameter</a></li>
+                <li><a href="#chapter4">Switching to double integrals</a></li>
+                <li><a href="#chapter5">Getting into the real world</a></li>
             </ul>
             <li><a href="about.html">About</a></li>
         </ul>
@@ -40,7 +40,7 @@
             In the following we will go into a journey to find some rules of thumb to have at disposal when using Feynman's trick. It should be mentioned right from the start that those rules of thumb are merely some heuristics that I tend to use, so deviating from them can be totally fine, however I'm hoping that it can provide a path to have in case nothing obvious or intuitively occurs when someone tries to use this trick, or even better a reason for someone to start using the method.
         </p>
         <hr>
-        <section id="hello-world"> <h3>Chapter 1</h3> </section>
+        <section id="chapter1"> <h3>Hello, World!</h3> </section>
         <hr>
         <p>
             One common thing that tends to happen while approaching something new, be it a game, a programming language or a field is that I could read and read the rules many times, but without practicing nothing would stick with me. Therefore I would like here to jump straightforward into practice in order to get familiar with the trick.
@@ -68,12 +68,11 @@
             So that's the big picture of Feynman's trick: we have a hard time dealing with an integral, so we try to transform it into a different state which can be easily integrated and in the end we go back to the original form.
         </p>
         <p>
-            Here is a follow up integral for you in order to practice with the method presented above:
             $$\int_0^1 \frac{x^2-x}{\ln x}dx = ?$$
         </p>
 
         <hr>
-        <section id="simplify"> <h3>Chapter 2</h3> </section>
+        <section id="chapter2"> <h3>Placing the parameter</h3> </section>
         <hr>
         <p>
             Let's start with our first rule of thumb, for which in order to describe we'll use another classic integral:
@@ -108,41 +107,98 @@
             However it might require more examples in order to feel why the above path is useful (in this case even using Feynman's trick was an overkill).
         </p>
         <p>
-            Like previously, here is a follow up integral for you in order to practice with the method(s) presented above:
+            As emphasized quite many times already, practicing is the best approach to get along with this technique, therefore bellow are some more integrals, alongside with a hidden hint in case it might be needed.
             $$\int_0^1 \frac{x\ln(1+x)}{1+x^2}dx = ?$$
         </p>
+        <div class="hidden-hint">
+            <p class="hint">
+                Consider introducing the following parameter:
+                $$I(t)=\frac12\int_0^1 \frac{x\ln(2x+t(1+x^2))}{1+x^2}dx$$
+                This should lead to:
+                $$I(1)=\int_0^1 \frac{x\ln(1+x)}{1+x^2}dx = \frac{\pi^2}{96} + \frac{\ln^2 2}{8}$$
+            </p>
+        </div>
+        <p>
+            $$\int_0^\frac{\pi}{2} \frac{\arctan(\sin x)}{\sin x}dx = ?$$
+        </p>
+        <div class="hidden-hint">
+            <p class="hint">
+                Consider introducing the following parameter:
+                $$I(t)=\int_0^\frac{\pi}{2} \frac{\arctan(t\sin x)}{\sin x}dx$$
+                This should lead to:
+                $$I(1)=\int_0^\frac{\pi}{2} \frac{\arctan(t\sin x)}{\sin x}dx = \frac{\pi}{2}\ln(1+\sqrt 2)$$
+            </p>
+        </div>
+        <p>
+            $$\int_0^1 \frac{\ln(1-x+x^2)}{x-x^2}dx = ?$$
+        </p>
+        <div class="hidden-hint">
+            <p class="hint">
+                Consider introducing the following parameter:
+                $$I(t)=\int_0^1 \frac{\ln(1-t(x-x^2))}{x-x^2}dx$$
+                This should lead to:
+                $$I(1)=\int_0^1 \frac{\ln(1-x+x^2)}{x-x^2}dx = -\frac{\pi^2}{9}$$
+            </p>
+        </div>
+        <p>
+            $$\int_0^\infty x^2e^{-\left(4x^2+\frac{9}{x^2}\right)}dx = ?$$
+        </p>
+        <div class="hidden-hint">
+            <p class="hint">
+                Consider introducing the following parameter:
+                $$I(t)=\int_0^\infty x^2e^{-\left(4x^2+\frac{t}{x^2}\right)}dx$$
+                This should lead to:
+                $$I(9)=\int_0^\infty x^2e^{-\left(4x^2+\frac{9}{x^2}\right)}dx = \frac{13}{32}\frac{\sqrt \pi}{e^{12}}$$
+            </p>
+        </div>
+        <p>
+            $$\int_0^1 \frac{\ln x}{1-x^2}dx = ?$$
+        </p>
+        <div class="hidden-hint">
+            <p class="hint">
+                Consider introducing the following parameter:
+                $$I(t)=\frac12\int_0^1\frac{\ln(1-t(1-x^2))}{1-x^2}dx$$
+                This should lead to:
+                $$I(1)=\int_0^1 \frac{\ln x}{1-x^2}dx = -\frac{\pi^2}{8}$$
+            </p>
+        </div>
+        <p>
+            $$\int_0^\frac{\pi}{2} \frac{\ln(1-\sin x)}{\sin x}dx = ?$$
+        </p>
+        <div class="hidden-hint">
+            <p class="hint">
+                Consider introducing the following parameter:
+                $$I(t)=\int_0^\frac{\pi}{2} \frac{\ln(1-t\sin x)}{\sin x}dx$$
+                This should lead to:
+                $$I(1)=\int_0^\frac{\pi}{2} \frac{\ln(1-\sin x)}{\sin x}dx = -\frac{3\pi^2}{8}$$
+            </p>
+        </div>
+        <p>
+            $$\int_0^\infty \frac{e^{-x^2}}{1+x^2}dx = ?$$
+        </p>
+        <div class="hidden-hint">
+            <p class="hint">
+                Consider introducing the following parameter:
+                $$I(t)=\int_0^\infty \frac{e^{-t(1+x^2)}}{1+x^2}dx$$
+                This should lead to:
+                $$eI(1)=\int_0^\infty \frac{e^{-x^2}}{1+x^2}dx = \frac{\pi e}{2}\operatorname{erfc}(1)$$
+            </p>
+        </div>
+        <p>
+            $$\int_0^\infty \frac{\ln\left(\frac{1-x^2+x^4}{(1-x^2)^2}\right)}{(1+x^2)^2}dx = ?$$
+        </p>
+        <div class="hidden-hint">
+            <p class="hint">
+                Since \(1-x^2+x^4=(1+x^2)^2-3x^2\), consider introducing the following parameter:
+                $$I(t)=\int_0^\infty \frac{\ln\left(\frac{t(1+x^2)^2-3x^2}{(1-x^2)^2}\right)}{(1+x^2)^2}dx$$
+                And in order to go back it should be observed that \(\frac34(1+x^2)^2-3x^2=\frac34(1-x^2)^2\):
+                $$\int_0^\infty \frac{\ln\left(\frac{1-x^2+x^4}{(1-x^2)^2}\right)}{(1+x^2)^2}dx=I(1)=\int_\frac34^1 I'(t)dt + I\left(\frac34\right) = \frac{\pi}{2}\ln\left(\frac32\right) $$
+            </p>
+        </div>
+
 
         <hr>
-        <section id="consistence"> <h3>Chapter 3</h3> </section>
-        <hr>
-        <p>
-            We'll practice more with the rule of thumb mentioned in the previous chapter, however it's also useful to introduce another one. We'll see what exactly while dealing with the following integral:
-            $$I=\int_0^\frac{\pi}{2}\ln(2+\tan^2 x)dx$$
-            There are two obvious parameters to consider here:
-            $$I(a)=\int_0^\frac{\pi}{2}\ln(a+\tan^2 x)dx,\quad I(b)=\int_0^\frac{\pi}{2}\ln(2+b\tan^2 x)dx$$
-            Turns out both works, let's stick with the first one and you are welcome to play with the last one.
-            $$I'(a)=\int_0^\frac{\pi}{2}\frac{1}{a+\tan^2 x}dx\overset{\tan x\to x}=\int_0^\infty \frac{1}{(a+x^2)(1+x^2)}dx$$
-            $$=\frac{1}{1-a}\int_0^\infty\left(\frac{1}{a+x^2}-\frac{1}{1+x^2}\right)dx=\frac{\pi}{2}\left(\frac{1}{\sqrt a (1-a)}-\frac{1}{1-a}\right)=\frac{\pi}{2}\frac{1}{\sqrt a+a}$$
-            In this case we are looking to find \(I=I(a=2)\) and as \(I(a=0)=\int_0^\frac{\pi}{2}\ln(\tan^2 x) dx\) is equal to \(0\) since after the substitution \(x\to\frac{\pi}{2}-x\) \(\int_0^\frac{\pi}{2}\ln(\tan^2 x) dx = - \int_0^\frac{\pi}{2}\ln(\tan^2 x) dx\), the original integral is:
-            $$I=\int_0^2 I'(a)da=\frac{\pi}{2}\int_0^2\frac{1}{\sqrt a+a}da\overset{a=x^2}=\pi\int_0^\sqrt 2\frac{1}{1+x}dx=\pi\ln(1+\sqrt 2)$$
-            While this works, we can do better. Another rule of thumb that I tend to use is to stick with rational functions as they often provide the most visibility to work with. Let's do that for our integral too:
-            $$I=\int_0^\frac{\pi}{2}\ln(2+\tan^2 x)dx\overset{\tan x\to x}=\int_0^\infty \frac{\ln(2+x^2)}{1+x^2}dx$$
-            At this point, if we remember the first rule of thumb, mainly to <b>place the parameter in order to simplify something from the integrand</b>, then it should be obvious where to place the parameter so that we can simplify the denominator. We have:
-            $$I(t)=\int_0^\infty \frac{\ln(1+t(1+x^2))}{1+x^2}dx\Rightarrow I'(t)=\int_0^\infty \frac{1}{1+t+tx^2}dx=\frac{\pi}{2}\frac{1}{\sqrt t\sqrt{1+t}}$$
-            Let's finish this integral too as we are looking for \(I=I(t=1)\) with \(I(t=0) = 0\):
-            $$I=\int_0^1I'(t)dt=\frac{\pi}{2}\int_0^1 \frac{1}{\sqrt t\sqrt{1+t}}dx\overset{t=x^2}=\pi\int_0^1\frac{1}{\sqrt{1+x^2}}dx=\pi\ln(1+\sqrt 2)$$
-            The main advantage over the previous method here was that we avoided doing partial fractions, which is not that much. However now we have a path to follow in the future as if possible the first step would be to transform the integral to contain rational functions, instead of trigonometric ones for example.
-        </p>
-        <p>
-            Obviously, if you're more used to trigonometric functions and you do have a great visibility when evaluating integrals containing them, then this can be simply ignored. I however tend to switch fast to rational functions so in what's to come I will almost always do this as a first step, a few exceptions will be shown in the future, mainly when at least one of the bounds is \(\infty\) then one shouldn't try to change the trigonometric functions.
-        </p>
-        <p>
-            In order to practice further with both rules of thumbs, I propose the following integral:
-            $$\int_0^\frac{\pi}{2} \ln(\sec^2 x+\tan^4 x)dx=?$$
-        </p>
-
-        <hr>
-        <section id="accelerated"> <h3>Chapter 4</h3> </section>
+        <section id="chapter4"> <h3>Switching to double integrals</h3> </section>
         <hr>
         <p>
             This is a different perspective to look at Feynman's trick, basically we will avoid the introduction of a parameter and instead switch fast-forward to double integrals.
@@ -190,12 +246,34 @@
         </p>
 
         <hr>
-        <h3>
-            Back to more practice.
-        </h3>
+        <section id="chapter5"> <h3>Getting into the real world</h3> </section>
+        <hr>
         <p>
-            TBA.
+            It's also useful to introduce another rule of thumb when cleansing the integrals. We'll see what exactly while dealing with the following integral:
+            $$I=\int_0^\frac{\pi}{2}\ln(2+\tan^2 x)dx$$
+            There are two obvious parameters to consider here:
+            $$I(a)=\int_0^\frac{\pi}{2}\ln(a+\tan^2 x)dx,\quad I(b)=\int_0^\frac{\pi}{2}\ln(2+b\tan^2 x)dx$$
+            Turns out both works, let's stick with the first one and you are welcome to play with the last one.
+            $$I'(a)=\int_0^\frac{\pi}{2}\frac{1}{a+\tan^2 x}dx\overset{\tan x\to x}=\int_0^\infty \frac{1}{(a+x^2)(1+x^2)}dx$$
+            $$=\frac{1}{1-a}\int_0^\infty\left(\frac{1}{a+x^2}-\frac{1}{1+x^2}\right)dx=\frac{\pi}{2}\left(\frac{1}{\sqrt a (1-a)}-\frac{1}{1-a}\right)=\frac{\pi}{2}\frac{1}{\sqrt a+a}$$
+            In this case we are looking to find \(I=I(a=2)\) and as \(I(a=0)=\int_0^\frac{\pi}{2}\ln(\tan^2 x) dx\) is equal to \(0\) since after the substitution \(x\to\frac{\pi}{2}-x\) \(\int_0^\frac{\pi}{2}\ln(\tan^2 x) dx = - \int_0^\frac{\pi}{2}\ln(\tan^2 x) dx\), the original integral is:
+            $$I=\int_0^2 I'(a)da=\frac{\pi}{2}\int_0^2\frac{1}{\sqrt a+a}da\overset{a=x^2}=\pi\int_0^\sqrt 2\frac{1}{1+x}dx=\pi\ln(1+\sqrt 2)$$
+            While this works, we can do better. Another rule of thumb that I tend to use is to stick with rational functions as they often provide the most visibility to work with. Let's do that for our integral too:
+            $$I=\int_0^\frac{\pi}{2}\ln(2+\tan^2 x)dx\overset{\tan x\to x}=\int_0^\infty \frac{\ln(2+x^2)}{1+x^2}dx$$
+            At this point, if we remember the first rule of thumb, mainly to <b>place the parameter in order to simplify something from the integrand</b>, then it should be obvious where to place the parameter so that we can simplify the denominator. We have:
+            $$I(t)=\int_0^\infty \frac{\ln(1+t(1+x^2))}{1+x^2}dx\Rightarrow I'(t)=\int_0^\infty \frac{1}{1+t+tx^2}dx=\frac{\pi}{2}\frac{1}{\sqrt t\sqrt{1+t}}$$
+            Let's finish this integral too as we are looking for \(I=I(t=1)\) with \(I(t=0) = 0\):
+            $$I=\int_0^1I'(t)dt=\frac{\pi}{2}\int_0^1 \frac{1}{\sqrt t\sqrt{1+t}}dx\overset{t=x^2}=\pi\int_0^1\frac{1}{\sqrt{1+x^2}}dx=\pi\ln(1+\sqrt 2)$$
+            The main advantage over the previous method here was that we avoided doing partial fractions, which is not that much. However now we have a path to follow in the future as if possible the first step would be to transform the integral to contain rational functions, instead of trigonometric ones for example.
         </p>
+        <p>
+            Obviously, if you're more used to trigonometric functions and you do have a great visibility when evaluating integrals containing them, then this can be simply ignored. I however tend to switch fast to rational functions so in what's to come I will almost always do this as a first step, a few exceptions will be shown in the future, mainly when at least one of the bounds is \(\infty\) then one shouldn't try to change the trigonometric functions.
+        </p>
+        <p>
+            In order to practice further with both rules of thumbs, I propose the following integral:
+            $$\int_0^\frac{\pi}{2} \ln(\sec^2 x+\tan^4 x)dx=?$$
+        </p>
+
     </div>
     <script src="main.js"></script>
 </body>

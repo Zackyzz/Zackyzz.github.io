@@ -42,9 +42,30 @@ body
     text-shadow: 0.25px 0.25px #448ff1;
 }
 
-.feynman, .quantum, .welcome, .about {
+.feynman, .quantum, .welcome, .about
+{
     font-family: 'Lato', sans-serif;
     font-size: 1.2em;
     padding-left: 30%;
     padding-right: 20%;
+}
+
+
+.hidden-hint
+{
+    min-height: 4em;
+    overflow: hidden;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 0.5rem 1.5rem rgba(58, 10, 202, 0.3);
+}
+
+.hint
+{
+    display: none;
+}
+
+.hidden-hint:hover .hint
+{
+    display: inline-block;
 }
