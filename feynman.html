@@ -32,43 +32,112 @@
         <h1>
             Feynman's Trick
         </h1>
+        <p>
+            Among a few other integral tricks and techniques, Feynman's trick was a strong influence that made me love
+            evaluating integrals and although the method goes back to Leibniz, sometimes being called <b>Leibniz integral
+            rule</b>, Feynman was the one who popularized it -- that's why it is often refered to as <b>Feynman's trick</b>.
+            Here's an excerpt from his book <i>Surely You're Joking, Mr. Feynman</i>:
+        </p>
+        <p class="citation">
+                "One thing I never did learn was contour integration. I had learned to do integrals 
+                by various methods shown in a book that my high school physics teacher Mr. Bader had given me.
+            </p>
+            <p class="citation">
+                One day he told me to stay after class. "Feynman," he said, "you talk too much and you make too much noise.
+                I know why. You're bored. So I'm going to give you a book. You go up there in the back, in the corner, and
+                study this book, and when you know everything that's in this book, you can talk again."
+            </p>
+            <p class="citation">
+                So every physics class, I paid no attention to what was going on with Pascal's Law, or whatever they were
+                doing. I was up in the back with this book: Advanced Calculus, by Woods. Bader knew I had studied Calculus
+                for the Practical Man a little bit, so he gave me the real works -- it was for a junior or senior course
+                in college. It had Fourier series, Bessel functions, determinants, elliptic functions -- all kinds of
+                wonderful stuff that I didn't know anything about.
+            </p>
+            <p class="citation">
+                That book also showed how to differentiate parameters under the integral sign -- it's a certain operation.
+                It turns out that's not taught very much in the universities; they don't emphasize it. But I caught on
+                how to use that method, and I used that one damn tool again and again. So because I was self-taught using
+                that book, I had peculiar methods of doing integrals.
+            </p>
+            <p class="citation">
+                The result was, when guys at MIT or Princeton had trouble doing a certain integral, it was because they
+                couldn't do it with the standard methods they had learned in school. If it was contour integration, they
+                would have found it; if it was a simple series expansion, they would have found it. Then I come along and
+                try differentiating under the integral sign, and often it worked. So I got a great reputation for doing
+                integrals, only because my box of tools was different from everybody else's, and they had tried all their
+                tools on it before giving the problem to me."         
+            </p>
+        </p>
 
         <p>
-            Among a few other integral techniques, Feynman's trick was a strong influence that made me love evaluating integrals. Employing it feels like I am using cheat code to deal with integrals while in the same time it enables a lot of creativity and wishful thinking which at heart transform integrals into puzzles. Unfortunately in the same time this also means that there's not a clear path on how and when exactly to use this technique. 
+            For me employing the trick felt like I was using cheat codes to deal with integrals while in the same
+            time it enabled a lot of creativity and wishful thinking which at heart transformed the integrals into puzzles.
+            Unfortunately in the same time this also means that there's not a clear path on how and when exactly to use
+            this technique and also what Feynman wrote still applies today as the method isn't taught much or at all in the
+            universities. This means that the technique often comes as obscure and hard to grasp for newcomers.
         </p>
         <p>
-            In the following we will go into a journey to find some rules of thumb to have at disposal when using Feynman's trick. It should be mentioned right from the start that those rules of thumb are merely some heuristics that I tend to use, so deviating from them can be totally fine, however I'm hoping that it can provide a path to have in case nothing obvious or intuitively occurs when someone tries to use this trick, or even better a reason for someone to start using the method.
+            In the following we will go into a journey to find some rules of thumb to have at disposal when using Feynman's trick.
+            It should be mentioned right from the start that those rules of thumb are merely some heuristics that I tend to use, 
+            so deviating from them can be totally fine, however I'm hoping that it can provide a path to have in case nothing
+            obvious or intuitively occurs when someone tries to use this trick, or even better a reason for someone to start using the method.
         </p>
         <hr>
         <section id="chapter1"> <h3>Hello, World!</h3> </section>
         <hr>
         <p>
-            One common thing that tends to happen while approaching something new, be it a game, a programming language or a field is that I could read and read the rules many times, but without practicing nothing would stick with me. Therefore I would like here to jump straightforward into practice in order to get familiar with the trick.
+            Feynman already gave quite a big spoiler to what the trick is about when he mentioned about <b>differentiating under
+            the integral sign</b> -- this also being an alternative name for the technique.
+            More explicitly, if \(f(x,t)\) is well-behaved then the following holds:
+            $$\frac{d}{dt} \int_a^b f(x, t)dx = \int_a^b \frac{\partial f(x, t)}{\partial t}dx$$
+        <p>
+            This looks pleasant, however a mere result is not much of an use in itself. One common thing that tends to
+            happen while approaching something new, be it a game, a programming language or even a field is that 
+            without practice nothing would stick. Take for example chess, most people could understand the rules in a few 
+            minutes, however if they would go on to play a game most likely they would get stomped by a more experienced
+            player while playing under the same rules, solely because the other player through practice learned some
+            techniques to follow when playing. Therefore I would like here to jump straightforward into practice in order
+            to get familiar with the trick.
         </p>
         <p>
-            As a "Hello, World!" example for this method we will use the following integral:
+            As a "Hello, World!" example let's take the following integral:
             $$I=\int_0^1 \frac{x-1}{\ln x}dx$$
-            You are encouraged to try to evaluate the integral with the basic methods, but the logarithm being in the denominator makes this integral quite stubborn to deal with. Feynman's trick aims to get rid of this issue. The first step is to complicate a bit the integral by introducing a new parameter, a dummy variable, which we can call \(t\), thus the integral becomes:
+            You are encouraged to try to evaluate the integral with the basic methods, but the logarithm being in the
+            denominator makes this integral quite stubborn to deal with. Feynman's trick aims to get rid of this issue
+            -- that is, to differentiate under the intgeral sign with respect to a parameter in order to obtain an
+            integral that is easier to evaluate.
+        </p>
+        <p>
+            Unfortunately in the integral from above we lack a parameter, therefore the first step is to complicate a bit
+            the integral by introducing a new parameter, which we can call \(t\), thus the integral becomes:
             $$I(t)=\int_0^1 \frac{x^t-1}{\ln x}dx$$
-            Keep in mind that our original integral is just \(I(1)\). Also surely, we could've placed the dummy variable in many different places, such as:
+            Keep in mind that our original integral is just \(I(1)\). Also surely, we could've placed parameter in many
+            different places, such as:
             $$I(a)=\int_0^1 \frac{x-a}{\ln x}dx, \quad I(b)=\int_0^1 \frac{x-1}{b-\ln x}dx, \quad I(c)=\int_0^1 \frac{x-1}{\ln (cx)}dx\ ...$$
-            The reason why the original \(I(t)\) was chosen is to be seen in the next step, which is to differentiate the integral with respect to \(t\). This looks like:
+            However the main idea behind the trick, as mentioned above, is to obtain an integral that we can evaluate
+            easier after differentiating with respect to the new parameter. Let's put this in action and see what happens to \(I(t)\).
             $$I'(t)=\int_0^1 \frac{\partial}{\partial t}\left(\frac{x^t-1}{\ln x}\right)dx  = \int_0^1x^tdx = \frac{x^{t+1}}{t+1}\bigg|_0^1 = \frac{1}{t+1}$$
-            Notice how easy was to evaluate the integral \(I'(t)=\int_0^1x^tdx\) above, had we kept \(I(a)\), \(I(b)\) or \(I(c)\) the things wouldn't had simplified after differentiating and most devastating is that we would still be left with a \(\ln x\) in the denominator, a thing which we wanted to get rid of, as mentioned in the beggining.
+            Notice how easy it was to evaluate the integral \(I'(t)=\int_0^1x^tdx\) from above, had we kept \(I(a)\), \(I(b)\)
+            or \(I(c)\) the things wouldn't had simplified after differentiating and most devastating is that we would still
+            be left with the \(\ln x\) in the denominator, a thing which made the integral hard to deal with in the first place.
         </p>
         <p>
-            We can already sense that the following might be an essential question for future integrals: <b>Where to put the parameter when using Feynman's Trick?</b>
+            We can already sense that the following might be an important question in the future:
+            <b>Where to put the parameter when using Feynman's Trick?</b>
         </p>
         <p>
-            But we will worry about that later, for now let's finish the integral as we only found \(I'(t)\).<br>
-            Since we are looking to find \(I(t=1)\) we need to integrate \(I'(t)\) back in order to arrive there. Here it's useful to recall that:
-            $$\int_a^b f'(x) dx = f(x)\bigg|_a^b$$
-            For us \(f(x)\) is just \(I(t)\) in the above expression. Luckily \(I(0)=0\) and as we are looking for \(I=I(1)\) we can replace \(a\) with \(0\) and \(b\) with \(1\) yielding:
-            $$I=\int_0^1 I'(t)dt = \int_0^1 \frac{1}{1+t}dt=\ln(1+t)\bigg|_0^1 = \ln 2.$$
-            So that's the big picture of Feynman's trick: we have a hard time dealing with an integral, so we try to transform it into a different state which can be easily integrated and in the end we go back to the original form.
-        </p>
-        <p>
-            $$\int_0^1 \frac{x^2-x}{\ln x}dx = ?$$
+            But we will worry about that later, for now let's finish the integral as we only found \(I'(t)\).
+            Since we are looking to find \(I(t=1)\) we need to integrate \(I'(t)\) back in order to arrive there.
+            Here it's useful to recall that:
+            $$\int_a^b f'(x) dx = f(b)-f(a)$$
+            For us \(f(x)\) is just \(I(t)\) in the above expression. Luckily \(I(0)=0\) and as we are looking for
+            \(I=I(1)\) we can replace \(a\) with \(0\) and \(b\) with \(1\) yielding:
+            $$I= I(1)-I(0)=\int_0^1 I'(t)dt = \int_0^1 \frac{1}{1+t}dt=\ln(1+t)\bigg|_0^1 = \ln 2.$$
+            So that's the big picture of how Feynman's trick works -- we have an integral that is hard to evaluate
+            it's original form, therefore by differentiating under the integral sign with respect to a parameter
+            we attempt to transform the integral so that it can be easily integrated and in the end we go back to
+            undo the differentiation step.
         </p>
 
         <hr>

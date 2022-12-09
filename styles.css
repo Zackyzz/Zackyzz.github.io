@@ -45,9 +45,9 @@ body
 .feynman, .quantum, .welcome, .about
 {
     font-family: 'Lato', sans-serif;
-    font-size: 1.2em;
+    font-size: 1.3em;
     padding-left: 30%;
-    padding-right: 20%;
+    padding-right: 15%;
 }
 
 
@@ -68,4 +68,11 @@ body
 .hidden-hint:hover .hint
 {
     display: inline-block;
+}
+
+.citation
+{
+    font-family: Garamond, serif;
+    padding-left: 3%;
+    padding-right: 6%;
 }
