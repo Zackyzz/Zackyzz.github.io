@@ -9,7 +9,7 @@ body
     height: 100%;
     display: flex;
     background-color: #fff;
-    width: 20%;
+    width: 17.5%;
     box-shadow: 0 0.5rem 1.5rem rgba(26, 9, 76, 0.1);
 }
 
@@ -75,4 +75,9 @@ body
     font-family: Garamond, serif;
     padding-left: 3%;
     padding-right: 6%;
+}
+
+.important
+{
+    font-family: Garamond, serif;
 }

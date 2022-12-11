@@ -33,10 +33,10 @@
             Feynman's Trick
         </h1>
         <p>
-            Among a few other integral tricks and techniques, Feynman's trick was a strong influence that made me love
-            evaluating integrals and although the method goes back to Leibniz, sometimes being called <b>Leibniz integral
-            rule</b>, Feynman was the one who popularized it -- that's why it is often refered to as <b>Feynman's trick</b>.
-            Here's an excerpt from his book <i>Surely You're Joking, Mr. Feynman</i>:
+            Among a few other integral tricks and techniques, Feynman's trick was a strong reason that made me love
+            evaluating integrals and altough the method goes back to Leibniz, sometimes being called <span class ="important">Leibniz integral
+            rule</span>, Feynman was the one who popularized it - that's why it is often refered to as <span class ="important">Feynman's trick</span>.
+            Here's an excerpt from his book <span class ="important">Surely You're Joking, Mr. Feynman</span>:
         </p>
         <p class="citation">
                 "One thing I never did learn was contour integration. I had learned to do integrals 
@@ -74,8 +74,8 @@
             For me employing the trick felt like I was using cheat codes to deal with integrals while in the same
             time it enabled a lot of creativity and wishful thinking which at heart transformed the integrals into puzzles.
             Unfortunately in the same time this also means that there's not a clear path on how and when exactly to use
-            this technique and also what Feynman wrote still applies today as the method isn't taught much or at all in the
-            universities. This means that the technique often comes as obscure and hard to grasp for newcomers.
+            this technique. In addition what Feynman wrote still applies today as the method isn't taught much or at all in
+            universities - this means that the trick often comes as obscure and hard to grasp for newcomers.
         </p>
         <p>
             In the following we will go into a journey to find some rules of thumb to have at disposal when using Feynman's trick.
@@ -87,12 +87,12 @@
         <section id="chapter1"> <h3>Hello, World!</h3> </section>
         <hr>
         <p>
-            Feynman already gave quite a big spoiler to what the trick is about when he mentioned about <b>differentiating under
-            the integral sign</b> -- this also being an alternative name for the technique.
+            Feynman already gave quite a big spoiler to what the trick is about when he mentioned <span class ="important">differentiating under
+            the integral sign</span> - this also being an alternative name for the technique.
             More explicitly, if \(f(x,t)\) is well-behaved then the following holds:
             $$\frac{d}{dt} \int_a^b f(x, t)dx = \int_a^b \frac{\partial f(x, t)}{\partial t}dx$$
         <p>
-            This looks pleasant, however a mere result is not much of an use in itself. One common thing that tends to
+            This is nice, however not so useful by itself. One common thing that tends to
             happen while approaching something new, be it a game, a programming language or even a field is that 
             without practice nothing would stick. Take for example chess, most people could understand the rules in a few 
             minutes, however if they would go on to play a game most likely they would get stomped by a more experienced
@@ -105,7 +105,7 @@
             $$I=\int_0^1 \frac{x-1}{\ln x}dx$$
             You are encouraged to try to evaluate the integral with the basic methods, but the logarithm being in the
             denominator makes this integral quite stubborn to deal with. Feynman's trick aims to get rid of this issue
-            -- that is, to differentiate under the intgeral sign with respect to a parameter in order to obtain an
+            - that is, to differentiate under the intgeral sign with respect to a parameter in order to obtain an
             integral that is easier to evaluate.
         </p>
         <p>
@@ -124,17 +124,17 @@
         </p>
         <p>
             We can already sense that the following might be an important question in the future:
-            <b>Where to put the parameter when using Feynman's Trick?</b>
+            <span class ="important">Where to put the parameter when using Feynman's Trick?</span>
         </p>
         <p>
             But we will worry about that later, for now let's finish the integral as we only found \(I'(t)\).
-            Since we are looking to find \(I(t=1)\) we need to integrate \(I'(t)\) back in order to arrive there.
+            Since we are looking to find \(I(1)\) we need to integrate \(I'(t)\) back and set \(t=1\) in order to arrive there.
             Here it's useful to recall that:
             $$\int_a^b f'(x) dx = f(b)-f(a)$$
             For us \(f(x)\) is just \(I(t)\) in the above expression. Luckily \(I(0)=0\) and as we are looking for
             \(I=I(1)\) we can replace \(a\) with \(0\) and \(b\) with \(1\) yielding:
             $$I= I(1)-I(0)=\int_0^1 I'(t)dt = \int_0^1 \frac{1}{1+t}dt=\ln(1+t)\bigg|_0^1 = \ln 2.$$
-            So that's the big picture of how Feynman's trick works -- we have an integral that is hard to evaluate
+            So that's the big picture of how Feynman's trick works - we have an integral that is hard to evaluate
             it's original form, therefore by differentiating under the integral sign with respect to a parameter
             we attempt to transform the integral so that it can be easily integrated and in the end we go back to
             undo the differentiation step.
@@ -144,58 +144,59 @@
         <section id="chapter2"> <h3>Placing the parameter</h3> </section>
         <hr>
         <p>
-            Let's start with our first rule of thumb, for which in order to describe we'll use another classic integral:
+            As emphasized above the main goal of the trick is to obtain an integral that is easier to evaluate after
+            differentiating with respect to a parameter and one issue is that it is not always obvious where to place it.
+            In order to develop some heuristics let's take the following integral.
             $$I=\int_0^1 \frac{\ln(1+x)}{1+x^2}dx$$
-            The first thing we need to do is to figure out where to put the parameter, so after differentiating with respect to it to obtain a simpler integral. The most annoying thing for us is the logarithm, therefore if we get rid of it everything should be straightforward, so there are a few parameter possibilities which makes sense to consider, namely:
+            The most annoying thing for us is the logarithm, so if we get rid of it everything should be straightforward.
+            There are a few parameter possibilities which makes sense to consider, namely:
             $$I(a)=\int_0^1\frac{\ln(a+x)}{1+x^2}dx, \quad I(b) = \int_0^1 \frac{\ln(1+bx)}{1+x^2}dx$$
             With the first one we are out of luck, as differentiating with respect to \(a\) gives:
             $$I'(a)=\int_0^1 \frac{1}{(a+x)(1+x^2)}dx = \frac{1}{1+a^2}\int_0^1\left(\frac{1}{a+x}+\frac{a}{1+x^2}-\frac{x}{1+x^2}\right)dx$$
             $$=\frac{\ln(1+a)}{1+a^2}-\frac{\ln a}{1+a^2} +\frac{\pi}{4}\frac{a}{1+a^2}-\frac{\ln 2}{2}\frac{1}{1+a^2}$$
-            Therefore if we would try to go back to what we're looking, which is \(I(a=1)\), we would end up with something like \(I=I+\text{other stuff}\). This cancels out \(I\) and we wouldn't be able to recover it. Unfortunately there's no magic formula that tells whether placing a parameter in a specific place would succeed or fail dealing with an integral, but with practice this can become more intuitively.
+            Therefore if we would try to go back to what we're looking, which is \(I(1)\), we would end up with:
+            \(I=I+\text{other stuff}\). This cancels out \(I\) and we wouldn't be able to recover it.
+            Unfortunately there's no magic formula that tells a priori whether placing a parameter in a specific place would
+            succeed or fail dealing with an integral and sometimes we are simply unlucky.
         </p>
         <p>
             In contrast, things work out nicely with the second choice from above as:
             $$I'(b)=\int_0^1\frac{x}{(1+bx)(1+x^2)}dx=\frac{1}{1+b^2}\int_0^1\left(\frac{b}{1+x^2}+\frac{x}{1+x^2}-\frac{b}{1+bx}\right)dx$$
             $$=\frac{\pi}{4}\frac{b}{1+b^2}+\frac{\ln 2}{2}\frac{1}{1+b^2}-\frac{\ln(1+b)}{1+b^2}$$
-            Here we are looking to find \(I(b=1)\) and as \(I(b=0) = 0\) we have:
+            Again, we are looking to find \(I(1)\) and as \(I(0) = 0\) we have:
             $$I=\int_0^1 I'(b)db \Rightarrow 2I=\int_0^1 \left(\frac{\pi}{4}\frac{b}{1+b^2}+\frac{\ln 2}{2}\frac{1}{1+b^2}\right)db \Rightarrow I=\frac{\pi}{8}\ln 2$$
         </p>
         <p>
-            This works, but perhaps we can even do better. One thing that I always try to look for when using Feynman's trick is to simplify something from the integrand (in this case the denominator) while getting rid of the annoying stuff (the logarithm). With \(I(b)\) we only achieved the second thing.
+            This works, but we can even do better. The first thing that I always attempt to look for when using Feynman's trick is to simplify something from the integrand when differentiating. Surely above we got rid of the logarithm, but the denominator remained intact. Looking at the "Hello, World!" integral we can see that there we simplified the logarithm in the denominator while performing \(\frac{\partial}{\partial t}x^t\).
         </p>
         <p>
-            In order to reach both things mentioned above, let's rewrite the original integral as:
+            In short this is our first rule of thumb: <span class ="important">if possible, place the parameter so that something from the integral, which is not related to the parameter, gets simplified</span>.
+        </p>
+        <p>
+            In order to achieve this with our integral we would need to get rid of \(1+x^2\) and luckily by using \(\ln x=\frac12\ln(x^2)\) we can rewrite the integral as:
             $$I=\int_0^1\frac{\ln(1+x)}{1+x^2}dx=\frac12\int_0^1\frac{\ln(1+2x+x^2)}{1+x^2}dx$$
         </p>
         <p>
-            For this one it's naturally to choose the dummy variable so that it simplifies \(1+x^2\) when we differentiate with respect to \(t\), therefore we have:
+            For this one it's more naturally to choose the parameter so that it simplifies \(1+x^2\) when we differentiate with respect to \(t\), namely we consider:
             $$I(t)=\frac12\int_0^1 \frac{\ln(2x+t(1+x^2))}{1+x^2}dx\Rightarrow I'(t)=\frac12\int_0^1 \frac{1}{2x+t(1+x^2)}dx=\frac14\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}$$
-            Similarly to \(I(b)\) we are looking to find \(I(t=1)\), however here \(I(t=0)\) is equal to \(\frac12\int_0^1\frac{\ln(2x)}{1+x^2}dx\) not \(0\):
+            Similarly to \(I(b)\) we are looking to find \(I(1)\), however here \(I(0)\) is equal to \(\frac12\int_0^1\frac{\ln(2x)}{1+x^2}dx\) not \(0\), so:
             $$I=I(1)-I(0)+I(0)=\frac14\int_0^1\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}dt+\frac12\int_0^1\frac{\ln(2x)}{1+x^2}dx$$
             $$\int_0^1\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}dt\overset{\frac{1+\sqrt{1-t^2}}{t}=x}=-2\int_0^1 \frac{\ln x}{1+x^2}dx\Rightarrow I = \frac12\int_0^1 \frac{\ln 2}{1+x^2}dx=\frac{\pi}{8}\ln 2$$
-            However it might require more examples in order to feel why the above path is useful (in this case even using Feynman's trick was an overkill).
+            For this specific integral we only avoided performing partial fractions so there wasn't really a big improvement by simplifying the denominator. However I want to emphasize the importance of this rule of thumb because it will make things come way more natural when deciding where place the parameter.
         </p>
         <p>
-            As emphasized quite many times already, practicing is the best approach to get along with this technique, therefore bellow are some more integrals, alongside with a hidden hint in case it might be needed.
-            $$\int_0^1 \frac{x\ln(1+x)}{1+x^2}dx = ?$$
+            As mentioned previously, practicing is the best approach to get along with this technique, therefore below are more integrals to evaluate alongside some hidden steps in case those will be needed, however I strongly recommend to try and deal with the integrals before looking at any hints and only check them afterwards for correctness.
+        </p>
+
+        <p>
+            $$\int_0^\frac{\pi}{2} \frac{\ln(1-\sin x)}{\sin x}dx = ?$$
         </p>
         <div class="hidden-hint">
             <p class="hint">
                 Consider introducing the following parameter:
-                $$I(t)=\frac12\int_0^1 \frac{x\ln(2x+t(1+x^2))}{1+x^2}dx$$
+                $$I(t)=\int_0^\frac{\pi}{2} \frac{\ln(1-t\sin x)}{\sin x}dx$$
                 This should lead to:
-                $$I(1)=\int_0^1 \frac{x\ln(1+x)}{1+x^2}dx = \frac{\pi^2}{96} + \frac{\ln^2 2}{8}$$
-            </p>
-        </div>
-        <p>
-            $$\int_0^\frac{\pi}{2} \frac{\arctan(\sin x)}{\sin x}dx = ?$$
-        </p>
-        <div class="hidden-hint">
-            <p class="hint">
-                Consider introducing the following parameter:
-                $$I(t)=\int_0^\frac{\pi}{2} \frac{\arctan(t\sin x)}{\sin x}dx$$
-                This should lead to:
-                $$I(1)=\int_0^\frac{\pi}{2} \frac{\arctan(t\sin x)}{\sin x}dx = \frac{\pi}{2}\ln(1+\sqrt 2)$$
+                $$I(1)=\int_0^\frac{\pi}{2} \frac{\ln(1-\sin x)}{\sin x}dx = -\frac{3\pi^2}{8}$$
             </p>
         </div>
         <p>
@@ -207,6 +208,17 @@
                 $$I(t)=\int_0^1 \frac{\ln(1-t(x-x^2))}{x-x^2}dx$$
                 This should lead to:
                 $$I(1)=\int_0^1 \frac{\ln(1-x+x^2)}{x-x^2}dx = -\frac{\pi^2}{9}$$
+            </p>
+        </div>
+        <p>
+            $$\int_0^\frac{\pi}{2} \frac{\arctan(\sin x)}{\sin x}dx = ?$$
+        </p>
+        <div class="hidden-hint">
+            <p class="hint">
+                Consider introducing the following parameter:
+                $$I(t)=\int_0^\frac{\pi}{2} \frac{\arctan(t\sin x)}{\sin x}dx$$
+                This should lead to:
+                $$I(1)=\int_0^\frac{\pi}{2} \frac{\arctan(t\sin x)}{\sin x}dx = \frac{\pi}{2}\ln(1+\sqrt 2)$$
             </p>
         </div>
         <p>
@@ -232,17 +244,6 @@
             </p>
         </div>
         <p>
-            $$\int_0^\frac{\pi}{2} \frac{\ln(1-\sin x)}{\sin x}dx = ?$$
-        </p>
-        <div class="hidden-hint">
-            <p class="hint">
-                Consider introducing the following parameter:
-                $$I(t)=\int_0^\frac{\pi}{2} \frac{\ln(1-t\sin x)}{\sin x}dx$$
-                This should lead to:
-                $$I(1)=\int_0^\frac{\pi}{2} \frac{\ln(1-\sin x)}{\sin x}dx = -\frac{3\pi^2}{8}$$
-            </p>
-        </div>
-        <p>
             $$\int_0^\infty \frac{e^{-x^2}}{1+x^2}dx = ?$$
         </p>
         <div class="hidden-hint">
@@ -265,54 +266,63 @@
             </p>
         </div>
 
-
         <hr>
         <section id="chapter4"> <h3>Switching to double integrals</h3> </section>
         <hr>
         <p>
-            This is a different perspective to look at Feynman's trick, basically we will avoid the introduction of a parameter and instead switch fast-forward to double integrals.
-            In order to see this in action let's go back to the "Hello, World!" integral:
-            $$I=\int_0^1 \frac{x-1}{\ln x}dx$$
-            As we saw there, after we introduced \(I(t)=\int_0^1 \frac{x^t-1}{\ln x}dx\) followed by differentiating w.r.t. \(t\) we were left with \(I'(t)=\int_0^1 x^t dx\), which means that \(I=\int_0^1\left(\int_0^1x^tdx\right)dt\). Therefore if we can observe that \(\int_0^1 x^tdt =\frac{x-1}{\ln x}\) (pay attention to \(dt\) here) then all we would have left to do is to switch the order of integration and evaluate the integral without introducing a parameter. There are a lot of words, so let's just write down what is meant above:
-            $$\int_0^1 \frac{x-1}{\ln x}dx=\int_0^1\left(\int_0^1x^tdt\right)dx=\int_0^1\left(\int_0^1x^tdx\right)dt=\int_0^1 \left(\frac{x^{t+1}}{t+1}\bigg|_0^1\right)dt=\int_0^1\frac{1}{t+1}dt=\ln 2$$
-            As another example let's look at one of our previous integral:
-            $$I=\int_0^1 \frac{\ln(1+x)}{1+x^2}dx=\int_0^1 \int_0^1 \frac{x}{1+bx}\frac{1}{1+x^2}dbdx=\int_0^1 \int_0^1 \frac{x}{1+bx}\frac{1}{1+x^2}dxdb$$
-            $$=\int_0^1 \left(\frac{\pi}{4}\frac{b}{1+b^2}+\frac{\ln 2}{2}\frac{1}{1+b^2}-\frac{\ln(1+b)}{1+b^2}\right)db\Rightarrow 2I=\int_0^1 \left(\frac{\pi}{4}\frac{b}{1+b^2}+\frac{\ln 2}{2}\frac{1}{1+b^2}\right)db$$
-            And that \(I=\frac{\pi}{8}\ln 2\) is history already. This example was mainly used to exemplify that also only a part of the integrand can be replaced by another integral, in this case \(\ln(1+x)\) in contrast as replacing the whole integrand as in the example with \(\frac{x-1}{\ln x}\).
-        </p>
-        <p>
-            As both methods are equivalent this didn't introduce anything new, however in the future chapter we will see some integrals that are more intuitively to deal with in the double integral form.
-        </p>
-        <p>
-            Let's put some sense in why seeing Feynman's trick as a double integral can be useful. As example we will take the following integral:
+            Let's start this chapter by looking at a modified version of an integral that was previously given as an exercise:
             $$I=\int_{-\infty}^\infty \frac{e^{-x^2}}{1+x^4}dx$$
-            And now without any explanation I will introduce the following parameter (or rather function in this case):
+            With \(\int_{-\infty}^\infty \frac{e^{-x^2}}{1+x^2}dx\) it was quite direct to parameterise the integral as \(\int_{-\infty}^\infty \frac{e^{-t(1+x^2)}}{1+x^2}dx\) since it simplifies the denominator, however the similar way to do that for our integral: \(\int_{-\infty}^\infty \frac{e^{-x^2-t(1+x^4)}}{1+x^4}dx\) doesn't seem to work as it complicates things a bit too much.
+        </p>
+        <p>
+            There is however a way to simplify the denominator and in the same time to obtain a decent integral afterwards. Without any explanation I will parameterise the integral as:
             $$I(t)=\int_{-\infty}^\infty \frac{e^{-x^2}}{1+x^4} e^{-tx^2}(x^2\sin t+\cos t) dx$$
-            The whole point is to simplify \(1+x^4\) (following our first rule of thumb) and the above function was made explicitly to achieve that, as \(\left(e^{-tx^2}(x^2\sin t+\cos t)\right)'=-(1+x^4)e^{-tx^2}\sin t\). Note that even though we introduced a couple other terms, those aren't that annoying.
+        </p>
+        <p>
+            This will seem obscure, but fear not as we will never use this approach again.
+            The whole point is to simplify \(1+x^4\) and the above function was made explicitly to achieve that, as \(\frac{\partial}{\partial t}e^{-tx^2}(x^2\sin t+\cos t)=-(1+x^4)e^{-tx^2}\sin t\). Note that even though we introduced a couple other terms, those aren't that annoying.
             $$ I'(t)=-\sin t\int_{-\infty}^\infty e^{-x^2}e^{-tx^2}dx \overset{(1+t)x^2\to x^2}= -\frac{\sin t}{\sqrt{1+t}} \int_{-\infty}^\infty e^{-x^2}dx=-\sqrt \pi \frac{\sin t}{\sqrt{1+t}}$$
-            Now we can observe that we are looking to find \(I=I(t=0)\) and that \(I(t\to\infty)=0\), therefore we have:
+            Here we are looking to find \(I=I(0)\) and also \(I(t\to\infty)=0\), therefore we have:
             $$I=-\int_0^\infty I'(t)dt=\sqrt \pi \int_0^\infty \frac{\sin t}{\sqrt{1+t}}dt\overset{\sqrt{1+t}=x}=2\sqrt \pi \int_1^\infty \sin(x^2-1)dx$$
-            $$=2\sqrt{\pi} \cos 1 \int_1^\infty\sin(x^2)dx-2\sqrt{\pi} \sin  1 \int_1^\infty\cos(x^2)dx=\pi\cos 1\frac{1-2S\left(\sqrt{\frac{2}{\pi}}\right)}{\sqrt 2}-\pi\sin 1\frac{1-2C\left(\sqrt{\frac{2}{\pi}}\right)}{\sqrt 2}$$
+            $$=2\sqrt{\pi} \cos 1 \int_1^\infty\sin(x^2)dx-2\sqrt{\pi} \sin  1 \int_1^\infty\cos(x^2)dx$$
+            $$=\pi\cos 1\frac{1-2S\left(\sqrt{\frac{2}{\pi}}\right)}{\sqrt 2}-\pi\sin 1\frac{1-2C\left(\sqrt{\frac{2}{\pi}}\right)}{\sqrt 2}$$
             Where \(S(x)\) and \(C(x)\) are Fresnel integrals, however the result itself isn't that important here.
         </p>
         <p>
-            The method on the other hand is quite useful to bring some intuition on some future integrals. Put into a different perspective all we did above was to replace \(\frac{1}{1+x^4}\) with \(\int_0^\infty e^{-x^2t}\sin t \, dt\), so alternatively we can simply rewrite the integral as a double integral in order to avoid the differentiation step.
+            We can avoid the parametrisation from above by directly using \(\frac{1}{1+x^4}=\int_0^\infty e^{-tx^2}\sin t dt\) and switch to double integrals:
+            $$I=\int_{-\infty}^\infty \frac{e^{-x^2}}{1+x^4}dx = \int_{-\infty}^\infty e^{-x^2}\int_0^\infty e^{-tx^2}\sin t dtdx$$
+            $$=\int_{0}^\infty \sin t\int_{-\infty}^\infty e^{-x^2}e^{-tx^2}dxdt\overset{(1+t)x^2\to x^2}=\sqrt{\pi}\int_0^\infty \frac{\sin t}{\sqrt{1+t}}dt$$
         </p>
         <p>
-            For example here are some of the most useful, starting with one from above:
-            $$\int_0^\infty e^{-xt}\sin t dt =\frac{1}{1+x^2}, \quad \int_0^\infty e^{-xt} dt = \frac{1}{x}, \quad \int_0^\infty e^{-xt^2}dt = \frac{1}{\sqrt x}$$
+            And the rest goes exactly as with the previous method as all we did here was to skip differentiating with respect to the newly parameterised integral and instead we switched to double integrals.
+        </p>
+        <p>
+            A natural question that arises here is how did \(\frac{1}{1+x^4}=\int_0^\infty e^{-tx^2}\sin t dt\) appear? Or even better, how can on come up with similar results for other integral? In the case from above simply the Laplace transform was used and in general it's useful to have a list of such results. There are however tables of integral results that can be used here, for example one from the book Table of Integrals, Series, and Products by Gradshteyn and Ryzhik.
+            We are however going to use only a few of them, some being:
+            $$\int_0^\infty e^{-xt}\sin t dt =\frac{1}{1+x^2}, \quad \int_0^\infty e^{-xt} dt = \frac{1}{x}, \quad \int_0^\infty e^{-xt^2}dt = \frac{\sqrt \pi}{2\sqrt x}$$
             Let's end this chapter by evaluating one of the most popular integrals that appears when Feynman's trick gets into the conversation, namely:
             $$I=\int_0^\infty \frac{\sin x}{x}dx$$
             Since \(\int_0^\infty e^{-xt} dt = \frac{1}{x}\) we can make use of this to rewrite the integral as:
             $$I=\int_0^\infty \int_0^\infty \sin x e^{-xt}dtdx = \int_0^\infty \int_0^\infty \sin x e^{-xt}dxdt=\int_0^\infty \frac{1}{1+t^2}dt =\frac{\pi}{2}$$
-            Alternatively we can also introduce the parameter version of the integral:
-            $$I(t)=\int_0^\infty \frac{\sin x}{x}e^{-xt}dx\Rightarrow I'(t)=-\int_0^\infty \sin x e^{-xt} dx=-\frac{1}{1+t^2}$$
-            And the rest goes as expected as we have:
-            $$I=I(t=0)=-\int_0^\infty I'(t)dt = \int_0^\infty \frac{1}{1+t^2}dt = \frac{\pi}{2}$$
-            For more practice one play with another popular integral, namely the Fresnel integral:
-            $$\int_0^\infty \sin(x^2)dx=?$$
-            As a hint, substitute \(x^2\to x\) in order to arrive at a form where we can use the method described in this chapter.
+            Alternatively we can also consider the parameter version of this integral: \(\int_0^\infty \frac{\sin x}{x}e^{-xt}dx\), however I feel like switching to double integrals is way more intuitively.
         </p>
+        <p>
+            Like in the previous chapter below are some more integrals alongside some hints in order to practice.
+            $$\int_0^\infty \sin(x^2)dx=?$$
+        </p>
+        <div class="hidden-hint">
+            <p class="hint">
+                Start by substituting \(x^2\to x\) and the make use of $$\int_0^\infty e^{-xt^2}dt = \frac{\sqrt \pi}{2\sqrt x}$$
+            </p>
+        </div>
+        <p>
+            $$\int_0^\infty \frac{\operatorname{Li}_2(x)}{x\sqrt{1-x^2}}dx=?$$
+        </p>
+        <div class="hidden-hint">
+            <p class="hint">
+                One can directly use $$\int_0^1 \frac{\ln t}{t-\frac{1}{x}}dt = \operatorname{Li}_2(x)$$
+            </p>
+        </div>
 
         <hr>
         <section id="chapter5"> <h3>Getting into the real world</h3> </section>
