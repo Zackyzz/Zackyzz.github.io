@@ -33,7 +33,10 @@ body
 .sidebar ul li
 {
     position: relative;
-    margin: 1em 0;
+    padding-right: 3%;
+    padding-right: 3%;
+    padding-top: 3%;
+    padding-bottom: 3%;
 }
 
 .sidebar ul li a.active

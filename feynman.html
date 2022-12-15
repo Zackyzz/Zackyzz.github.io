@@ -21,7 +21,7 @@
             <ul>
                 <li><a href="#chapter1">Hello, World!</a></li>
                 <li><a href="#chapter2">Placing the parameter</a></li>
-                <li><a href="#chapter4">Switching to double integrals</a></li>
+                <li><a href="#chapter3">Switching to double integrals</a></li>
                 <li><a href="#chapter5">Getting into the real world</a></li>
             </ul>
             <li><a href="about.html">About</a></li>
@@ -103,7 +103,7 @@
         <p>
             As a "Hello, World!" example let's take the following integral:
             $$I=\int_0^1 \frac{x-1}{\ln x}dx$$
-            You are encouraged to try to evaluate the integral with the basic methods, but the logarithm being in the
+            You are encouraged to try and evaluate the integral with basic methods, but the logarithm being in the
             denominator makes this integral quite stubborn to deal with. Feynman's trick aims to get rid of this issue
             - that is, to differentiate under the intgeral sign with respect to a parameter in order to obtain an
             integral that is easier to evaluate.
@@ -182,10 +182,10 @@
             Similarly to \(I(b)\) we are looking to find \(I(1)\), however here \(I(0)\) is equal to \(\frac12\int_0^1\frac{\ln(2x)}{1+x^2}dx\) not \(0\), so:
             $$I=I(1)-I(0)+I(0)=\frac14\int_0^1\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}dt+\frac12\int_0^1\frac{\ln(2x)}{1+x^2}dx$$
             $$\int_0^1\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}dt\overset{\frac{1+\sqrt{1-t^2}}{t}=x}=-2\int_0^1 \frac{\ln x}{1+x^2}dx\Rightarrow I = \frac12\int_0^1 \frac{\ln 2}{1+x^2}dx=\frac{\pi}{8}\ln 2$$
-            For this specific integral we only avoided performing partial fractions so there wasn't really a big improvement by simplifying the denominator. However I want to emphasize the importance of this rule of thumb because it will make things come way more natural when deciding where place the parameter.
+            For this specific integral we only avoided performing partial fractions so there wasn't really a big improvement by simplifying the denominator. However I want to emphasize the importance of this rule of thumb because it will make things come way more natural when deciding where place the parameter. Of course, in case there's not an appropiate or immediate way to achieve this, it's perfectly fine to place the parameter elsewhere too.
         </p>
         <p>
-            As mentioned previously, practicing is the best approach to get along with this technique, therefore below are more integrals to evaluate alongside some hidden steps in case those will be needed, however I strongly recommend to try and deal with the integrals before looking at any hints and only check them afterwards for correctness.
+            As mentioned previously, practicing is the best approach to get along with this technique, therefore for you below are more integrals to evaluate alongside some hidden steps in case those will be needed, however I strongly recommend to try and deal with the integrals before looking at any hints and only check them afterwards for correctness.
         </p>
 
         <p>
@@ -194,9 +194,12 @@
         <div class="hidden-hint">
             <p class="hint">
                 Consider introducing the following parameter:
-                $$I(t)=\int_0^\frac{\pi}{2} \frac{\ln(1-t\sin x)}{\sin x}dx$$
+                $$I(t)=\int_0^\frac{\pi}{2} \frac{\ln(1-t\sin x)}{\sin x}dx \Rightarrow I'(t)=\frac{2\arctan\left(\sqrt{\frac{1+t}{1-t}}\right)}{\sqrt{1-t^2}}$$
                 This should lead to:
-                $$I(1)=\int_0^\frac{\pi}{2} \frac{\ln(1-\sin x)}{\sin x}dx = -\frac{3\pi^2}{8}$$
+                $$\int_0^\frac{\pi}{2} \frac{\ln(1-\sin x)}{\sin x}dx = I(1) - I(0)=\int_0^1 I'(t) dt = -\frac{3\pi^2}{8}$$
+                But it would be even better if the integral would be parameterised as:
+                $$I(t)=\int_0^\frac{\pi}{2} \frac{\ln(1-\sin t\sin x)}{\sin x}dx$$
+                That is because usually when having trigonometric functions, parameterising the integral with another trigonometric function leads to a more smoother result.
             </p>
         </div>
         <p>
@@ -205,9 +208,9 @@
         <div class="hidden-hint">
             <p class="hint">
                 Consider introducing the following parameter:
-                $$I(t)=\int_0^1 \frac{\ln(1-t(x-x^2))}{x-x^2}dx$$
+                $$I(t)=\int_0^1 \frac{\ln(1-t(x-x^2))}{x-x^2}dx\Rightarrow I'(t) = \frac{4\arctan\left(\sqrt{\frac{t}{4-t}}\right)}{\sqrt{t(4-t)}}$$
                 This should lead to:
-                $$I(1)=\int_0^1 \frac{\ln(1-x+x^2)}{x-x^2}dx = -\frac{\pi^2}{9}$$
+                $$I(1)=\int_0^1 \frac{\ln(1-x+x^2)}{x-x^2}dx = I(1) - I(0) = \int_0^1 I'(t)dt = -\frac{\pi^2}{9}$$
             </p>
         </div>
         <p>
@@ -216,9 +219,9 @@
         <div class="hidden-hint">
             <p class="hint">
                 Consider introducing the following parameter:
-                $$I(t)=\int_0^\frac{\pi}{2} \frac{\arctan(t\sin x)}{\sin x}dx$$
+                $$I(t)=\int_0^\frac{\pi}{2} \frac{\arctan(t\sin x)}{\sin x}dx\Rightarrow I'(t)=\frac{\pi}{2\sqrt{1+t^2}}$$
                 This should lead to:
-                $$I(1)=\int_0^\frac{\pi}{2} \frac{\arctan(t\sin x)}{\sin x}dx = \frac{\pi}{2}\ln(1+\sqrt 2)$$
+                $$I(1)=\int_0^\frac{\pi}{2} \frac{\arctan(t\sin x)}{\sin x}dx = I(1)-I(0) = \int_0^1 I'(t)dt = \frac{\pi}{2}\ln(1+\sqrt 2)$$
             </p>
         </div>
         <p>
@@ -227,9 +230,9 @@
         <div class="hidden-hint">
             <p class="hint">
                 Consider introducing the following parameter:
-                $$I(t)=\int_0^\infty x^2e^{-\left(4x^2+\frac{t}{x^2}\right)}dx$$
+                $$I(t)=\int_0^\infty x^2e^{-\left(4x^2+\frac{t}{x^2}\right)}dx=-\frac{\sqrt \pi}{4} e^{-4\sqrt t}$$
                 This should lead to:
-                $$I(9)=\int_0^\infty x^2e^{-\left(4x^2+\frac{9}{x^2}\right)}dx = \frac{13}{32}\frac{\sqrt \pi}{e^{12}}$$
+                $$\int_0^\infty x^2e^{-\left(4x^2+\frac{9}{x^2}\right)}dx = I(9)- I(0) + I(0) = \int_0^9 I'(t) dt +\frac{\sqrt \pi}{32}=\frac{13}{32}\frac{\sqrt \pi}{e^{12}}$$
             </p>
         </div>
         <p>
@@ -237,10 +240,10 @@
         </p>
         <div class="hidden-hint">
             <p class="hint">
-                Consider introducing the following parameter:
-                $$I(t)=\frac12\int_0^1\frac{\ln(1-t(1-x^2))}{1-x^2}dx$$
+                Consider parameterising the integral as:
+                $$I(t)=\frac12\int_0^1\frac{\ln(1-t(1-x^2))}{1-x^2}dx\Rightarrow I'(t)=\frac{\arctan\left(\sqrt{\frac{t}{1-t}}\right)}{2\sqrt{t(1-t)}}$$
                 This should lead to:
-                $$I(1)=\int_0^1 \frac{\ln x}{1-x^2}dx = -\frac{\pi^2}{8}$$
+                $$\int_0^1 \frac{\ln x}{1-x^2}dx = I(1)- I(0) = \int_0^1 I'(t)dt = -\frac{\pi^2}{8}$$
             </p>
         </div>
         <p>
@@ -248,10 +251,10 @@
         </p>
         <div class="hidden-hint">
             <p class="hint">
-                Consider introducing the following parameter:
-                $$I(t)=\int_0^\infty \frac{e^{-t(1+x^2)}}{1+x^2}dx$$
+                Consider parameterising the integral as:
+                $$I(t)=\int_0^\infty \frac{e^{-t(1+x^2)}}{1+x^2}dx\Rightarrow I'(t) = -\frac{\sqrt \pi}{2\sqrt t}e^{-t}$$
                 This should lead to:
-                $$eI(1)=\int_0^\infty \frac{e^{-x^2}}{1+x^2}dx = \frac{\pi e}{2}\operatorname{erfc}(1)$$
+                $$\int_0^\infty \frac{e^{-x^2}}{1+x^2}dx = e\left(I(1)-I(t\to \infty)\right) = -e\int_1^\infty I'(t)dt= \frac{\pi e}{2}\operatorname{erfc}(1)$$
             </p>
         </div>
         <p>
@@ -259,18 +262,22 @@
         </p>
         <div class="hidden-hint">
             <p class="hint">
-                Since \(1-x^2+x^4=(1+x^2)^2-3x^2\), consider introducing the following parameter:
-                $$I(t)=\int_0^\infty \frac{\ln\left(\frac{t(1+x^2)^2-3x^2}{(1-x^2)^2}\right)}{(1+x^2)^2}dx$$
+                Since \(1-x^2+x^4=(1+x^2)^2-3x^2\), consider parameterising the integral as:
+                $$I(t)=\int_0^\infty \frac{\ln\left(\frac{t(1+x^2)^2-3x^2}{(1-x^2)^2}\right)}{(1+x^2)^2}dx\Rightarrow I'(t)=\frac{\pi}{2\sqrt{t(4t-3)}}$$
                 And in order to go back it should be observed that \(\frac34(1+x^2)^2-3x^2=\frac34(1-x^2)^2\):
-                $$\int_0^\infty \frac{\ln\left(\frac{1-x^2+x^4}{(1-x^2)^2}\right)}{(1+x^2)^2}dx=I(1)=\int_\frac34^1 I'(t)dt + I\left(\frac34\right) = \frac{\pi}{2}\ln\left(\frac32\right) $$
+                $$\int_0^\infty \frac{\ln\left(\frac{1-x^2+x^4}{(1-x^2)^2}\right)}{(1+x^2)^2}dx=I(1)- I\left(\frac34\right)+ I\left(\frac34\right)$$
+                $$=\int_\frac34^1 I'(t)dt + \frac{\pi}{4}\ln\left(\frac{3}{4}\right) = \frac{\pi}{2}\ln\left(\frac32\right) $$
             </p>
         </div>
 
         <hr>
-        <section id="chapter4"> <h3>Switching to double integrals</h3> </section>
+        <section id="chapter3"> <h3>Switching to double integrals</h3> </section>
         <hr>
         <p>
-            Let's start this chapter by looking at a modified version of an integral that was previously given as an exercise:
+            The previous chapter showed a way to parameterise integrals so that something from the integral, which is not related to the parameter, gets simplified when differentiating. However there are times when even though we can introduce a parameter to accomplish that, it still wouldn't be enough to finish the integral.
+        </p>
+        <p>
+            In this chapter we will look at a different way to obtain a variant of simplification, so let's start the journey by looking at a modified version of an integral that was previously given as an exercise:
             $$I=\int_{-\infty}^\infty \frac{e^{-x^2}}{1+x^4}dx$$
             With \(\int_{-\infty}^\infty \frac{e^{-x^2}}{1+x^2}dx\) it was quite direct to parameterise the integral as \(\int_{-\infty}^\infty \frac{e^{-t(1+x^2)}}{1+x^2}dx\) since it simplifies the denominator, however the similar way to do that for our integral: \(\int_{-\infty}^\infty \frac{e^{-x^2-t(1+x^4)}}{1+x^4}dx\) doesn't seem to work as it complicates things a bit too much.
         </p>
@@ -328,24 +335,19 @@
         <section id="chapter5"> <h3>Getting into the real world</h3> </section>
         <hr>
         <p>
-            It's also useful to introduce another rule of thumb when cleansing the integrals. We'll see what exactly while dealing with the following integral:
-            $$I=\int_0^\frac{\pi}{2}\ln(2+\tan^2 x)dx$$
-            There are two obvious parameters to consider here:
-            $$I(a)=\int_0^\frac{\pi}{2}\ln(a+\tan^2 x)dx,\quad I(b)=\int_0^\frac{\pi}{2}\ln(2+b\tan^2 x)dx$$
-            Turns out both works, let's stick with the first one and you are welcome to play with the last one.
-            $$I'(a)=\int_0^\frac{\pi}{2}\frac{1}{a+\tan^2 x}dx\overset{\tan x\to x}=\int_0^\infty \frac{1}{(a+x^2)(1+x^2)}dx$$
-            $$=\frac{1}{1-a}\int_0^\infty\left(\frac{1}{a+x^2}-\frac{1}{1+x^2}\right)dx=\frac{\pi}{2}\left(\frac{1}{\sqrt a (1-a)}-\frac{1}{1-a}\right)=\frac{\pi}{2}\frac{1}{\sqrt a+a}$$
-            In this case we are looking to find \(I=I(a=2)\) and as \(I(a=0)=\int_0^\frac{\pi}{2}\ln(\tan^2 x) dx\) is equal to \(0\) since after the substitution \(x\to\frac{\pi}{2}-x\) \(\int_0^\frac{\pi}{2}\ln(\tan^2 x) dx = - \int_0^\frac{\pi}{2}\ln(\tan^2 x) dx\), the original integral is:
-            $$I=\int_0^2 I'(a)da=\frac{\pi}{2}\int_0^2\frac{1}{\sqrt a+a}da\overset{a=x^2}=\pi\int_0^\sqrt 2\frac{1}{1+x}dx=\pi\ln(1+\sqrt 2)$$
-            While this works, we can do better. Another rule of thumb that I tend to use is to stick with rational functions as they often provide the most visibility to work with. Let's do that for our integral too:
-            $$I=\int_0^\frac{\pi}{2}\ln(2+\tan^2 x)dx\overset{\tan x\to x}=\int_0^\infty \frac{\ln(2+x^2)}{1+x^2}dx$$
-            At this point, if we remember the first rule of thumb, mainly to <b>place the parameter in order to simplify something from the integrand</b>, then it should be obvious where to place the parameter so that we can simplify the denominator. We have:
-            $$I(t)=\int_0^\infty \frac{\ln(1+t(1+x^2))}{1+x^2}dx\Rightarrow I'(t)=\int_0^\infty \frac{1}{1+t+tx^2}dx=\frac{\pi}{2}\frac{1}{\sqrt t\sqrt{1+t}}$$
-            Let's finish this integral too as we are looking for \(I=I(t=1)\) with \(I(t=0) = 0\):
-            $$I=\int_0^1I'(t)dt=\frac{\pi}{2}\int_0^1 \frac{1}{\sqrt t\sqrt{1+t}}dx\overset{t=x^2}=\pi\int_0^1\frac{1}{\sqrt{1+x^2}}dx=\pi\ln(1+\sqrt 2)$$
-            The main advantage over the previous method here was that we avoided doing partial fractions, which is not that much. However now we have a path to follow in the future as if possible the first step would be to transform the integral to contain rational functions, instead of trigonometric ones for example.
+            With all the previous integrals there was a common thing: they could have been parameterised in their original form, however most of the time we don't have this luxury and we need to manipulate the integrals up to a point where we can introduce a parameter.
         </p>
         <p>
+            Consistence is quite important when dealing with integral. We will see what exactly is meant by that when dealing with the following integral:
+            $$I=\int_0^\frac{\pi}{2}\ln(2+\tan^2 x)dx$$
+            Two possible ways to parameterise the integral are as follows:
+            $$I(a)=\int_0^\frac{\pi}{2}\ln(a+\tan^2 x)dx,\quad I(b)=\int_0^\frac{\pi}{2}\ln(2+b\tan^2 x)dx$$
+            Turns out both works, but we can do better. Another rule of thumb that I tend to use is to stick with rational functions as they often provide the most visibility to work with. Let's do that for our integral too:
+            $$I=\int_0^\frac{\pi}{2}\ln(2+\tan^2 x)dx\overset{\tan x\to x}=\int_0^\infty \frac{\ln(2+x^2)}{1+x^2}dx$$
+            At this point, if we remember the first rule of thumb, then it should be obvious where to place the parameter so that we can simplify the denominator. We have:
+            $$I(t)=\int_0^\infty \frac{\ln(1+t(1+x^2))}{1+x^2}dx\Rightarrow I'(t)=\int_0^\infty \frac{1}{1+t+tx^2}dx=\frac{\pi}{2}\frac{1}{\sqrt t\sqrt{1+t}}$$
+            Let's finish this integral too as we are looking for \(I=I(1)\) with \(I(0) = 0\):
+            $$I=\int_0^1I'(t)dt=\frac{\pi}{2}\int_0^1 \frac{1}{\sqrt t\sqrt{1+t}}dx\overset{t=x^2}=\pi\int_0^1\frac{1}{\sqrt{1+x^2}}dx=\pi\ln(1+\sqrt 2)$$
             Obviously, if you're more used to trigonometric functions and you do have a great visibility when evaluating integrals containing them, then this can be simply ignored. I however tend to switch fast to rational functions so in what's to come I will almost always do this as a first step, a few exceptions will be shown in the future, mainly when at least one of the bounds is \(\infty\) then one shouldn't try to change the trigonometric functions.
         </p>
         <p>
