@@ -83,16 +83,6 @@ body
 }
 
 .about{
-    padding-left: 22.5%;
-    padding-right: 10%;
-}
-
-.about .description{
-    float: left;
-    width: 60%;
-}
-
-.about .image{
-    float: right;
-    width: 40%;
+    padding-left: 30%;
+    padding-right: 25%;
 }

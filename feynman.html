@@ -415,17 +415,39 @@
 
         <hr>
         <p>
-            Consistence is quite important when dealing with integral. We will see what exactly is meant by that when dealing with the following integral:
+            Consistence is quite important when dealing with integral, so stick with rational functions. We will see what exactly is meant by that when dealing with the following integral:
             $$I=\int_0^\frac{\pi}{2}\ln(2+\tan^2 x)dx$$
             Two possible ways to parameterise the integral are as follows:
             $$I(a)=\int_0^\frac{\pi}{2}\ln(a+\tan^2 x)dx,\quad I(b)=\int_0^\frac{\pi}{2}\ln(2+b\tan^2 x)dx$$
-            Turns out both works, but we can do better. Another rule of thumb that I tend to use is to <span class ="important">stick with rational functions</span> as they often provide the most visibility to work with. Let's do that for our integral too:
+            Turns out both works, but we can do better. Another rule of thumb that I follow is to use almost exclusive rational functions as they often provide the most visibility to work with. Let's do that for our integral too:
             $$I=\int_0^\frac{\pi}{2}\ln(2+\tan^2 x)dx\overset{\tan x\to x}=\int_0^\infty \frac{\ln(2+x^2)}{1+x^2}dx$$
-            At this point, if we remember the first rule of thumb, then it should be obvious where to place the parameter so that we can simplify the denominator. We have:
+            At this point it should be obvious where to place the parameter so that we can simplify the denominator. We have:
             $$I(t)=\int_0^\infty \frac{\ln(1+t(1+x^2))}{1+x^2}dx\Rightarrow I'(t)=\int_0^\infty \frac{1}{1+t+tx^2}dx=\frac{\pi}{2}\frac{1}{\sqrt t\sqrt{1+t}}$$
-            Let's finish this integral too as we are looking for \(I=I(1)\) with \(I(0) = 0\):
-            $$I=\int_0^1I'(t)dt=\frac{\pi}{2}\int_0^1 \frac{1}{\sqrt t\sqrt{1+t}}dx\overset{t=x^2}=\pi\int_0^1\frac{1}{\sqrt{1+x^2}}dx=\pi\ln(1+\sqrt 2)$$
-            Obviously, if you're more used to trigonometric functions then this can be simply ignored. I however tend to switch fast to rational functions, a few exceptions being when there's a clear way to parameterise the integral or when at least one of the bounds is \(\infty\).
+            $$\Rightarrow I=\int_0^1I'(t)dt=\frac{\pi}{2}\int_0^1 \frac{1}{\sqrt t\sqrt{1+t}}dx\overset{t=x^2}=\pi\int_0^1\frac{1}{\sqrt{1+x^2}}dx=\pi\ln(1+\sqrt 2)$$
+            Obviously, if you're already more used to trigonometric functions, hyperbolic functions or anything else then this can be ignored. I however tend to switch fast to rational functions, a few exceptions being when there's a clear way to parameterise the integral or when at least one of the bounds is \(\infty\).
+        </p>
+        <hr>
+        <p>
+            Another useful thing to do before parameterising the integrals is to clean the disturbing functions as much as possible. Let's elucidate this with the following integral:
+            $$I=\int_0^\frac{\pi}{2}\arctan\left(\frac{2\sin x}{2\cos x -1}\right)\frac{\sin\left(\frac{x}{2}\right)}{\sqrt{\cos x}}dx$$
+            At the first glance it might seem like a super complicated integral. However, as we have trigonometric functions all over the place we know what the first step should be, namely we'll employ the Weierstrass substitution \(\tan\left(\frac{x}{2}\right)\to x\) in order to obtain only rational functions:
+            $$\Rightarrow I = 2\int_0^1 \frac{x\arctan\left(\frac{4x}{1-3x^2}\right)}{\sqrt{1-x^2}(1+x^2)}dx$$
+            We would like to place parameterise the integral so that we get rid of the arctangent function, unfortunately here it is a bit to overloaded therefore we'll clean it a bit by splitting it into two. In case it's not obvious how to do that directly we can differentiate it, perform partial fractions and then integrate back:
+            $$\frac{d}{dx}\arctan\left(\frac{4x}{1-3x^2}\right)=\frac{12x^2+4}{9x^4+10x^2+1}=\frac{1}{1+x^2}+\frac{3}{1+9x^2}$$
+            $$\Rightarrow \int \left(\frac{1}{1+x^2}+\frac{3}{1+9x^2}\right) dx = \arctan x + \arctan(3x) + C$$
+            However since we're integrating over the \((0,1)\) interval we have that \(x \cdot 3 x>1\) for \(x > \frac{1}{\sqrt 3}\), so we can rewrite the integral as:
+            $$I=2\int_0^1 \frac{x(\arctan x + \arctan(3x))}{\sqrt{1-x^2}(1+x^2)}dx - 2 \int_\frac{1}{\sqrt 3}^1 \frac{x}{\sqrt{1-x^2}(1+x^2)}dx$$
+            $$= 2 \mathcal J - \frac{\pi}{\sqrt 2}\ln(2+\sqrt 3)$$
+            At this point there's only left to evaluate the first integral, \(\mathcal J\), for which we'll employ Feynman's trick. There isn't any way to place the parameter so that we get rid of anything from the denominator so we'll simply consider the following integral:
+            $$\mathcal J(t)=\int_0^1 \frac{x(\arctan x + \arctan(tx))}{\sqrt{1-x^2}(1+x^2)}dx\Rightarrow \mathcal J'(t) = \int_0^1 \frac{x^2}{\sqrt{1-x^2}(1+x^2)(1+t^2 x^2)}dx$$
+            In general when we have rational functions it is prefered to integrate over \((0,\infty)\), if possible, as it drastically reduces the result. Especially when there's the derivative of \(\arcsin x\) in the denominator one way to map \((0,1)\) to \((0,\infty)\) is to directly substitute \(\cot(\arcsin x) \to x \Leftrightarrow x \to \frac{1}{\sqrt{1+x^2}}\). Therefore we obtain:
+            $$\mathcal J=\int_0^\infty \frac{1}{(2+x^2)(1+t^2+x^2)}dx = \frac{\pi}{2(1-t^2)}\left(\frac{1}{\sqrt{1+t^2}}-\frac{1}{\sqrt 2}\right)$$
+            We are looking to find \(\mathcal J(3)\) and we also have that \(\mathcal J(-1)=0\), therefore our integral is:
+            $$\mathcal J = \frac{\pi}{2}\int_{-1}^3 \frac{1}{(1-t^2)}\left(\frac{1}{\sqrt{1+t^2}}-\frac{1}{\sqrt 2}\right)dt$$
+            In order to finish this integral we'll subsitute \(t = \frac{1-x}{1+x}\). However there might be required a whole chapter to describe how useful this substitution is, but for now let's see it in action:
+            $$\mathcal J = \frac{\pi}{4}\int_{-\frac12}^\infty \frac{1}{x}\left(\frac{1+x}{\sqrt 2 \sqrt{1+x^2}}-\frac{1}{\sqrt 2}\right)dx=\frac{\pi}{\sqrt 2}\ln \left(\frac{1+\sqrt 5}{2}\right)$$
+            Finally, we can conclude that:
+            $$\int_0^\frac{\pi}{2}\arctan\left(\frac{2\sin x}{2\cos x -1}\right)\frac{\sin\left(\frac{x}{2}\right)}{\sqrt{\cos x}}dx=\sqrt 2 \pi \ln \left(\frac{1+\sqrt 5}{2}\right)- \frac{\pi}{\sqrt 2}\ln(2+\sqrt 3)$$
         </p>
         <hr>
 
