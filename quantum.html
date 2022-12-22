@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
@@ -22,12 +23,12 @@
 
     <div class="quantum">
         <h1>
-            Quantum Computing: The Big Picture
+            Quantum Computing
         </h1>
         
         <hr>
         <p>
-            While in some movies the plot can get a bit overambitious and use the notion of quantum physics to get into the picture stuff like teleportation, time travel or other magically working gadgets - basically stuff that we can’t explain based on our day to day experiences of physics - it is also true that quantum physics, which deals with how things at an atomic level works, behaves in a way different than our intuition is used to.
+            While in some movies the plot can get a bit overambitious and use the notion of quantum physics to get into the picture stuff like time travel or other magically working gadgets - basically stuff that we can't explain based on our day to day experiences of physics - it is also true that quantum physics, which deals with how things at an atomic level works, behaves in a way different than our intuition is used to.
         </p>
 
         <p>
@@ -37,8 +38,33 @@
             Regarding the last sentence, it should be noted that a computer computer as we know it, is a Turing machine, which means that it is capable of implementing any computer algorithm - even to simulate a quantum computer - however this assumes that we have infinite time and memory at our disposal. So rather: quantum computers can help us solve tasks in a more efficient way than on a classical computer, which could even mean that something which would require hundreds of years to solve can be reduced to a matter of minutes.
         </p>
         <p>
-            In the following, the aim is to describe and provide some intuition on how quantum computing works at a basic level, but also to show why would someone care about this field.
+            In this essay, the aim is to describe and provide some intuition on how quantum computing works at a basic level from a programming perspective, but also to show why would someone care about this field.
         </p>
+
+        <hr>
+        <h3>
+            Developing a quantum computing simulator
+        </h3>
+        <hr>
+        <p>
+            On a classical computer a bit can have two possible states, namely 0 and 1. In contrast the equivalent of those bits are called qubits, which can be described as unit vectors like:
+        </p>
+        <pre>
+        <code>
+        0 -> [1 0]
+        1 -> [0 1]
+        </code>
+        </pre>
+        <p>
+            In addition to this, a qubit can be found in a linear combination of the two possible states mentioned above, under the condition that the state will always be a unit vector.
+        </p>
+        <pre>
+        <code>
+        a[1 0] + b[0 1] = [a b], a^2 + b^2 = 1
+        </code>
+        </pre>
+        $$\require{braket} \bra{math}$$
+        $$\ket{x}$$
     </div>
 
 </body>
