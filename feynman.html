@@ -23,7 +23,8 @@
                 <li><a href="#chapter2">The parameter</a></li>
                 <li><a href="#chapter3">Accelerated Feynman's trick</a></li>
                 <li><a href="#chapter4">Reversed Feynman's trick</a></li>
-                <li><a href="#chapter5">The real world</a></li>
+                <li><a href="#chapter5">Heuristics</a></li>
+                <li><a href="#chapter6">The chosen ones</a></li>
             </ul>
             <li><a href="about.html">About</a></li>
         </ul>
@@ -72,15 +73,15 @@
         </p>
 
         <p>
-            For me employing the trick felt like I was using cheat codes to deal with integrals while in the same
+            For me employing this trick felt like I was using cheat codes to deal with integrals while in the same
             time it enabled a lot of creativity and wishful thinking which at heart transformed the integrals into puzzles.
-            Unfortunately in the same time this also means that there's not a clear path on how and when exactly to use
-            this technique. In addition what Feynman wrote still applies today as the method isn't taught much or at all in
+            Unfortunately, in the same time this also means that there's not a clear path on how and when exactly to use
+            this technique. In addition, what Feynman wrote still applies today as the method isn't taught much or at all in
             universities - this means that the trick often comes as obscure and hard to grasp for newcomers.
         </p>
         <p>
-            In the following we will go into a journey to find some rules of thumb to have at disposal when using Feynman's trick.
-            It should be mentioned right from the start that those rules of thumb are merely some heuristics that I tend to use, 
+            In the following we will go into a journey to develop some rules of thumb to have at disposal when using Feynman's trick.
+            I will mention right from the start that those are merely some heuristics that I tend to use, 
             so deviating from them can be totally fine. However I'm hoping that it can provide a path to have in case nothing
             obvious or intuitively occurs when someone tries to use this trick, or even better a reason for someone to start using the method.
         </p>
@@ -98,7 +99,7 @@
             without practice nothing would stick. Take for example chess, most people could understand the rules in a few 
             minutes, however if they would go on to play a game most likely they would get stomped by a more experienced
             player while playing under the same rules, solely because the other player through practice learned some
-            techniques to follow when playing. Therefore I would like here to jump straightforward into practice in order
+            techniques to follow when playing. With that in mind I would like here to jump straightforward into practice in order
             to get familiar with the trick.
         </p>
         <p>
@@ -167,7 +168,7 @@
             $$I=\int_0^1 I'(b)db \Rightarrow 2I=\int_0^1 \left(\frac{\pi}{4}\frac{b}{1+b^2}+\frac{\ln 2}{2}\frac{1}{1+b^2}\right)db \Rightarrow I=\frac{\pi}{8}\ln 2$$
         </p>
         <p>
-            This works, but we can even do better. The first thing that I always attempt to look for when using Feynman's trick is to simplify something from the integrand when differentiating. Surely above we got rid of the logarithm, but the denominator remained intact. Looking at the "Hello, World!" integral we can see that there we simplified the logarithm in the denominator while performing \(\frac{\partial}{\partial t}x^t\).
+            This works, but we can even do better. Looking at the "Hello, World!" integral we can see that there we simplified the logarithm in the denominator while performing \(\frac{\partial}{\partial t}x^t\). This is also the first thing that I always attempt to look for when using this technique - namely, to simplify something from the integrand when differentiating. Surely for the current integral we got rid of the logarithm, but the denominator remained intact.
         </p>
         <p>
             In short this will be our first rule of thumb: <span class ="important">if possible, place the parameter so that something from the integral, which is not related to the parameter, gets simplified</span>.
@@ -351,7 +352,7 @@
         <hr>
 
         <p>
-            So far we've seen the same steps when employing Feynman's trick, namely we parameterised the integrals followed by differentiating them under the integral sign and then to undo the last step we integrate back. There are however some cases we would actually get a much easier integral if we would integrate instead of differentiating the newly parameterised integral. Let's make this more clear by looking at the following integral:
+            So far we've seen the exact same steps when employing Feynman's trick, namely we parameterised the integrals followed by differentiating them under the integral sign and then to undo the last step we integrated back. There are however some cases we would actually get a much easier integral if we would integrate instead of differentiating the newly parameterised integral. Let's make this more clear by looking at the following integral:
             $$I = \int_0^1 x \ln x\, dx$$
             We can remember from the "Hello, World!" integral that \(\frac{\partial}{\partial t}x^t = x^t \ln x\) and looking at the right hand side, if we would set \(t=1\) then we would end up with the integrand of \(I\), however it is much easier to deal the left hand side integrand, \(x^t\). Therefore in order to evaluate this integral we will perform the reversed Feynman's trick:
             $$I'(t) = \int_0^1 x^t\ln x\, dx \Leftrightarrow I(t)=\int_0^1 x^tdx$$
@@ -377,8 +378,7 @@
             This can be also rewriten using the polylogarithm function as:
             $$\int_0^1\int_0^1 \frac{(-\ln(xy))^m}{z-xy} dxdy = (m+1)!\operatorname{Li}_{m+2}\left(\frac{1}{z}\right)$$
             Finally we can arrive at our original integral by taking \(m-1\) derivatives with respect to \(z\) and setting it to \(1\):
-            $$\frac{\partial^m\partial^{m-1}}{\partial a^m \partial z^{m-1}}I(a,z)=(-1)^m(m-1)!\int_0^1\int_0^1 \frac{(-\ln(xy))^m}{(1-xy)^m}dxdy$$
-            $$=(m+1)!\frac{d^{m-1}}{dz^{m-1}}\operatorname{Li}_{m+2}\left(\frac{1}{z}\right)\bigg|_{z=1}$$
+            $$(-1)^m(m-1)!\int_0^1\int_0^1 \frac{(-\ln(xy))^m}{(1-xy)^m}dxdy=(m+1)!\frac{d^{m-1}}{dz^{m-1}}\operatorname{Li}_{m+2}\left(\frac{1}{z}\right)\bigg|_{z=1}$$
             Although this was the important part, by using \(\frac{\partial}{\partial z} \operatorname{Li}_n(z) = \frac{\operatorname{Li}_{n-1}(z)}{z}\) the result can be also written as:
             $$\int_0^1\int_0^1 \left(\frac{-\ln(xy)}{1-xy}\right)^m dxdy =m(m+1)\sum_{k=1}^{m-1}|s(m-1,m-k)|\zeta(k+2)$$
             Where \(s(n,m)\) is the Stirling number of the first kind and \(\zeta(z)\) is the Riemann zeta function.
@@ -397,6 +397,16 @@
             </p>
         </div>
         <p>
+            $$\int_0^\infty x^2e^{-\left(4x^2+\frac{9}{x^2}\right)}dx = ?$$
+        </p>
+        <div class="hidden-hint">
+            <p class="hint">
+                This was already given as an exercise in a previous chapter and obviously sometimes there are many ways to approach an integral. To approach this integral in the spirit of this chapter consider starting by evaluating the following integral:
+                $$I(t)=\int_0^\infty e^{-\left(tx^2+\frac{9}{x^2}\right)}dx$$
+                Afterwards differentiate the result once with respect to \(t\).
+            </p>
+        </div>
+        <p>
             $$\int_0^\infty \frac{1}{(1+x^2)^n}dx=?$$
         </p>
         <div class="hidden-hint">
@@ -407,7 +417,7 @@
         </div>
 
         <hr>
-        <section id="chapter5"> <h3>The real world</h3> </section>
+        <section id="chapter5"> <h3>Heuristics</h3> </section>
         <hr>
         <p>
             With all the previous integrals there was a common thing: we were able to parameterise them as they appeared in their original form, however most of the time we don't have this luxury and we need to manipulate the integrals up to a point where we can introduce a parameter. Our goal here will be to find a few heuristics that will help us in manipulating the integrals up to a point where Feynman's trick will be of any help.
@@ -428,7 +438,7 @@
         </p>
         <hr>
         <p>
-            Another useful thing to do before parameterising the integrals is to clean the disturbing functions as much as possible. Let's elucidate this with the following integral:
+            Another useful thing to do before parameterising the integrals is to clean the disturbing functions as much as possible before any parameterisation. Let's elucidate this with the following integral:
             $$I=\int_0^\frac{\pi}{2}\arctan\left(\frac{2\sin x}{2\cos x -1}\right)\frac{\sin\left(\frac{x}{2}\right)}{\sqrt{\cos x}}dx$$
             At the first glance it might seem like a super complicated integral. However, as we have trigonometric functions all over the place we know what the first step should be, namely we'll employ the Weierstrass substitution \(\tan\left(\frac{x}{2}\right)\to x\) in order to obtain only rational functions:
             $$\Rightarrow I = 2\int_0^1 \frac{x\arctan\left(\frac{4x}{1-3x^2}\right)}{\sqrt{1-x^2}(1+x^2)}dx$$
@@ -450,6 +460,11 @@
             $$\int_0^\frac{\pi}{2}\arctan\left(\frac{2\sin x}{2\cos x -1}\right)\frac{\sin\left(\frac{x}{2}\right)}{\sqrt{\cos x}}dx=\sqrt 2 \pi \ln \left(\frac{1+\sqrt 5}{2}\right)- \frac{\pi}{\sqrt 2}\ln(2+\sqrt 3)$$
         </p>
         <hr>
+        <section id="chapter6"> <h3>The chosen ones</h3> </section>
+        <hr>
+        <p>
+            In the following we will look at a bunch of beautiful integrals that can be solved by using at some point Feynman's trick. The whole point is to put into spotlight some techniques for diverse integrals that naturally appear in some areas of mathematics, physics, computer science etc.
+        </p>
 
     </div>
     <script src="main.js"></script>
