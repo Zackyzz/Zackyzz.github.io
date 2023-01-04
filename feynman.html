@@ -24,7 +24,6 @@
                 <li><a href="#chapter3">Accelerated Feynman's trick</a></li>
                 <li><a href="#chapter4">Reversed Feynman's trick</a></li>
                 <li><a href="#chapter5">Heuristics</a></li>
-                <li><a href="#chapter6">The chosen ones</a></li>
             </ul>
             <li><a href="about.html">About</a></li>
         </ul>
@@ -183,10 +182,10 @@
             Similarly to \(I(b)\) we are looking to find \(I(1)\), however here \(I(0)\) is equal to \(\frac12\int_0^1\frac{\ln(2x)}{1+x^2}dx\) not \(0\), so:
             $$I=I(1)-I(0)+I(0)=\frac14\int_0^1\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}dt+\frac12\int_0^1\frac{\ln(2x)}{1+x^2}dx$$
             $$\int_0^1\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}dt\overset{\frac{1+\sqrt{1-t^2}}{t}=x}=-2\int_0^1 \frac{\ln x}{1+x^2}dx\Rightarrow I = \frac12\int_0^1 \frac{\ln 2}{1+x^2}dx=\frac{\pi}{8}\ln 2$$
-            For this specific integral we only avoided performing partial fractions so there wasn't really a big improvement by simplifying the denominator. However I want to emphasize the importance of this rule of thumb because it will make things come way more natural when deciding where place the parameter. Of course, in case there's not an appropiate or immediate way to achieve this, it's perfectly fine to place the parameter elsewhere too.
+            For this specific integral we only avoided performing partial fractions so there wasn't really a big improvement by simplifying the denominator. However I want to emphasize the importance of this rule of thumb because it will make things come way more natural when deciding where place the parameter. <span class ="important">Of course, in case there's not an appropiate or immediate way to achieve this, it's perfectly fine to place the parameter elsewhere too.</span>
         </p>
         <p>
-            As mentioned previously, practicing is the best approach to get along with this technique, therefore for you below are more integrals to evaluate alongside some hidden steps in case those will be needed, however I strongly recommend to try and deal with the integrals before looking at any hints and only check them afterwards for correctness.
+            As mentioned previously, practicing is the best approach to get along with this technique, therefore below are more integrals to evaluate alongside some hidden steps in case those will be needed, however I strongly recommend to try and deal with the integrals before looking at any hints and only check them afterwards for correctness.
         </p>
 
         <p>
@@ -297,7 +296,7 @@
             Where \(S(x)\) and \(C(x)\) are Fresnel integrals, however the result itself isn't that important here.
         </p>
         <p>
-            We can avoid the parametrisation from above by directly using \(\frac{1}{1+x^4}=\int_0^\infty e^{-tx^2}\sin t dt\) and switch to double integrals, or as it was called in this chapter's title we will employ the accelerated Feynman's trick (meaning that we skip the usual parameterisation step):
+            We can avoid the parametrisation from above by directly using \(\frac{1}{1+x^4}=\int_0^\infty e^{-tx^2}\sin t dt\) and switch to double integrals, or put in other words employ the <span class ="important">accelerated Feynman's trick</span> (meaning that we skip the usual parameterisation step):
             $$I=\int_{-\infty}^\infty \frac{e^{-x^2}}{1+x^4}dx = \int_{-\infty}^\infty e^{-x^2}\int_0^\infty e^{-tx^2}\sin t dtdx$$
             $$=\int_{0}^\infty \sin t\int_{-\infty}^\infty e^{-x^2}e^{-tx^2}dxdt\overset{(1+t)x^2\to x^2}=\sqrt{\pi}\int_0^\infty \frac{\sin t}{\sqrt{1+t}}dt$$
         </p>
@@ -306,7 +305,7 @@
         </p>
         <p>
             A natural question that arises here is how did \(\frac{1}{1+x^4}=\int_0^\infty e^{-tx^2}\sin t dt\) appear? Or even better, how can on come up with similar results for other integrals? In the case from above simply the Laplace transform was used, however in general it's useful to have a list of such results. There are tables of integral results that can be used, for example one from the book Table of Integrals, Series, and Products by Gradshteyn and Ryzhik.
-            We are however going to use only a few of them, some being:
+            A few useful of them being:
             $$\int_0^\infty e^{-xt}\sin t dt =\frac{1}{1+x^2}, \quad \int_0^\infty e^{-xt} dt = \frac{1}{x}, \quad \int_0^\infty e^{-xt^2}dt = \frac{\sqrt \pi}{2\sqrt x}$$
             $$\int_0^1 \frac{\ln t}{t-\frac{1}{x}}dt = \operatorname{Li}_2(x), \quad \int_0^x \frac{\arctan t}{1+xt}dt = \frac{\arctan x \ln(1+x^2)}{2x}$$
         <hr>
@@ -352,12 +351,12 @@
         <hr>
 
         <p>
-            So far we've seen the exact same steps when employing Feynman's trick, namely we parameterised the integrals followed by differentiating them under the integral sign and then to undo the last step we integrated back. There are however some cases we would actually get a much easier integral if we would integrate instead of differentiating the newly parameterised integral. Let's make this more clear by looking at the following integral:
+            So far we've seen the exact same steps when employing Feynman's trick, namely we parameterised the integrals followed by differentiating them under the integral sign and then to undo the last step we integrated back. There are however some cases we would actually get a much easier integral if we would integrate instead of differentiating the newly parameterised integral - alternatively put, there are cases where it would be enough to differentiate under the integral sign without performing the "undo" step. Let's make this more clear by looking at the following integral:
             $$I = \int_0^1 x \ln x\, dx$$
-            We can remember from the "Hello, World!" integral that \(\frac{\partial}{\partial t}x^t = x^t \ln x\) and looking at the right hand side, if we would set \(t=1\) then we would end up with the integrand of \(I\), however it is much easier to deal the left hand side integrand, \(x^t\). Therefore in order to evaluate this integral we will perform the reversed Feynman's trick:
-            $$I'(t) = \int_0^1 x^t\ln x\, dx \Leftrightarrow I(t)=\int_0^1 x^tdx$$
-            As mentioned above indirectly, we are looking here to find \(I'(1)\), so this is over quite quickly as:
-            $$I(t)=\int_0^1 x^t dx = \frac{1}{1+t} \Rightarrow I'(t) = -\frac{1}{(1+t)^2} \Rightarrow I'(1)=-\frac{1}{4}$$
+            We can remember from the "Hello, World!" integral that \(\frac{\partial}{\partial t}x^t = x^t \ln x\) and looking at the right hand side, by putting \(t=1\) we would end up with the integrand of \(I\), however it is much easier to deal the left hand side integrand, \(x^t\). Therefore in order to evaluate this integral we will perform the <span class ="important">reversed Feynman's trick</span>:
+            $$I(t)=\int_0^1 x^t dx = \frac{1}{1+t} \Rightarrow I'(t) = -\frac{1}{(1+t)^2}$$
+            We are looking here to find \(I'(1)\), so this is over quite quickly as:
+            $$I'(t)=\int_0^1 x^t \ln x\, dx \Rightarrow I'(1)= -\frac{1}{4}$$
         </p>
         <hr>
         <p>
@@ -365,9 +364,9 @@
             $$I=\int_0^1\int_0^1 \left(\frac{-\ln(xy)}{1-xy}\right)^mdxdy$$
             In order to generate the \(\ln(xy)\) part it's straightforward as we will do exactly as with the previous integral, namely we can introduce:
             $$I(a)=\int_0^1\int_0^1 \frac{(xy)^a}{(1-xy)^m}dxdy$$
-            And then differentiating with respect to \(a\), \(m\) times followed by setting \(a=0\) will gives us the desired integral. However the denominator is still troublesome and to deal with that we will even introduce one more parameter:
+            And then differentiating with respect to \(a\), \(m\) times followed by setting \(a=0\) will gives us the desired integral, ignoring the \((-1)^m\) term. However the denominator is still troublesome and to deal with that we will introduce one more parameter:
             $$I(a,z)=\int_0^1\int_0^1 \frac{(xy)^a}{z-xy}dxdy$$
-            This is perfect as it's way easier to evaluate the integral from above and also we can recover our original integral by differentiating with respect to \(a\), \(m\) times and with respect to \(z\), \(m-1\) times followed by setting \(a=0\) and respectively \(z=1\), ignoring some coefficients.
+            This is perfect as we can recover our original integral by differentiating with respect to \(a\), \(m\) times and with respect to \(z\), \(m-1\) times followed by setting \(a=0\) and respectively \(z=1\), ignoring some coefficients.
         </p>
         <p>
             In order to evaluate \(I(a,z)\) we can expand the denominator into geometric series:
@@ -379,15 +378,12 @@
             $$\int_0^1\int_0^1 \frac{(-\ln(xy))^m}{z-xy} dxdy = (m+1)!\operatorname{Li}_{m+2}\left(\frac{1}{z}\right)$$
             Finally we can arrive at our original integral by taking \(m-1\) derivatives with respect to \(z\) and setting it to \(1\):
             $$(-1)^m(m-1)!\int_0^1\int_0^1 \frac{(-\ln(xy))^m}{(1-xy)^m}dxdy=(m+1)!\frac{d^{m-1}}{dz^{m-1}}\operatorname{Li}_{m+2}\left(\frac{1}{z}\right)\bigg|_{z=1}$$
-            Although this was the important part, by using \(\frac{\partial}{\partial z} \operatorname{Li}_n(z) = \frac{\operatorname{Li}_{n-1}(z)}{z}\) the result can be also written as:
+            Although the derivation from above was the important part, by using \(\frac{\partial}{\partial z} \operatorname{Li}_n(z) = \frac{\operatorname{Li}_{n-1}(z)}{z}\) the result can be also written as:
             $$\int_0^1\int_0^1 \left(\frac{-\ln(xy)}{1-xy}\right)^m dxdy =m(m+1)\sum_{k=1}^{m-1}|s(m-1,m-k)|\zeta(k+2)$$
             Where \(s(n,m)\) is the Stirling number of the first kind and \(\zeta(z)\) is the Riemann zeta function.
         </p>
         <p>
-            To summarise, the point of this chapter was to show that sometimes it can be useful to avoid performing the usual step of parameterising an integral followed by differentiating it. Instead to solve initially an integrated version of the parameterised integral and in the end to differentiate the result.
-        </p>
-        <p>
-            Here are some integrals for more practice with this technique:
+            As usual, below are some integrals for more practice with this technique:
             $$\int_0^\infty x^n e^{-x}dx=?$$
         </p>
         <div class="hidden-hint">
@@ -401,7 +397,7 @@
         </p>
         <div class="hidden-hint">
             <p class="hint">
-                This was already given as an exercise in a previous chapter and obviously sometimes there are many ways to approach an integral. To approach this integral in the spirit of this chapter consider starting by evaluating the following integral:
+                This was already given as an exercise in a previous chapter and obviously sometimes there are many ways to approach an integral. However, in the spirit of this chapter consider starting by evaluating the following integral:
                 $$I(t)=\int_0^\infty e^{-\left(tx^2+\frac{9}{x^2}\right)}dx$$
                 Afterwards differentiate the result once with respect to \(t\).
             </p>
@@ -438,7 +434,7 @@
         </p>
         <hr>
         <p>
-            Another useful thing to do before parameterising the integrals is to clean the disturbing functions as much as possible before any parameterisation. Let's elucidate this with the following integral:
+            Before parameterising the integrals is quite useful to clean the disturbing functions as much as possible before any parameterisation. Let's elucidate this with the following integral:
             $$I=\int_0^\frac{\pi}{2}\arctan\left(\frac{2\sin x}{2\cos x -1}\right)\frac{\sin\left(\frac{x}{2}\right)}{\sqrt{\cos x}}dx$$
             At the first glance it might seem like a super complicated integral. However, as we have trigonometric functions all over the place we know what the first step should be, namely we'll employ the Weierstrass substitution \(\tan\left(\frac{x}{2}\right)\to x\) in order to obtain only rational functions:
             $$\Rightarrow I = 2\int_0^1 \frac{x\arctan\left(\frac{4x}{1-3x^2}\right)}{\sqrt{1-x^2}(1+x^2)}dx$$
@@ -460,12 +456,16 @@
             $$\int_0^\frac{\pi}{2}\arctan\left(\frac{2\sin x}{2\cos x -1}\right)\frac{\sin\left(\frac{x}{2}\right)}{\sqrt{\cos x}}dx=\sqrt 2 \pi \ln \left(\frac{1+\sqrt 5}{2}\right)- \frac{\pi}{\sqrt 2}\ln(2+\sqrt 3)$$
         </p>
         <hr>
-        <section id="chapter6"> <h3>The chosen ones</h3> </section>
-        <hr>
         <p>
-            In the following we will look at a bunch of beautiful integrals that can be solved by using at some point Feynman's trick. The whole point is to put into spotlight some techniques for diverse integrals that naturally appear in some areas of mathematics, physics, computer science etc.
+            Another useful thing is to manipulate the bounds so that they get rid of any complicated functions for the differentiated integral, usually denoted as \(I'(t)\). This will almost always give a smoother and easier integral that we have to "undo". We will show this in action considering the following integral:
+            $$I=\int_0^1 \frac{\ln(1-x^2)}{1+x^4}dx$$
         </p>
-
+        <p>
+            With the integral from the previous "heuristic" we already seen that it is useful to integrate over \((0,\infty)\) when there are some rational functions - therefore we will attempt to do the same with this integral. Surely, you are encouraged to try and see what kind of mess it would be produced by parameterising the integral as it is, in any way possible when the bounds are \((0,1)\). However we will jump straightforward to get our bounds to \((0,\infty)\).
+        </p>
+        <p>
+            In order to obtain that we can notice that the integrand is even, so we can move the bounds to \((-1,1)\) and then substitute \(x\to \frac{1-x}{1+x}\), which is just another useful way to get our bounds at \((0,\infty)\).
+        </p>
     </div>
     <script src="main.js"></script>
 </body>
