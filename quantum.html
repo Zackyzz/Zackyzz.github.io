@@ -16,6 +16,10 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a class="active" href="quantum.html">Quantum Computing</a></li>
+            <ul>
+                <li><a href="#chapter1">The Big Picture</a></li>
+                <li><a href="#chapter2">Developing a quantum computing simulator</a></li>
+            </ul>
             <li><a href="feynman.html">Feynman's Trick</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
@@ -41,9 +45,7 @@
         </p>
 
         <hr>
-        <h3>
-            The Big Picture
-        </h3>
+        <section id="chapter1"> <h3>The Big Picture</h3> </section>
         <hr>
         <p>
             At a low level, in an ordinary computer everything is made of bits. A bit is the basic unit of information which represents two possible states - in a physical representation some circuits recognize a voltage lower than \(0.8V\) as a state, whereas the other state can be identified by a voltage higher than \(2.2V\) - in a logical representation however the two states are simplified to \(0\) and \(1\). Fortunately for us, in computers the bits are hidden by high-level routines which makes life way easier as it would be a burdensome to manipulate them into performing a desired task.
@@ -55,9 +57,7 @@
         </p>
 
         <hr>
-        <h3>
-            Developing a quantum simulator
-        </h3>
+        <section id="chapter2"> <h3>Developing a quantum computing simulator</h3> </section>
         <hr>
         <p>
             On a classical computer a bit can have two possible states, namely 0 and 1. In contrast the equivalent of those bits are called qubits, which can be described as unit vectors like:
@@ -68,17 +68,15 @@
         1 -> [0 1]
         </code>
         </pre>
-        <p>
-            In addition to this, a qubit can be found in a linear combination of the two possible states mentioned above, under the condition that the state will always be a unit vector.
-        </p>
-        <pre>
-        <code>
-        a[1 0] + b[0 1] = [a b], a^2 + b^2 = 1
-        </code>
-        </pre>
         $$\require{braket} \bra{math}$$
-        $$\ket{x}$$
+        <hr>
+        <p>
+            This work is licensed under a <a href = "https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution 4.0 International License</a>.
+            Please cite this as:
+            <br><cite>Zaharia Burghelea, https://zackyzz.github.io/quantum</cite>.
+        </p>
     </div>
+    <script src="main.js"></script>
 
 </body>
 
