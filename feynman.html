@@ -24,6 +24,7 @@
                 <li><a href="#chapter3">Accelerated Feynman's trick</a></li>
                 <li><a href="#chapter4">Reversed Feynman's trick</a></li>
                 <li><a href="#chapter5">Heuristics</a></li>
+                <li><a href="#chapter6">Creativity</a></li>
             </ul>
             <li><a href="about.html">About</a></li>
         </ul>
@@ -467,8 +468,8 @@
             In order to obtain that we can notice that the integrand is even, so we can move the bounds to \((-1,1)\) and then substitute \(x\to \frac{1-x}{1+x}\), which is just another useful way to get our bounds at \((0,\infty)\):
             $$I=\frac12\int_{-1}^1 \frac{x^2\ln(1-x^2)}{1+x^4}dx\overset{x\to\frac{1-x}{1+x}}=\frac12\int_0^\infty \frac{(1-x)^2\ln\left(\frac{4x}{(1+x)^2}\right)}{1+6x^2+x^4}dx$$
             We can split the logarithm into two parts and notice that:
-            $$\int_0^\infty \frac{(1-x)^2}{1+6x^2+x^4}dx\overset{x\to\frac{1}{x}}=\frac{\pi}{2\sqrt 2}-\frac{\ln(1+\sqrt 2)}{\sqrt 2}$$
-            $$\int_0^\infty \frac{(1-x)^2\ln(x)}{1+6x^2+x^4}dx\overset{x\to\frac{1}{x}}=-\int_0^\infty \frac{(1-x)^2\ln(x)}{1+6x^2+x^4}dx = 0$$
+            $$\int_0^\infty \frac{(1-x)^2}{1+6x^2+x^4}dx = \frac{\pi}{2\sqrt 2}-\frac{\ln(1+\sqrt 2)}{\sqrt 2}$$
+            $$\int_0^\infty \frac{(1-x)^2\ln(x)}{1+6x^2+x^4}dx\overset{x\to\frac{1}{x}} = -\int_0^\infty \frac{(1-x)^2\ln(x)}{1+6x^2+x^4}dx = 0$$
             Therefore our integral is:
             $$I=\frac{\pi\ln 2}{2\sqrt 2}-\frac{\ln 2\ln(1+\sqrt 2)}{\sqrt 2}-\mathcal J, \quad \mathcal J = \int_0^\infty \frac{(1-x)^2\ln(1+x)}{1+6x^2+x^4}dx$$
             In order to evaluate the latter integral we will employ Feynman's trick. There's not an obvious way to place the parameter as to simplify the denominator, so we'll parameterise the integral as:
@@ -494,9 +495,78 @@
         </p>
         <hr>
         <p>
+            Surely there can be found many heuristics to manipulate integrals up to a point where Feynman's trick becomes usable, but we'll stick with those for now. In order to end this chapter, I propose the following integrals for practice:
+            $$\int_0^\frac{\pi}{2} \ln(\sec^2 x +\tan^4 x)dx=?$$
+        </p>
+        <div class="hidden-hint">
+            <p class="hint">
+                Start by substituting \(\tan x \to x\) then employ Feynman's trick.
+            </p>
+        </div>
+        <p>
+            $$\int_0^\pi \arctan\left(\frac{1+2\cos x}{\sqrt 3}\right)dx=?$$
+        </p>
+        <div class="hidden-hint">
+            <p class="hint">
+                Start by substituting \(\tan\left(\frac{x}{2}\right) \to x\), then split the arctangent function into two parts and use Feynman's trick.
+            </p>
+        </div>
+        <p>
+            $$\int_0^1 \frac{\ln^2 x\ln(1+x)}{1+x^2}dx=?$$
+        </p>
+        <div class="hidden-hint">
+            <p class="hint">
+                Map the bounds from \((0,1)\) to \((0,\infty)\) by substituting \(x\to\frac{1}{x}\), here it is necessary to add the resulting integral with the original one, afterwards use Feynman's trick.
+            </p>
+        </div>
+
+        <hr>
+        <section id="chapter6"> <h3>Creativity</h3> </section>
+        <hr>
+
+        <p>
+            While we can build up some heurestics to have at our disposal, the beauty of integrating comes exactly from the fact that there's not a general approach and often we just have to resort to creativity. In this last chapter we'll take a look at some beautiful integrals that are quite unique, as we'll have to manipulate them up to a point where we can use Feynman's trick in a rather special way.
+        </p>
+
+        <hr>
+        <p>
+            Let's start with the following integral:
+            $$I(a,b,t)=\int_0^t\frac{1}{\sqrt{x^3}} \exp\left({-\frac{(a-bx)^2}{2x}}\right) dx$$
+            The first thing that we're going to do here is to get rid of the square root via the substitution \(\frac{1}{\sqrt x}\to x\):
+            $$\Rightarrow I(a,b,t)=2\int_\frac{1}{\sqrt t}^\infty \exp\left(-\frac12 \left(ax-b/x\right)^2\right)dx$$
+            We can notice that the derivative of \(ax-\frac{b}{x}\) is \(a+\frac{b}{x^2}\) so it would be quite helpful if we had that additional term.
+            Furthermore if we differentiate with respect to \(b\) we'll produce the additional term \(a-\frac{b}{x^2}\), which is quite useful as \((ax-b/x)^2=(ax+b/x)^2+4ab\) and the derivative of \(ax+\frac{b}{x}\) is \(a-\frac{b}{x^2}\). So let's do this:
+            $$\frac{\partial}{\partial b}I(a,b,t)=2\int_\frac{1}{\sqrt t}^\infty \exp\left(-\frac12 \left(ax-b/x\right)^2\right)\left(a-\frac{b}{x^2}\right)dx$$
+            $$=2e^{2ab}\int_\frac{1}{\sqrt t}^\infty \exp\left(-\frac12 (ax+b/x)^2\right)\left(a-\frac{b}{x^2}\right)dx$$
+            $$\overset{ax+b/x\to x}=2e^{2ab}\int_{\frac{a}{\sqrt t}+b\sqrt t}^\infty \exp{\left(-\frac{x^2}{2}\right)}dx=\sqrt{2\pi}e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+b\sqrt t}{\sqrt 2}\right)$$
+            Where \(\operatorname{erfc}(x)\) is the complementary error function. Now let's finish this integral by going back to \(I(a,b,t)\) - we should be careful though as to replace the dummy variable \(b\) with something else as the \(b\) parameter does also appear in the bounds:
+            $$\lim_{b\to -\infty}I(a,b,t)=0\Rightarrow I(a,b,t)=\sqrt{2\pi}\int_{-\infty}^be^{2ax}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+x\sqrt t}{\sqrt 2}\right)dx$$
+            $$\overset{IBP}=\frac{\sqrt{\pi}}{\sqrt 2a}e^{2ax}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+x\sqrt t}{\sqrt 2}\right)\bigg|_{-\infty}^b+\frac{\sqrt t}{a}\int_{-\infty}^b e^{2ax}\exp\left(-\frac{(a+xt)^2}{2t}\right)dx$$
+            $$=\sqrt{\frac{\pi}{2}}\frac{1}{a}e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+b\sqrt t}{\sqrt 2}\right)+\frac{\sqrt t}{a}\int_{-\infty}^b \exp\left(-\frac12\left(x\sqrt{t}-\frac{a}{\sqrt{t}}\right)^2\right)dx$$
+            $$\overset{x\sqrt t-\frac{a}{\sqrt t}\to -x}=\sqrt{\frac{\pi}{2}}\frac{1}{a}e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+b\sqrt t}{\sqrt 2}\right)+\frac{1}{a}\int^{\infty}_{\frac{a}{\sqrt t}-b\sqrt t}\exp\left(-\frac{x^2}{2}\right)dx$$
+            $$=\sqrt{\frac{\pi}{2}}\frac{1}{a}\left(e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+b\sqrt t}{\sqrt 2}\right)+\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}-b\sqrt t}{\sqrt 2}\right)\right)$$
+        </p>
+
+        <hr>
+
+        <p>
+            The next integral that we're going to take a look at is:
+            $$I=\int_{0}^{1}\int_{0}^{1}\frac{x\ln x\ln y}{1-xy}\frac{dxdy}{\ln(xy)}$$
+            We are already got familiar with what to do when the logarithms being in the denominator as we saw that we can get rid of them by using \(\frac{\partial}{\partial t} x^t = x^t\ln x\), however here also the \(1-xy\) term appears. In order to solve this issue we'll make use of the geoemtric series, namely \(\frac{1}{1-x}=\sum_{n=0}^\infty x^n\), but we will expand into series later and simply start with the following integral:
+            $$I(n)=\int_{0}^{1}\int_{0}^{1}\frac{(xy)^{n-1}x\ln x\ln y}{\ln(xy)}dxdy\Rightarrow I'(n)=\int_0^1\int_0^1  (xy)^{n-1} x \ln x \ln y dxdy$$
+            $$=\int_0^1 x^{n} \ln x \, dx \int_0^1 y^{n-1} \ln y\, dy=\frac{1}{(n+1)^2}\frac{1}{n^2}$$
+            Now we have to to get back to \(I(n)\):
+            $$I(n)=-(I(\infty)-I(n))=-\int_n^\infty \frac{1}{(x+1)^2 x^2 } dx=-\frac{1}{n}-\frac{1}{n+1}+2\ln\left(1+\frac{1}{n}\right)$$
+            Finally, we'll sum up to infinity the \((xy)^{n-1}\) term as:
+            $$\int_0^1\int_0^1 \frac{ x\ln x\ln y}{(1-xy)\ln(xy)}dx\ dy=\sum_{n=1}^\infty \int_0^1\int_0^1 \frac{(xy)^{n-1} x\ln x\ln y}{\ln(xy)}dxdy$$
+            $$\small =\sum_{n=1}^\infty \left(-\frac{1}{n}-\frac{1}{n+1}+2\ln\left(1+\frac{1}{n}\right)\right)=\sum_{n=1}^\infty \left(\underbrace{\frac{1}{n}-\frac{1}{n+1}}_{1}-2\left(\underbrace{\frac{1}{n}-\ln\left(1+\frac{1}{n}\right)}_{\gamma}\right)\right)$$
+            So the result is simply \(1-2\gamma\), where \(\gamma\) is the Euler-Mascheroni constant.
+        </p>
+
+        <hr>
+        <p>
             This work is licensed under a <a href = "https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution 4.0 International License</a>.
-            Please cite this as:
-            <br><cite>Zaharia Burghelea, "Feynman's Trick", https://zackyzz.github.io/feynman</cite>.
+            Please cite this as: <cite>Zaharia Burghelea, "Feynman's Trick", https://zackyzz.github.io/feynman</cite>.
         </p>
     </div>
     <script src="main.js"></script>
