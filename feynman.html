@@ -210,8 +210,8 @@
             Similarly to \(I(b)\) we are looking to find \(I(1)\), however here \(I(0)\) is equal to \(\frac12\int_0^1\frac{\ln(2x)}{1+x^2}dx\) not \(0\), so:
             <div class="jaxmath">
                 $$I(t)=\frac12\int_0^1 \frac{\ln(2x+t(1+x^2))}{1+x^2}dx\Rightarrow I'(t)=\frac12\int_0^1 \frac{1}{2x+t(1+x^2)}dx=\frac14\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}$$
-            $$I=I(1)-I(0)+I(0)=\frac14\int_0^1\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}dt+\frac12\int_0^1\frac{\ln(2x)}{1+x^2}dx$$
-            $$\int_0^1\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}dt\overset{\frac{1+\sqrt{1-t^2}}{t}=x}=-2\int_0^1 \frac{\ln x}{1+x^2}dx\Rightarrow I = \frac12\int_0^1 \frac{\ln 2}{1+x^2}dx=\frac{\pi}{8}\ln 2$$
+                $$I=I(1)-I(0)+I(0)=\frac14\int_0^1\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}dt+\frac12\int_0^1\frac{\ln(2x)}{1+x^2}dx$$
+                $$\int_0^1\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}dt\overset{\frac{1+\sqrt{1-t^2}}{t}=x}=-2\int_0^1 \frac{\ln x}{1+x^2}dx\Rightarrow I = \frac12\int_0^1 \frac{\ln 2}{1+x^2}dx=\frac{\pi}{8}\ln 2$$
             </div>
             For this specific integral we only avoided performing partial fractions so there wasn't really a big improvement by simplifying the denominator. However I want to emphasize the importance of this rule of thumb because it will make things come way more natural when deciding where place the parameter. <span class ="important">Of course, in case there's not an appropiate or immediate way to achieve this, it's perfectly fine to place the parameter elsewhere too.</span>
         </p>
@@ -220,7 +220,9 @@
         </p>
 
         <p>
-            $$\int_0^\frac{\pi}{2} \frac{\ln(1-\sin x)}{\sin x}dx = ?$$
+            <div class ="jaxmath">
+                $$\int_0^\frac{\pi}{2} \frac{\ln(1-\sin x)}{\sin x}dx = ?$$
+            </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
@@ -245,7 +247,9 @@
             </p>
         </div>
         <p>
-            $$\int_0^\frac{\pi}{2} \frac{\arctan(\sin x)}{\sin x}dx = ?$$
+            <div class ="jaxmath">
+                $$\int_0^\frac{\pi}{2} \frac{\arctan(\sin x)}{\sin x}dx = ?$$
+            </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
@@ -256,7 +260,9 @@
             </p>
         </div>
         <p>
-            $$\int_0^\infty x^2e^{-\left(4x^2+\frac{9}{x^2}\right)}dx = ?$$
+            <div class ="jaxmath">
+                $$\int_0^\infty x^2e^{-\left(4x^2+\frac{9}{x^2}\right)}dx = ?$$
+            </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
@@ -267,7 +273,9 @@
             </p>
         </div>
         <p>
-            $$\int_0^1 \frac{\ln x}{1-x^2}dx = ?$$
+            <div class ="jaxmath">
+                $$\int_0^1 \frac{\ln x}{1-x^2}dx = ?$$
+            </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
@@ -278,7 +286,9 @@
             </p>
         </div>
         <p>
-            $$\int_0^\infty \frac{e^{-x^2}}{1+x^2}dx = ?$$
+            <div class ="jaxmath">
+                $$\int_0^\infty \frac{e^{-x^2}}{1+x^2}dx = ?$$
+            </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
@@ -289,7 +299,9 @@
             </p>
         </div>
         <p>
-            $$\int_0^\infty \frac{\ln\left(\frac{1-x^2+x^4}{(1-x^2)^2}\right)}{(1+x^2)^2}dx = ?$$
+            <div class ="jaxmath">
+                $$\int_0^\infty \frac{\ln\left(\frac{1-x^2+x^4}{(1-x^2)^2}\right)}{(1+x^2)^2}dx = ?$$
+            </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
@@ -322,7 +334,7 @@
         </p>
         <p>
             This will seem obscure, but fear not as we will never use this approach again.
-            The whole point is to simplify \(1+x^4\) and the above function was made explicitly to achieve that, as \(\frac{\partial}{\partial t}e^{-tx^2}(x^2\sin t+\cos t)=-(1+x^4)e^{-tx^2}\sin t\). Note that even though we introduced a couple other terms, those aren't disturbing.
+            The whole point is to simplify \(1+x^4\) and the above function was made explicitly to achieve that, as \(\frac{\partial}{\partial t}e^{-tx^2}(x^2\sin t+\cos t)\) is \(-(1+x^4)e^{-tx^2}\sin t\). Note that even though we introduced a couple other terms, those aren't disturbing.
             <div class="jaxmath">
                 $$I'(t)=-\sin t\int_{-\infty}^\infty e^{-x^2}e^{-tx^2}dx \overset{(1+t)x^2\to x^2}= -\frac{\sin t}{\sqrt{1+t}} \int_{-\infty}^\infty e^{-x^2}dx=-\sqrt \pi \frac{\sin t}{\sqrt{1+t}}$$
             </div>
@@ -362,7 +374,9 @@
         </p>
         <p>
             Like in the previous chapter below are more integrals alongside some hints in order to practice.
-            $$\int_0^\infty \sin(x^2)dx=?$$
+            <div class ="jaxmath">
+                $$\int_0^\infty \sin(x^2)dx=?$$
+            </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
@@ -370,7 +384,9 @@
             </p>
         </div>
         <p>
-            $$\int_0^\infty \frac{\operatorname{Li}_2(x)}{x\sqrt{1-x^2}}dx=?$$
+            <div class ="jaxmath">
+                $$\int_0^\infty \frac{\operatorname{Li}_2(x)}{x\sqrt{1-x^2}}dx=?$$
+            </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
@@ -378,7 +394,9 @@
             </p>
         </div>
         <p>
-            $$\int_0^1 \frac{\arctan x}{x}\ln\left(\frac{(1+x^2)^3}{(1+x)^2}\right)dx=?$$
+            <div class ="jaxmath">
+                $$\int_0^1 \frac{\arctan x}{x}\ln\left(\frac{(1+x^2)^3}{(1+x)^2}\right)dx=?$$
+            </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
@@ -448,7 +466,9 @@
         </p>
         <p>
             As usual, below are some integrals for more practice with this technique:
-            $$\int_0^\infty x^n e^{-x}dx=?$$
+            <div class ="jaxmath">
+                $$\int_0^\infty x^n e^{-x}dx=?$$
+            </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
@@ -457,7 +477,9 @@
             </p>
         </div>
         <p>
-            $$\int_0^\infty x^2e^{-\left(4x^2+\frac{9}{x^2}\right)}dx = ?$$
+            <div class ="jaxmath">
+                $$\int_0^\infty x^2e^{-\left(4x^2+\frac{9}{x^2}\right)}dx = ?$$
+            </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
@@ -467,7 +489,9 @@
             </p>
         </div>
         <p>
-            $$\int_0^\infty \frac{1}{(1+x^2)^n}dx=?$$
+            <div class ="jaxmath">
+                $$\int_0^\infty \frac{1}{(1+x^2)^n}dx=?$$
+            </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
@@ -601,7 +625,9 @@
         <hr>
         <p>
             Surely there can be found many heuristics to manipulate integrals up to a point where Feynman's trick becomes usable, but we'll stick with those for now. In order to end this chapter, I propose the following integrals for practice:
-            $$\int_0^\frac{\pi}{2} \ln(\sec^2 x +\tan^4 x)dx=?$$
+            <div class="jaxmath">
+                $$\int_0^\frac{\pi}{2} \ln(\sec^2 x +\tan^4 x)dx=?$$
+            </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
@@ -609,7 +635,9 @@
             </p>
         </div>
         <p>
-            $$\int_0^\pi \arctan\left(\frac{1+2\cos x}{\sqrt 3}\right)dx=?$$
+            <div class="jaxmath">
+                $$\int_0^\pi \arctan\left(\frac{1+2\cos x}{\sqrt 3}\right)dx=?$$
+            </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
@@ -617,7 +645,9 @@
             </p>
         </div>
         <p>
-            $$\int_0^1 \frac{\ln^2 x\ln(1+x)}{1+x^2}dx=?$$
+            <div class="jaxmath">
+                $$\int_0^1 \frac{\ln^2 x\ln(1+x)}{1+x^2}dx=?$$
+            </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
@@ -745,7 +775,7 @@
         <hr>
         <p>
             This work is licensed under a <a href = "https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution 4.0 International License</a>.
-            Please cite this as: <cite>Zaharia Burghelea, https://zackyzz.github.io/feynman</cite>.
+            In case you need to, please cite this as: <cite>Zaharia Burghelea, https://zackyzz.github.io/feynman</cite>.
         </p>
     </div>
     <script src="main.js"></script>
