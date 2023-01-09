@@ -9,6 +9,10 @@ body
     overflow-y: hidden;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 .sidebar
 {
     position: fixed;
@@ -89,12 +93,6 @@ body
     font-family: Garamond, serif;
 }
 
-.about
-{
-    padding-left: 20%;
-    padding-right: 25%;
-}
-
 pre
 {
     box-shadow: 0 0.5rem 2.5rem rgba(227, 2, 247, 0.1);
@@ -106,7 +104,6 @@ pre
     margin-left: auto;
     margin-right: auto;
 }
-
 
 a:visited { text-decoration: none; }
 
