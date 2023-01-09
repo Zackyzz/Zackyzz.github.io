@@ -9,7 +9,7 @@ body
     overflow-y: hidden;
 }
 
-::-webkit-scrollbar {
+.jaxmath::-webkit-scrollbar {
     display: none;
 }
 
@@ -69,6 +69,10 @@ body
     justify-content: center;
     text-align: center;
     box-shadow: 0 0.5rem 1.5rem rgba(58, 10, 202, 0.3);
+}
+
+.hidden-hint::-webkit-scrollbar {
+    display: none;
 }
 
 .hint
