@@ -22,7 +22,7 @@
                 <li><a href="#chapter1">Hello, World!</a></li>
                 <li><a href="#chapter2">The parameter</a></li>
                 <li><a href="#chapter3">Accelerated Feynman's trick</a></li>
-                <li><a href="#chapter4">Reversed Feynman's trick</a></li>
+                <li><a href="#chapter4">Partial Feynman's trick</a></li>
                 <li><a href="#chapter5">Heuristics</a></li>
                 <li><a href="#chapter6">Variations</a></li>
             </ul>
@@ -75,14 +75,14 @@
         <p>
             For me employing this trick felt like I was using cheat codes to deal with integrals while in the same
             time it enabled a lot of creativity and wishful thinking which at heart transformed the integrals into puzzles.
-            Unfortunately, in the same time this also means that there's not a clear path on how and when exactly to use
+            Unfortunately, this also means that there's not a clear path on how and when exactly to use
             this technique. In addition, what Feynman wrote still applies today as the method isn't taught much or at all in
-            universities - this means that the trick often comes as obscure and hard to grasp for newcomers.
+            universities - therefore often the trick comes as obscure and hard to grasp for newcomers.
         </p>
         <p>
             In the following we will go into a journey to develop some rules of thumb to have at disposal when using Feynman's trick.
-            I will mention right from the start that those are merely some heuristics that I tend to use, 
-            so deviating from them can be totally fine. However I'm hoping that it can provide a path to have in case nothing
+            Those are merely some heuristics that I tend to use, 
+            so deviating from them can be totally fine, however I'm hoping that it can provide a path to have in case nothing
             obvious or intuitively occurs when someone tries to use this trick, or even better a reason for someone to start using the method.
         </p>
         <hr>
@@ -93,7 +93,7 @@
             the integral sign</span> - this also being an alternative name for the technique.
             More explicitly, if \(f(x,t)\) is well-behaved then the following holds:
             <div class ="jaxmath">
-                $$\frac{d}{dt} \int_a^b f(x, t)dx = \int_a^b \frac{\partial f(x, t)}{\partial t}dx$$
+                \[\frac{d}{dt} \int_a^b f(x, t)dx = \int_a^b \frac{\partial f(x, t)}{\partial t}dx\]
             </div>
         <p>
             This is nice, however not so useful by itself. One common thing that tends to
@@ -101,13 +101,13 @@
             without practice nothing would stick. Take for example chess, most people could understand the rules in a few 
             minutes, however if they would go on to play a game most likely they would get stomped by a more experienced
             player while playing under the same rules, solely because the other player through practice learned some
-            techniques to follow when playing. With that in mind I would like here to jump straightforward into practice in order
+            techniques to follow when playing. With that in mind I would like here to jump straightforward to practice in order
             to get familiar with the trick.
         </p>
         <p>
             As a "Hello, World!" example let's take the following integral:
             <div class ="jaxmath">
-                $$I=\int_0^1 \frac{x-1}{\ln x}dx$$
+                \[I=\int_0^1 \frac{x-1}{\ln x}dx\]
             </div>
             You are encouraged to try and evaluate the integral with basic methods, but the logarithm being in the
             denominator makes this integral quite stubborn to deal with. Feynman's trick aims to get rid of this issue
@@ -117,40 +117,40 @@
         <p>
             Unfortunately in the integral from above we lack a parameter, therefore the first step is to parameterise the integral, which can even mean introducing a whole function, but for this one a simple parameter is enough:
             <div class ="jaxmath">
-                $$I(t)=\int_0^1 \frac{x^t-1}{\ln x}dx$$
+                \[I(t)=\int_0^1 \frac{x^t-1}{\ln x}dx\]
             </div>
-            Keep in mind that our original integral is just \(I(1)\). Also, surely we could've placed parameter in many
+            Keep in mind that our original integral is just \(I(1)\). Also, surely we could've placed the parameter in many
             different places, such as:
             <div class ="jaxmath">
-                $$I(a)=\int_0^1 \frac{x-a}{\ln x}dx, \quad I(b)=\int_0^1 \frac{x-1}{b-\ln x}dx, \quad I(c)=\int_0^1 \frac{x-1}{\ln (cx)}dx\ ...$$
+                \[I(a)=\int_0^1 \frac{x-a}{\ln x}dx, \quad I(b)=\int_0^1 \frac{x-1}{b-\ln x}dx, \quad I(c)=\int_0^1 \frac{x-1}{\ln (cx)}dx\ ...\]
             </div>
-            However the main idea behind the trick, as mentioned above, is to obtain an integral that we can evaluate
+            However the main idea behind the trick is to obtain an integral that we can evaluate
             easier after differentiating with respect to the new parameter. Let's put this in action and see what happens to \(I(t)\).
             <div class ="jaxmath">
-                $$I'(t)=\int_0^1 \frac{\partial}{\partial t}\left(\frac{x^t-1}{\ln x}\right)dx  = \int_0^1x^tdx = \frac{x^{t+1}}{t+1}\bigg|_0^1 = \frac{1}{t+1}$$
+                \[I'(t)=\int_0^1 \frac{\partial}{\partial t}\left(\frac{x^t-1}{\ln x}\right)dx  = \int_0^1x^tdx = \frac{x^{t+1}}{t+1}\bigg|_0^1 = \frac{1}{t+1}\]
             </div>
             Notice how easy it was to evaluate the integral \(I'(t)=\int_0^1x^tdx\) from above, had we kept \(I(a)\), \(I(b)\)
-            or \(I(c)\) the things wouldn't had simplified after differentiating and most devastating is that we would still
-            be left with the \(\ln x\) in the denominator, a thing which made the integral hard to deal with in the first place.
+            or \(I(c)\) the things wouldn't had simplified at all after differentiating and most devastating is that we would still
+            be left with \(\ln x\) in the denominator, a thing which made the integral hard to deal with in the first place.
         </p>
         <p>
             We can already sense that the following might be an important question in the future:
             <span class ="important">How to parameterise the integral when using Feynman's Trick?</span>
         </p>
         <p>
-            But we will worry about that later, for now let's finish the integral as we only found \(I'(t)\).
+            But we will worry about that a bit later, for now let's finish the integral as we only found \(I'(t)\).
             Since we are looking to find \(I(1)\) we need to integrate \(I'(t)\) back and set \(t=1\) in order to arrive there.
             Here it's useful to recall that:
             <div class ="jaxmath">
-                $$\int_a^b f'(x) dx = f(b)-f(a)$$
+                \[\int_a^b f'(x) dx = f(b)-f(a)\]
             </div>
             For us \(f(x)\) is just \(I(t)\) in the above expression. Luckily \(I(0)=0\) and as we are looking for
-            \(I=I(1)\) we can replace \(a\) with \(0\) and \(b\) with \(1\) yielding:
+            \(I=I(1)\) we have:
             <div class ="jaxmath">
-                $$I= I(1)-I(0)=\int_0^1 I'(t)dt = \int_0^1 \frac{1}{1+t}dt=\ln(1+t)\bigg|_0^1 = \ln 2.$$
+                \[I= I(1)-I(0)=\int_0^1 I'(t)dt = \int_0^1 \frac{1}{1+t}dt=\ln(1+t)\bigg|_0^1 = \ln 2\]
             </div>
             So that's the big picture of how Feynman's trick works - we have an integral that is hard to evaluate
-            it's original form, therefore by differentiating under the integral sign
+            in it's original form, therefore by differentiating under the integral sign
             we attempt to transform the integral so that it can be easier integrated and in the end we go back to
             undo the differentiation step.
         </p>
@@ -161,33 +161,34 @@
         <p>
             As emphasized above the main goal of the trick is to obtain an integral that is easier to evaluate after
             differentiating with respect to a parameter and one issue is that it is not always obvious where to place it.
-            In order to develop some heuristics let's take the following integral.
+            In order to make things more intuitively let's take the following integral:
             <div class ="jaxmath">
-                $$I=\int_0^1 \frac{\ln(1+x)}{1+x^2}dx$$
+                \[I=\int_0^1 \frac{\ln(1+x)}{1+x^2}dx\]
             </div>
             The most annoying thing for us is the logarithm, so if we get rid of it everything should be straightforward.
             There are a few parameter possibilities which makes sense to consider, namely:
             <div class ="jaxmath">
-                $$I(a)=\int_0^1\frac{\ln(a+x)}{1+x^2}dx, \quad I(b) = \int_0^1 \frac{\ln(1+bx)}{1+x^2}dx$$
+                \[I(a)=\int_0^1\frac{\ln(a+x)}{1+x^2}dx, \quad I(b) = \int_0^1 \frac{\ln(1+bx)}{1+x^2}dx\]
             </div>
             With the first one we are out of luck, as differentiating with respect to \(a\) gives:
             <div class ="jaxmath">
-                $$I'(a)=\int_0^1 \frac{1}{(a+x)(1+x^2)}dx = \frac{1}{1+a^2}\int_0^1\left(\frac{1}{a+x}+\frac{a}{1+x^2}-\frac{x}{1+x^2}\right)dx$$
-                $$=\frac{\ln(1+a)}{1+a^2}-\frac{\ln a}{1+a^2} +\frac{\pi}{4}\frac{a}{1+a^2}-\frac{\ln 2}{2}\frac{1}{1+a^2}$$
+                \[I'(a)=\int_0^1 \frac{1}{(a+x)(1+x^2)}dx = \frac{1}{1+a^2}\int_0^1\left(\frac{1}{a+x}+\frac{a}{1+x^2}-\frac{x}{1+x^2}\right)dx\]
+                \[=\frac{\ln(1+a)}{1+a^2}-\frac{\ln a}{1+a^2} +\frac{\pi}{4}\frac{a}{1+a^2}-\frac{\ln 2}{2}\frac{1}{1+a^2}\]
             </div>
             Therefore if we would try to go back to what we're looking, which is \(I(1)\), we would end up with
             \(I=I+\text{other stuff}\). This cancels out \(I\) and we wouldn't be able to recover it.
             Unfortunately there's no magic formula that tells a priori whether placing a parameter in a specific place would
-            succeed or fail dealing with an integral and sometimes we are simply unlucky.
+            succeed or fail dealing with an integral - and sometimes we are simply unlucky.
         </p>
         <p>
             In contrast, things work out nicely with the second choice from above as:
             <div class ="jaxmath">
-                $$I'(b)=\int_0^1\frac{x}{(1+bx)(1+x^2)}dx=\frac{1}{1+b^2}\int_0^1\left(\frac{b}{1+x^2}+\frac{x}{1+x^2}-\frac{b}{1+bx}\right)dx$$
-                $$=\frac{\pi}{4}\frac{b}{1+b^2}+\frac{\ln 2}{2}\frac{1}{1+b^2}-\frac{\ln(1+b)}{1+b^2}$$            </div>
+                \[I'(b)=\int_0^1\frac{x}{(1+bx)(1+x^2)}dx=\frac{1}{1+b^2}\int_0^1\left(\frac{b}{1+x^2}+\frac{x}{1+x^2}-\frac{b}{1+bx}\right)dx\]
+                \[=\frac{\pi}{4}\frac{b}{1+b^2}+\frac{\ln 2}{2}\frac{1}{1+b^2}-\frac{\ln(1+b)}{1+b^2}\]
+            </div>
             Again, we are looking to find \(I(1)\) and as \(I(0) = 0\) we have:
             <div class="jaxmath">
-                $$I=\int_0^1 I'(b)db \Rightarrow 2I=\int_0^1 \left(\frac{\pi}{4}\frac{b}{1+b^2}+\frac{\ln 2}{2}\frac{1}{1+b^2}\right)db \Rightarrow I=\frac{\pi}{8}\ln 2$$
+                \[I=\int_0^1 I'(b)db \Rightarrow 2I=\int_0^1 \left(\frac{\pi}{4}\frac{b}{1+b^2}+\frac{\ln 2}{2}\frac{1}{1+b^2}\right)db \Rightarrow I=\frac{\pi}{8}\ln 2\]
             </div>
         </p>
         <p>
@@ -199,117 +200,119 @@
         <p>
             In order to achieve this with our integral we would need to get rid of \(1+x^2\) and by using \(\ln x=\frac12\ln(x^2)\) we can rewrite the integral as:
             <div class="jaxmath">
-                $$I=\int_0^1\frac{\ln(1+x)}{1+x^2}dx=\frac12\int_0^1\frac{\ln(1+2x+x^2)}{1+x^2}dx$$
+                \[I=\int_0^1\frac{\ln(1+x)}{1+x^2}dx=\frac12\int_0^1\frac{\ln(1+2x+x^2)}{1+x^2}dx\]
             </div>
         </p>
         <p>
-            For this one it's more naturally to choose the parameter so that it simplifies \(1+x^2\) when differentiating with respect to \(t\), namely we consider:
+            For this one it's more naturally to place the parameter so that it simplifies \(1+x^2\) when differentiating with respect to \(t\), namely we consider:
             <div class="jaxmath">
-                $$I(t)=\frac12\int_0^1 \frac{\ln(2x+t(1+x^2))}{1+x^2}dx\Rightarrow I'(t)=\frac12\int_0^1 \frac{1}{2x+t(1+x^2)}dx=\frac14\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}$$
+                \[I(t)=\frac12\int_0^1 \frac{\ln(2x+t(1+x^2))}{1+x^2}dx\Rightarrow I'(t)=\frac12\int_0^1 \frac{1}{2x+t(1+x^2)}dx=\frac14\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}\]
             </div>
             Similarly to \(I(b)\) we are looking to find \(I(1)\), however here \(I(0)\) is equal to \(\frac12\int_0^1\frac{\ln(2x)}{1+x^2}dx\) not \(0\), so:
             <div class="jaxmath">
-                $$I(t)=\frac12\int_0^1 \frac{\ln(2x+t(1+x^2))}{1+x^2}dx\Rightarrow I'(t)=\frac12\int_0^1 \frac{1}{2x+t(1+x^2)}dx=\frac14\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}$$
-                $$I=I(1)-I(0)+I(0)=\frac14\int_0^1\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}dt+\frac12\int_0^1\frac{\ln(2x)}{1+x^2}dx$$
-                $$\int_0^1\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}dt\overset{\frac{1+\sqrt{1-t^2}}{t}=x}=-2\int_0^1 \frac{\ln x}{1+x^2}dx\Rightarrow I = \frac12\int_0^1 \frac{\ln 2}{1+x^2}dx=\frac{\pi}{8}\ln 2$$
+                \[I(t)=\frac12\int_0^1 \frac{\ln(2x+t(1+x^2))}{1+x^2}dx\Rightarrow I'(t)=\frac12\int_0^1 \frac{1}{2x+t(1+x^2)}dx=\frac14\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}\]
+                \[I=I(1)-I(0)+I(0)=\frac14\int_0^1\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}dt+\frac12\int_0^1\frac{\ln(2x)}{1+x^2}dx\]
+                \[\int_0^1\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}dt\overset{\frac{1+\sqrt{1-t^2}}{t}=x}=-2\int_0^1 \frac{\ln x}{1+x^2}dx\Rightarrow I = \frac12\int_0^1 \frac{\ln 2}{1+x^2}dx=\frac{\pi}{8}\ln 2\]
             </div>
-            For this specific integral we only avoided performing partial fractions so there wasn't really a big improvement by simplifying the denominator. However I want to emphasize the importance of this rule of thumb because it will make things come way more natural when deciding where place the parameter. <span class ="important">Of course, in case there's not an appropiate or immediate way to achieve this, it's perfectly fine to place the parameter elsewhere too.</span>
+            For this specific integral we only avoided performing partial fractions so there wasn't really a big improvement by simplifying the denominator. However I want to emphasize the importance of this because it will make things come way more natural when deciding where place the parameter. <span class ="important">Of course, in case there's not an appropiate or immediate way to achieve this, it's perfectly fine to try and place the parameter elsewhere too.</span>
         </p>
         <p>
             As mentioned previously, practicing is the best approach to get along with this technique, therefore below are more integrals to evaluate alongside some hidden steps in case those will be needed, however I strongly recommend to try and deal with the integrals before looking at any hints and only check them afterwards for correctness.
         </p>
-
         <p>
             <div class ="jaxmath">
-                $$\int_0^\frac{\pi}{2} \frac{\ln(1-\sin x)}{\sin x}dx = ?$$
+                \[\int_0^\frac{\pi}{2} \frac{\ln(1-\sin x)}{\sin x}dx = ?\]
             </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
                 Consider introducing the following parameter:
-                $$I(t)=\int_0^\frac{\pi}{2} \frac{\ln(1-t\sin x)}{\sin x}dx \Rightarrow I'(t)=\frac{2\arctan\left(\sqrt{\frac{1+t}{1-t}}\right)}{\sqrt{1-t^2}}$$
+                \[I(t)=\int_0^\frac{\pi}{2} \frac{\ln(1-t\sin x)}{\sin x}dx \Rightarrow I'(t)=\frac{2\arctan\left(\sqrt{\frac{1+t}{1-t}}\right)}{\sqrt{1-t^2}}\]
                 This should lead to:
-                $$\int_0^\frac{\pi}{2} \frac{\ln(1-\sin x)}{\sin x}dx = I(1) - I(0)=\int_0^1 I'(t) dt \overset{\sqrt{\frac{1-t}{1+t}}=x} = -\frac{3\pi^2}{8}$$
+                \[\int_0^\frac{\pi}{2} \frac{\ln(1-\sin x)}{\sin x}dx = I(1) - I(0)=\int_0^1 I'(t) dt \overset{\sqrt{\frac{1-t}{1+t}}=x} = -\frac{3\pi^2}{8}\]
                 But it would be even better if the integral would be parameterised as:
-                $$I(t)=\int_0^\frac{\pi}{2} \frac{\ln(1-\sin t\sin x)}{\sin x}dx$$
+                \[I(t)=\int_0^\frac{\pi}{2} \frac{\ln(1-\sin t\sin x)}{\sin x}dx\]
                 That is because usually when having trigonometric functions, parameterising the integral with another trigonometric function leads to a more smoother result.
             </p>
         </div>
         <p>
-            $$\int_0^1 \frac{\ln(1-x+x^2)}{x-x^2}dx = ?$$
+            \[\int_0^1 \frac{\ln(1-x+x^2)}{x-x^2}dx = ?\]
         </p>
         <div class="hidden-hint">
             <p class="hint">
                 Consider introducing the following parameter:
-                $$I(t)=\int_0^1 \frac{\ln(1-t(x-x^2))}{x-x^2}dx\Rightarrow I'(t) = \frac{4\arctan\left(\sqrt{\frac{t}{4-t}}\right)}{\sqrt{t(4-t)}}$$
+                \[I(t)=\int_0^1 \frac{\ln(1-t(x-x^2))}{x-x^2}dx\Rightarrow I'(t) = \frac{4\arctan\left(\sqrt{\frac{t}{4-t}}\right)}{\sqrt{t(4-t)}}\]
                 This should lead to:
-                $$I(1)=\int_0^1 \frac{\ln(1-x+x^2)}{x-x^2}dx = I(1) - I(0) = \int_0^1 I'(t)dt \overset{\sqrt{\frac{4-t}{t}}= x}= -\frac{\pi^2}{9}$$
+                \[I(1)=\int_0^1 \frac{\ln(1-x+x^2)}{x-x^2}dx = I(1) - I(0) = \int_0^1 I'(t)dt \overset{\sqrt{\frac{4-t}{t}}= x}= -\frac{\pi^2}{9}\]
             </p>
         </div>
         <p>
             <div class ="jaxmath">
-                $$\int_0^\frac{\pi}{2} \frac{\arctan(\sin x)}{\sin x}dx = ?$$
+                \[\int_0^\frac{\pi}{2} \frac{\arctan(\sin x)}{\sin x}dx = ?\]
             </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
                 Consider introducing the following parameter:
-                $$I(t)=\int_0^\frac{\pi}{2} \frac{\arctan(t\sin x)}{\sin x}dx\Rightarrow I'(t)=\frac{\pi}{2\sqrt{1+t^2}}$$
+                \[I(t)=\int_0^\frac{\pi}{2} \frac{\arctan(t\sin x)}{\sin x}dx\Rightarrow I'(t)=\frac{\pi}{2\sqrt{1+t^2}}\]
                 This should lead to:
-                $$I(1)=\int_0^\frac{\pi}{2} \frac{\arctan(t\sin x)}{\sin x}dx = I(1)-I(0) = \int_0^1 I'(t)dt = \frac{\pi}{2}\ln(1+\sqrt 2)$$
+                \[I(1)=\int_0^\frac{\pi}{2} \frac{\arctan(t\sin x)}{\sin x}dx = I(1)-I(0) = \int_0^1 I'(t)dt = \frac{\pi}{2}\ln(1+\sqrt 2)\]
+                It will also work if the integral is parameterised as:
+                \[I(t)=\int_0^\frac{\pi}{2} \frac{\arctan(\tan t\sin x)}{\sin x}dx\]
+                However, in this case the first variant is simple enough to integrate back.
             </p>
         </div>
         <p>
             <div class ="jaxmath">
-                $$\int_0^\infty x^2e^{-\left(4x^2+\frac{9}{x^2}\right)}dx = ?$$
+                \[\int_0^\infty x^2e^{-\left(4x^2+\frac{9}{x^2}\right)}dx = ?\]
             </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
                 Consider introducing the following parameter:
-                $$I(t)=\int_0^\infty x^2e^{-\left(4x^2+\frac{t}{x^2}\right)}dx\Rightarrow I'(t)=-\frac{\sqrt \pi}{4} e^{-4\sqrt t}$$
+                \[I(t)=\int_0^\infty x^2e^{-\left(4x^2+\frac{t}{x^2}\right)}dx\Rightarrow I'(t)=-\frac{\sqrt \pi}{4} e^{-4\sqrt t}\]
                 This should lead to:
-                $$\int_0^\infty x^2e^{-\left(4x^2+\frac{9}{x^2}\right)}dx = I(9)- I(0) + I(0) = \int_0^9 I'(t) dt +\frac{\sqrt \pi}{32}=\frac{13}{32}\frac{\sqrt \pi}{e^{12}}$$
+                \[\int_0^\infty x^2e^{-\left(4x^2+\frac{9}{x^2}\right)}dx = I(9)- I(0) + I(0) = \int_0^9 I'(t) dt +\frac{\sqrt \pi}{32}=\frac{13}{32}\frac{\sqrt \pi}{e^{12}}\]
             </p>
         </div>
         <p>
             <div class ="jaxmath">
-                $$\int_0^1 \frac{\ln x}{1-x^2}dx = ?$$
+                \[\int_0^1 \frac{\ln x}{1-x^2}dx = ?\]
             </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
                 Consider parameterising the integral as:
-                $$I(t)=\frac12\int_0^1\frac{\ln(1-t(1-x^2))}{1-x^2}dx\Rightarrow I'(t)=\frac{\arctan\left(\sqrt{\frac{t}{1-t}}\right)}{2\sqrt{t(1-t)}}$$
+                \[I(t)=\frac12\int_0^1\frac{\ln(1-t(1-x^2))}{1-x^2}dx\Rightarrow I'(t)=\frac{\arctan\left(\sqrt{\frac{t}{1-t}}\right)}{2\sqrt{t(1-t)}}\]
                 This should lead to:
-                $$\int_0^1 \frac{\ln x}{1-x^2}dx = I(1)- I(0) = \int_0^1 I'(t)dt \overset{\sqrt{\frac{1-t}{t}} = x}= -\frac{\pi^2}{8}$$
+                \[\int_0^1 \frac{\ln x}{1-x^2}dx = I(1)- I(0) = \int_0^1 I'(t)dt \overset{\sqrt{\frac{1-t}{t}} = x}= -\frac{\pi^2}{8}\]
             </p>
         </div>
         <p>
             <div class ="jaxmath">
-                $$\int_0^\infty \frac{e^{-x^2}}{1+x^2}dx = ?$$
+                \[\int_0^\infty \frac{e^{-x^2}}{1+x^2}dx = ?\]
             </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
                 Consider parameterising the integral as:
-                $$I(t)=\int_0^\infty \frac{e^{-t(1+x^2)}}{1+x^2}dx\Rightarrow I'(t) = -\frac{\sqrt \pi}{2\sqrt t}e^{-t}$$
+                \[I(t)=\int_0^\infty \frac{e^{-t(1+x^2)}}{1+x^2}dx\Rightarrow I'(t) = -\frac{\sqrt \pi}{2\sqrt t}e^{-t}\]
                 This should lead to:
-                $$\int_0^\infty \frac{e^{-x^2}}{1+x^2}dx = e\left(I(1)-I(t\to \infty)\right) = -e\int_1^\infty I'(t)dt= \frac{\pi e}{2}\operatorname{erfc}(1)$$
+                \[\int_0^\infty \frac{e^{-x^2}}{1+x^2}dx = e\left(I(1)-I(t\to \infty)\right) = -e\int_1^\infty I'(t)dt= \frac{\pi e}{2}\operatorname{erfc}(1)\]
             </p>
         </div>
         <p>
             <div class ="jaxmath">
-                $$\int_0^\infty \frac{\ln\left(\frac{1-x^2+x^4}{(1-x^2)^2}\right)}{(1+x^2)^2}dx = ?$$
+                \[\int_0^\infty \frac{\ln\left(\frac{1-x^2+x^4}{(1-x^2)^2}\right)}{(1+x^2)^2}dx = ?\]
             </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
                 Since \(1-x^2+x^4=(1+x^2)^2-3x^2\), consider parameterising the integral as:
-                $$I(t)=\int_0^\infty \frac{\ln\left(\frac{t(1+x^2)^2-3x^2}{(1-x^2)^2}\right)}{(1+x^2)^2}dx\Rightarrow I'(t)=\frac{\pi}{2\sqrt{t(4t-3)}}$$
+                \[I(t)=\int_0^\infty \frac{\ln\left(\frac{t(1+x^2)^2-3x^2}{(1-x^2)^2}\right)}{(1+x^2)^2}dx\Rightarrow I'(t)=\frac{\pi}{2\sqrt{t(4t-3)}}\]
                 And in order to go back it should be observed that \(\frac34(1+x^2)^2-3x^2=\frac34(1-x^2)^2\):
-                $$\int_0^\infty \frac{\ln\left(\frac{1-x^2+x^4}{(1-x^2)^2}\right)}{(1+x^2)^2}dx=I(1)- I\left(\frac34\right)+ I\left(\frac34\right)$$
-                $$=\int_\frac34^1 I'(t)dt + \frac{\pi}{4}\ln\left(\frac{3}{4}\right) = \frac{\pi}{2}\ln\left(\frac32\right) $$
+                \[\int_0^\infty \frac{\ln\left(\frac{1-x^2+x^4}{(1-x^2)^2}\right)}{(1+x^2)^2}dx=I(1)- I\left(\frac34\right)+ I\left(\frac34\right)\]
+                \[=\int_\frac34^1 I'(t)dt + \frac{\pi}{4}\ln\left(\frac{3}{4}\right) = \frac{\pi}{2}\ln\left(\frac32\right)\]
             </p>
         </div>
 
@@ -322,181 +325,205 @@
         <p>
             In this chapter we will look at a different way to obtain this simplification. Let's start by looking at a modified version of an integral that was previously given as an exercise:
             <div class="jaxmath">
-                $$I=\int_{-\infty}^\infty \frac{e^{-x^2}}{1+x^4}dx$$
+                \[I=\int_{-\infty}^\infty \frac{e^{-x^2}}{1+x^4}dx\]
             </div>
             With \(\int_{-\infty}^\infty \frac{e^{-x^2}}{1+x^2}dx\) it was quite direct to parameterise the integral as \(\int_{-\infty}^\infty \frac{e^{-t(1+x^2)}}{1+x^2}dx\) since it simplifies the denominator, however the similar way to do that for our integral: \(\int_{-\infty}^\infty \frac{e^{-x^2-t(1+x^4)}}{1+x^4}dx\) doesn't seem to work as it complicates things a bit too much.
         </p>
         <p>
             There is however a way to simplify the denominator and in the same time to obtain a decent integral afterwards. Without any explanation I will parameterise the integral as:
             <div class="jaxmath">
-                $$I(t)=\int_{-\infty}^\infty \frac{e^{-x^2}}{1+x^4} e^{-tx^2}(x^2\sin t+\cos t) dx$$
+                \[I(t)=\int_{-\infty}^\infty \frac{e^{-x^2}}{1+x^4} e^{-tx^2}(x^2\sin t+\cos t) dx\]
             </div>
         </p>
         <p>
             This will seem obscure, but fear not as we will never use this approach again.
-            The whole point is to simplify \(1+x^4\) and the above function was made explicitly to achieve that, as \(\frac{\partial}{\partial t}e^{-tx^2}(x^2\sin t+\cos t)\) is \(-(1+x^4)e^{-tx^2}\sin t\). Note that even though we introduced a couple other terms, those aren't disturbing.
+            The whole point is to simplify \(1+x^4\) and the above function was created explicitly to achieve that, as \(\frac{\partial}{\partial t}e^{-tx^2}(x^2\sin t+\cos t)\) is \(-(1+x^4)e^{-tx^2}\sin t\). Note that even though we introduced a couple other terms, those aren't disturbing.
             <div class="jaxmath">
-                $$I'(t)=-\sin t\int_{-\infty}^\infty e^{-x^2}e^{-tx^2}dx \overset{(1+t)x^2\to x^2}= -\frac{\sin t}{\sqrt{1+t}} \int_{-\infty}^\infty e^{-x^2}dx=-\sqrt \pi \frac{\sin t}{\sqrt{1+t}}$$
+                \[I'(t)=-\sin t\int_{-\infty}^\infty e^{-x^2}e^{-tx^2}dx \overset{(1+t)x^2\to x^2}= -\frac{\sin t}{\sqrt{1+t}} \int_{-\infty}^\infty e^{-x^2}dx=-\sqrt \pi \frac{\sin t}{\sqrt{1+t}}\]
             </div>
             Here we are looking to find \(I=I(0)\) and also \(I(t\to\infty)=0\), therefore we have:
             <div class="jaxmath">
-                $$I=-\int_0^\infty I'(t)dt=\sqrt \pi \int_0^\infty \frac{\sin t}{\sqrt{1+t}}dt\overset{\sqrt{1+t}=x}=2\sqrt \pi \int_1^\infty \sin(x^2-1)dx$$
-                $$=2\sqrt{\pi} \cos 1 \int_1^\infty\sin(x^2)dx-2\sqrt{\pi} \sin  1 \int_1^\infty\cos(x^2)dx$$
-                $$=\pi\cos 1\frac{1-2S\left(\sqrt{\frac{2}{\pi}}\right)}{\sqrt 2}-\pi\sin 1\frac{1-2C\left(\sqrt{\frac{2}{\pi}}\right)}{\sqrt 2}$$
+                \[I=-\int_0^\infty I'(t)dt=\sqrt \pi \int_0^\infty \frac{\sin t}{\sqrt{1+t}}dt\overset{\sqrt{1+t}=x}=2\sqrt \pi \int_1^\infty \sin(x^2-1)dx\]
+                \[=2\sqrt{\pi} \cos 1 \int_1^\infty\sin(x^2)dx-2\sqrt{\pi} \sin  1 \int_1^\infty\cos(x^2)dx\]
+                \[=\pi\cos 1\frac{1-2S\left(\sqrt{\frac{2}{\pi}}\right)}{\sqrt 2}-\pi\sin 1\frac{1-2C\left(\sqrt{\frac{2}{\pi}}\right)}{\sqrt 2}\]
             </div>
-            Where \(S(x)\) and \(C(x)\) are Fresnel integrals, however the result itself isn't that important here.
+            Where \(S(x)\) and \(C(x)\) are Fresnel integrals, however the approach is important here, not the result itself.
         </p>
         <p>
-            We can avoid the parametrisation from above by directly using \(\frac{1}{1+x^4}=\int_0^\infty e^{-tx^2}\sin t dt\) and switch to double integrals, or put in other words employ the <span class ="important">accelerated Feynman's trick</span> (meaning that we skip the usual parameterisation step):
+            We can avoid the parametrisation from above by directly using \(\frac{1}{1+x^4}=\int_0^\infty e^{-tx^2}\sin t \, dt\) and switch to double integrals, or put in other words: employ the <span class ="important">accelerated Feynman's trick</span> (meaning that we skip the usual parameterisation step).
             <div class="jaxmath">
-                $$I=\int_{-\infty}^\infty \frac{e^{-x^2}}{1+x^4}dx = \int_{-\infty}^\infty e^{-x^2}\int_0^\infty e^{-tx^2}\sin t dtdx$$
-                $$=\int_{0}^\infty \sin t\int_{-\infty}^\infty e^{-x^2}e^{-tx^2}dxdt\overset{(1+t)x^2\to x^2}=\sqrt{\pi}\int_0^\infty \frac{\sin t}{\sqrt{1+t}}dt$$
+                \[I=\int_{-\infty}^\infty \frac{e^{-x^2}}{1+x^4}dx = \int_{-\infty}^\infty e^{-x^2}\int_0^\infty e^{-tx^2}\sin t \, dtdx\]
+                \[=\int_{0}^\infty \sin t\int_{-\infty}^\infty e^{-x^2}e^{-tx^2}dxdt\overset{(1+t)x^2\to x^2}=\sqrt{\pi}\int_0^\infty \frac{\sin t}{\sqrt{1+t}}dt\]
             </div>
         </p>
         <p>
             The rest goes exactly as with the previous method as all we did here was to skip differentiating with respect to the newly parameterised integral and instead we switched to double integrals.
         </p>
         <p>
-            A natural question that arises here is how did \(\frac{1}{1+x^4}=\int_0^\infty e^{-tx^2}\sin t dt\) appear? Or even better, how can on come up with similar results for other integrals? In the case from above simply the Laplace transform was used, however in general it's useful to have a list of such results. There are tables of integral results that can be used - for example one from the book Table of Integrals, Series, and Products by Gradshteyn and Ryzhik - or one can keep their own table of such results.
+            A natural question that arises here is how did \(\frac{1}{1+x^4}=\int_0^\infty e^{-tx^2}\sin t dt\) appear? Or even better, how can on come up with similar results for other integrals? In the case from above simply the Laplace transform of the sine function was used, however in general it's useful to have a list of such identities. There are tables of integral results that can be used - for example: Table of Integrals, Series, and Products by Gradshteyn and Ryzhik - alternatively one can build up their own list of results which tend to appear often while evaluating other integrals.
+
+            A few useful of them are:
+            \[\int_0^\infty e^{-xt}\sin t dt =\frac{1}{1+x^2}, \quad \int_0^\infty e^{-xt} dt = \frac{1}{x}, \quad \int_0^\infty e^{-xt^2}dt = \frac{\sqrt \pi}{2\sqrt x}\]
+            \[\int_0^1 \frac{\ln t}{t-\frac{1}{x}}dt = \operatorname{Li}_2(x), \quad \int_0^x \frac{\arctan t}{1+xt}dt = \frac{\arctan x \ln(1+x^2)}{2x}\]
         <hr>
             Let's conclude this chapter by evaluating one of the most popular integrals that appears when Feynman's trick gets into the conversation, namely:
             <div class="jaxmath">
-                $$I=\int_0^\infty \frac{\sin x}{x}dx$$
+                \[I=\int_0^\infty \frac{\sin x}{x}dx\]
             </div>
             Since \(\int_0^\infty e^{-xt} dt = \frac{1}{x}\) we can make use of this to rewrite the integral as:
             <div class="jaxmath">
-                $$I=\int_0^\infty \int_0^\infty \sin x e^{-xt}dtdx = \int_0^\infty \int_0^\infty \sin x e^{-xt}dxdt=\int_0^\infty \frac{1}{1+t^2}dt =\frac{\pi}{2}$$
+                \[I=\int_0^\infty \int_0^\infty \sin x e^{-xt}dtdx = \int_0^\infty \int_0^\infty \sin x e^{-xt}dxdt=\int_0^\infty \frac{1}{1+t^2}dt =\frac{\pi}{2}\]
             </div>
             Alternatively we can also consider the parameter version of this integral: \(\int_0^\infty \frac{\sin x}{x}e^{-xt}dx\), however I feel like switching to double integrals is way more intuitively.
         </p>
         <p>
-            It might be worth to highlight again that this method should be used preferable when parameterising the integral fails. For the above integral the natural introduction of \(\int_0^\infty \frac{\sin(tx)}{x}dx\) unfortunatelly does fail, as we obtain a divergent integral after differentiating under the integral sign.
+            It might be worth to highlight again that this method should be used preferable when parameterising the integral leads to nowhere. For the above integral the natural introduction of \(\int_0^\infty \frac{\sin(tx)}{x}dx\) unfortunatelly does fail, as we obtain a divergent integral after differentiating under the integral sign.
         </p>
         <p>
             Like in the previous chapter below are more integrals alongside some hints in order to practice.
+        </p>
+        <p>
             <div class ="jaxmath">
-                $$\int_0^\infty \sin(x^2)dx=?$$
+                \[\int_0^\infty \sin(x^2)dx=?\]
             </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
-                Start by substituting \(x^2\to x\) and then switch to double integrals using: $$\int_0^\infty e^{-xt^2}dt = \frac{\sqrt \pi}{2\sqrt x}$$
+                Start by substituting \(x^2\to x\) and then switch to double integrals using:
+                \[\int_0^\infty e^{-xt^2}dt = \frac{\sqrt \pi}{2\sqrt x}\]
             </p>
         </div>
         <p>
             <div class ="jaxmath">
-                $$\int_0^\infty \frac{\operatorname{Li}_2(x)}{x\sqrt{1-x^2}}dx=?$$
+                \[\int_0^\infty \frac{\operatorname{Li}_2(x)}{x\sqrt{1-x^2}}dx=?\]
             </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
-                Switch directly to double integrals by using: $$\int_0^1 \frac{\ln t}{t-\frac{1}{x}}dt = \operatorname{Li}_2(x)$$
+                Switch directly to double integrals by using:
+                \[\int_0^1 \frac{\ln t}{t-\frac{1}{x}}dt = \operatorname{Li}_2(x)\]
             </p>
         </div>
         <p>
             <div class ="jaxmath">
-                $$\int_0^1 \frac{\arctan x}{x}\ln\left(\frac{(1+x^2)^3}{(1+x)^2}\right)dx=?$$
+                \[\int_0^1 \frac{\arctan x}{x}\ln\left(\frac{(1+x^2)^3}{(1+x)^2}\right)dx=?\]
             </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
                 Start by splitting the integral into two parts, namely:
-                $$3\int_0^1 \frac{\arctan x\ln(1+x^2)}{x}dx-2\int_0^1 \frac{\arctan x\ln(1+x)}{x}dx$$
-                Afterwards employ the accelerated Feynman's trick to the first integral, using: $$\int_0^x \frac{\arctan t}{1+xt}dt = \frac{\arctan x \ln(1+x^2)}{2x}$$
+                \[3\int_0^1 \frac{\arctan x\ln(1+x^2)}{x}dx-2\int_0^1 \frac{\arctan x\ln(1+x)}{x}dx\]
+                Afterwards employ the accelerated Feynman's trick to the first integral, using:
+                \[\int_0^x \frac{\arctan t}{1+xt}dt = \frac{\arctan x \ln(1+x^2)}{2x}\]
+            </p>
+        </div>
+        <p>
+            <div class ="jaxmath">
+                \[\int_{-\infty}^\infty \frac{x}{\pi^2+x^2}\frac{e^{2 x}}{(1+e^{ x})^3}dx\]
+            </div>
+        </p>
+        <div class="hidden-hint">
+            <p class="hint">
+                Consider switching to double integrals with:
+                \[\frac{x}{\pi^2+x^2}=\Im\left(-\frac{1}{\pi+ix}\right)=-\Im\int_0^\infty e^{-(\pi+ix)t}dt\]
+                It's also really useful to try and see what happens when the Laplace transform of the cosine function is used instead, or the equivalent:
+                \[\frac{x}{\pi^2+x^2}=\Re\left(\frac{1}{i\pi+x}\right)=\Re\int_0^\infty e^{-(i\pi+x)t}dt\]
             </p>
         </div>
 
         <hr>
-        <section id="chapter4"> <h3>Reversed Feynman's trick</h3> </section>
+        <section id="chapter4"> <h3>Partial Feynman's trick</h3> </section>
         <hr>
 
         <p>
-            So far we've seen the exact same steps when employing Feynman's trick, namely we parameterised the integrals followed by differentiating them under the integral sign and then to undo the last step we integrated back. There are however some cases we would actually get a much easier integral if we would integrate instead of differentiating the newly parameterised integral - alternatively put, there are cases where it would be enough to differentiate under the integral sign without performing the "undo" step. Let's make this more clear by looking at the following integral:
+            So far we've seen the exact same steps when using Feynman's trick, namely we parameterised the integrals followed by differentiating them under the integral sign and then to undo the last step we integrated back. There are however cases where it would be enough to differentiate under the integral sign without performing the undo step. Let's make this more clear by looking at the following integral:
             <div class="jaxmath">
-                $$I = \int_0^1 x \ln x\, dx$$
+                \[I = \int_0^1 x \ln x\, dx\]
             </div>
-            We can remember from the "Hello, World!" integral that \(\frac{\partial}{\partial t}x^t = x^t \ln x\) and looking at the right hand side, by putting \(t=1\) we would end up with the integrand of \(I\), however it is much easier to deal the left hand side integrand, \(x^t\). Therefore in order to evaluate this integral we will perform the <span class ="important">reversed Feynman's trick</span>:
+            We can remember from the "Hello, World!" integral that \(\frac{\partial}{\partial t}x^t = x^t \ln x\) and looking at the right hand side, by putting \(t=1\) we would end up with the integrand of \(I\), however it is much easier to deal the left hand side integrand, \(x^t\). Therefore in order to evaluate this integral we will perform the <span class ="important">partial Feynman's trick</span>:
             <div class="jaxmath">
-                $$I(t)=\int_0^1 x^t dx = \frac{1}{1+t} \Rightarrow I'(t) = -\frac{1}{(1+t)^2}$$
+                \[I(t)=\int_0^1 x^t dx = \frac{1}{1+t} \Rightarrow I'(t) = -\frac{1}{(1+t)^2}\]
             </div>
-            We are looking here to find \(I'(1)\), so this is over quite quickly as:
+            We are looking here to find \(I'(1)\), so this is over quickly as:
             <div class="jaxmath">
-                $$I'(t)=\int_0^1 x^t \ln x\, dx \Rightarrow I'(1)= -\frac{1}{4}$$
+                \[I'(t)=\int_0^1 x^t \ln x\, dx \Rightarrow I'(1)= -\frac{1}{4}\]
             </div>
         </p>
         <hr>
         <p>
             The whole point of the above was to get a glimpse of what is meant by this specific method. Now let's go deeper by considering the following double integral:
             <div class="jaxmath">
-                $$I=\int_0^1\int_0^1 \left(\frac{-\ln(xy)}{1-xy}\right)^mdxdy$$
+                \[I=\int_0^1\int_0^1 \left(\frac{-\ln(xy)}{1-xy}\right)^mdxdy\]
             </div>
             In order to generate the \(\ln(xy)\) part it's straightforward as we will do exactly as with the previous integral, namely we can introduce:
             <div class="jaxmath">
-                $$I(a)=\int_0^1\int_0^1 \frac{(xy)^a}{(1-xy)^m}dxdy$$
+                \[I(a)=\int_0^1\int_0^1 \frac{(xy)^a}{(1-xy)^m}dxdy\]
             </div>
             And then differentiating with respect to \(a\), \(m\) times followed by setting \(a=0\) will gives us the desired integral, ignoring the \((-1)^m\) term. However the denominator is still troublesome and to deal with that we will introduce one more parameter:
             <div class="jaxmath">
-                $$I(a,z)=\int_0^1\int_0^1 \frac{(xy)^a}{z-xy}dxdy$$
+                \[I(a,z)=\int_0^1\int_0^1 \frac{(xy)^a}{z-xy}dxdy\]
             </div>
             This is perfect as we can recover our original integral by differentiating with respect to \(a\), \(m\) times and with respect to \(z\), \(m-1\) times followed by setting \(a=0\) and respectively \(z=1\), ignoring some coefficients.
         </p>
         <p>
             In order to evaluate \(I(a,z)\) we can expand the denominator into geometric series:
             <div class="jaxmath">
-                $$I(a,z)=\int_0^1\int_0^1 \frac{(xy)^a}{z-xy}dxdy=\frac{1}{z}\sum_{n=0}^\infty \int_0^1\int_0^1(xy)^a\left(\frac{xy}{z}\right)^ndxdy$$
-                $$=\sum_{n=0}^\infty \frac{1}{z^{n+1}}\int_0^1x^{n+a}dx\int_0^1y^{n+a}dy=\sum_{n=1}^\infty \frac{1}{z^{n+2}}\frac{1}{(n+a)^2}$$
+                \[I(a,z)=\int_0^1\int_0^1 \frac{(xy)^a}{z-xy}dxdy=\frac{1}{z}\sum_{n=0}^\infty \int_0^1\int_0^1(xy)^a\left(\frac{xy}{z}\right)^ndxdy\]
+                \[=\sum_{n=0}^\infty \frac{1}{z^{n+1}}\int_0^1x^{n+a}dx\int_0^1y^{n+a}dy=\sum_{n=1}^\infty \frac{1}{z^{n+2}}\frac{1}{(n+a)^2}\]
             </div>
             Now taking \(m\) derivatives with respect to \(a\) and setting it to \(0\) yields:
             <div class="jaxmath">
-                $$\frac{\partial^m}{\partial a^m}I(a,z) = \int_0^1\int_0^1 \frac{\ln^m(xy)}{z-xy} dxdy =(-1)^m (m+1)!\sum_{n=1}^\infty \frac{1}{z^{n+2}}\frac{1}{n^{m+2}}$$
+                \[\frac{\partial^m}{\partial a^m}I(a,z) = \int_0^1\int_0^1 \frac{\ln^m(xy)}{z-xy} dxdy =(-1)^m (m+1)!\sum_{n=1}^\infty \frac{1}{z^{n+2}}\frac{1}{n^{m+2}}\]
             </div>
             This can be also rewriten using the polylogarithm function as:
             <div class="jaxmath">
-                $$\int_0^1\int_0^1 \frac{(-\ln(xy))^m}{z-xy} dxdy = (m+1)!\operatorname{Li}_{m+2}\left(\frac{1}{z}\right)$$
+                \[\int_0^1\int_0^1 \frac{(-\ln(xy))^m}{z-xy} dxdy = (m+1)!\operatorname{Li}_{m+2}\left(\frac{1}{z}\right)\]
             </div>
             Finally we can arrive at our original integral by taking \(m-1\) derivatives with respect to \(z\) and setting it to \(1\):
             <div class="jaxmath">
-                $$(-1)^m(m-1)!\int_0^1\int_0^1 \frac{(-\ln(xy))^m}{(1-xy)^m}dxdy=(m+1)!\frac{d^{m-1}}{dz^{m-1}}\operatorname{Li}_{m+2}\left(\frac{1}{z}\right)\bigg|_{z=1}$$
+                \[(-1)^m(m-1)!\int_0^1\int_0^1 \frac{(-\ln(xy))^m}{(1-xy)^m}dxdy=(m+1)!\frac{d^{m-1}}{dz^{m-1}}\operatorname{Li}_{m+2}\left(\frac{1}{z}\right)\bigg|_{z=1}\]
             </div>
             Although the derivation from above was the important part, by using \(\frac{\partial}{\partial z} \operatorname{Li}_n(z) = \frac{\operatorname{Li}_{n-1}(z)}{z}\) the result can be also written as:
             <div class="jaxmath">
-                $$\int_0^1\int_0^1 \left(\frac{-\ln(xy)}{1-xy}\right)^m dxdy =m(m+1)\sum_{k=1}^{m-1}|s(m-1,m-k)|\zeta(k+2)$$
+                \[\int_0^1\int_0^1 \left(\frac{-\ln(xy)}{1-xy}\right)^m dxdy =m(m+1)\sum_{k=1}^{m-1}|s(m-1,m-k)|\zeta(k+2)\]
             </div>
             Where \(s(n,m)\) is the Stirling number of the first kind and \(\zeta(z)\) is the Riemann zeta function.
         </p>
         <p>
             As usual, below are some integrals for more practice with this technique:
+        </p>
+        <p>
             <div class ="jaxmath">
-                $$\int_0^\infty x^n e^{-x}dx=?$$
+                \[\int_0^\infty x^n e^{-x}dx=?\]
             </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
                 Differentiate \(n\) times with respect to \(a\) and in the end set \(a\) to \(1\) in the following integral:
-                $$\int_0^\infty e^{-ax}dx$$
+                \[\int_0^\infty e^{-ax}dx\]
             </p>
         </div>
         <p>
             <div class ="jaxmath">
-                $$\int_0^\infty x^2e^{-\left(4x^2+\frac{9}{x^2}\right)}dx = ?$$
+                \[\int_0^\infty x^2e^{-\left(4x^2+\frac{9}{x^2}\right)}dx = ?\]
             </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
                 This was already given as an exercise in a previous chapter and obviously sometimes there are many ways to approach an integral. However, in the spirit of this chapter consider starting by evaluating the following integral:
-                $$I(t)=\int_0^\infty e^{-\left(tx^2+\frac{9}{x^2}\right)}dx$$
+                \[I(t)=\int_0^\infty e^{-\left(tx^2+\frac{9}{x^2}\right)}dx\]
                 Afterwards differentiate the result once with respect to \(t\).
             </p>
         </div>
         <p>
             <div class ="jaxmath">
-                $$\int_0^\infty \frac{1}{(1+x^2)^n}dx=?$$
+                \[\int_0^\infty \frac{1}{(1+x^2)^n}dx=?\]
             </div>
         </p>
         <div class="hidden-hint">
             <p class="hint">
                 Differentiate \(n-1\) times with respect to \(a\) and in the end set \(a\) to \(1\) in the following integral:
-                $$\int_0^\infty \frac{1}{a+x^2}dx$$
+                \[\int_0^\infty \frac{1}{a+x^2}dx\]
             </p>
         </div>
 
@@ -511,122 +538,124 @@
         <p>
             Consistence is quite important when dealing with integral, so stick with rational functions. We will see what exactly is meant by that when dealing with the following integral:
             <div class="jaxmath">
-                $$I=\int_0^\frac{\pi}{2}\ln(2+\tan^2 x)dx$$
+                \[I=\int_0^\frac{\pi}{2}\ln(2+\tan^2 x)dx\]
             </div>
             Two possible ways to parameterise the integral are as follows:
             <div class="jaxmath">
-                $$I(a)=\int_0^\frac{\pi}{2}\ln(a+\tan^2 x)dx,\quad I(b)=\int_0^\frac{\pi}{2}\ln(2+b\tan^2 x)dx$$
+                \[I(a)=\int_0^\frac{\pi}{2}\ln(a+\tan^2 x)dx,\quad I(b)=\int_0^\frac{\pi}{2}\ln(2+b\tan^2 x)dx\]
             </div>
             Turns out both works, but we can do better. Another rule of thumb that I follow is to use almost exclusive rational functions as they often provide the most visibility to work with. Let's do that for our integral too:
             <div class="jaxmath">
-                $$I=\int_0^\frac{\pi}{2}\ln(2+\tan^2 x)dx\overset{\tan x\to x}=\int_0^\infty \frac{\ln(2+x^2)}{1+x^2}dx$$
+                \[I=\int_0^\frac{\pi}{2}\ln(2+\tan^2 x)dx\overset{\tan x\to x}=\int_0^\infty \frac{\ln(2+x^2)}{1+x^2}dx\]
             </div>
             At this point it should be obvious where to place the parameter so that we can simplify the denominator. We have:
             <div class="jaxmath">
-                $$I(t)=\int_0^\infty \frac{\ln(1+t(1+x^2))}{1+x^2}dx\Rightarrow I'(t)=\int_0^\infty \frac{1}{1+t+tx^2}dx=\frac{\pi}{2}\frac{1}{\sqrt t\sqrt{1+t}}$$
-                $$\Rightarrow I=\int_0^1I'(t)dt=\frac{\pi}{2}\int_0^1 \frac{1}{\sqrt t\sqrt{1+t}}dx\overset{t=x^2}=\pi\int_0^1\frac{1}{\sqrt{1+x^2}}dx=\pi\ln(1+\sqrt 2)$$
+                \[I(t)=\int_0^\infty \frac{\ln(1+t(1+x^2))}{1+x^2}dx\Rightarrow I'(t)=\int_0^\infty \frac{1}{1+t+tx^2}dx=\frac{\pi}{2}\frac{1}{\sqrt t\sqrt{1+t}}\]
+                \[\Rightarrow I=\int_0^1I'(t)dt=\frac{\pi}{2}\int_0^1 \frac{1}{\sqrt t\sqrt{1+t}}dx\overset{t=x^2}=\pi\int_0^1\frac{1}{\sqrt{1+x^2}}dx=\pi\ln(1+\sqrt 2)\]
             </div>
-            Obviously, if you're already more used to trigonometric functions, hyperbolic functions or anything else then this can be ignored. I however tend to switch fast to rational functions, a few exceptions being when there's a clear way to parameterise the integral or when at least one of the bounds is \(\infty\).
+            Obviously, if you're already more used to trigonometric functions, hyperbolic functions or anything else then this can be ignored. I however recommend switching to rational functions, a few exceptions being when there's a clear way to parameterise the integral or when at least one of the bounds is \(\infty\).
         </p>
         <hr>
         <p>
             Before parameterising the integrals is quite useful to clean the disturbing functions as much as possible before any parameterisation. Let's elucidate this with the following integral:
             <div class="jaxmath">
-                $$I=\int_0^\frac{\pi}{2}\arctan\left(\frac{2\sin x}{2\cos x -1}\right)\frac{\sin\left(\frac{x}{2}\right)}{\sqrt{\cos x}}dx$$
+                \[I=\int_0^\frac{\pi}{2}\arctan\left(\frac{2\sin x}{2\cos x -1}\right)\frac{\sin\left(\frac{x}{2}\right)}{\sqrt{\cos x}}dx\]
             </div>
             At the first glance it might seem like a super complicated integral. However, as we have trigonometric functions all over the place we know what the first step should be, namely we'll employ the Weierstrass substitution \(\tan\left(\frac{x}{2}\right)\to x\) in order to obtain only rational functions:
             <div class="jaxmath">
-                $$\Rightarrow I = 2\int_0^1 \frac{x\arctan\left(\frac{4x}{1-3x^2}\right)}{\sqrt{1-x^2}(1+x^2)}dx$$
+                \[\Rightarrow I = 2\int_0^1 \frac{x\arctan\left(\frac{4x}{1-3x^2}\right)}{\sqrt{1-x^2}(1+x^2)}dx\]
             </div>
-            We would like to place parameterise the integral so that we get rid of the arctangent function, unfortunately here it is a bit to overloaded therefore we'll clean it a bit by splitting it into two. In case it's not obvious how to do that directly we can differentiate it, perform partial fractions and then integrate back:
+            We would like to place parameterise the integral so that we get rid of the arctangent function, unfortunately here it is a bit overloaded, therefore we'll clean it by splitting it into two. In case it's not obvious how to do that directly we can differentiate it, perform partial fractions and then integrate back:
             <div class="jaxmath">
-                $$\frac{d}{dx}\arctan\left(\frac{4x}{1-3x^2}\right)=\frac{12x^2+4}{9x^4+10x^2+1}=\frac{1}{1+x^2}+\frac{3}{1+9x^2}$$
-                $$\Rightarrow \int \left(\frac{1}{1+x^2}+\frac{3}{1+9x^2}\right) dx = \arctan x + \arctan(3x) + C$$
+                \[\frac{d}{dx}\arctan\left(\frac{4x}{1-3x^2}\right)=\frac{12x^2+4}{9x^4+10x^2+1}=\frac{1}{1+x^2}+\frac{3}{1+9x^2}\]
+                \[\Rightarrow \int \left(\frac{1}{1+x^2}+\frac{3}{1+9x^2}\right) dx = \arctan x + \arctan(3x) + C\]
             </div>
-            However since we're integrating over the \((0,1)\) interval we have that \(x \cdot 3 x>1\) for \(x > \frac{1}{\sqrt 3}\), so we can rewrite the integral as:
+            However since we're integrating over the \((0,1)\) interval we have that \(x \cdot 3 x>1\) for \(x > \frac{1}{\sqrt 3}\), so we need to rewrite the integral as:
             <div class="jaxmath">
-                $$I=2\int_0^1 \frac{x(\arctan x + \arctan(3x))}{\sqrt{1-x^2}(1+x^2)}dx - 2 \int_\frac{1}{\sqrt 3}^1 \frac{x}{\sqrt{1-x^2}(1+x^2)}dx$$
-                $$= 2 \mathcal J - \frac{\pi}{\sqrt 2}\ln(2+\sqrt 3)$$
+                \[I=2\int_0^1 \frac{x(\arctan x + \arctan(3x))}{\sqrt{1-x^2}(1+x^2)}dx - 2 \int_\frac{1}{\sqrt 3}^1 \frac{x}{\sqrt{1-x^2}(1+x^2)}dx\]
+                \[= 2 \mathcal J - \frac{\pi}{\sqrt 2}\ln(2+\sqrt 3)\]
             </div>
             At this point there's only left to evaluate the first integral, \(\mathcal J\), for which we'll employ Feynman's trick. There isn't any way to place the parameter so that we get rid of anything from the denominator so we'll simply consider the following integral:
             <div class="jaxmath">
-                $$\mathcal J(t)=\int_0^1 \frac{x(\arctan x + \arctan(tx))}{\sqrt{1-x^2}(1+x^2)}dx\Rightarrow \mathcal J'(t) = \int_0^1 \frac{x^2}{\sqrt{1-x^2}(1+x^2)(1+t^2 x^2)}dx$$
+                \[\mathcal J(t)=\int_0^1 \frac{x(\arctan x + \arctan(tx))}{\sqrt{1-x^2}(1+x^2)}dx\Rightarrow \mathcal J'(t) = \int_0^1 \frac{x^2}{\sqrt{1-x^2}(1+x^2)(1+t^2 x^2)}dx\]
             </div>
             In general when we have rational functions it is prefered to integrate over \((0,\infty)\), if possible, as it drastically reduces the result. Especially when there's the derivative of \(\arcsin x\) in the denominator one way to map \((0,1)\) to \((0,\infty)\) is to directly substitute \(\cot(\arcsin x) \to x \Leftrightarrow x \to \frac{1}{\sqrt{1+x^2}}\). Therefore we obtain:
             <div class="jaxmath">
-                $$\mathcal J=\int_0^\infty \frac{1}{(2+x^2)(1+t^2+x^2)}dx = \frac{\pi}{2(1-t^2)}\left(\frac{1}{\sqrt{1+t^2}}-\frac{1}{\sqrt 2}\right)$$
+                \[\mathcal J=\int_0^\infty \frac{1}{(2+x^2)(1+t^2+x^2)}dx = \frac{\pi}{2(1-t^2)}\left(\frac{1}{\sqrt{1+t^2}}-\frac{1}{\sqrt 2}\right)\]
             </div>
             We are looking to find \(\mathcal J(3)\) and we also have that \(\mathcal J(-1)=0\), therefore our integral is:
             <div class="jaxmath">
-                $$\mathcal J = \frac{\pi}{2}\int_{-1}^3 \frac{1}{(1-t^2)}\left(\frac{1}{\sqrt{1+t^2}}-\frac{1}{\sqrt 2}\right)dt$$
+                \[\mathcal J = \frac{\pi}{2}\int_{-1}^3 \frac{1}{(1-t^2)}\left(\frac{1}{\sqrt{1+t^2}}-\frac{1}{\sqrt 2}\right)dt\]
             </div>
             In order to finish this integral we'll subsitute \(t = \frac{1-x}{1+x}\):
             <div class="jaxmath">
-                $$\Rightarrow \mathcal J = \frac{\pi}{4}\int_{-\frac12}^\infty \frac{1}{x}\left(\frac{1+x}{\sqrt 2 \sqrt{1+x^2}}-\frac{1}{\sqrt 2}\right)dx=\frac{\pi}{\sqrt 2}\ln \left(\frac{1+\sqrt 5}{2}\right)$$
+                \[\Rightarrow \mathcal J = \frac{\pi}{4}\int_{-\frac12}^\infty \frac{1}{x}\left(\frac{1+x}{\sqrt 2 \sqrt{1+x^2}}-\frac{1}{\sqrt 2}\right)dx=\frac{\pi}{\sqrt 2}\ln \left(\frac{1+\sqrt 5}{2}\right)\]
             </div>
-            Finally, we can conclude that:
+            And finally, we can conclude that:
             <div class="jaxmath">
-                $$\int_0^\frac{\pi}{2}\arctan\left(\frac{2\sin x}{2\cos x -1}\right)\frac{\sin\left(\frac{x}{2}\right)}{\sqrt{\cos x}}dx=\sqrt 2 \pi \ln \left(\frac{1+\sqrt 5}{2}\right)- \frac{\pi}{\sqrt 2}\ln(2+\sqrt 3)$$
+                \[\int_0^\frac{\pi}{2}\arctan\left(\frac{2\sin x}{2\cos x -1}\right)\frac{\sin\left(\frac{x}{2}\right)}{\sqrt{\cos x}}dx=\sqrt 2 \pi \ln \left(\frac{1+\sqrt 5}{2}\right)- \frac{\pi}{\sqrt 2}\ln(2+\sqrt 3)\]
             </div>
         </p>
         <hr>
         <p>
-            Another useful thing is to manipulate the bounds so that they get rid of any complicated functions for the differentiated integral, usually denoted as \(I'(t)\). This will almost always give a smoother and easier integral that we have to "undo". We will show this in action considering the following integral:
+            Another useful thing to consider is to manipulate the bounds prior to parameterising the integral so that they get rid of any complicated functions for the differentiated integral, \(I'(t)\). This will almost always give a smoother and easier integral that we have to undo. We will show this in action considering the following integral:
             <div class="jaxmath">
-                $$I=\int_0^1 \frac{x^2 \ln(1-x^2)}{1+x^4}dx$$
+                \[I=\int_0^1 \frac{x^2 \ln(1-x^2)}{1+x^4}dx\]
             </div>
         </p>
         <p>
-            With the integral from the previous "heuristic" we already seen that it is useful to integrate over \((0,\infty)\) when there are some rational functions - therefore we will attempt to do the same with this integral. You are encouraged to try and see what kind of mess it would be produced by parameterising the integral as it is, in any way possible when the bounds are \((0,1)\). However we will jump straightforward to get our bounds to \((0,\infty)\).
+            With the integral from the previous "heuristic" we already seen that it is useful to integrate over \((0,\infty)\) when there are some rational functions - therefore we will attempt to do the same with this integral. You are encouraged to try and see what kind of mess it would be produced by parameterising the integral as it is, when the bounds are \((0,1)\). However we will jump straightforward to get our bounds to \((0,\infty)\).
         </p>
         <p>
             In order to obtain that we can notice that the integrand is even, so we can move the bounds to \((-1,1)\) and then substitute \(x\to \frac{1-x}{1+x}\), which is just another useful way to get our bounds at \((0,\infty)\):
             <div class="jaxmath">
-                $$I=\frac12\int_{-1}^1 \frac{x^2\ln(1-x^2)}{1+x^4}dx\overset{x\to\frac{1-x}{1+x}}=\frac12\int_0^\infty \frac{(1-x)^2\ln\left(\frac{4x}{(1+x)^2}\right)}{1+6x^2+x^4}dx$$
+                \[I=\frac12\int_{-1}^1 \frac{x^2\ln(1-x^2)}{1+x^4}dx\overset{x\to\frac{1-x}{1+x}}=\frac12\int_0^\infty \frac{(1-x)^2\ln\left(\frac{4x}{(1+x)^2}\right)}{1+6x^2+x^4}dx\]
             </div>
-            We can split the logarithm into two parts and notice that:
+            We can split the logarithm into three parts and notice that:
             <div class="jaxmath">
-                $$\int_0^\infty \frac{(1-x)^2}{1+6x^2+x^4}dx = \frac{\pi}{2\sqrt 2}-\frac{\ln(1+\sqrt 2)}{\sqrt 2}$$
-                $$\int_0^\infty \frac{(1-x)^2\ln(x)}{1+6x^2+x^4}dx\overset{x\to\frac{1}{x}} = -\int_0^\infty \frac{(1-x)^2\ln(x)}{1+6x^2+x^4}dx = 0$$
+                \[\int_0^\infty \frac{(1-x)^2}{1+6x^2+x^4}dx = \frac{\pi}{2\sqrt 2}-\frac{\ln(1+\sqrt 2)}{\sqrt 2}\]
+                \[\int_0^\infty \frac{(1-x)^2\ln(x)}{1+6x^2+x^4}dx\overset{x\to\frac{1}{x}} = -\int_0^\infty \frac{(1-x)^2\ln(x)}{1+6x^2+x^4}dx = 0\]
             </div>
             Therefore our integral is:
             <div class="jaxmath">
-                $$I=\frac{\pi\ln 2}{2\sqrt 2}-\frac{\ln 2\ln(1+\sqrt 2)}{\sqrt 2}-\mathcal J, \quad \mathcal J = \int_0^\infty \frac{(1-x)^2\ln(1+x)}{1+6x^2+x^4}dx$$
+                \[I=\frac{\pi\ln 2}{2\sqrt 2}-\frac{\ln 2\ln(1+\sqrt 2)}{\sqrt 2}-\mathcal J, \quad \mathcal J = \int_0^\infty \frac{(1-x)^2\ln(1+x)}{1+6x^2+x^4}dx\]
             </div>
-            In order to evaluate the latter integral we will employ Feynman's trick. There's not an obvious way to place the parameter as to simplify the denominator, so we'll parameterise the integral as:
+            In order to evaluate the emerging integral we will perform Feynman's trick. There's not an obvious way to place the parameter as to simplify the denominator, so we'll parameterise the integral as:
             <div class="jaxmath">
-                $$\mathcal J(a) = \int_0^\infty \frac{(1-x)^2\ln(1+ax)}{1+6x^2+x^4}dx\Rightarrow \mathcal J'(a)\int_0^\infty \frac{x(1-x)^2}{(1+ax)(1+6x^2+x^4)}dx$$
-                $$=-\frac{(1+a)^2\ln a}{1+6a^2+a^4}-\frac{\ln(1+\sqrt 2)}{\sqrt 2}\frac{a(3-a+a^2)+1}{1+6a^2+a^4}+\frac{\pi}{2\sqrt 2}\frac{a(3+a+a^2)-1}{1+6a^2+a^4}$$
+                \[\mathcal J(a) = \int_0^\infty \frac{(1-x)^2\ln(1+ax)}{1+6x^2+x^4}dx\Rightarrow \mathcal J'(a)\int_0^\infty \frac{x(1-x)^2}{(1+ax)(1+6x^2+x^4)}dx\]
+                \[=-\frac{(1+a)^2\ln a}{1+6a^2+a^4}-\frac{\ln(1+\sqrt 2)}{\sqrt 2}\frac{a(3-a+a^2)+1}{1+6a^2+a^4}+\frac{\pi}{2\sqrt 2}\frac{a(3+a+a^2)-1}{1+6a^2+a^4}\]
             </div>
             The partial fraction was ommited above, as what's really important is that we're left only with a simple \(\ln a\) as a "disturbing" function - in contrast if the bounds were \((0,1)\) things would have been way more complicated.
         </p>
         <p>
             Let's finish this integral as we still have to undo the differentiating step.
             <div class="jaxmath">
-                $$\mathcal J(1)=\mathcal J(1)-\mathcal J(0)=\int_0^1 J'(a)da$$
-                $$=-\int_0^1\frac{(1+a)^2\ln a}{1+6a^2+a^4}da-\frac{\pi\ln(1+\sqrt 2)}{8\sqrt 2}-\frac{3\ln 2\ln(1+\sqrt 2)}{4\sqrt 2}-\frac{\pi^2}{16\sqrt 2}+\frac{3\pi\ln 2}{8\sqrt 2}$$
-                $$\int_0^1\frac{(1+x)^2\ln x}{1+6x^2+x^4}dx=\int_0^1\left(\frac{1}{2\sqrt 2}\frac{(1+\sqrt 2)-x}{(1+\sqrt 2)^2+x^2}-\frac{1}{2\sqrt 2}\frac{(1-\sqrt 2)-x}{(1-\sqrt 2)^2+x^2}\right)\ln x \, dx$$
-                $$\small =\frac{1}{8\sqrt 2}\left(\operatorname{Li}_2\left(-(1+\sqrt 2)^2\right)-\operatorname{Li}_2\left(-(1-\sqrt 2)^2\right)\right)+\frac{1}{2\sqrt 2}\left(\operatorname{Ti}_2\left(-(1+\sqrt 2)\right)-\operatorname{Ti}_2\left(-(1-\sqrt 2)\right)\right)$$
+                \[\mathcal J(1)=\mathcal J(1)-\mathcal J(0)=\int_0^1 J'(a)da\]
+                \[=-\int_0^1\frac{(1+a)^2\ln a}{1+6a^2+a^4}da-\frac{\pi\ln(1+\sqrt 2)}{8\sqrt 2}-\frac{3\ln 2\ln(1+\sqrt 2)}{4\sqrt 2}-\frac{\pi^2}{16\sqrt 2}+\frac{3\pi\ln 2}{8\sqrt 2}\]
+                \[\int_0^1\frac{(1+x)^2\ln x}{1+6x^2+x^4}dx=\int_0^1\left(\frac{1}{2\sqrt 2}\frac{(1+\sqrt 2)-x}{(1+\sqrt 2)^2+x^2}-\frac{1}{2\sqrt 2}\frac{(1-\sqrt 2)-x}{(1-\sqrt 2)^2+x^2}\right)\ln x \, dx\]
+                \[\small =\frac{1}{8\sqrt 2}\left(\operatorname{Li}_2\left(-(1+\sqrt 2)^2\right)-\operatorname{Li}_2\left(-(1-\sqrt 2)^2\right)\right)+\frac{1}{2\sqrt 2}\left(\operatorname{Ti}_2\left(-(1+\sqrt 2)\right)-\operatorname{Ti}_2\left(-(1-\sqrt 2)\right)\right)\]
             </div>
             The result from above follows since:
             <div class="jaxmath">
-                $$\int_0^1 \frac{x\ln x}{a^2+x^2}dx\overset{x^2\to x}=\frac14\int_0^1 \frac{\ln x}{a^2+x}dx=\frac14\operatorname{Li}_2\left(-\frac{1}{a^2}\right)$$
-                $$\int_0^1 \frac{a\ln x}{a^2+x^2}dx\overset{x\to ax}=\int_0^\frac1a\frac{\ln a +\ln x}{1+x^2}dx\overset{IBP}=-\operatorname{Ti}_2\left(\frac1a\right)$$
+                \[\int_0^1 \frac{x\ln x}{a^2+x^2}dx\overset{x^2\to x}=\frac14\int_0^1 \frac{\ln x}{a^2+x}dx=\frac14\operatorname{Li}_2\left(-\frac{1}{a^2}\right)\]
+                \[\int_0^1 \frac{a\ln x}{a^2+x^2}dx\overset{x\to ax}=\int_0^\frac1a\frac{\ln a +\ln x}{1+x^2}dx\overset{IBP}=-\operatorname{Ti}_2\left(\frac1a\right)\]
             </div>
             Where \(\operatorname{Li}_2(x)\) is the dilogarithm and \(\operatorname{Ti}_2(x)\) is the inverse tangent integral.
         </p>
         <p>
             Finally, collecting all the results yields:
             <div class="jaxmath">
-                $$I=\frac{\pi^2}{16\sqrt 2}+\frac{\pi \ln 2}{8\sqrt 2}+\frac{\pi\ln(1+\sqrt 2)}{8\sqrt 2}-\frac{\ln 2\ln(1+\sqrt 2)}{4\sqrt 2}$$
-                $$\small +\frac{1}{8\sqrt 2}\left(\operatorname{Li}_2\left(-(1+\sqrt 2)^2\right)-\operatorname{Li}_2\left(-(1-\sqrt 2)^2\right)\right)+\frac{1}{2\sqrt 2}\left(\operatorname{Ti}_2\left(-(1+\sqrt 2)\right)-\operatorname{Ti}_2\left(-(1-\sqrt 2)\right)\right)$$
+                \[I=\frac{\pi^2}{16\sqrt 2}+\frac{\pi \ln 2}{8\sqrt 2}+\frac{\pi\ln(1+\sqrt 2)}{8\sqrt 2}-\frac{\ln 2\ln(1+\sqrt 2)}{4\sqrt 2}\]
+                \[\small +\frac{1}{8\sqrt 2}\left(\operatorname{Li}_2\left(-(1+\sqrt 2)^2\right)-\operatorname{Li}_2\left(-(1-\sqrt 2)^2\right)\right)+\frac{1}{2\sqrt 2}\left(\operatorname{Ti}_2\left(-(1+\sqrt 2)\right)-\operatorname{Ti}_2\left(-(1-\sqrt 2)\right)\right)\]
             </div>
         </p>
         <hr>
         <p>
             Surely there can be found many heuristics to manipulate integrals up to a point where Feynman's trick becomes usable, but we'll stick with those for now. In order to end this chapter, I propose the following integrals for practice:
+        </p>
+        <p>
             <div class="jaxmath">
-                $$\int_0^\frac{\pi}{2} \ln(\sec^2 x +\tan^4 x)dx=?$$
+                \[\int_0^\frac{\pi}{2} \ln(\sec^2 x +\tan^4 x)dx=?\]
             </div>
         </p>
         <div class="hidden-hint">
@@ -636,7 +665,7 @@
         </div>
         <p>
             <div class="jaxmath">
-                $$\int_0^\pi \arctan\left(\frac{1+2\cos x}{\sqrt 3}\right)dx=?$$
+                \[\int_0^\pi \arctan\left(\frac{1+2\cos x}{\sqrt 3}\right)dx=?\]
             </div>
         </p>
         <div class="hidden-hint">
@@ -646,7 +675,7 @@
         </div>
         <p>
             <div class="jaxmath">
-                $$\int_0^1 \frac{\ln^2 x\ln(1+x)}{1+x^2}dx=?$$
+                \[\int_0^1 \frac{\ln^2 x\ln(1+x)}{1+x^2}dx=?\]
             </div>
         </p>
         <div class="hidden-hint">
@@ -660,124 +689,106 @@
         <hr>
 
         <p>
-            While we can build up some heurestics to have at our disposal, the beauty of integrating comes exactly from the fact that there's not a general approach and often we just have to resort to creativity. In this last chapter we'll take a look at some interesting variations of Feynman's trick which can help to enlarge the applicability of the technique.
+            While we can build up some heurestics to have at our disposal, the beauty of integrating comes exactly from the fact that there's not a general approach and often we just have to resort to creativity. We already described two variations of Feynman's trick that are more popular, similarly in this last chapter we'll take a look at more interesting variations of Feynman's trick which can help to enlarge the applicability of the technique.
         </p>
 
         <hr>
         <p>
-            Let's start with the following integral:
+            We will start by taking a look at how Feynman's trick can be applied to indefinite integrals. Let's consider:
             <div class="jaxmath">
-                $$I(a,b,t)=\int_0^t\frac{1}{\sqrt{x^3}} \exp\left({-\frac{(a-bx)^2}{2x}}\right) dx$$
+                \[\int \frac{1}{\sqrt{x^3}} \exp\left({-\frac{(a-bx)^2}{2x}}\right) dx\]
             </div>
-            The first thing that we're going to do here is to get rid of the square root via the substitution \(\frac{1}{\sqrt x}\to x\):
+            <p>
+                In this form it makes no sense to differentiate the integral with respect to any parameter, but we can extend the integral with temporary bounds, like:
+            </p>
             <div class="jaxmath">
-                $$\Rightarrow I(a,b,t)=2\int_\frac{1}{\sqrt t}^\infty \exp\left(-\frac12 \left(ax-b/x\right)^2\right)dx$$
+                \[I(a,b,t)=\int_0^t\frac{1}{\sqrt{x^3}} \exp\left({-\frac{(a-bx)^2}{2x}}\right) dx\]
+            </div>
+            Now it's fine to differentiate under the integral sign, however the first thing that we're going to do here is to get rid of the square root via the substitution \(\frac{1}{\sqrt x}\to x\):
+            <div class="jaxmath">
+                \[\Rightarrow I(a,b,t)=2\int_\frac{1}{\sqrt t}^\infty \exp\left(-\frac12 \left(ax-b/x\right)^2\right)dx\]
             </div>
             We can notice that the derivative of \(ax-\frac{b}{x}\) is \(a+\frac{b}{x^2}\) so it would be quite helpful if we had that additional term.
             Furthermore if we differentiate with respect to \(b\) we'll produce the additional term \(a-\frac{b}{x^2}\), which is quite useful as \((ax-b/x)^2=(ax+b/x)^2+4ab\) and the derivative of \(ax+\frac{b}{x}\) is \(a-\frac{b}{x^2}\). So let's do this:
             <div class="jaxmath">
-                $$\frac{\partial}{\partial b}I(a,b,t)=2\int_\frac{1}{\sqrt t}^\infty \exp\left(-\frac12 \left(ax-b/x\right)^2\right)\left(a-\frac{b}{x^2}\right)dx$$
-                $$=2e^{2ab}\int_\frac{1}{\sqrt t}^\infty \exp\left(-\frac12 (ax+b/x)^2\right)\left(a-\frac{b}{x^2}\right)dx$$
-                $$\overset{ax+b/x\to x}=2e^{2ab}\int_{\frac{a}{\sqrt t}+b\sqrt t}^\infty \exp{\left(-\frac{x^2}{2}\right)}dx=\sqrt{2\pi}e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+b\sqrt t}{\sqrt 2}\right)$$
+                \[\frac{\partial}{\partial b}I(a,b,t)=2\int_\frac{1}{\sqrt t}^\infty \exp\left(-\frac12 \left(ax-b/x\right)^2\right)\left(a-\frac{b}{x^2}\right)dx\]
+                \[=2e^{2ab}\int_\frac{1}{\sqrt t}^\infty \exp\left(-\frac12 (ax+b/x)^2\right)\left(a-\frac{b}{x^2}\right)dx\]
+                \[\overset{ax+b/x\to x}=2e^{2ab}\int_{\frac{a}{\sqrt t}+b\sqrt t}^\infty \exp{\left(-\frac{x^2}{2}\right)}dx=\sqrt{2\pi}e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+b\sqrt t}{\sqrt 2}\right)\]
             </div>
             Where \(\operatorname{erfc}(x)\) is the complementary error function. Now let's finish this integral by going back to \(I(a,b,t)\) - we should be careful though as to replace the dummy variable \(b\) with something else as the \(b\) parameter does also appear in the bounds:
             <div class="jaxmath">
-                $$\lim_{b\to -\infty}I(a,b,t)=0\Rightarrow I(a,b,t)=\sqrt{2\pi}\int_{-\infty}^be^{2ax}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+x\sqrt t}{\sqrt 2}\right)dx$$
-                $$\overset{IBP}=\frac{\sqrt{\pi}}{\sqrt 2a}e^{2ax}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+x\sqrt t}{\sqrt 2}\right)\bigg|_{-\infty}^b+\frac{\sqrt t}{a}\int_{-\infty}^b e^{2ax}\exp\left(-\frac{(a+xt)^2}{2t}\right)dx$$
-                $$=\sqrt{\frac{\pi}{2}}\frac{1}{a}e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+b\sqrt t}{\sqrt 2}\right)+\frac{\sqrt t}{a}\int_{-\infty}^b \exp\left(-\frac12\left(x\sqrt{t}-\frac{a}{\sqrt{t}}\right)^2\right)dx$$
-                $$\overset{x\sqrt t-\frac{a}{\sqrt t}\to -x}=\sqrt{\frac{\pi}{2}}\frac{1}{a}e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+b\sqrt t}{\sqrt 2}\right)+\frac{1}{a}\int^{\infty}_{\frac{a}{\sqrt t}-b\sqrt t}\exp\left(-\frac{x^2}{2}\right)dx$$
-                $$=\sqrt{\frac{\pi}{2}}\frac{1}{a}\left(e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+b\sqrt t}{\sqrt 2}\right)+\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}-b\sqrt t}{\sqrt 2}\right)\right)$$
+                \[\lim_{b\to -\infty}I(a,b,t)=0\Rightarrow I(a,b,t)=\sqrt{2\pi}\int_{-\infty}^be^{2ax}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+x\sqrt t}{\sqrt 2}\right)dx\]
+                \[\overset{IBP}=\frac{\sqrt{\pi}}{\sqrt 2a}e^{2ax}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+x\sqrt t}{\sqrt 2}\right)\bigg|_{-\infty}^b+\frac{\sqrt t}{a}\int_{-\infty}^b e^{2ax}\exp\left(-\frac{(a+xt)^2}{2t}\right)dx\]
+                \[=\sqrt{\frac{\pi}{2}}\frac{1}{a}e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+b\sqrt t}{\sqrt 2}\right)+\frac{\sqrt t}{a}\int_{-\infty}^b \exp\left(-\frac12\left(x\sqrt{t}-\frac{a}{\sqrt{t}}\right)^2\right)dx\]
+                \[\overset{x\sqrt t-\frac{a}{\sqrt t}\to -x}=\sqrt{\frac{\pi}{2}}\frac{1}{a}e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+b\sqrt t}{\sqrt 2}\right)+\frac{1}{a}\int^{\infty}_{\frac{a}{\sqrt t}-b\sqrt t}\exp\left(-\frac{x^2}{2}\right)dx\]
+                \[=\sqrt{\frac{\pi}{2}}\frac{1}{a}\left(e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+b\sqrt t}{\sqrt 2}\right)+\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}-b\sqrt t}{\sqrt 2}\right)\right)\]
+                Or for the indefinite integral, this would be equivalent to:
+                \[\small \int \frac{1}{\sqrt{x^3}} \exp\left({-\frac{(a-bx)^2}{2x}}\right) dx=\sqrt{\frac{\pi}{2}}\frac{1}{a}\left(e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt x}+b\sqrt x}{\sqrt 2}\right)+\operatorname{erfc}\left(\frac{\frac{a}{\sqrt x}-b\sqrt x}{\sqrt 2}\right)\right)+C\]
             </div>
         </p>
 
         <hr>
 
         <p>
-            The next integral that we're going to take a look at is:
+            Next, we will take a look at how to combine Feynman's trick with power series. For this we are going to consider the following integral: 
             <div class="jaxmath">
-                $$I=\int_{0}^{1}\int_{0}^{1}\frac{x\ln x\ln y}{1-xy}\frac{dxdy}{\ln(xy)}$$
+                \[I=\int_{0}^{1}\int_{0}^{1}\frac{x\ln x\ln y}{1-xy}\frac{dxdy}{\ln(xy)}\]
             </div>
-            We are already got familiar with what to do when the logarithms being in the denominator as we saw that we can get rid of them by using \(\frac{\partial}{\partial t} x^t = x^t\ln x\), however here also the \(1-xy\) term appears. In order to solve this issue we'll make use of the geoemtric series, namely \(\frac{1}{1-x}=\sum_{n=0}^\infty x^n\), but we will expand into series later and simply start with the following integral:
+            We are already got familiar with what to do when there is a logarithm in the denominator as we saw that we can get rid of them by using \(\frac{\partial}{\partial t} x^t = x^t\ln x\), however here also the \(1-xy\) term appears. In order to solve this issue we'll make use of the geoemtric series, namely \(\frac{1}{1-x}=\sum_{n=0}^\infty x^n\), but we will expand into series later and simply start with the following integral:
             <div class="jaxmath">
-                $$I(n)=\int_{0}^{1}\int_{0}^{1}\frac{(xy)^{n-1}x\ln x\ln y}{\ln(xy)}dxdy\Rightarrow I'(n)=\int_0^1\int_0^1  (xy)^{n-1} x \ln x \ln y dxdy$$
-                $$=\int_0^1 x^{n} \ln x \, dx \int_0^1 y^{n-1} \ln y\, dy=\frac{1}{(n+1)^2}\frac{1}{n^2}$$
+                \[I(n)=\int_{0}^{1}\int_{0}^{1}\frac{(xy)^{n-1}x\ln x\ln y}{\ln(xy)}dxdy\Rightarrow I'(n)=\int_0^1\int_0^1  (xy)^{n-1} x \ln x \ln y dxdy\]
+                \[=\int_0^1 x^{n} \ln x \, dx \int_0^1 y^{n-1} \ln y\, dy=\frac{1}{(n+1)^2}\frac{1}{n^2}\]
             </div>
             Now we have to to get back to \(I(n)\):
             <div class="jaxmath">
-                $$I(n)=-(I(\infty)-I(n))=-\int_n^\infty \frac{1}{(x+1)^2 x^2 } dx=-\frac{1}{n}-\frac{1}{n+1}+2\ln\left(1+\frac{1}{n}\right)$$
+                \[I(n)=-(I(\infty)-I(n))=-\int_n^\infty \frac{1}{(x+1)^2 x^2 } dx=-\frac{1}{n}-\frac{1}{n+1}+2\ln\left(1+\frac{1}{n}\right)\]
             </div>
-            Finally, we'll go back to using the geometric series:
+            Finally, let's put the geometric series to use:
             <div class="jaxmath">
-                $$\int_0^1\int_0^1 \frac{ x\ln x\ln y}{(1-xy)\ln(xy)}dx\ dy=\sum_{n=1}^\infty \int_0^1\int_0^1 \frac{(xy)^{n-1} x\ln x\ln y}{\ln(xy)}dxdy$$
-                $$\small =\sum_{n=1}^\infty \left(-\frac{1}{n}-\frac{1}{n+1}+2\ln\left(1+\frac{1}{n}\right)\right)=\sum_{n=1}^\infty \left(\underbrace{\frac{1}{n}-\frac{1}{n+1}}_{1}-2\left(\underbrace{\frac{1}{n}-\ln\left(1+\frac{1}{n}\right)}_{\gamma}\right)\right)$$
+                \[\int_0^1\int_0^1 \frac{ x\ln x\ln y}{(1-xy)\ln(xy)}dx\ dy=\sum_{n=1}^\infty \int_0^1\int_0^1 \frac{(xy)^{n-1} x\ln x\ln y}{\ln(xy)}dxdy\]
+                \[\small =\sum_{n=1}^\infty \left(-\frac{1}{n}-\frac{1}{n+1}+2\ln\left(1+\frac{1}{n}\right)\right)=\sum_{n=1}^\infty \left(\underbrace{\frac{1}{n}-\frac{1}{n+1}}_{1}-2\left(\underbrace{\frac{1}{n}-\ln\left(1+\frac{1}{n}\right)}_{\gamma}\right)\right)\]
             </div>
             So the result is simply \(1-2\gamma\), where \(\gamma\) is the Euler-Mascheroni constant.
         </p>
 
         <hr>
-        
-        <p>
-            Our next integral will be:
-            <div class="jaxmath">
-                $$I=\int_0^\infty \frac{1-x^2}{(1+x^2)^2}\operatorname{sech}^2 \left(\frac{\pi x}{2}\right)dx$$
-            </div>
-            We will start by doing some manipulation to the integral:
-            <div class="jaxmath">
-                $$I=\frac12\int_{-\infty}^\infty \frac{1-x^2}{(1+x^2)^2}\operatorname{sech}^2 \left(\frac{\pi x}{2}\right) dx\overset{IBP}=\frac{\pi}{2}\int_{-\infty}^\infty \frac{x}{1+x^2}\operatorname{sech}^2 \left(\frac{\pi x}{2}\right)\tanh\left(\frac{\pi x}{2}\right)dx$$
-                $$=2\pi\int_{-\infty}^\infty \frac{x}{1+x^2}{\left(\frac{e^{\pi x/2}}{\left(e^{\pi x/2}+e^{-\pi x/2}\right)^3}-\frac{e^{-\pi x/2}}{\left(e^{\pi x/2}+e^{-\pi x/2}\right)^3}\right)}dx$$
-                $$\overset{x\to -x}={2}\cdot 2\pi\int_{-\infty}^\infty  \frac{x}{1+x^2}{\frac{e^{\pi x/2}}{\left(e^{\pi x/2}+e^{-\pi x/2}\right)^3}}dx\overset{\pi x\to x}=4\pi\int_{-\infty}^\infty 
-                \frac{x}{\pi^2+x^2}\frac{e^{2 x}}{(1+e^{ x})^3}dx$$
-            </div>
-            Now the term \(\frac{x}{\pi^2 + x^2}\) should remind us of the first integral we saw evaluated using the accelerated Feynman's trick. Although the first thing that comes to mind is to use the Laplace transform of the cosine function in this case it doesn't turn out to be useful. Instead we'll use:
-            <div class="jaxmath">
-                $$\frac{x}{\pi^2+x^2}=\Im\left(-\frac{1}{\pi+ix}\right)=\int_0^\infty e^{-(\pi+ix)t}dt$$
-            </div>
-            While it's true that also \(\Re\left(\frac{1}{i\pi+x}\right)\) could have been used, turns out that having \(i\) near the \(x\) term is more helpful. Now let's finish the integral by using the first choice:
-            <div class="jaxmath">
-                $$I=4\pi\int_{-\infty}^\infty \Im\left(-{\frac{1}{\pi+ix}}\right)\frac{e^{2 x}}{(1+e^{ x})^3}dx=-4\pi\Im\int_{-\infty}^\infty {\int_0^\infty e^{-(\pi+ix)t}}\frac{e^{2 x}}{(1+e^{ x})^3}{dt}dx$$
-                $$\small \overset{\large e^x\to x}=-4\pi\Im\int_0^\infty e^{-\pi t}\left(\lim_{a\to 1-it}\int_{0}^\infty\frac{x^a}{(1+x)^3}dx\right)dt=-4\pi\Im\int_0^\infty e^{-\pi t}\left(\lim_{a\to 1-it}\frac{\pi}{2}\frac{ a(1-a)}{\sin(\pi a)}\right)dt$$
-                $$=2\pi^2\int_0^\infty e^{-\pi t}\frac{t^2}{\sinh(\pi t)}dt\overset{\pi t =x}=\frac{4}{\pi} \int_0^\infty \frac{e^{-2x }x^2}{1-e^{-2x}}dx\overset{\large e^{-x}\to x}=\frac{4}{\pi}\int_0^1 \frac{x\ln^2 x}{1-x^2}dx$$
-                $$\overset{x^2\to x}=\frac{2}{\pi}\int_0^1\frac{\ln^2 x}{1-x}dx=\frac{2}{\pi}\sum_{n=1}^\infty \int_0^1 x^{n-1}\ln^2  x\, dx=\frac{2}{\pi}\sum_{n=1}^\infty\frac{1}{2n^3}=\frac{\zeta(3)}{\pi}$$
-            </div>
-        </p>
-
-        <hr>
 
         <p>
-            Now let's take a look at the following integral:
+            Now we are going to take a look at a combination between Feynman's trick and differential equations. Let's consider the following integral:
             <div class="jaxmath">
-                $$I=\int_0^\infty \frac{\cos x}{(1+x^2)^2}dx$$
+                \[I=\int_0^\infty \frac{\cos x}{(1+x^2)^2}dx\]
             </div>
-            By remembering what we did with the reversed Feynman's trick, we can start by considering:
+            By remembering what we did in the fourth chapter, we can start by placing the parameter as:
             <div class="jaxmath">
-                $$I(t)=\int_0^\infty \frac{\cos x}{t^2+x^2}dx$$
+                \[I(t)=\int_0^\infty \frac{\cos x}{t^2+x^2}dx\]
             </div>
             And now it is true that we can use \(\frac{1}{t^2+x^2}=\int_0^\infty\frac{1}{t}\sin(yt)e^{-xy}dy\) in order to switch to double integrals, however we'll run in circles as the resulting integral will be \(\frac{1}{t}\int_0^\infty \frac{\sin x}{t^2+x^2}dx\) after changing the order of integration.
         </p>
         <p>
             Instead, we'll first substitute \(x\to t x\) in order to move the parameter up to the cosine function and get rid of it from the denominator. Afterwards we'll use the accelerated Feynman's trick as mentioned above, but for \(\frac{1}{1+x^2}\):
             <div class="jaxmath">
-                $$I(t)\overset{x\to tx}=\frac{1}{t}\int_0^\infty \frac{\cos(tx)}{1+x^2}dx=\frac{1}{t}\int_0^\infty \int_0^\infty \cos(tx)\sin y e^{-xy}dydx$$
-                $$\small =\frac{1}{t}\int_0^\infty \sin y \int_0^\infty \cos(tx)e^{-xy}dxdy=\frac{1}{t}\int_0^\infty \frac{y\sin y}{t^2+y^2}dy\overset{y\to tx}=\frac{1}{t}\int_0^\infty \frac{x\sin(tx)}{1+x^2}dx$$
-                $$\Rightarrow f(t)=\int_0^\infty \frac{\cos(tx)}{1+x^2}dx = \int_0^\infty \frac{x\sin(tx)}{1+x^2}dx $$
+                \[I(t)\overset{x\to tx}=\frac{1}{t}\int_0^\infty \frac{\cos(tx)}{1+x^2}dx=\frac{1}{t}\int_0^\infty \int_0^\infty \cos(tx)\sin y e^{-xy}dydx\]
+                \[\small =\frac{1}{t}\int_0^\infty \sin y \int_0^\infty \cos(tx)e^{-xy}dxdy=\frac{1}{t}\int_0^\infty \frac{y\sin y}{t^2+y^2}dy\overset{y\to tx}=\frac{1}{t}\int_0^\infty \frac{x\sin(tx)}{1+x^2}dx\]
+                \[\Rightarrow f(t)=\int_0^\infty \frac{\cos(tx)}{1+x^2}dx = \int_0^\infty \frac{x\sin(tx)}{1+x^2}dx \]
             </div>
             This is really useful as differentiating the first form of \(f(t)\) also gives us:
             <div class="jaxmath">
-                $$f'(t)=- \int_0^\infty \frac{x\sin(tx)}{1+x^2}dx = - f(t) \Rightarrow \frac{f'(t)}{f(t)}=-1\Rightarrow f(t) = C e^{-t}$$
-                $$f(0)=\int_0^\infty \frac{1}{1+x^2}dx=\frac{\pi}{2} \Rightarrow f(t)=\frac{\pi}{2}e^{-t}$$
+                \[f'(t)=- \int_0^\infty \frac{x\sin(tx)}{1+x^2}dx = - f(t) \Rightarrow \frac{f'(t)}{f(t)}=-1\Rightarrow f(t) = C e^{-t}\]
+                \[f(0)=\int_0^\infty \frac{1}{1+x^2}dx=\frac{\pi}{2} \Rightarrow f(t)=\frac{\pi}{2}e^{-t}\]
             </div>
             Finally, we are looking to find \(I=-2I'(1)\), therefore we have:
             <div class="jaxmath">
-                $$I(t)=\frac{f(t)}{t}\Rightarrow I'(t)=\frac{\pi}{2}\left(\frac{1}{t}e^{-t}\right)' = -\frac{\pi}{2}\frac{(1+t)e^{-t}}{t^2}\Rightarrow I=\frac{\pi}{2e}$$
+                \[I(t)=\frac{f(t)}{t}\Rightarrow I'(t)=\frac{\pi}{2}\left(\frac{1}{t}e^{-t}\right)' = -\frac{\pi}{2}\frac{(1+t)e^{-t}}{t^2}\Rightarrow I=\frac{\pi}{2e}\]
             </div>
         </p>
 
         <hr>
         <p>
             This work is licensed under a <a href = "https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution 4.0 International License</a>.
-            In case you need to, please cite this as: <cite>Zaharia Burghelea, https://zackyzz.github.io/feynman</cite>.
+            This can be simply cited as: <cite>https://zackyzz.github.io/feynman</cite>.
         </p>
     </div>
+    
     <script src="main.js"></script>
 </body>
 
