@@ -775,7 +775,7 @@
         </div>
 
         <p>
-            In general when we have rational functions it is prefered to integrate over \((0,\infty)\), if possible, as it drastically reduces the result. Especially when there's the derivative of \(\arcsin x\) in the denominator one way to map \((0,1)\) to \((0,\infty)\) is to directly substitute \(\cot(\arcsin x) \to x \Leftrightarrow x \to \frac{1}{\sqrt{1+x^2}}\). Therefore we obtain:
+            In general when we have rational functions it is prefered to integrate over \((0,\infty)\), if possible, as it drastically reduces the result. Especially when there's the derivative of \(\arcsin x\) in the denominator one way to map \((0,1)\) to \((0,\infty)\) is to directly substitute \(x \to \frac{1}{\sqrt{1+x^2}}\). Therefore we obtain:
         </p>
             
         <div class="jaxmath">
@@ -1172,25 +1172,6 @@
             This work is licensed under a <a href = "https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution 4.0 International License</a>.
             It can be cited as: <cite>https://zackyzz.github.io/feynman</cite>.
         </p>
-
-        <hr>
-
-        <p>
-            We are going to end our journey by looking at another fancy trick that evaluates one of the most known integrals, namely the Gaussian integral:
-        </p>
-
-        <div class="jaxmath">
-            \[I=\int_0^\infty e^{-x^2}dx = \frac{\sqrt \pi}{2}\]
-        </div>
-
-        <p>
-            It's true that we already made use of this result and it can be shown in many different ways, however here our aim is to evaluate the integral using Feynman's trick. To that end, we'll consider the following parameterised integral:
-        </p>
-
-        <div class="jaxmath">
-            \[I(t)=\int_0^\infty e^{-x^2}dx = \frac{\sqrt \pi}{2}\]
-        </div>
-        
     </div>
     
     <script src="main.js"></script>
