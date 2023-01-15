@@ -37,19 +37,35 @@ body
 
 .sidebar ul
 {
-  list-style: none;
+    list-style: none;
 }
 
-.sidebar ul li
+.nav-ul
 {
-    position: relative;
-    margin: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
 }
 
 .sidebar ul li a.active
 {
     color: rgb(10, 10, 170);
     text-shadow: 0.25px 0.25px #448ff1;
+}
+
+.real-li
+{
+    padding: 0.5em;
+}
+
+.fake-li
+{
+    padding: 0%;
+}
+
+.fake-li ul li
+{
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
 }
 
 .feynman, .quantum, .welcome, .about

@@ -14,11 +14,11 @@
 
 <body>
     <nav class="sidebar">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="quantum.html">Quantum Computing</a></li>
-            <li><a class="active" href="feynman.html">Feynman's Trick</a></li>
-            <li>
+        <ul class = "nav-ul">
+            <li class = "real-li"><a href="index.html">Home</a></li>
+            <li class = "real-li"><a href="quantum.html">Quantum Computing</a></li>
+            <li class = "real-li"><a class="active" href="feynman.html">Feynman's Trick</a></li>
+            <li class = "fake-li">
                 <ul>
                     <li><a href="#chapter1">Hello, World!</a></li>
                     <li><a href="#chapter2">The parameter</a></li>
@@ -28,7 +28,7 @@
                     <li><a href="#chapter6">Variations</a></li>
                 </ul>
             </li>
-            <li><a href="about.html">About</a></li>
+            <li class = "real-li"><a href="about.html">About</a></li>
         </ul>
     </nav>
 
@@ -982,7 +982,13 @@
             \[=\sqrt{\frac{\pi}{2}}\frac{1}{a}e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+b\sqrt t}{\sqrt 2}\right)+\frac{\sqrt t}{a}\int_{-\infty}^b \exp\left(-\frac12\left(x\sqrt{t}-\frac{a}{\sqrt{t}}\right)^2\right)dx\]
             \[\overset{x\sqrt t-\frac{a}{\sqrt t}\to -x}=\sqrt{\frac{\pi}{2}}\frac{1}{a}e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+b\sqrt t}{\sqrt 2}\right)+\frac{1}{a}\int^{\infty}_{\frac{a}{\sqrt t}-b\sqrt t}\exp\left(-\frac{x^2}{2}\right)dx\]
             \[=\sqrt{\frac{\pi}{2}}\frac{1}{a}\left(e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+b\sqrt t}{\sqrt 2}\right)+\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}-b\sqrt t}{\sqrt 2}\right)\right)\]
+        </div>
+
+        <p>
             Or for the indefinite integral, this would be equivalent to:
+        </p>
+        
+        <div class="jaxmath">
             \[\small \int \frac{1}{\sqrt{x^3}} \exp\left({-\frac{(a-bx)^2}{2x}}\right) dx=\sqrt{\frac{\pi}{2}}\frac{1}{a}\left(e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt x}+b\sqrt x}{\sqrt 2}\right)+\operatorname{erfc}\left(\frac{\frac{a}{\sqrt x}-b\sqrt x}{\sqrt 2}\right)\right)+C\]
         </div>
 
