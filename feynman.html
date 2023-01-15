@@ -963,7 +963,7 @@
 
         <p>
             We can notice that the derivative of \(ax-\frac{b}{x}\) is \(a+\frac{b}{x^2}\) so it would be quite helpful if we had that additional term.
-            Furthermore if we differentiate with respect to \(b\) we'll produce the additional term \(a-\frac{b}{x^2}\), which is quite useful as \((ax-b/x)^2=(ax+b/x)^2+4ab\) and the derivative of \(ax+\frac{b}{x}\) is \(a-\frac{b}{x^2}\). So let's do this:
+            Furthermore if we differentiate with respect to \(b\) we'll produce the additional term \(a-\frac{b}{x^2}\), which is quite useful as \((ax-b/x)^2\) is equal to \((ax+b/x)^2+4ab\) and the derivative of \(ax+\frac{b}{x}\) is \(a-\frac{b}{x^2}\). So let's do this:
         </p>
            
         <div class="jaxmath">
@@ -1172,6 +1172,25 @@
             This work is licensed under a <a href = "https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution 4.0 International License</a>.
             It can be cited as: <cite>https://zackyzz.github.io/feynman</cite>.
         </p>
+
+        <hr>
+
+        <p>
+            We are going to end our journey by looking at another fancy trick that evaluates one of the most known integrals, namely the Gaussian integral:
+        </p>
+
+        <div class="jaxmath">
+            \[I=\int_0^\infty e^{-x^2}dx = \frac{\sqrt \pi}{2}\]
+        </div>
+
+        <p>
+            It's true that we already made use of this result and it can be shown in many different ways, however here our aim is to evaluate the integral using Feynman's trick. To that end, we'll consider the following parameterised integral:
+        </p>
+
+        <div class="jaxmath">
+            \[I(t)=\int_0^\infty e^{-x^2}dx = \frac{\sqrt \pi}{2}\]
+        </div>
+        
     </div>
     
     <script src="main.js"></script>
