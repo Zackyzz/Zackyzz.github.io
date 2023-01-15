@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8">
     <title>Feynman's Trick</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -18,14 +18,16 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="quantum.html">Quantum Computing</a></li>
             <li><a class="active" href="feynman.html">Feynman's Trick</a></li>
-            <ul>
-                <li><a href="#chapter1">Hello, World!</a></li>
-                <li><a href="#chapter2">The parameter</a></li>
-                <li><a href="#chapter3">Accelerated Feynman's trick</a></li>
-                <li><a href="#chapter4">Partial Feynman's trick</a></li>
-                <li><a href="#chapter5">Heuristics</a></li>
-                <li><a href="#chapter6">Variations</a></li>
-            </ul>
+            <li>
+                <ul>
+                    <li><a href="#chapter1">Hello, World!</a></li>
+                    <li><a href="#chapter2">The parameter</a></li>
+                    <li><a href="#chapter3">Accelerated Feynman's trick</a></li>
+                    <li><a href="#chapter4">Partial Feynman's trick</a></li>
+                    <li><a href="#chapter5">Heuristics</a></li>
+                    <li><a href="#chapter6">Variations</a></li>
+                </ul>
+            </li>
             <li><a href="about.html">About</a></li>
         </ul>
     </nav>
@@ -785,9 +787,63 @@
         </p>
 
         <hr>
+
+        <p>
+            So far we've seen the Feynman's trick applied only when the parameter was inside the integrand, however it can also be used when the bounds are parameterised as wells. More generally, the following holds:
+            <div class="jaxmath">
+                \[\frac{d}{dt} \int_{a(t)}^{b(t)} f(x, t)dx = \frac{d}{dt}b(t)f(x,b(t))-\frac{d}{dt}a(t)f(x,a(t))+\int_{a(t)}^{b(t)} \frac{\partial f(x, t)}{\partial t}dx\]
+            </div>
+            We'll put this to use on the following integral:
+            <div class="jaxmath">
+                \[I=\int_0^\frac{\pi}{2}\ln\left(\sqrt{\sin x}+\sqrt{1+\sin x}\right)dx\]
+            </div>
+            First off, since there are \(2\) square roots, we will attempt to get rid of one by writing \(1+\sin x\) as \(2\cos^2\left(\frac{\pi}{4}-\frac{x}{2}\right)\):
+            <div class="jaxmath">
+                \[I=\int_0^\frac{\pi}{2} \ln\left(\sqrt{\sin x}+\sqrt 2\cos\left(\frac{\pi}{4}-\frac{x}{2}\right)\right)dx\overset{\frac{\pi}{4}-\frac{x}{2}\to x}=2\int_0^\frac{\pi}{4}\ln\left(\sqrt{\cos(2x)}+\sqrt 2 \cos x\right)dx\]
+            </div>
+            And finally, we switch from trigonometric to rational functions by substituting \(\cos x\to x\):
+            <div class="jaxmath">
+                \[\Rightarrow I= 2\int_\frac{1}{\sqrt 2}^1 \frac{\ln\left(\sqrt 2 x+\sqrt{2x^2-1}\right)}{\sqrt{1-x^2}}dx=2\int_\frac{1}{\sqrt 2}^1 \frac{\operatorname{arccosh}\left(\sqrt 2 x\right)}{\sqrt{1-x^2}}dx\]
+            </div>
+            At this point we can see that the same \(\sqrt 2\) appears in both the upper bound and the \(\operatorname{arccosh}\) function, so we'll parameterise the integral as:
+            <div class="jaxmath">
+                \[I(t)=\int_\frac{1}{t}^1 \frac{\operatorname{arccosh}\left(t x\right)}{\sqrt{1-x^2}}dx
+                = \frac{1}{t^2}\frac{\cancelto{0}{\operatorname{arccosh}\left(t\frac{1}{t}\right)}}{\sqrt{1-\frac{1}{t^2}}}+\int_\frac{1}{t}^1\frac{x}{\sqrt{1-t^2x^2}\sqrt{1-x^2}}dx\]
+                \[\overset{1-x^2\to x^2}=\frac1t\int_0^{\sqrt{1-\frac{1}{t^2}}}\frac{1}{\sqrt{1-\frac{1}{t^2}-x^2}}dx=\frac1t\arcsin\left(\frac{x}{\sqrt{1-\frac{1}{t^2}}}\right)\bigg|_0^\sqrt{1-\frac1{t^2}}=\frac{\pi}{2t}\]
+            </div>
+            We're looking to find \(I=2I\left(\sqrt 2\right)\) and since \(I\left(1\right)=0\), we have:
+            <div class="jaxmath">
+                \[I=2\int_1^\sqrt 2I'(t)dt = \pi \int_1^\sqrt 2 \frac{1}{t}dt=\frac{\pi}{2}\ln 2\]
+            </div>
+        </p>
+
+        <hr>
+
+        <p>
+            Now we'll take a look at a fancier way to use Feynman's trick, especially in order to generate new integrals, for this we're considering:
+            <div class="jaxmath">
+                \[I(t)=\int_0^\frac{\pi}{2} \arctan\left(\frac{\sin x-\tan\frac{a}{2}}{\cos x}\right)dx\]
+            </div>
+            Note that we are not trying to evaluate the above integral, instead we are simply using it in order to build up new integrals with the result that follows after differentiating w.r.t. \(t\):
+            <div class="jaxmath">
+                \[I'(t)=-\frac12\int_0^\frac{\pi}{2}\frac{\cos x}{1-\sin t\sin x}dx=\frac12 \frac{\ln(1-\sin t)}{\sin t}\]
+            </div>
+            We also have:
+            <div class="jaxmath">
+                \[I(\pi)-I(0)=-\frac{\pi^2}{4}-\frac{\pi^2}{8}=\frac12\int_0^\pi \frac{\ln(1-\sin x)}{\sin x}dx\]
+                \[\Rightarrow \int_0^\pi \frac{\ln(1-\sin x)}{\sin x}dx=-\frac{3\pi^2}{4}\]
+            </div>
+            This integral appeared in disguise as an exercise in the second chapter and with the same suggestion from there, we can also evaluate the integral by applying Feynman's trick to:
+            <div class="jaxmath">
+                \[I(t)=\int_0^\pi \frac{\ln(1-\sin t\sin x)}{\sin x}dx\]
+            </div>
+            Admittedly, following this parameterisation is much more intuitevely than what we've shown here, however it's also useful to have this trick in the bank.
+        </p>
+
+        <hr>
         <p>
             This work is licensed under a <a href = "https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution 4.0 International License</a>.
-            This can be simply cited as: <cite>https://zackyzz.github.io/feynman</cite>.
+            It can be cited as: <cite>https://zackyzz.github.io/feynman</cite>.
         </p>
     </div>
     
