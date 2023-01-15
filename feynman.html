@@ -36,21 +36,25 @@
         <h1>
             Feynman's Trick
         </h1>
+
         <p>
             Among a few other integral tricks and techniques, Feynman's trick was a strong reason that made me love
             evaluating integrals and although the method goes back to Leibniz, sometimes being called <span class ="important">Leibniz integral
             rule</span>, Feynman was the one who popularized it - that's why it is mostly refered to as <span class ="important">Feynman's trick</span>.
             Here's an excerpt from his book <span class ="important">Surely You're Joking, Mr. Feynman</span>:
         </p>
+
         <p class="citation">
             "One thing I never did learn was contour integration. I had learned to do integrals 
             by various methods shown in a book that my high school physics teacher Mr. Bader had given me.
         </p>
+
         <p class="citation">
             One day he told me to stay after class. "Feynman," he said, "you talk too much and you make too much noise.
             I know why. You're bored. So I'm going to give you a book. You go up there in the back, in the corner, and
             study this book, and when you know everything that's in this book, you can talk again."
         </p>
+
         <p class="citation">
             So every physics class, I paid no attention to what was going on with Pascal's Law, or whatever they were
             doing. I was up in the back with this book: Advanced Calculus, by Woods. Bader knew I had studied Calculus
@@ -58,12 +62,14 @@
             in college. It had Fourier series, Bessel functions, determinants, elliptic functions -- all kinds of
             wonderful stuff that I didn't know anything about.
         </p>
+
         <p class="citation">
             That book also showed how to differentiate parameters under the integral sign -- it's a certain operation.
             It turns out that's not taught very much in the universities; they don't emphasize it. But I caught on
             how to use that method, and I used that one damn tool again and again. So because I was self-taught using
             that book, I had peculiar methods of doing integrals.
         </p>
+
         <p class="citation">
             The result was, when guys at MIT or Princeton had trouble doing a certain integral, it was because they
             couldn't do it with the standard methods they had learned in school. If it was contour integration, they
@@ -80,15 +86,18 @@
             this technique. In addition, what Feynman wrote still applies today as the method isn't taught much or at all in
             universities - therefore often the trick comes as obscure and hard to grasp for newcomers.
         </p>
+
         <p>
             In the following we will go into a journey to develop some rules of thumb to have at disposal when using Feynman's trick.
             Those are merely some heuristics that I tend to use, 
             so deviating from them can be totally fine, however I'm hoping that it can provide a path to have in case nothing
             obvious or intuitively occurs when someone tries to use this trick, or even better a reason for someone to start using the method.
         </p>
+
         <hr>
         <section id="chapter1"> <h3>Hello, World!</h3> </section>
         <hr>
+
         <p>
             Feynman already gave quite a big spoiler to what the trick is about when he mentioned <span class ="important">differentiating under
             the integral sign</span> - this also being an alternative name for the technique.
@@ -97,6 +106,7 @@
                 \[\frac{d}{dt} \int_a^b f(x, t)dx = \int_a^b \frac{\partial f(x, t)}{\partial t}dx\]
             </div>
         </p>
+
         <p>
             This is nice, however not so useful by itself. One common thing that tends to
             happen while approaching something new, be it a game, a programming language or even a field is that 
@@ -106,6 +116,7 @@
             techniques to follow when playing. With that in mind I would like here to jump straightforward to practice in order
             to get familiar with the trick.
         </p>
+
         <p>
             As a "Hello, World!" example let's take the following integral:
             <div class ="jaxmath">
@@ -116,6 +127,7 @@
             - that is, to differentiate under the intgeral sign with respect to a parameter in order to obtain an
             integral that is easier to evaluate.
         </p>
+
         <p>
             Unfortunately in the integral from above we lack a parameter, therefore the first step is to parameterise the integral, which can even mean introducing a whole function, but for this one a simple parameter is enough:
             <div class ="jaxmath">
@@ -135,10 +147,12 @@
             or \(I(c)\) the things wouldn't had simplified at all after differentiating and most devastating is that we would still
             be left with \(\ln x\) in the denominator, a thing which made the integral hard to deal with in the first place.
         </p>
+
         <p>
             We can already sense that the following might be an important question in the future:
             <span class ="important">How to parameterise the integral when using Feynman's Trick?</span>
         </p>
+
         <p>
             But we will worry about that a bit later, for now let's finish the integral as we only found \(I'(t)\).
             Since we are looking to find \(I(1)\) we need to integrate \(I'(t)\) back and set \(t=1\) in order to arrive there.
@@ -160,6 +174,7 @@
         <hr>
         <section id="chapter2"> <h3>The parameter</h3> </section>
         <hr>
+
         <p>
             As emphasized above the main goal of the trick is to obtain an integral that is easier to evaluate after
             differentiating with respect to a parameter and one issue is that it is not always obvious where to place it.
@@ -182,6 +197,7 @@
             Unfortunately there's no magic formula that tells a priori whether placing a parameter in a specific place would
             succeed or fail dealing with an integral - and sometimes we are simply unlucky.
         </p>
+
         <p>
             In contrast, things work out nicely with the second choice from above as:
             <div class ="jaxmath">
@@ -193,18 +209,22 @@
                 \[I=\int_0^1 I'(b)db \Rightarrow 2I=\int_0^1 \left(\frac{\pi}{4}\frac{b}{1+b^2}+\frac{\ln 2}{2}\frac{1}{1+b^2}\right)db \Rightarrow I=\frac{\pi}{8}\ln 2\]
             </div>
         </p>
+
         <p>
             This works, but we can even do better. Looking at the "Hello, World!" integral we can see that there we simplified the logarithm in the denominator while performing \(\frac{\partial}{\partial t}x^t\). This is also the first thing that I always attempt to look for when using this technique - namely, to simplify something from the integrand when differentiating. Surely for the current integral we got rid of the logarithm, but the denominator remained intact.
         </p>
+
         <p>
             In short this will be our first rule of thumb: <span class ="important">if possible, place the parameter so that something from the integral, which is not related to the parameter, gets simplified</span>.
         </p>
+
         <p>
             In order to achieve this with our integral we would need to get rid of \(1+x^2\) and by using \(\ln x=\frac12\ln(x^2)\) we can rewrite the integral as:
             <div class="jaxmath">
                 \[I=\int_0^1\frac{\ln(1+x)}{1+x^2}dx=\frac12\int_0^1\frac{\ln(1+2x+x^2)}{1+x^2}dx\]
             </div>
         </p>
+
         <p>
             For this one it's more naturally to place the parameter so that it simplifies \(1+x^2\) when differentiating with respect to \(t\), namely we consider:
             <div class="jaxmath">
@@ -218,9 +238,11 @@
             </div>
             For this specific integral we only avoided performing partial fractions so there wasn't really a big improvement by simplifying the denominator. However I want to emphasize the importance of this because it will make things come way more natural when deciding where place the parameter. <span class ="important">Of course, in case there's not an appropiate or immediate way to achieve this, it's perfectly fine to try and place the parameter elsewhere too.</span>
         </p>
+
         <p>
             As mentioned previously, practicing is the best approach to get along with this technique, therefore below are more integrals to evaluate alongside some hidden steps in case those will be needed, however I strongly recommend to try and deal with the integrals before looking at any hints and only check them afterwards for correctness.
         </p>
+
         <p>
             <div class ="jaxmath">
                 \[\int_0^\frac{\pi}{2} \frac{\ln(1-\sin x)}{\sin x}dx = ?\]
@@ -237,6 +259,7 @@
                 That is because usually when having trigonometric functions, parameterising the integral with another trigonometric function leads to a more smoother result.
             </p>
         </div>
+
         <p>
             \[\int_0^1 \frac{\ln(1-x+x^2)}{x-x^2}dx = ?\]
         </p>
@@ -248,6 +271,7 @@
                 \[I(1)=\int_0^1 \frac{\ln(1-x+x^2)}{x-x^2}dx = I(1) - I(0) = \int_0^1 I'(t)dt \overset{\sqrt{\frac{4-t}{t}}= x}= -\frac{\pi^2}{9}\]
             </p>
         </div>
+
         <p>
             <div class ="jaxmath">
                 \[\int_0^\frac{\pi}{2} \frac{\arctan(\sin x)}{\sin x}dx = ?\]
@@ -264,6 +288,7 @@
                 However, in this case the first variant is simple enough to integrate back.
             </p>
         </div>
+
         <p>
             <div class ="jaxmath">
                 \[\int_0^\infty x^2e^{-\left(4x^2+\frac{9}{x^2}\right)}dx = ?\]
@@ -277,6 +302,7 @@
                 \[\int_0^\infty x^2e^{-\left(4x^2+\frac{9}{x^2}\right)}dx = I(9)- I(0) + I(0) = \int_0^9 I'(t) dt +\frac{\sqrt \pi}{32}=\frac{13}{32}\frac{\sqrt \pi}{e^{12}}\]
             </p>
         </div>
+
         <p>
             <div class ="jaxmath">
                 \[\int_0^1 \frac{\ln x}{1-x^2}dx = ?\]
@@ -290,6 +316,7 @@
                 \[\int_0^1 \frac{\ln x}{1-x^2}dx = I(1)- I(0) = \int_0^1 I'(t)dt \overset{\sqrt{\frac{1-t}{t}} = x}= -\frac{\pi^2}{8}\]
             </p>
         </div>
+
         <p>
             <div class ="jaxmath">
                 \[\int_0^\infty \frac{e^{-x^2}}{1+x^2}dx = ?\]
@@ -303,6 +330,7 @@
                 \[\int_0^\infty \frac{e^{-x^2}}{1+x^2}dx = e\left(I(1)-I(t\to \infty)\right) = -e\int_1^\infty I'(t)dt= \frac{\pi e}{2}\operatorname{erfc}(1)\]
             </p>
         </div>
+
         <p>
             <div class ="jaxmath">
                 \[\int_0^\infty \frac{\ln\left(\frac{1-x^2+x^4}{(1-x^2)^2}\right)}{(1+x^2)^2}dx = ?\]
@@ -321,9 +349,11 @@
         <hr>
         <section id="chapter3"> <h3>Accelerated Feynman's trick</h3> </section>
         <hr>
+
         <p>
             The previous chapter emphasized to parameterise integrals so that something from the integral, which is not related to the parameter, gets simplified when differentiating (if possible). However there are times when even though we can introduce a parameter to accomplish that, it still wouldn't be enough to finish the integral.
         </p>
+
         <p>
             In this chapter we will look at a different way to obtain this simplification. Let's start by looking at a modified version of an integral that was previously given as an exercise:
             <div class="jaxmath">
@@ -331,12 +361,14 @@
             </div>
             With \(\int_{-\infty}^\infty \frac{e^{-x^2}}{1+x^2}dx\) it was quite direct to parameterise the integral as \(\int_{-\infty}^\infty \frac{e^{-t(1+x^2)}}{1+x^2}dx\) since it simplifies the denominator, however the similar way to do that for our integral: \(\int_{-\infty}^\infty \frac{e^{-x^2-t(1+x^4)}}{1+x^4}dx\) doesn't seem to work as it complicates things a bit too much.
         </p>
+
         <p>
             There is however a way to simplify the denominator and in the same time to obtain a decent integral afterwards. Without any explanation I will parameterise the integral as:
             <div class="jaxmath">
                 \[I(t)=\int_{-\infty}^\infty \frac{e^{-x^2}}{1+x^4} e^{-tx^2}(x^2\sin t+\cos t) dx\]
             </div>
         </p>
+
         <p>
             This will seem obscure, but fear not as we will never use this approach again.
             The whole point is to simplify \(1+x^4\) and the above function was created explicitly to achieve that, as \(\frac{\partial}{\partial t}e^{-tx^2}(x^2\sin t+\cos t)\) is \(-(1+x^4)e^{-tx^2}\sin t\). Note that even though we introduced a couple other terms, those aren't disturbing.
@@ -351,6 +383,7 @@
             </div>
             Where \(S(x)\) and \(C(x)\) are Fresnel integrals, however the approach is important here, not the result itself.
         </p>
+
         <p>
             We can avoid the parametrisation from above by directly using \(\frac{1}{1+x^4}=\int_0^\infty e^{-tx^2}\sin t \, dt\) and switch to double integrals, or put in other words: employ the <span class ="important">accelerated Feynman's trick</span> (meaning that we skip the usual parameterisation step).
             <div class="jaxmath">
@@ -358,9 +391,11 @@
                 \[=\int_{0}^\infty \sin t\int_{-\infty}^\infty e^{-x^2}e^{-tx^2}dxdt\overset{(1+t)x^2\to x^2}=\sqrt{\pi}\int_0^\infty \frac{\sin t}{\sqrt{1+t}}dt\]
             </div>
         </p>
+
         <p>
             The rest goes exactly as with the previous method as all we did here was to skip differentiating with respect to the newly parameterised integral and instead we switched to double integrals.
         </p>
+
         <p>
             A natural question that arises here is how did \(\frac{1}{1+x^4}=\int_0^\infty e^{-tx^2}\sin t dt\) appear? Or even better, how can on come up with similar results for other integrals? In the case from above simply the Laplace transform of the sine function was used, however in general it's useful to have a list of such identities. There are tables of integral results that can be used - for example: Table of Integrals, Series, and Products by Gradshteyn and Ryzhik - alternatively one can build up their own list of results which tend to appear often while evaluating other integrals.
 
@@ -369,6 +404,7 @@
 				\[\int_0^\infty e^{-xt}\sin t dt =\frac{1}{1+x^2}, \quad \int_0^\infty e^{-xt} dt = \frac{1}{x}, \quad \int_0^\infty e^{-xt^2}dt = \frac{\sqrt \pi}{2\sqrt x}\]
 				\[\int_0^1 \frac{\ln t}{t-\frac{1}{x}}dt = \operatorname{Li}_2(x), \quad \int_0^x \frac{\arctan t}{1+xt}dt = \frac{\arctan x \ln(1+x^2)}{2x}\]
 			</div
+        </p>
         <hr>
             Let's conclude this chapter by evaluating one of the most popular integrals that appears when Feynman's trick gets into the conversation, namely:
             <div class="jaxmath">
