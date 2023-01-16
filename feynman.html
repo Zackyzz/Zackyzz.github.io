@@ -22,8 +22,8 @@
                 <ul>
                     <li><a href="#chapter1">Hello, World!</a></li>
                     <li><a href="#chapter2">The parameter</a></li>
-                    <li><a href="#chapter3">Accelerated Feynman's trick</a></li>
-                    <li><a href="#chapter4">Partial Feynman's trick</a></li>
+                    <li><a href="#chapter3">Accelerated FT</a></li>
+                    <li><a href="#chapter4">DUIS</a></li>
                     <li><a href="#chapter5">Heuristics</a></li>
                     <li><a href="#chapter6">Variations</a></li>
                 </ul>
@@ -94,11 +94,11 @@
         </p>
 
         <hr>
-        <section id="chapter1"> <h3>Hello, World!</h3> </section>
+        <section id="chapter1"> <h2>Hello, World!</h2> </section>
         <hr>
 
         <p>
-            Feynman already gave quite a big spoiler to what the trick is about when he mentioned <span class ="important">differentiating under the integral sign</span> - this also being an alternative name for the technique. More explicitly, if \(f(x,t)\) is well-behaved then the following holds:
+            Feynman already gave quite a big spoiler to what the trick is about when he mentioned <span class ="important">differentiating under the integral sign</span>, this also being an alternative name for the technique. More explicitly, if \(f(x,t)\) is well-behaved then the following holds:
         </p>
         <div class ="jaxmath">
             \[\frac{d}{dt} \int_a^b f(x, t)dx = \int_a^b \frac{\partial f(x, t)}{\partial t}dx\]
@@ -130,7 +130,7 @@
         </p>
 
         <p>
-            Unfortunately in the integral from above we lack a parameter, therefore the first step is to parameterise the integral, which can even mean introducing a whole function, but for this one a simple parameter is enough:
+            Unfortunately in the integral from above we lack a parameter, therefore the first step is to parameterise the integral, which can even mean introducing a whole function, but for this one a simple parameter is enough.
         </p>
 
         <div class ="jaxmath">
@@ -192,13 +192,13 @@
         </p>
 
         <hr>
-        <section id="chapter2"> <h3>The parameter</h3> </section>
+        <section id="chapter2"> <h2>The parameter</h2> </section>
         <hr>
 
         <p>
             As emphasized above the main goal of the trick is to obtain an integral that is easier to evaluate after
             differentiating with respect to a parameter and one issue is that it is not always obvious where to place it.
-            In order to make things more intuitively let's take the following integral:
+            In order to make things more intuitively we will use the following integral:
         </p>
 
         <div class ="jaxmath">
@@ -231,7 +231,7 @@
         </p>
 
         <p>
-            In contrast, things work out nicely with the second choice from above as:
+            In contrast, things work out nicely with the second choice from above.
         </p>
 
         <div class ="jaxmath">
@@ -272,11 +272,10 @@
         </div>
 
         <p>
-            Similarly to \(I(b)\) we are looking to find \(I(1)\), however here \(I(0)\) is equal to \(\frac12\int_0^1\frac{\ln(2x)}{1+x^2}dx\) not \(0\), so:
+            Similarly to \(I(b)\) we are looking to find \(I(1)\), however here \(I(0)\) is equal to \(\frac12\int_0^1\frac{\ln(2x)}{1+x^2}dx\) not \(0\).
         </p>
 
         <div class="jaxmath">
-            \[I(t)=\frac12\int_0^1 \frac{\ln(2x+t(1+x^2))}{1+x^2}dx\Rightarrow I'(t)=\frac12\int_0^1 \frac{1}{2x+t(1+x^2)}dx=\frac14\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}\]
             \[I=I(1)-I(0)+I(0)=\frac14\int_0^1\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}dt+\frac12\int_0^1\frac{\ln(2x)}{1+x^2}dx\]
             \[\int_0^1\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}dt\overset{\frac{1+\sqrt{1-t^2}}{t}=x}=-2\int_0^1 \frac{\ln x}{1+x^2}dx\Rightarrow I = \frac12\int_0^1 \frac{\ln 2}{1+x^2}dx=\frac{\pi}{8}\ln 2\]
         </div>
@@ -388,7 +387,7 @@
         </div>
 
         <hr>
-        <section id="chapter3"> <h3>Accelerated Feynman's trick</h3> </section>
+        <section id="chapter3"> <h2>Accelerated Feynman's trick</h2> </section>
         <hr>
 
         <p>
@@ -396,7 +395,7 @@
         </p>
 
         <p>
-            In this chapter we will look at a different way to obtain this simplification. Let's start by looking at a modified version of an integral that was previously given as an exercise:
+            In this chapter we will look at a different way to obtain this simplification. Let's start by looking at a modified version of an integral that was previously given as an exercise.
         </p>
 
         <div class="jaxmath">
@@ -439,7 +438,7 @@
         </p>
 
         <p>
-            We can avoid the parametrisation from above by directly using \(\frac{1}{1+x^4}=\int_0^\infty e^{-tx^2}\sin t \, dt\) and switch to double integrals, or put in other words: employ the <span class ="important">accelerated Feynman's trick</span> (meaning that we skip the usual parameterisation step).
+            We can avoid the parametrisation from above by directly using \(\frac{1}{1+x^4}=\int_0^\infty e^{-tx^2}\sin t \, dt\) and switch to double integrals, or put in other words: employ the <span class ="important">accelerated Feynman's trick</span> (in which we skip the usual parameterisation step).
         </p>
 
         <div class="jaxmath">
@@ -467,7 +466,7 @@
         <hr>
 
         <p>
-            Let's conclude this chapter by evaluating one of the most popular integrals that appears when Feynman's trick gets into the conversation, namely:
+            Let's conclude this chapter by evaluating one of the most popular integrals that appears when Feynman's trick gets into the conversation.
         </p>
             
         <div class="jaxmath">
@@ -491,7 +490,7 @@
         </p>
 
         <p>
-            Like in the previous chapter below are more integrals alongside some hints in order to practice. However in this case I do recommend to take a peek at the hints faster in case nothing obvious comes immediate to mind.
+            Like in the previous chapter below are more integrals alongside some hints in order to practice with the accelerated variation Feynman's trick. However in this case I do recommend to take a peek at the hints faster in case nothing obvious comes immediate to mind.
         </p>
 
         <div class ="jaxmath">
@@ -543,11 +542,15 @@
         </div>
 
         <hr>
-        <section id="chapter4"> <h3>Partial Feynman's trick</h3> </section>
+        <section id="chapter4"> <h2>Differentiating under the integral sign</h2> </section>
         <hr>
 
         <p>
-            So far we've seen the exact same steps when using Feynman's trick, namely we parameterised the integrals followed by differentiating them under the integral sign and then to undo the last step we integrated back. There are however cases where it would be enough to differentiate under the integral sign without performing the undo step. Let's make this more clear by looking at the following integral:
+            So far we've seen the same steps when using Feynman's trick, namely we parameterised the integrals followed by differentiating them under the integral sign and then to undo this last step of differentiation, we integrated back. There are however cases where it would be enough to differentiate under the integral sign without performing the undo step.
+        </p>
+
+        <p>
+            As a small note, it's true that <span class ="important">differentiating under the integral sign</span> tends to be used as an alternative name for Feynman's trick, however I prefer to keep this for the variant where only the differentiating process takes part, or as mentioned above, when there's no need to integrate back the result and the name describes quite literally what we are doing. Let's make this more clear by looking at the following integral:
         </p>
 
         <div class="jaxmath">
@@ -555,7 +558,7 @@
         </div>
 
         <p>
-            We can remember from the "Hello, World!" integral that \(\frac{\partial}{\partial t}x^t = x^t \ln x\) and looking at the right hand side, by putting \(t=1\) we would end up with the integrand of \(I\), however it is much easier to deal the left hand side integrand, \(x^t\). Therefore in order to evaluate this integral we will perform the <span class ="important">partial Feynman's trick</span>:
+            We can remember from the "Hello, World!" integral that \(\frac{\partial}{\partial t}x^t = x^t \ln x\) and looking at the right hand side, by putting \(t=1\) we would end up with the integrand of \(I\), however it is much easier to deal the left hand side integrand, \(x^t\). Therefore in order to evaluate this integral we will simply <span class ="important">differentiate under the integral sign</span>.
         </p>
             
         <div class="jaxmath">
@@ -573,7 +576,7 @@
         <hr>
 
         <p>
-            The whole point of the above was to get a glimpse of what is meant by this specific method. Now let's go deeper by considering the following double integral:
+            The whole point of the above was to get a glimpse of what is meant by this specific method. Now let's go deeper with a more stacked integral.
         </p>
 
         <div class="jaxmath">
@@ -581,7 +584,7 @@
         </div>
 
         <p>
-            In order to generate the \(\ln(xy)\) part it's straightforward as we will do exactly as with the previous integral, namely we can introduce:
+            In order to generate the \(\ln(xy)\) part it's straightforward as we will do exactly as with the previous integral, namely we consider:
         </p>
 
         <div class="jaxmath">
@@ -601,7 +604,7 @@
         </p>
 
         <p>
-            In order to evaluate \(I(a,z)\) we can expand the denominator into geometric series:
+            One way to evaluate \(I(a,z)\) is to expand the denominator into geometric series as:
         </p>
 
         <div class="jaxmath">
@@ -610,7 +613,7 @@
         </div>
 
         <p>
-            Now taking \(m\) derivatives with respect to \(a\) and setting it to \(0\) yields:
+            And now we will take \(m\) derivatives with respect to \(a\) and set it to \(0\).
         </p>
 
         <div class="jaxmath">
@@ -618,7 +621,7 @@
         </div>
 
         <p>
-            This can be also rewriten using the polylogarithm function as:
+            This can be also rewriten in terms of the polylogarithm function as:
         </p>
 
         <div class="jaxmath">
@@ -626,7 +629,7 @@
         </div>
 
         <p>
-            Finally we can arrive at our original integral by taking \(m-1\) derivatives with respect to \(z\) and setting it to \(1\):
+            Finally, we can arrive at our original integral by taking \(m-1\) derivatives with respect to \(z\) and setting it to \(1\).
         </p>
 
         <div class="jaxmath">
@@ -634,7 +637,7 @@
         </div>
 
         <p>
-            Although the derivation from above was the important part, by using \(\frac{\partial}{\partial z} \operatorname{Li}_n(z) = \frac{\operatorname{Li}_{n-1}(z)}{z}\) the result can be also written as:
+            Although the derivation from above was the important part since it shows the main idea on how to differentiate in order to produce the desired integral, by using \(\frac{\partial}{\partial z} \operatorname{Li}_n(z) = \frac{\operatorname{Li}_{n-1}(z)}{z}\) the result can be also written as:
         </p>
 
         <div class="jaxmath">
@@ -646,7 +649,7 @@
         </p>
 
         <p>
-            As usual, below are some integrals for more practice with this technique:
+            As usual, below are some integrals for more practice with this variation of Feynman's trick.
         </p>
 
         <div class ="jaxmath">
@@ -684,7 +687,7 @@
         </div>
 
         <hr>
-        <section id="chapter5"> <h3>Heuristics</h3> </section>
+        <section id="chapter5"> <h2>Heuristics</h2> </section>
         <hr>
 
         <p>
@@ -710,7 +713,7 @@
         </div>
 
         <p>
-            Turns out both works, but we can do better. Another rule of thumb that I follow is to use almost exclusive rational functions as they often provide the most visibility to work with. Let's do that for our integral too:
+            Turns out both works, but we can do better. Another rule of thumb that I follow is to use almost exclusive rational functions as they often provide the most visibility to work with. Let's do that for our integral too.
         </p>
             
         <div class="jaxmath">
@@ -718,12 +721,12 @@
         </div>
 
         <p>
-            At this point it should be obvious where to place the parameter so that we can simplify the denominator. We have:
+            And at this point it should be obvious where to place the parameter so that we can simplify the denominator.
         </p>
 
         <div class="jaxmath">
             \[I(t)=\int_0^\infty \frac{\ln(1+t(1+x^2))}{1+x^2}dx\Rightarrow I'(t)=\int_0^\infty \frac{1}{1+t+tx^2}dx=\frac{\pi}{2}\frac{1}{\sqrt t\sqrt{1+t}}\]
-            \[\Rightarrow I=\int_0^1I'(t)dt=\frac{\pi}{2}\int_0^1 \frac{1}{\sqrt t\sqrt{1+t}}dx\overset{t=x^2}=\pi\int_0^1\frac{1}{\sqrt{1+x^2}}dx=\pi\ln(1+\sqrt 2)\]
+            \[\Rightarrow I=\int_0^1 I'(t)dt=\frac{\pi}{2}\int_0^1 \frac{1}{\sqrt t\sqrt{1+t}}dx\overset{t=x^2}=\pi\int_0^1\frac{1}{\sqrt{1+x^2}}dx=\pi\ln(1+\sqrt 2)\]
         </div>
 
         <p>
@@ -733,7 +736,7 @@
         <hr>
         
         <p>
-            Before parameterising the integrals is quite useful to clean the disturbing functions as much as possible before any parameterisation. Let's elucidate this with the following integral:
+            Before parameterising the integrals is quite useful to clean the disturbing functions as much as possible before any parameterisation. Let's elucidate this by considering:
         </p>
 
         <div class="jaxmath">
@@ -741,7 +744,7 @@
         </div>
 
         <p>
-            At the first glance it might seem like a super complicated integral. However, as we have trigonometric functions all over the place we know what the first step should be, namely we'll employ the Weierstrass substitution \(\tan\left(\frac{x}{2}\right)\to x\) in order to obtain only rational functions:
+            At the first glance it might seem like a super complicated integral. However, as we have trigonometric functions all over the place we know what the first step should be, namely we'll perform the Weierstrass substitution \(\tan\left(\frac{x}{2}\right)\to x\) in order to obtain only rational functions, as per our first heuristic.
         </p>
             
         <div class="jaxmath">
@@ -749,7 +752,7 @@
         </div>
 
         <p>
-            We would like to place parameterise the integral so that we get rid of the arctangent function, unfortunately here it is a bit overloaded, therefore we'll clean it by splitting it into two. In case it's not obvious how to do that directly we can differentiate it, perform partial fractions and then integrate back:
+            We would like to place parameterise the integral so that we get rid of the arctangent function, but unfortunately here it is a bit overloaded, therefore we'll clean it by splitting it into two. In case it's not obvious how to do that directly we can differentiate it, perform partial fractions and then integrate back.
         </p>
 
         <div class="jaxmath">
@@ -767,7 +770,7 @@
         </div>
 
         <p>
-            At this point there's only left to evaluate the first integral, \(\mathcal J\), for which we'll employ Feynman's trick. There isn't any way to place the parameter so that we get rid of anything from the denominator so we'll simply consider the following integral:
+            At this point there's only left to evaluate the first integral, \(\mathcal J\), for which we'll employ Feynman's trick. There isn't any way to place the parameter so that we get rid of anything from the denominator so we'll simply introduce the following parameterisation:
         </p>
 
         <div class="jaxmath">
@@ -775,15 +778,15 @@
         </div>
 
         <p>
-            In general when we have rational functions it is prefered to integrate over \((0,\infty)\), if possible, as it drastically reduces the result. Especially when there's the derivative of \(\arcsin x\) in the denominator one way to map \((0,1)\) to \((0,\infty)\) is to directly substitute \(x \to \frac{1}{\sqrt{1+x^2}}\). Therefore we obtain:
+            In general when we have rational functions it is prefered to integrate over \((0,\infty)\), if possible, as it drastically reduces the result. Especially when there's the derivative of \(\arcsin x\) in the denominator one way to map \((0,1)\) to \((0,\infty)\) is to directly substitute \(x \to \frac{1}{\sqrt{1+x^2}}\).
         </p>
             
         <div class="jaxmath">
-            \[\mathcal J=\int_0^\infty \frac{1}{(2+x^2)(1+t^2+x^2)}dx = \frac{\pi}{2(1-t^2)}\left(\frac{1}{\sqrt{1+t^2}}-\frac{1}{\sqrt 2}\right)\]
+            \[\Rightarrow \mathcal J=\int_0^\infty \frac{1}{(2+x^2)(1+t^2+x^2)}dx = \frac{\pi}{2(1-t^2)}\left(\frac{1}{\sqrt{1+t^2}}-\frac{1}{\sqrt 2}\right)\]
         </div>
 
         <p>
-            We are looking to find \(\mathcal J(3)\) and we also have that \(\mathcal J(-1)=0\), therefore our integral is:
+            Now in order to go back to \(\mathcal J(3)\), we'll make use of \(\mathcal J(-1)=0\), so:
         </p>
 
         <div class="jaxmath">
@@ -791,7 +794,7 @@
         </div>
 
         <p>
-            In order to finish this integral we'll subsitute \(t = \frac{1-x}{1+x}\):
+            In order to finish this integral we'll subsitute \(t = \frac{1-x}{1+x}\).
         </p>
     
         <div class="jaxmath">
@@ -809,7 +812,7 @@
         <hr>
 
         <p>
-            Another useful thing to consider is to manipulate the bounds prior to parameterising the integral so that they get rid of any complicated functions for the differentiated integral, \(I'(t)\). This will almost always give a smoother and easier integral that we have to undo. We will show this in action considering the following integral:
+            Another useful thing to consider before using Feynman's trick is to manipulate the bounds prior to parameterising the integral so that they get rid of any complicated functions for the differentiated integral, \(I'(t)\). This will almost always give a smoother and easier integral that we have to undo. We will show this in action with the integral from below.
         </p>
         
         <div class="jaxmath">
@@ -817,11 +820,11 @@
         </div>
 
         <p>
-            With the integral from the previous "heuristic" we already seen that it is useful to integrate over \((0,\infty)\) when there are some rational functions - therefore we will attempt to do the same with this integral. You are encouraged to try and see what kind of mess it would be produced by parameterising the integral as it is, when the bounds are \((0,1)\). However we will jump straightforward to get our bounds to \((0,\infty)\).
+            With the integral from the previous heuristic we've already seen that it is useful to integrate over \((0,\infty)\) when there are some rational functions - therefore we will attempt to do the same with this integral. You are encouraged to try and see what kind of mess it would be produced by parameterising the integral as it is, when the bounds are \((0,1)\). However we will jump straightforward to get our bounds to \((0,\infty)\).
         </p>
 
         <p>
-            In order to obtain that we can notice that the integrand is even, so we can move the bounds to \((-1,1)\) and then substitute \(x\to \frac{1-x}{1+x}\), which is just another useful way to get our bounds at \((0,\infty)\):
+            In order to obtain that we can notice that the integrand is even, so we can move the bounds to \((-1,1)\) and then substitute \(x\to \frac{1-x}{1+x}\), which is just another useful way to get our bounds at \((0,\infty)\).
         </p>
 
         <div class="jaxmath">
@@ -894,7 +897,7 @@
         <hr>
 
         <p>
-            Surely there can be found many heuristics to manipulate integrals up to a point where Feynman's trick becomes usable, but we'll stick with those for now. In order to end this chapter, I propose the following integrals for practice:
+            Surely there can be found many heuristics to manipulate integrals up to a point where Feynman's trick becomes usable, but we'll stick with those as the main ones for now and display indirectly more in the next chapter. As usual, some integrals for practice with those heuristics are found below.
         </p>
 
         <div class="jaxmath">
@@ -928,17 +931,21 @@
         </div>
 
         <hr>
-        <section id="chapter6"> <h3>Variations</h3> </section>
+        <section id="chapter6"> <h2>Variations</h2> </section>
         <hr>
 
         <p>
-            While we can build up some heurestics to have at our disposal, the beauty of integrating comes exactly from the fact that there's not a general approach and often we just have to resort to creativity. We already described two variations of Feynman's trick that are more popular, similarly in this last chapter we'll take a look at more interesting variations of Feynman's trick which can help to enlarge the applicability of the technique.
+            We have already described two variations of Feynman's trick in the third and fourth chapter, similarly in this last chapter we'll take a look at more interesting (though less popular) variations of Feynman's trick which can help to enlarge the applicability of the technique. In the same time we'll also use other specific heuristics that can be used to manipulate the integrals up to a point where Feynman's trick can be used.
         </p>
 
         <hr>
 
+        <h3>
+            Feynman's trick & indefinite integrals
+        </h3>
+
         <p>
-            We will start by taking a look at how Feynman's trick can be applied to indefinite integrals. Let's consider:
+            We will start by taking a look at how Feynman's trick can be applied to evaluate indefinite integrals. Let's consider:
         </p>
 
         <div class="jaxmath">
@@ -946,7 +953,7 @@
         </div>
 
         <p>
-            In this form it makes no sense to differentiate the integral with respect to any parameter, but we can extend the integral with temporary bounds, like:
+            In this form it makes no sense to differentiate the integral with respect to any parameter, but we can extend the integral with temporary bounds.
         </p>
 
         <div class="jaxmath">
@@ -954,7 +961,7 @@
         </div>
         
         <p>
-            Now it's fine to differentiate under the integral sign, however the first thing that we're going to do here is to get rid of the square root via the substitution \(\frac{1}{\sqrt x}\to x\):
+            And now it's fine to differentiate under the integral sign, however the first thing that we're going to do here is to get rid of the square root, via the substitution \(\frac{1}{\sqrt x}\to x\).
         </p>
 
         <div class="jaxmath">
@@ -963,7 +970,7 @@
 
         <p>
             We can notice that the derivative of \(ax-\frac{b}{x}\) is \(a+\frac{b}{x^2}\) so it would be quite helpful if we had that additional term.
-            Furthermore if we differentiate with respect to \(b\) we'll produce the additional term \(a-\frac{b}{x^2}\), which is quite useful as \((ax-b/x)^2\) is equal to \((ax+b/x)^2+4ab\) and the derivative of \(ax+\frac{b}{x}\) is \(a-\frac{b}{x^2}\). So let's do this:
+            In the same time if we differentiate the integrand with respect to \(b\) we'll produce the additional term \(a-\frac{b}{x^2}\), which is quite useful as \((ax-b/x)^2\) is equal to \((ax+b/x)^2+4ab\) and the derivative of \(ax+\frac{b}{x}\) is \(a-\frac{b}{x^2}\), so let's differentiate like that.
         </p>
            
         <div class="jaxmath">
@@ -973,7 +980,7 @@
         </div>
 
         <p>
-            Where \(\operatorname{erfc}(x)\) is the complementary error function. Now let's finish this integral by going back to \(I(a,b,t)\) - we should be careful though as to replace the dummy variable \(b\) with something else as the \(b\) parameter does also appear in the bounds:
+            Where \(\operatorname{erfc}(x)\) is the complementary error function. Now we'll go back to \(I(a,b,t)\), but we should be careful to replace the dummy variable \(b\), with something else as the \(b\) parameter does also appear in the bounds.
         </p>
             
         <div class="jaxmath">
@@ -985,7 +992,7 @@
         </div>
 
         <p>
-            Or for the indefinite integral, this would be equivalent to:
+            Or for the indefinite integral, this would lead to:
         </p>
         
         <div class="jaxmath">
@@ -993,9 +1000,13 @@
         </div>
 
         <hr>
+        
+        <h3>
+            Feynman's trick & power series
+        </h3>
 
         <p>
-            Next, we will take a look at how to combine Feynman's trick with power series. For this we are going to consider the following integral: 
+            Next, we will take a look at how to combine Feynman's trick with power series. For this we are going to look at:
         </p>
 
         <div class="jaxmath">
@@ -1003,7 +1014,7 @@
         </div>
 
         <p>
-            We are already got familiar with what to do when there is a logarithm in the denominator as we saw that we can get rid of them by using \(\frac{\partial}{\partial t} x^t = x^t\ln x\), however here also the \(1-xy\) term appears. In order to solve this issue we'll make use of the geoemtric series, namely \(\frac{1}{1-x}=\sum_{n=0}^\infty x^n\), but we will expand into series later and simply start with the following integral:
+            We are already got familiar with what to do when there is a logarithm in the denominator as we saw that we can get rid of them by using \(\frac{d}{dt} x^t = x^t\ln x\), however here also the \(1-xy\) term appears. In order to solve this issue we'll make use of the geoemtric series, namely \(\frac{1}{1-x}=\sum_{n=0}^\infty x^n\), but we will expand into series a bit later and for now continue with the following integral:
         </p>
 
         <div class="jaxmath">
@@ -1012,7 +1023,7 @@
         </div>
 
         <p>
-            Now we have to to get back to \(I(n)\):
+            Now we have to to get back to \(I(n)\).
         </p>
 
         <div class="jaxmath">
@@ -1020,7 +1031,7 @@
         </div>
 
         <p>
-            Finally, let's put the geometric series to use:
+            And finally, we'll put the geometric series to use.
         </p>
 
         <div class="jaxmath">
@@ -1034,8 +1045,12 @@
 
         <hr>
 
+        <h3>
+            Feynman's trick & differential equations
+        </h3>
+
         <p>
-            Now we are going to take a look at a combination between Feynman's trick and differential equations. Let's consider the following integral:
+            In what's to come we are going to take a look at a combination between Feynman's trick and differential equations. Let's consider the following integral:
         </p>
 
         <div class="jaxmath">
@@ -1052,10 +1067,7 @@
 
         <p>
             And now it is true that we can use \(\frac{1}{t^2+x^2}=\int_0^\infty\frac{1}{t}\sin(yt)e^{-xy}dy\) in order to switch to double integrals, however we'll run in circles as the resulting integral will be \(\frac{1}{t}\int_0^\infty \frac{\sin x}{t^2+x^2}dx\) after changing the order of integration.
-        </p>
-
-        <p>
-            Instead, we'll first substitute \(x\to t x\) in order to move the parameter up to the cosine function and get rid of it from the denominator. Afterwards we'll use the accelerated Feynman's trick as mentioned above, but for \(\frac{1}{1+x^2}\):
+            Instead, we'll first substitute \(x\to t x\) in order to move the parameter up to the cosine function and get rid of it from the denominator. Afterwards we'll use the accelerated Feynman's trick as mentioned above, but for \(\frac{1}{1+x^2}\).
         </p>
 
         <div class="jaxmath">
@@ -1083,6 +1095,10 @@
 
         <hr>
 
+        <h3>
+            Generalizing Feynman's trick
+        </h3>
+
         <p>
             So far we've seen the Feynman's trick applied only when the parameter was inside the integrand, however it can also be used when the bounds are parameterised as wells. More generally, the following holds:
         </p>
@@ -1092,7 +1108,7 @@
         </div>
 
         <p>
-            We'll put this to use on the following integral:
+            We'll put this to use with the integral from below.
         </p>
 
         <div class="jaxmath">
@@ -1100,15 +1116,15 @@
         </div>
 
         <p>
-            First off, since there are \(2\) square roots, we will attempt to get rid of one by writing \(1+\sin x\) as \(2\cos^2\left(\frac{\pi}{4}-\frac{x}{2}\right)\):
+            First off, since there are \(2\) square roots, we will attempt to get rid of one by writing \(1+\sin x\) as \(2\cos^2\left(\frac{\pi}{4}-\frac{x}{2}\right)\), so:
         </p>
 
         <div class="jaxmath">
-            \[I=\int_0^\frac{\pi}{2} \ln\left(\sqrt{\sin x}+\sqrt 2\cos\left(\frac{\pi}{4}-\frac{x}{2}\right)\right)dx\overset{\frac{\pi}{4}-\frac{x}{2}\to x}=2\int_0^\frac{\pi}{4}\ln\left(\sqrt{\cos(2x)}+\sqrt 2 \cos x\right)dx\]
+            \[\Rightarrow I=\int_0^\frac{\pi}{2} \ln\left(\sqrt{\sin x}+\sqrt 2\cos\left(\frac{\pi}{4}-\frac{x}{2}\right)\right)dx\overset{\frac{\pi}{4}-\frac{x}{2}\to x}=2\int_0^\frac{\pi}{4}\ln\left(\sqrt{\cos(2x)}+\sqrt 2 \cos x\right)dx\]
         </div>
 
         <p>
-            And finally, we switch from trigonometric to rational functions by substituting \(\cos x\to x\):
+            And finally, we switch from trigonometric to rational functions by substituting \(\cos x\to x\).
         </p>
 
         <div class="jaxmath">
@@ -1135,16 +1151,20 @@
 
         <hr>
 
+        <h3>
+            Generating integrals using Feynman's trick
+        </h3>
+
         <p>
             Now we'll take a look at a fancier way to use Feynman's trick, especially in order to generate new integrals, for this we're considering:
         </p>
 
         <div class="jaxmath">
-            \[I(t)=\int_0^\frac{\pi}{2} \arctan\left(\frac{\sin x-\tan\frac{a}{2}}{\cos x}\right)dx\]
+            \[I(t)=\int_0^\frac{\pi}{2} \arctan\left(\frac{\sin x-\tan\frac{t}{2}}{\cos x}\right)dx\]
         </div>
 
         <p>
-            Note that we are not trying to evaluate the above integral, instead we are simply using it in order to build up new integrals with the result that follows after differentiating w.r.t. \(t\):
+            Note that we are not trying to evaluate the above integral, instead we are simply using it in order to build up new integrals with the result that follows after differentiating w.r.t. \(t\).
         </p>
 
         <div class="jaxmath">
@@ -1161,7 +1181,7 @@
         </div>
 
         <p>
-            This integral appeared in disguise as an exercise in the second chapter and with the same suggestion from there, we can also evaluate the integral by applying Feynman's trick to:
+            In retrospect, this integral also appeared in disguise as an exercise in the second chapter and with the same suggestion from there we can evaluate the integral by applying Feynman's trick to:
         </p>
         
         <div class="jaxmath">
@@ -1169,14 +1189,13 @@
         </div>
 
         <p>
-            Admittedly, following this parameterisation is much more intuitevely than what we've shown here, however it's also useful to have this trick in the bank.
+            Admittedly, following this parameterisation is much more intuitevely than what we've shown with the new variation, however it's also useful to have this trick in the bank.
         </p>
 
         <hr>
 
         <p>
-            This work is licensed under a <a href = "https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution 4.0 International License</a>.
-            Please cite this as: <cite>https://zackyzz.github.io/feynman</cite>.
+            This work is licensed under a <a href = "https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution 4.0 International License</a> and it can be cited as: <cite>https://zackyzz.github.io/feynman</cite>.
         </p>
     </div>
     
