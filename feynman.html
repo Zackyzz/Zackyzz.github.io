@@ -130,7 +130,7 @@
         </p>
 
         <p>
-            Unfortunately in the integral from above we lack a parameter, therefore the first step is to parameterise the integral, which can even mean introducing a whole function, but for this one a simple parameter is enough.
+            Unfortunately in the integral from above we lack a parameter, therefore the first step is to parameterise the integral, which can even mean introducing a whole function, but for this we'll simply consider:
         </p>
 
         <div class ="jaxmath">
@@ -198,7 +198,7 @@
         <p>
             As emphasized above the main goal of the trick is to obtain an integral that is easier to evaluate after
             differentiating with respect to a parameter and one issue is that it is not always obvious where to place it.
-            In order to make things more intuitively we will use the following integral:
+            In order to make things more intuitively we will use the integral from below.
         </p>
 
         <div class ="jaxmath">
@@ -454,15 +454,6 @@
             A natural question that arises here is how did \(\frac{1}{1+x^4}=\int_0^\infty e^{-tx^2}\sin t dt\) appear? Or even better, how can on come up with similar results for other integrals? In the case from above simply the Laplace transform of the sine function was used, however in general it's useful to have a list of such identities. There are tables of integral results that can be used - for example: Table of Integrals, Series, and Products by Gradshteyn and Ryzhik - alternatively one can build up their own list of results which tend to appear often while evaluating other integrals.
         </p>
 
-        <p>
-            A few useful of them are:
-        </p>
-
-        <div class ="jaxmath">
-            \[\int_0^\infty e^{-xt}\sin t dt =\frac{1}{1+x^2}, \quad \int_0^\infty e^{-xt} dt = \frac{1}{x}, \quad \int_0^\infty e^{-xt^2}dt = \frac{\sqrt \pi}{2\sqrt x}\]
-            \[\int_0^1 \frac{\ln t}{t-\frac{1}{x}}dt = \operatorname{Li}_2(x), \quad \int_0^x \frac{\arctan t}{1+xt}dt = \frac{\arctan x \ln(1+x^2)}{2x}\]
-        </div>
-
         <hr>
 
         <p>
@@ -490,7 +481,7 @@
         </p>
 
         <p>
-            Like in the previous chapter below are more integrals alongside some hints in order to practice with the accelerated variation Feynman's trick. However in this case I do recommend to take a peek at the hints faster in case nothing obvious comes immediate to mind.
+            Like in the previous chapter below are more integrals alongside some hints in order to practice with the accelerated variation Feynman's trick. However in this case I do recommend to peek at the hints faster in case nothing obvious comes immediate to mind and afterwards attempt to understand why the mentioned result is used.
         </p>
 
         <div class ="jaxmath">
@@ -512,19 +503,6 @@
             <p class="hint">
                 Switch directly to double integrals by using:
                 \[\int_0^1 \frac{\ln t}{t-\frac{1}{x}}dt = \operatorname{Li}_2(x)\]
-            </p>
-        </div>
-
-        <div class ="jaxmath">
-                \[\int_0^1 \frac{\arctan x}{x}\ln\left(\frac{(1+x^2)^3}{(1+x)^2}\right)dx=?\]
-        </div>
-
-        <div class="hidden-hint">
-            <p class="hint">
-                Start by splitting the integral into two parts, namely:
-                \[3\int_0^1 \frac{\arctan x\ln(1+x^2)}{x}dx-2\int_0^1 \frac{\arctan x\ln(1+x)}{x}dx\]
-                Afterwards employ the accelerated Feynman's trick to the first integral, using:
-                \[\int_0^x \frac{\arctan t}{1+xt}dt = \frac{\arctan x \ln(1+x^2)}{2x}\]
             </p>
         </div>
 
@@ -752,7 +730,7 @@
         </div>
 
         <p>
-            We would like to place parameterise the integral so that we get rid of the arctangent function, but unfortunately here it is a bit overloaded, therefore we'll clean it by splitting it into two. In case it's not obvious how to do that directly we can differentiate it, perform partial fractions and then integrate back.
+            We would like to parameterise the integral so that we get rid of the arctangent function, but unfortunately here it is a bit overloaded, therefore we'll clean it by splitting it into two. In case it's not obvious how to do that directly we can differentiate it, perform partial fractions and then integrate back.
         </p>
 
         <div class="jaxmath">
