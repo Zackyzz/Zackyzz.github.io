@@ -124,8 +124,7 @@
 
         <p>
             You are encouraged to try and evaluate the integral with basic methods, but the logarithm being in the
-            denominator makes this integral quite stubborn to deal with. Feynman's trick aims to get rid of this issue
-            - that is, to differentiate under the intgeral sign with respect to a parameter in order to obtain an
+            denominator makes this integral quite stubborn to deal with. Feynman's trick aims to get rid of this issue by differentiating under the intgeral sign with respect to a parameter in order to obtain an
             integral that is easier to evaluate.
         </p>
 
@@ -138,7 +137,7 @@
         </div>
 
         <p>
-            Keep in mind that our original integral is just \(I(1)\). Also, surely we could've placed the parameter in many
+            Keep in mind that our original integral is just \(I(1)\). Also, surely we could've placed a parameter in many
             different places, such as:
         </p>
 
@@ -157,7 +156,7 @@
         <p>
             Notice how easy it was to evaluate the integral \(I'(t)=\int_0^1x^tdx\) from above, had we kept \(I(a)\), \(I(b)\)
             or \(I(c)\) the things wouldn't had simplified at all after differentiating and most devastating is that we would still
-            be left with \(\ln x\) in the denominator, a thing which made the integral hard to deal with in the first place.
+            have the \(\ln x\) in the denominator, a thing which made the integral hard to deal with in the first place.
         </p>
 
         <p>
@@ -227,7 +226,7 @@
             Therefore if we would try to go back to what we're looking, which is \(I(1)\), we would end up with
             \(I=I+\text{other stuff}\). This cancels out \(I\) and we wouldn't be able to recover it.
             Unfortunately there's no magic formula that tells a priori whether placing a parameter in a specific place would
-            succeed or fail dealing with an integral - and sometimes we are simply unlucky.
+            succeed or fail evaluating an integral - and sometimes we are simply unlucky.
         </p>
 
         <p>
@@ -248,7 +247,7 @@
         </div>
 
         <p>
-            This works, but we can even do better. Looking at the "Hello, World!" integral we can see that there we simplified the logarithm in the denominator while performing \(\frac{\partial}{\partial t}x^t\). This is also the first thing that I always attempt to look for when using this technique - namely, to simplify something from the integrand when differentiating. Surely for the current integral we got rid of the logarithm, but the denominator remained intact.
+            This works, but we can do even better. Looking at the "Hello, World!" integral we can see that there we simplified the logarithm in the denominator while performing \(\frac{\partial}{\partial t}x^t\). This is also the first thing that I always attempt to look for when using this technique - namely, to simplify something from the integrand when differentiating. Surely for the current integral we got rid of the logarithm, but the denominator remained intact.
         </p>
 
         <p>
@@ -264,7 +263,7 @@
         </div>
 
         <p>
-            For this one it's more naturally to place the parameter so that it simplifies \(1+x^2\) when differentiating with respect to \(t\), namely we consider:
+            Now it's more naturally to place the parameter so that it simplifies \(1+x^2\) when differentiating with respect to \(t\), namely we consider:
         </p>
 
         <div class="jaxmath">
@@ -451,7 +450,7 @@
         </p>
 
         <p>
-            A natural question that arises here is how did \(\frac{1}{1+x^4}=\int_0^\infty e^{-tx^2}\sin t dt\) appear? Or even better, how can on come up with similar results for other integrals? In the case from above simply the Laplace transform of the sine function was used, however in general it's useful to have a list of such identities. There are tables of integral results that can be used - for example: Table of Integrals, Series, and Products by Gradshteyn and Ryzhik - alternatively one can build up their own list of results which tend to appear often while evaluating other integrals.
+            A natural question that arises here is how did \(\frac{1}{1+x^4}=\int_0^\infty e^{-tx^2}\sin t\, dt\) appear? Or even better, how can on come up with similar results for other integrals? In the case from above simply the Laplace transform of the sine function was used, however in general it's useful to have a list of such identities. There are tables of integral results that can be used - for example: Table of Integrals, Series, and Products by Gradshteyn and Ryzhik - alternatively one can build up their own list of results which tend to appear often while evaluating other integrals.
         </p>
 
         <hr>
@@ -477,7 +476,7 @@
         </p>
 
         <p>
-            It might be worth to highlight again that this method should be used preferable when parameterising the integral leads to nowhere. For the above integral the natural introduction of \(\int_0^\infty \frac{\sin(tx)}{x}dx\) unfortunatelly does fail, as we obtain a divergent integral after differentiating under the integral sign.
+            It might be worth to highlight again that this method should be used preferable when parameterising the integral leads to nowhere. For the above integral, the natural introduction of \(\int_0^\infty \frac{\sin(tx)}{x}dx\) unfortunatelly does fail, as we obtain a divergent integral after differentiating under the integral sign.
         </p>
 
         <p>
@@ -708,7 +707,7 @@
         </div>
 
         <p>
-            Obviously, if you're already more used to trigonometric functions, hyperbolic functions or anything else then this can be ignored. I however recommend switching to rational functions, a few exceptions being when there's a clear way to parameterise the integral or when at least one of the bounds is \(\infty\).
+            Obviously, if you're already more used to trigonometric functions, hyperbolic functions or anything else, then this can be ignored. I however recommend switching to rational functions, a few exceptions being when there's a clear way to parameterise the integral or when at least one of the bounds is \(\infty\).
         </p>
 
         <hr>
@@ -730,7 +729,7 @@
         </div>
 
         <p>
-            We would like to parameterise the integral so that we get rid of the arctangent function, but unfortunately here it is a bit overloaded, therefore we'll clean it by splitting it into two. In case it's not obvious how to do that directly we can differentiate it, perform partial fractions and then integrate back.
+            We would like to parameterise the integral so that we get rid of the arctangent function, but unfortunately here it is a bit overloaded, therefore we'll clean it by splitting it into two. In case it's not obvious how to do that directly, we can differentiate it, perform partial fractions and then integrate back.
         </p>
 
         <div class="jaxmath">
@@ -756,7 +755,7 @@
         </div>
 
         <p>
-            In general when we have rational functions it is prefered to integrate over \((0,\infty)\), if possible, as it drastically reduces the result. Especially when there's the derivative of \(\arcsin x\) in the denominator one way to map \((0,1)\) to \((0,\infty)\) is to directly substitute \(x \to \frac{1}{\sqrt{1+x^2}}\).
+            In general when we have rational functions it is prefered to integrate over \((0,\infty)\), if possible, as it drastically reduces the result and when there's the derivative of \(\arcsin x\) in the denominator one way to map \((0,1)\) to \((0,\infty)\) is to directly substitute \(x \to \frac{1}{\sqrt{1+x^2}}\).
         </p>
             
         <div class="jaxmath">
@@ -802,7 +801,7 @@
         </p>
 
         <p>
-            In order to obtain that we can notice that the integrand is even, so we can move the bounds to \((-1,1)\) and then substitute \(x\to \frac{1-x}{1+x}\), which is just another useful way to get our bounds at \((0,\infty)\).
+            In order to obtain that we can notice that the integrand is even, so we can move the bounds to \((-1,1)\) and then substitute \(x\to \frac{1-x}{1+x}\), which is another useful way to get our bounds at \((0,\infty)\).
         </p>
 
         <div class="jaxmath">
@@ -810,7 +809,7 @@
         </div>
 
         <p>
-            We can split the logarithm into three parts and notice that:
+            And now we can split the logarithm into three parts and notice that:
         </p>
         
         <div class="jaxmath">
@@ -827,7 +826,7 @@
         </div>
 
         <p>
-            In order to evaluate the emerging integral we will perform Feynman's trick. There's not an obvious way to place the parameter as to simplify the denominator, so we'll parameterise the integral as:
+            To evaluate the emerging integral we will perform Feynman's trick. There's not an obvious way to place the parameter as to simplify the denominator, so we'll parameterise the integral as:
         </p>
 
         <div class="jaxmath">
@@ -836,7 +835,7 @@
         </div>
 
         <p>
-            The partial fraction was ommited above, as what's really important is that we're left only with a simple \(\ln a\) as a "disturbing" function - in contrast if the bounds were \((0,1)\) things would have been way more complicated.
+            The partial fraction was ommited above, as what's really important here is that we're left only with a simple \(\ln a\) as a "disturbing" function - in contrast if the bounds were \((0,1)\) things would have been way more complicated.
         </p>
 
         <p>
@@ -904,7 +903,7 @@
 
         <div class="hidden-hint">
             <p class="hint">
-                Map the bounds from \((0,1)\) to \((0,\infty)\) by substituting \(x\to\frac{1}{x}\), here it is necessary to add the resulting integral with the original one, afterwards use Feynman's trick.
+                Map the bounds from \((0,1)\) to \((0,\infty)\) by substituting \(x\to\frac{1}{x}\) - here it is necessary to add the resulting integral with the original one - afterwards use Feynman's trick.
             </p>
         </div>
 
@@ -913,7 +912,7 @@
         <hr>
 
         <p>
-            We have already described two variations of Feynman's trick in the third and fourth chapter, similarly in this last chapter we'll take a look at more interesting (though less popular) variations of Feynman's trick which can help to enlarge the applicability of the technique. In the same time we'll also use other specific heuristics that can be used to manipulate the integrals up to a point where Feynman's trick can be used.
+            We have already described two variations of Feynman's trick in the third and fourth chapter, similarly in this last chapter we'll take a look at more interesting (though less popular) variations of Feynman's trick which can help to enlarge the applicability of the technique. In the same time we'll also use other specific heuristics that can be used to manipulate the integrals up to a point where Feynman's trick can be employed.
         </p>
 
         <hr>
@@ -923,7 +922,7 @@
         </h3>
 
         <p>
-            We will start by taking a look at how Feynman's trick can be applied to evaluate indefinite integrals. Let's consider:
+            We will start by taking a look at how Feynman's trick can be applied to indefinite integrals. Let's consider:
         </p>
 
         <div class="jaxmath">
@@ -948,7 +947,7 @@
 
         <p>
             We can notice that the derivative of \(ax-\frac{b}{x}\) is \(a+\frac{b}{x^2}\) so it would be quite helpful if we had that additional term.
-            In the same time if we differentiate the integrand with respect to \(b\) we'll produce the additional term \(a-\frac{b}{x^2}\), which is quite useful as \((ax-b/x)^2\) is equal to \((ax+b/x)^2+4ab\) and the derivative of \(ax+\frac{b}{x}\) is \(a-\frac{b}{x^2}\), so let's do that:
+            In the same time if we differentiate the integrand with respect to \(b\) we'll produce \(a-\frac{b}{x^2}\), which is quite useful as \((ax-b/x)^2\) is equal to \((ax+b/x)^2+4ab\) and the derivative of \(ax+\frac{b}{x}\) is \(a-\frac{b}{x^2}\), so let's do that:
         </p>
            
         <div class="jaxmath">
@@ -1110,7 +1109,7 @@
         </div>
 
         <p>
-            At this point we can see that the same \(\sqrt 2\) appears in both the upper bound and the \(\operatorname{arccosh}\) function, so we'll parameterise the integral as:
+            At this point we can see that the same \(\sqrt 2\) appears in both the lower bound and the \(\operatorname{arccosh}\) function, so we'll parameterise the integral as:
         </p>
         
         <div class="jaxmath">
@@ -1159,7 +1158,7 @@
         </div>
 
         <p>
-            In retrospect, this integral also appeared in disguise as an exercise in the second chapter and with the same suggestion from there we can evaluate the integral by applying Feynman's trick to:
+            In retrospect, this integral also appeared in disguise as an exercise in the second chapter and with the same suggestion from there, we can evaluate the integral by applying Feynman's trick to:
         </p>
         
         <div class="jaxmath">
@@ -1169,6 +1168,36 @@
         <p>
             Admittedly, following this parameterisation is much more intuitevely than what we've shown with the new variation, however it's also useful to have this trick in the bank.
         </p>
+
+        <hr>
+
+        <p>
+            To keep the practice going, underneath are listed some integrals that can be evaluated with one of the variations of Feynman's trick described in this last chapter.
+        </p>
+
+        <div class="jaxmath">
+            \[\int_0^1 \int_0^1 \frac{dxdy}{(1+xy)\ln(xy)} = ?\]
+        </div>
+
+        <div class="hidden-hint">
+            <p class="hint">
+                Combine the geometric series \(\sum\limits_{n=0}^\infty (-1)^n x^n = \frac{1}{1+x}\) with:
+                \[I(t)=\int_0^1 \int_0^1 \frac{(xy)^t}{\ln(xy)}dxdy\]
+            </p>
+        </div>
+
+        <div class="jaxmath">
+            \[\int_0^\infty e^{-x^2}dx = ?\]
+        </div>
+
+        <div class="hidden-hint">
+            <p class="hint">
+                This integral can be generated starting from:
+                \[I(t)=\int_0^\infty \frac{e^{-t(1+x^2)}}{1+x^2}dx\Rightarrow I'(t)=-e^{-t}\int_0^\infty e^{-tx^2} dx\overset{\sqrt t x \to x}= -\frac{e^{-t}}{\sqrt t}\int_0^\infty e^{-x^2} dx\]
+                Afterwards it should be observed that \(I(0)=\frac{\pi}{2}\) and \(I(\infty)=0\), therefore:
+                \[\frac{\pi}{2} = \int_0^\infty \frac{e^{-t}}{\sqrt t} dt \int_0^\infty  e^{-x^2} dx \overset{t\to t^2} = 2\left(\int_0^\infty e^{-x^2}dx\right)^2 \]
+            </p>
+        </div>
 
         <hr>
 
