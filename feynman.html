@@ -23,9 +23,8 @@
                     <li><a href="#chapter1">Hello, World!</a></li>
                     <li><a href="#chapter2">The parameter</a></li>
                     <li><a href="#chapter3">Accelerated FT</a></li>
-                    <li><a href="#chapter4">DUIS</a></li>
-                    <li><a href="#chapter5">Heuristics</a></li>
-                    <li><a href="#chapter6">Variations</a></li>
+                    <li><a href="#chapter4">Heuristics</a></li>
+                    <li><a href="#chapter5">Variations</a></li>
                 </ul>
             </li>
             <li class = "real-li"><a href="about.html">About</a></li>
@@ -107,11 +106,14 @@
         <p>
             This is nice, however not so useful by itself. One common thing that tends to
             happen while approaching something new, be it a game, a programming language or even a field is that 
-            without practice nothing would stick. Take for example chess, most people could understand the rules in a few 
+            without practice nothing would stick.
+        </p>
+        
+        <p>
+            Take for example chess, most people could understand the rules in a few 
             minutes, however if they would go on to play a game most likely they would get stomped by a more experienced
             player while playing under the same rules, solely because the other player through practice learned some
-            techniques to follow when playing. With that in mind I would like here to jump straightforward to practice in order
-            to get familiar with the trick.
+            techniques to follow when playing. With that in mind I would like here to jump straightforward into practice in order to get familiar with the trick.
         </p>
 
         <p>
@@ -165,7 +167,7 @@
         </p>
 
         <p>
-            But we will worry about that a bit later, for now let's finish the integral as we only found \(I'(t)\).
+            We will worry about that a bit later, for now let's finish the integral as we only found \(I'(t)\).
             Since we are looking to find \(I(1)\) we need to integrate \(I'(t)\) back and set \(t=1\) in order to arrive there.
             Here it's useful to recall that:
         </p>
@@ -197,7 +199,7 @@
         <p>
             As emphasized above the main goal of the trick is to obtain an integral that is easier to evaluate after
             differentiating with respect to a parameter and one issue is that it is not always obvious where to place it.
-            In order to make things more intuitively we will use the integral from below.
+            In order to make things more intuitively we will play around with the integral from below.
         </p>
 
         <div class ="jaxmath">
@@ -205,7 +207,7 @@
         </div>
 
         <p>
-            The most annoying thing for us is the logarithm, so if we get rid of it everything should be straightforward.
+            The most annoying thing is the logarithm, so if we get rid of it everything should be straightforward.
             There are a few parameter possibilities which makes sense to consider, namely:
         </p>
 
@@ -271,20 +273,20 @@
         </div>
 
         <p>
-            Similarly to \(I(b)\) we are looking to find \(I(1)\), however here \(I(0)\) is equal to \(\frac12\int_0^1\frac{\ln(2x)}{1+x^2}dx\) not \(0\).
+            Like for \(I(b)\) we are looking to find \(I(1)\), however here \(I(0)\) is equal to \(\frac12\int_0^1\frac{\ln(2x)}{1+x^2}dx\) not \(0\).
         </p>
 
         <div class="jaxmath">
-            \[I=I(1)-I(0)+I(0)=\frac14\int_0^1\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}dt+\frac12\int_0^1\frac{\ln(2x)}{1+x^2}dx\]
+            \[\Rightarrow I=I(1)-I(0)+I(0)=\frac14\int_0^1\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}dt+\frac12\int_0^1\frac{\ln(2x)}{1+x^2}dx\]
             \[\int_0^1\frac{\ln\left(\frac{1+\sqrt{1-t^2}}{t}\right)}{\sqrt{1-t^2}}dt\overset{\frac{1+\sqrt{1-t^2}}{t}=x}=-2\int_0^1 \frac{\ln x}{1+x^2}dx\Rightarrow I = \frac12\int_0^1 \frac{\ln 2}{1+x^2}dx=\frac{\pi}{8}\ln 2\]
         </div>
 
         <p>
-            For this specific integral we only avoided performing partial fractions so there wasn't really a big improvement by simplifying the denominator. However I want to emphasize the importance of this because it will make things come way more natural when deciding where place the parameter. <span class ="important">Of course, in case there's not an appropiate or immediate way to achieve this, it's perfectly fine to try and place the parameter elsewhere too.</span>
+            For this specific integral we only avoided performing partial fractions so there wasn't really a big improvement by simplifying the denominator. However I want to emphasize the importance of this because it will make things come way more natural when deciding where place the parameter. <span class ="important">Of course, in case there's not an appropiate or immediate way to achieve this, it's perfectly fine to place the parameter elsewhere too.</span>
         </p>
 
         <p>
-            As mentioned previously, practicing is the best approach to get along with this technique, therefore below are more integrals to evaluate alongside some hidden steps in case those will be needed, however I strongly recommend to try and deal with the integrals before looking at any hints and only check them afterwards for correctness.
+            As mentioned previously, practicing is the best approach to get along with new techniques, therefore below are more integrals to evaluate alongside some hidden steps in case those will be needed. However I strongly recommend to try and deal with the integrals before looking at any hints and only check them afterwards for correctness.
         </p>
 
         <div class ="jaxmath">
@@ -368,6 +370,7 @@
                 \[I(t)=\int_0^\infty \frac{e^{-t(1+x^2)}}{1+x^2}dx\Rightarrow I'(t) = -\frac{\sqrt \pi}{2\sqrt t}e^{-t}\]
                 This should lead to:
                 \[\int_0^\infty \frac{e^{-x^2}}{1+x^2}dx = e\left(I(1)-I(t\to \infty)\right) = -e\int_1^\infty I'(t)dt= \frac{\pi e}{2}\operatorname{erfc}(1)\]
+                Where \(\operatorname{erfc}(x)\) is the complementary error function.
             </p>
         </div>
 
@@ -390,7 +393,7 @@
         <hr>
 
         <p>
-            The previous chapter emphasized to parameterise integrals so that something from the integral, which is not related to the parameter, gets simplified when differentiating (if possible). However there are times when even though we can introduce a parameter to accomplish that, it still wouldn't be enough to finish the integral.
+            The previous chapter emphasized to parameterise integrals so that something from the integral, which is not related to the parameter, gets simplified when differentiating (if possible). However there are times when even though we can introduce a parameter to accomplish that, it wouldn't be enough to finish the integral.
         </p>
 
         <p>
@@ -402,11 +405,11 @@
         </div>
 
         <p>
-            With \(\int_{-\infty}^\infty \frac{e^{-x^2}}{1+x^2}dx\) it was quite direct to parameterise the integral as \(\int_{-\infty}^\infty \frac{e^{-t(1+x^2)}}{1+x^2}dx\) since it simplifies the denominator, however the similar way to do that for our integral: \(\int_{-\infty}^\infty \frac{e^{-x^2-t(1+x^4)}}{1+x^4}dx\) doesn't seem to work as it complicates things a bit too much.
+            With \(\int_{-\infty}^\infty \frac{e^{-x^2}}{1+x^2}dx\) it was quite direct to parameterise the integral as \(\int_{-\infty}^\infty \frac{e^{-t(1+x^2)}}{1+x^2}dx\) since it simplifies the denominator, however the similar way to do that for our integral, \(\int_{-\infty}^\infty \frac{e^{-x^2-t(1+x^4)}}{1+x^4}dx\), doesn't seem to work as it complicates things a bit too much.
         </p>
 
         <p>
-            There is however a way to simplify the denominator and in the same time to obtain a decent integral afterwards. Without any explanation I will parameterise the integral as:
+            There is however a way to simplify the denominator and in the same time to obtain a decent integral afterwards. Without getting into much details I will parameterise the integral as:
         </p>
 
         <div class="jaxmath">
@@ -446,7 +449,7 @@
         </div>
 
         <p>
-            The rest goes exactly as with the previous method as all we did here was to skip differentiating with respect to the newly parameterised integral and instead we switched to double integrals.
+            The rest goes exactly as with the previous method as all we did here was to skip differentiation step and instead we switched to double integrals.
         </p>
 
         <p>
@@ -472,7 +475,7 @@
         </div>
 
         <p>
-            Alternatively we can also consider the parameter version of this integral: \(\int_0^\infty \frac{\sin x}{x}e^{-xt}dx\), however I feel like switching to double integrals is way more intuitively.
+            Alternatively we can also consider the parameter version of this integral, \(\int_0^\infty \frac{\sin x}{x}e^{-xt}dx\), however I feel like switching to double integrals is way more intuitively.
         </p>
 
         <p>
@@ -480,7 +483,7 @@
         </p>
 
         <p>
-            Like in the previous chapter below are more integrals alongside some hints in order to practice with the accelerated variation of Feynman's trick. However in this case I do recommend to peek at the hints faster in case nothing obvious comes immediate to mind and afterwards attempt to understand why the mentioned result is used.
+            Like in the previous chapter below are more integrals alongside some hints in order to practice with the accelerated variation of Feynman's trick. However in this case I do recommend to peek at the hints faster in case nothing obvious comes immediate to mind and afterwards attempt to understand why the mentioned identity is used.
         </p>
 
         <div class ="jaxmath">
@@ -519,156 +522,11 @@
         </div>
 
         <hr>
-        <section id="chapter4"> <h2>Differentiating under the integral sign</h2> </section>
+        <section id="chapter4"> <h2>Heuristics</h2> </section>
         <hr>
 
         <p>
-            So far we've seen the same steps when using Feynman's trick, namely we parameterised the integrals followed by differentiating them under the integral sign and then to undo this last step of differentiation, we integrated back. There are however cases where it would be enough to differentiate under the integral sign without performing the undo step.
-        </p>
-
-        <p>
-            As a small note, it's true that <span class ="important">differentiating under the integral sign</span> tends to be used as an alternative name for Feynman's trick, however I prefer to keep this for the variant where only the differentiating process takes part, or as mentioned above, when there's no need to integrate back the result and the name describes quite literally what we are doing. Let's make this more clear by looking at the following integral:
-        </p>
-
-        <div class="jaxmath">
-            \[I = \int_0^1 x \ln x\, dx\]
-        </div>
-
-        <p>
-            We can remember from the "Hello, World!" integral that \(\frac{\partial}{\partial t}x^t = x^t \ln x\) and looking at the right hand side, by putting \(t=1\) we would end up with the integrand of \(I\), however it is much easier to deal the left hand side integrand, \(x^t\). Therefore in order to evaluate this integral we will simply <span class ="important">differentiate under the integral sign</span>.
-        </p>
-            
-        <div class="jaxmath">
-            \[I(t)=\int_0^1 x^t dx = \frac{1}{1+t} \Rightarrow I'(t) = -\frac{1}{(1+t)^2}\]
-        </div>
-
-        <p>
-            We are looking here to find \(I'(1)\), so this is over quickly as:
-        </p>
-
-        <div class="jaxmath">
-            \[I'(t)=\int_0^1 x^t \ln x\, dx \Rightarrow I'(1)= -\frac{1}{4}\]
-        </div>
-
-        <hr>
-
-        <p>
-            The whole point of the above was to get a glimpse of what is meant by this specific method. Now let's go deeper with a more stacked integral.
-        </p>
-
-        <div class="jaxmath">
-            \[I=\int_0^1\int_0^1 \left(\frac{-\ln(xy)}{1-xy}\right)^mdxdy\]
-        </div>
-
-        <p>
-            In order to generate the \(\ln(xy)\) part it's straightforward as we will do exactly as with the previous integral, namely we consider:
-        </p>
-
-        <div class="jaxmath">
-            \[I(a)=\int_0^1\int_0^1 \frac{(xy)^a}{(1-xy)^m}dxdy\]
-        </div>
-
-        <p>
-            And then differentiating with respect to \(a\), \(m\) times followed by setting \(a=0\) will gives us the desired integral, ignoring the \((-1)^m\) term. However the denominator is still troublesome and to deal with that we will introduce one more parameter:
-        </p>
-            
-        <div class="jaxmath">
-            \[I(a,z)=\int_0^1\int_0^1 \frac{(xy)^a}{z-xy}dxdy\]
-        </div>
-
-        <p>
-            This is perfect as we can recover our original integral by differentiating with respect to \(a\), \(m\) times and with respect to \(z\), \(m-1\) times followed by setting \(a=0\) and respectively \(z=1\), ignoring some coefficients.
-        </p>
-
-        <p>
-            One way to evaluate \(I(a,z)\) is to expand the denominator into geometric series as:
-        </p>
-
-        <div class="jaxmath">
-            \[I(a,z)=\int_0^1\int_0^1 \frac{(xy)^a}{z-xy}dxdy=\frac{1}{z}\sum_{n=0}^\infty \int_0^1\int_0^1(xy)^a\left(\frac{xy}{z}\right)^ndxdy\]
-            \[=\sum_{n=0}^\infty \frac{1}{z^{n+1}}\int_0^1x^{n+a}dx\int_0^1y^{n+a}dy=\sum_{n=1}^\infty \frac{1}{z^{n+2}}\frac{1}{(n+a)^2}\]
-        </div>
-
-        <p>
-            And now we will take \(m\) derivatives with respect to \(a\) and set it to \(0\).
-        </p>
-
-        <div class="jaxmath">
-            \[\frac{\partial^m}{\partial a^m}I(a,z) = \int_0^1\int_0^1 \frac{\ln^m(xy)}{z-xy} dxdy =(-1)^m (m+1)!\sum_{n=1}^\infty \frac{1}{z^{n+2}}\frac{1}{n^{m+2}}\]
-        </div>
-
-        <p>
-            This can be also rewriten in terms of the polylogarithm function as:
-        </p>
-
-        <div class="jaxmath">
-            \[\int_0^1\int_0^1 \frac{(-\ln(xy))^m}{z-xy} dxdy = (m+1)!\operatorname{Li}_{m+2}\left(\frac{1}{z}\right)\]
-        </div>
-
-        <p>
-            Finally, we can arrive at our original integral by taking \(m-1\) derivatives with respect to \(z\) and setting it to \(1\).
-        </p>
-
-        <div class="jaxmath">
-                \[(-1)^m(m-1)!\int_0^1\int_0^1 \frac{(-\ln(xy))^m}{(1-xy)^m}dxdy=(m+1)!\frac{d^{m-1}}{dz^{m-1}}\operatorname{Li}_{m+2}\left(\frac{1}{z}\right)\bigg|_{z=1}\]
-        </div>
-
-        <p>
-            Although the derivation from above was the important part since it shows the main idea on how to differentiate in order to produce the desired integral, by using \(\frac{\partial}{\partial z} \operatorname{Li}_n(z) = \frac{\operatorname{Li}_{n-1}(z)}{z}\) the result can be also written as:
-        </p>
-
-        <div class="jaxmath">
-            \[\int_0^1\int_0^1 \left(\frac{-\ln(xy)}{1-xy}\right)^m dxdy =m(m+1)\sum_{k=1}^{m-1}|s(m-1,m-k)|\zeta(k+2)\]
-        </div>
-
-        <p>
-            Where \(s(n,m)\) is the Stirling number of the first kind and \(\zeta(z)\) is the Riemann zeta function.
-        </p>
-
-        <p>
-            As usual, below are some integrals for more practice with this variation of Feynman's trick.
-        </p>
-
-        <div class ="jaxmath">
-            \[\int_0^\infty x^n e^{-x}dx=?\]
-        </div>
-
-        <div class="hidden-hint">
-            <p class="hint">
-                Differentiate \(n\) times with respect to \(a\) and in the end set \(a\) to \(1\) in the following integral:
-                \[\int_0^\infty e^{-ax}dx\]
-            </p>
-        </div>
-
-        <div class ="jaxmath">
-                \[\int_0^\infty x^2e^{-\left(4x^2+\frac{9}{x^2}\right)}dx = ?\]
-        </div>
-
-        <div class="hidden-hint">
-            <p class="hint">
-                This was already given as an exercise in a previous chapter and obviously sometimes there are many ways to approach an integral. However, in the spirit of this chapter consider starting by evaluating the following integral:
-                \[I(t)=\int_0^\infty e^{-\left(tx^2+\frac{9}{x^2}\right)}dx\]
-                Afterwards differentiate the result once with respect to \(t\).
-            </p>
-        </div>
-
-        <div class ="jaxmath">
-                \[\int_0^\infty \frac{1}{(1+x^2)^n}dx=?\]
-        </div>
-
-        <div class="hidden-hint">
-            <p class="hint">
-                Differentiate \(n-1\) times with respect to \(a\) and in the end set \(a\) to \(1\) in the following integral:
-                \[\int_0^\infty \frac{1}{a+x^2}dx\]
-            </p>
-        </div>
-
-        <hr>
-        <section id="chapter5"> <h2>Heuristics</h2> </section>
-        <hr>
-
-        <p>
-            With all the previous integrals there was a common thing: we were able to parameterise them as they appeared in their original form, however most of the time we don't have this luxury and we need to manipulate the integrals up to a point where we can introduce a parameter. Our goal here will be to find a few heuristics that will help us in manipulating the integrals up to a point where Feynman's trick will be of any help.
+            With all the previous integrals there was a common thing: we were able to parameterise them as they appeared in their original form, however most of the time we don't have this luxury and we need to manipulate the integrals up to a point where we can introduce a parameter. Our goal here will be to find a few heuristics that will help us manipulate the integrals up to a point where Feynman's trick will be helpful.
         </p>
 
         <hr>
@@ -721,7 +579,7 @@
         </div>
 
         <p>
-            At the first glance it might seem like a super complicated integral. However, as we have trigonometric functions all over the place we know what the first step should be, namely we'll perform the Weierstrass substitution \(\tan\left(\frac{x}{2}\right)\to x\) in order to obtain only rational functions, as per our first heuristic.
+            At the first glance it might seem like a super complicated integral. However, as we have trigonometric functions all over the place we will perform the Weierstrass substitution \(\tan\left(\frac{x}{2}\right)\to x\) in order to obtain only rational functions, as per our first heuristic.
         </p>
             
         <div class="jaxmath">
@@ -729,7 +587,7 @@
         </div>
 
         <p>
-            We would like to parameterise the integral so that we get rid of the arctangent function, but unfortunately here it is a bit overloaded, therefore we'll clean it by splitting it into two. In case it's not obvious how to do that directly, we can differentiate it, perform partial fractions and then integrate back.
+            It would be great to parameterise the integral so that we get rid of the arctangent function, but unfortunately here it is a bit overloaded, therefore we'll clean it by splitting it into two. In case it's not obvious how to do that directly, we can differentiate it, perform partial fractions and then integrate back.
         </p>
 
         <div class="jaxmath">
@@ -908,11 +766,11 @@
         </div>
 
         <hr>
-        <section id="chapter6"> <h2>Variations</h2> </section>
+        <section id="chapter5"> <h2>Variations</h2> </section>
         <hr>
 
         <p>
-            We have already described two variations of Feynman's trick in the third and fourth chapter, similarly in this last chapter we'll take a look at more interesting (though less popular) variations of Feynman's trick which can help to enlarge the applicability of the technique. In the same time we'll also use other specific heuristics that can be used to manipulate the integrals up to a point where Feynman's trick can be employed.
+            We have already described two variations of Feynman's trick in the third chapter, similarly in this last chapter we'll take a look at other interesting variations of Feynman's trick which can help to enlarge the applicability of the technique. In the same time we'll also use other specific heuristics that can be used to manipulate the integrals up to a point where Feynman's trick can be employed.
         </p>
 
         <hr>
@@ -975,6 +833,94 @@
         <div class="jaxmath">
             \[\small \int \frac{1}{\sqrt{x^3}} \exp\left({-\frac{(a-bx)^2}{2x}}\right) dx=\sqrt{\frac{\pi}{2}}\frac{1}{a}\left(e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt x}+b\sqrt x}{\sqrt 2}\right)+\operatorname{erfc}\left(\frac{\frac{a}{\sqrt x}-b\sqrt x}{\sqrt 2}\right)\right)+C\]
         </div>
+
+        <hr>
+        
+        <h3>
+            Differentiating under the integral sign
+        </h3>
+
+
+        <p>
+            There are cases where it would be enough to simply differentiate under the integral sign without performing the undo step.
+        </p>
+
+        <p>
+            As a small note, it's true that the name, differentiating under the integral sign, tends to be used as an alternative name for Feynman's trick, however I prefer to keep this for the variant where only the differentiating process takes part, or as mentioned above, when there's no need to integrate back the result and the name describes quite literally what we are doing.
+        </p>
+
+        <p>
+            Let's make this more clear by looking at the following integral:
+        </p>
+
+        <div class="jaxmath">
+            \[I=\int_0^1\int_0^1 \left(\frac{-\ln(xy)}{1-xy}\right)^mdxdy\]
+        </div>
+
+        <p>
+            In order to generate the \(\ln(xy)\) part it's straightforward if we remember the process from the "Hello, World!" integral, namely that \(\frac{\partial}{\partial t}x^t = x^t \ln x\). Therefore here we will introduce the following integral:
+        </p>
+
+        <div class="jaxmath">
+            \[I(a)=\int_0^1\int_0^1 \frac{(xy)^a}{(1-xy)^m}dxdy\]
+        </div>
+
+        <p>
+            Differentiating with respect to \(a\), \(m\) times followed by setting \(a=0\) will gives us the desired integral, ignoring the \((-1)^m\) term. However the denominator is still troublesome and to deal with that we will introduce one more parameter:
+        </p>
+            
+        <div class="jaxmath">
+            \[I(a,z)=\int_0^1\int_0^1 \frac{(xy)^a}{z-xy}dxdy\]
+        </div>
+
+        <p>
+            This is perfect as we can recover our original integral by differentiating with respect to \(a\), \(m\) times and with respect to \(z\), \(m-1\) times followed by setting \(a=0\) and respectively \(z=1\), ignoring some coefficients.
+        </p>
+
+        <p>
+            One way to evaluate \(I(a,z)\) is to expand the denominator into geometric series as:
+        </p>
+
+        <div class="jaxmath">
+            \[I(a,z)=\int_0^1\int_0^1 \frac{(xy)^a}{z-xy}dxdy=\frac{1}{z}\sum_{n=0}^\infty \int_0^1\int_0^1(xy)^a\left(\frac{xy}{z}\right)^ndxdy\]
+            \[=\sum_{n=0}^\infty \frac{1}{z^{n+1}}\int_0^1x^{n+a}dx\int_0^1y^{n+a}dy=\sum_{n=1}^\infty \frac{1}{z^{n+2}}\frac{1}{(n+a)^2}\]
+        </div>
+
+        <p>
+            And now we will take \(m\) derivatives with respect to \(a\) and set it to \(0\).
+        </p>
+
+        <div class="jaxmath">
+            \[\frac{\partial^m}{\partial a^m}I(a,z) = \int_0^1\int_0^1 \frac{\ln^m(xy)}{z-xy} dxdy =(-1)^m (m+1)!\sum_{n=1}^\infty \frac{1}{z^{n+2}}\frac{1}{n^{m+2}}\]
+        </div>
+
+        <p>
+            This can be also rewriten in terms of the polylogarithm function as:
+        </p>
+
+        <div class="jaxmath">
+            \[\int_0^1\int_0^1 \frac{(-\ln(xy))^m}{z-xy} dxdy = (m+1)!\operatorname{Li}_{m+2}\left(\frac{1}{z}\right)\]
+        </div>
+
+        <p>
+            Finally, we can arrive at our original integral by taking \(m-1\) derivatives with respect to \(z\) and setting it to \(1\).
+        </p>
+
+        <div class="jaxmath">
+                \[(-1)^m(m-1)!\int_0^1\int_0^1 \frac{(-\ln(xy))^m}{(1-xy)^m}dxdy=(m+1)!\frac{d^{m-1}}{dz^{m-1}}\operatorname{Li}_{m+2}\left(\frac{1}{z}\right)\bigg|_{z=1}\]
+        </div>
+
+        <p>
+            Although the derivation from above was the important part since it shows the main idea on how to differentiate in order to produce the desired integral, by using \(\frac{\partial}{\partial z} \operatorname{Li}_n(z) = \frac{\operatorname{Li}_{n-1}(z)}{z}\) the result can be also written as:
+        </p>
+
+        <div class="jaxmath">
+            \[\int_0^1\int_0^1 \left(\frac{-\ln(xy)}{1-xy}\right)^m dxdy =m(m+1)\sum_{k=1}^{m-1}|s(m-1,m-k)|\zeta(k+2)\]
+        </div>
+
+        <p>
+            Where \(s(n,m)\) is the Stirling number of the first kind and \(\zeta(z)\) is the Riemann zeta function.
+        </p>
 
         <hr>
         
@@ -1166,7 +1112,7 @@
         </div>
 
         <p>
-            Admittedly, following this parameterisation is much more intuitevely than what we've shown with the new variation, however it's also useful to have this trick in the bank.
+            Admittedly, following this parameterisation is much more intuitevely than what we've shown with the new variation, however it's also useful to have this trick in the bag.
         </p>
 
         <hr>
@@ -1174,6 +1120,31 @@
         <p>
             To keep the practice going, underneath are listed some integrals that can be evaluated with one of the variations of Feynman's trick described in this last chapter.
         </p>
+
+        <div class="jaxmath">
+            \[\int \frac{\ln(1+\cos x)}{\cos x} dx = ?\]
+        </div>
+
+        <div class="hidden-hint">
+            <p class="hint">
+                After extending the indefinite integral temporary to a definite one with bounds, consider parameterising the new integral as:
+                \[
+                    I(a,t) = \int_0^t \frac{\ln(1+\cos a\cos x)}{\cos x} dx
+                \]
+            </p>
+        </div>
+
+        <div class ="jaxmath">
+            \[\int_0^\infty x^2e^{-\left(4x^2+\frac{9}{x^2}\right)}dx = ?\]
+        </div>
+
+        <div class="hidden-hint">
+            <p class="hint">
+                This was already given as an exercise in the second chapter and obviously sometimes there are many ways to approach an integral. However, in the spirit of this chapter, consider starting by evaluating the following integral:
+                \[I(t)=\int_0^\infty e^{-\left(tx^2+\frac{9}{x^2}\right)}dx\]
+                Afterwards differentiate the result once with respect to \(t\).
+            </p>
+        </div>
 
         <div class="jaxmath">
             \[\int_0^1 \int_0^1 \frac{dxdy}{(1+xy)\ln(xy)} = ?\]
@@ -1187,6 +1158,38 @@
         </div>
 
         <div class="jaxmath">
+            \[\int_0^\infty \frac{\sin^2 x}{x^2(1+x^2)}dx = ?\]
+        </div>
+
+        <div class="hidden-hint">
+            <p class="hint">
+                Solve the resulting differential equation after differentiating twice the following integral:
+                \[
+                    I(t) = \int_0^\infty \frac{\sin^2 (tx)}{x^2(1+x^2)}dx
+                \]
+            </p>
+        </div>
+
+        <div class="jaxmath">
+            \[\int_0^1 \ln x \left(\frac{1}{t+x}+\frac{1}{\frac{1}{t}+x}\right)dx = ?\]
+        </div>
+
+        <div class="hidden-hint">
+            <p class="hint">
+                Split into two integrals, then substitute \(x\to tx\) and respectively \(x\to \frac{x}{t}\) in the resulting integrals to obtain:
+                \[I(t)= \int_0^1 \ln x \left(\frac{1}{t+x}+\frac{1}{\frac{1}{t}+x}\right)dx = \int_0^\frac{1}{t} \frac{\ln(tx)}{1+x}dx + \int_0^t \frac{\ln\left(\frac{x}{t}\right)}{1+x}dx\]
+                Now employ the Feynman's trick (in the generalized variant).
+            </p>
+            <p class="hint"> 
+                Also, in disguise this exercise is a reformulation of the following identity:
+                \[
+                    \operatorname{Li}_2(-x)+\operatorname{Li}_2\left(-\frac{1}{x}\right) = -\frac{\pi^2}{6} - \frac{1}{2}\ln^2 t
+                \]
+                Where \(\operatorname{Li}_2(x)\) is the dilogarithm function.
+            </p>
+        </div>
+
+        <div class="jaxmath">
             \[\int_0^\infty e^{-x^2}dx = ?\]
         </div>
 
@@ -1195,11 +1198,25 @@
                 This integral can be generated starting from:
                 \[I(t)=\int_0^\infty \frac{e^{-t(1+x^2)}}{1+x^2}dx\Rightarrow I'(t)=-e^{-t}\int_0^\infty e^{-tx^2} dx\overset{\sqrt t x \to x}= -\frac{e^{-t}}{\sqrt t}\int_0^\infty e^{-x^2} dx\]
                 Afterwards it should be observed that \(I(0)=\frac{\pi}{2}\) and \(I(\infty)=0\), therefore:
-                \[\frac{\pi}{2} = \int_0^\infty \frac{e^{-t}}{\sqrt t} dt \int_0^\infty  e^{-x^2} dx \overset{t\to t^2} = 2\left(\int_0^\infty e^{-x^2}dx\right)^2 \]
+                \[\frac{\pi}{2} = \int_0^\infty \frac{e^{-t}}{\sqrt t} dt \int_0^\infty e^{-x^2} dx \overset{t\to t^2} = 2\left(\int_0^\infty e^{-x^2}dx\right)^2 \]
             </p>
         </div>
 
         <hr>
+
+        <p>
+            The end of this chapter also concludes the end of this essay, for which the aim was to give a good starting point to approach integrals using Feynman's trick. Definitely more heuristic and variants can be developed, but this should cover most of the popular ones.
+        </p>
+
+        <p>
+            For further material I would recommend math forums such as Art of Problem Solving or Mathematics Stack Exchange, math magazines such as The American Mathematical Monthly, Crux Mathematicorum or Romanian Mathematical Magazine, where dozen of beautiful integrals are posted or published. Of course taking a peek at other fields like Statistics, Physics or Quantum Mechanics will also surely provide you with a lot of amazing integrals - some of which perhaps can be dealt with Feynman's trick.
+        </p>
+
+        <hr>
+
+        <p>
+            I would really appreciate a notice on my email address mentioned in the About section in case you find mistakes or that something simply feels unclear in this essay - and even better if you have any further ideas or suggestions.
+        </p>
 
         <p>
             This work is licensed under a <a href = "https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution 4.0 International License</a> and it can be cited as: <cite>https://zackyzz.github.io/feynman</cite>.
