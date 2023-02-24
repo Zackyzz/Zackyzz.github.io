@@ -50,11 +50,11 @@
         <img src="imgs/quantum.png" alt="Quantum" class = "qmeme">
 
         <p>
-            Quantum computers are based on the properties of quantum physics and although it will not help with the time travelling part, it does possess some power over classical computers and can help us solve tasks which would not be possible with current technology.
+            Quantum computers are based on the properties of quantum physics and although it will not help with the time travelling part, it does possess some power over classical computers and can help us solve tasks which would not be possible with the current technology.
         </p>
 
         <p>
-            It should be noted that a classical computer, is a Turing machine, which means that it is capable of implementing any computer algorithm - even to simulate a quantum computer - however this assumes that we have infinite time and memory at our disposal. So rather, quantum computers can help us solve tasks in a more efficient way than on a classical computer, which could even mean that something which would require hundreds of years to solve can be reduced to a matter of minutes.
+            It should be mentioned that a classical computer, is a Turing machine, which means that it's capable of implementing any computer algorithm - even one that simulates a quantum computer - however this assumes that we have infinite time and memory at our disposal. So rather, quantum computers can help us solve tasks in a more efficient way than on a classical computer, which could even mean that something which would require hundreds of years to perform can be reduced to a matter of minutes.
         </p>
 
         <hr>
@@ -62,14 +62,27 @@
         <hr>
 
         <p>
-            At a low level, in an ordinary computer everything is made of bits. A bit is the basic unit of information which represents two possible states - in a physical representation some circuits recognize a voltage lower than \(0.8V\) as a state, whereas the other state can be identified by a voltage higher than \(2.2V\) - in a logical representation however the two states are simplified to \(0\) and \(1\). Fortunately for us, in computers the bits are hidden by high-level routines which makes life way easier as it would be a burdensome to manipulate them into performing a desired task.
+            At a low level, in an ordinary computer everything is made of bits. A bit is the basic unit of information which represents two possible states - in a physical representation some circuits recognize a voltage lower than \(0.8V\) as a state, whereas the other state can be identified by a voltage higher than \(2.2V\) - in a logical representation however the two states are simplified to \(0\) and \(1\). Fortunately for us, the bits are hidden by high-level routines which makes life way easier as it would be a burdensome to manipulate them into performing a desired task.
         </p>
 
         <p>
-            In contrast, for a quantum computer the fundamental unit of information is the <span class ="important">qubit</span>. A qubit however isn't limited to only two states and it can be represented by a two dimensional vector, taking into account some constraints:
-            $$\newcommand\col[1]{\begin{bmatrix}#1\end{bmatrix}}
-            \col{a \\ b}, \quad |a|^2+|b|^2$$
+            In contrast, for a quantum computer the fundamental unit of information is the <span class ="important">qubit</span>. However a qubit isn't limited to only two states and rather it can be represented as a two-dimensional vector, taking into account the constraint from below:
         </p>
+        
+        \[\newcommand\col[1]{\begin{bmatrix}#1\end{bmatrix}}
+        \col{a \\ b}, \quad |a|^2+|b|^2, \ a,b\in \mathbb{C}\]
+
+        <p>
+            In short, if we stick with real numbers, a qubit is a 2D vector where the squared sum of it's components must equal to \(1\). Similarly as for probabilities, where for any event, the probabilities for all it's outcomes must sum to \(1\). But additionally for a qubit those should be squared and also taken in modulus (if \(a\) and \(b\) are complex numbers).
+        </p>
+
+        <p>
+            Immediately two special cases coresponding to the classical bits \(0\) and \(1\) can be distinguished as:
+        </p>
+
+        \[\require{braket}
+        \ket{0} = \col{1 \\ 0}; \quad \ket{1} = \col{0 \\ 1}
+        \]
 
         <hr>
         <section id="chapter2"> <h3>Developing a quantum computing simulator</h3> </section>
@@ -85,7 +98,6 @@
         1 -> [0 1]
         </code>
         </pre>
-        \[\require{braket} \bra{math}\]
 		
 		<h1> TBA </h1>
 
