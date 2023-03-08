@@ -140,7 +140,7 @@
         </p>
 
         <p>
-            Unfortunately in the integral from above we lack a parameter, therefore the first step is to parameterise the integral, which can even mean introducing a whole function, but for this we'll simply consider:
+            Unfortunately in the integral from above we lack a parameter, therefore the first step is to parameterise the integral, which can even mean introducing a whole function, but for this example we'll simply consider:
         </p>
 
         <div class ="jaxmath">
@@ -258,7 +258,7 @@
         </div>
 
         <p>
-            This works, but we can do even better. Looking at the "Hello, World!" integral we can see that there we simplified the logarithm in the denominator while performing \(\frac{\partial}{\partial t}x^t\). This is also the first thing that I always attempt to look for when using this technique - namely, to simplify something from the integrand when differentiating. Surely for the current integral we got rid of the logarithm, but the denominator remained intact.
+            This works, but we can do even better. Looking at the "Hello, World!" integral we can see that there we simplified the logarithm in the denominator while performing \(\frac{\partial}{\partial t}x^t\). This is also the first thing that I always attempt to look for when using this technique - namely, to simplify something from the integrand which is independent to the parameter when differentiating. Surely for the current integral we got rid of the logarithm, but the denominator remained intact.
         </p>
 
         <p>
@@ -418,7 +418,7 @@
         </p>
 
         <p>
-            There is however a way to simplify the denominator and in the same time to obtain a decent integral afterwards. Without getting into much details I will parameterise the integral as:
+            There is however a way to simplify the denominator and in the same time to obtain a decent integral afterwards. Without getting into too much details I will parameterise the integral as:
         </p>
 
         <div class="jaxmath">
@@ -435,7 +435,7 @@
         </div>
 
         <p>
-            Here we are looking to find \(I=I(0)\) and also \(I(t\to\infty)=0\), therefore we have:
+            Here we are looking to find \(I=I(0)\) and we also have \(I(t\to\infty)=0\), therefore:
         </p>
 
         <div class="jaxmath">
@@ -492,7 +492,7 @@
         </p>
 
         <p>
-            Like in the previous chapter below are more integrals alongside some hints in order to practice with the accelerated variation of Feynman's trick. However in this case I do recommend to peek at the hints faster in case nothing obvious comes immediate to mind and afterwards attempt to understand why the mentioned identity is used.
+            Like in the previous chapter below are more integrals alongside some hints in order to practice with the accelerated variation of Feynman's trick. However in this case I do recommend to peek at hints faster in case nothing obvious comes immediate to mind and afterwards attempt to understand why the mentioned result can be used.
         </p>
 
         <div class ="jaxmath">
@@ -574,7 +574,7 @@
         </div>
 
         <p>
-            Obviously, if you're already more used to trigonometric functions, hyperbolic functions or anything else, then this can be ignored. I however recommend switching to rational functions, a few exceptions being when there's a clear way to parameterise the integral or when at least one of the bounds is \(\infty\).
+            Obviously, if you're already more used to trigonometric functions, hyperbolic functions or anything else, then this can be ignored. I however recommend switching to rational functions, a few exceptions being when there's a clear way to parameterise the integral directly or when at least one of the bounds is \(\infty\).
         </p>
 
         <hr>
@@ -676,7 +676,7 @@
         </div>
 
         <p>
-            And now we can split the logarithm into three parts and notice that:
+            Now we can split the logarithm into three parts and use that:
         </p>
         
         <div class="jaxmath">
@@ -702,7 +702,7 @@
         </div>
 
         <p>
-            The partial fraction was ommited above, as what's really important here is that we're left only with a simple \(\ln a\) as a "disturbing" function - in contrast if the bounds were \((0,1)\) things would have been way more complicated.
+            The partial fraction was ommited above, as what's really important here is that we're left only with a simple \(\ln a\) as a "disturbing" function. In contrast, if the bounds were \((0,1)\) things would have been way more complicated.
         </p>
 
         <p>
@@ -779,7 +779,7 @@
         <hr>
 
         <p>
-            We have already described a variant of Feynman's trick in the third chapter, similarly in this last chapter we'll take a look at other interesting variations of Feynman's trick which can help to enlarge the applicability of the technique. In the same time we'll also use other specific heuristics that can be used to manipulate the integrals up to a point where Feynman's trick can be employed.
+            We have already described a variant of Feynman's trick in the third chapter, similarly in this last chapter we'll take a look at other interesting variations of Feynman's trick which can help to enlarge the applicability of the technique. In the same time we'll also use other heuristics to manipulate the integrals up to a point where Feynman's trick can be employed.
         </p>
 
         <hr>
@@ -814,7 +814,7 @@
 
         <p>
             We can notice that the derivative of \(ax-\frac{b}{x}\) is \(a+\frac{b}{x^2}\) so it would be quite helpful if we had that additional term.
-            In the same time if we differentiate the integrand with respect to \(b\) we'll produce \(a-\frac{b}{x^2}\), which is quite useful as \((ax-b/x)^2\) is equal to \((ax+b/x)^2+4ab\) and the derivative of \(ax+\frac{b}{x}\) is \(a-\frac{b}{x^2}\), so let's do that:
+            In the same time if we differentiate the integrand with respect to \(b\) we'll produce \(a-\frac{b}{x^2}\), which is quite useful as \((ax-b/x)^2\) is equal to \((ax+b/x)^2+4ab\) and the derivative of \(ax+\frac{b}{x}\) is \(a-\frac{b}{x^2}\), so let's differentiate as mentioned above:
         </p>
            
         <div class="jaxmath">
@@ -1149,7 +1149,7 @@
 
         <div class="hidden-hint">
             <p class="hint">
-                This was already given as an exercise in the second chapter and obviously sometimes there are many ways to approach an integral. However, in the spirit of this chapter, consider starting by evaluating the following integral:
+                This was already given as an exercise in the second chapter, however in the spirit of this chapter consider starting by evaluating the following integral:
                 \[I(t)=\int_0^\infty e^{-\left(tx^2+\frac{9}{x^2}\right)}dx\]
                 Afterwards differentiate the result once with respect to \(t\).
             </p>
@@ -1217,13 +1217,13 @@
         </p>
 
         <p>
-            For further material I would recommend to take a look at some math forums and magazines such as Art of Problem Solving, Mathematics Stack Exchange, The American Mathematical Monthly, Crux Mathematicorum or Romanian Mathematical Magazine, where dozen of beautiful integrals are posted or published. Of course, peeking at other fields like Statistics, Physics or Quantum Physics will also provide you with a lot of amazing integrals - some of which perhaps can be dealt with Feynman's trick.
+            For further exercises I would recommend to take a look at some math forums and magazines such as Art of Problem Solving, Mathematics Stack Exchange, The American Mathematical Monthly, Crux Mathematicorum or Romanian Mathematical Magazine, where dozen of beautiful integrals are often posted or published. Of course, peeking at other fields like Statistics, Physics or Quantum Physics will also provide you with a lot of amazing integrals - some of which perhaps can be dealt with Feynman's trick.
         </p>
 
         <hr>
 
         <p>
-            I would appreciate a notice on my email address (mentioned in the About section) in case you find mistakes or if something feels unclear in this essay - and even better if you have any further ideas or suggestions.
+            I would appreciate a notice on my email address (<a href = "mailto:rxzacky@gmail.com" style = "text-decoration: none">rxzacky@gmail.com</a>) in case you find any mistakes or if something feels unclear in this essay - and even better if you have some further ideas or suggestions.
         </p>
 
         <p>
