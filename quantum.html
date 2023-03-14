@@ -70,36 +70,52 @@
         </p>
         
         \[\newcommand\col[1]{\begin{bmatrix}#1\end{bmatrix}}
-        \col{a \\ b}, \quad |a|^2+|b|^2, \ a,b\in \mathbb{C}\]
+        \col{a \\ b}, \quad |a|^2+|b|^2 = 1; \ a,b\in \mathbb{C}\]
 
         <p>
-            In short, if we stick with real numbers, a qubit is a 2D vector where the squared sum of it's components must equal to \(1\). Similarly as for probabilities, where for any event, the probabilities for all it's outcomes must sum to \(1\). But additionally for a qubit those should be squared and also taken in modulus (if \(a\) and \(b\) are complex numbers).
+            This is similar to probabilities, where for any event the probabilities for all it's outcomes must sum to \(1\), but for a qubit those should be squared and also taken in modulus (if \(a\) and \(b\) are complex numbers).
         </p>
 
         <p>
-            Immediately two special cases coresponding to the classical bits \(0\) and \(1\) can be distinguished as:
+            Without loss of generality we will assume that we work only with real numbers for now, therefore the state space for a single qubit can be visualised to be any radius of a unit circle, as seen below.
+        </p>
+
+        <img src="imgs/unit_circ.jpg" alt="Quantum" class = "qcircle">
+
+        <p>
+            For an easier time we introduced above a new notation: \(\ket{\cdot}\), called "ket", which simply represents a vector. Also two special cases coresponding to the classical bits \(0\) and \(1\) can be distinguished as:
         </p>
 
         \[\require{braket}
         \ket{0} = \col{1 \\ 0}; \quad \ket{1} = \col{0 \\ 1}
         \]
 
+        <p>
+            Using this, the two qubits can be taken as a basis in order to represent the general states for a qubit as a linear combination:
+        </p>
+        
+        \[
+        \col{a \\ b} = a \col{1 \\ 0} + b\col{0 \\ 1} = a \ket{0} + b \ket{1}
+        \]
+
+        <p>
+            Another example of a qubit (seen in the above picture) is \(\ket{+}\), which is quite special since for this one \(a\) and \(b\) are equal (this happens when \(a=b=\frac{1}{\sqrt 2}\)).
+        </p>
+
+        \[
+        \ket{+} = \frac{1}{\sqrt 2} \ket{0} + \frac{1}{\sqrt 2} \ket{1} = \col{\frac{1}{\sqrt 2} \\ \frac{1}{\sqrt 2}}
+        \]
+
         <hr>
         <section id="chapter2"> <h3>Developing a quantum computing simulator</h3> </section>
         <hr>
 
-        <p>
-            On a classical computer a bit can have two possible states, namely 0 and 1. In contrast the equivalent of those bits are called qubits, which can be described as unit vectors like:
-        </p>
-
         <pre>
         <code>
-        0 -> [1 0]
-        1 -> [0 1]
+            TBA
         </code>
         </pre>
 		
-		<h1> TBA </h1>
 
     </div>
     <script src="main.js"></script>

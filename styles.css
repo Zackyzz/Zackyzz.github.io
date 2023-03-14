@@ -125,6 +125,17 @@ pre
     margin-right: auto;
 }
 
+.qcircle
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto; 
+    width: auto; 
+    max-width: 300px; 
+    max-height: 300px;
+}
+
 a:visited { text-decoration: none; }
 
 a:active { text-decoration: none; }
