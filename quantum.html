@@ -21,22 +21,27 @@
 </head>
 
 <body>
+    <div class="dark-mode-switch">
+        <input type="checkbox" id="darkModeToggle">
+        <label for="darkModeToggle"></label>
+    </div>
+
     <nav class="sidebar">
-        <ul class = "nav-ul">
-            <li class = "real-li"><a href="index.html">Home</a></li>
-            <li class = "real-li"><a class="active" href="quantum.html">Quantum Computing</a></li>
-            <li class = "fake-li">
+        <ul class = "nav-list">
+            <li class = "first-nav-item"><a href="index.html">Home</a></li>
+            <li class = "first-nav-item"><a class="active" href="quantum.html">Quantum Computing</a></li>
+            <li class = "second-nav-item">
                 <ul>
                     <li><a href="#chapter1">The Big Picture</a></li>
                     <li><a href="#chapter2">A quantum computing simulator</a></li>
                 </ul>
             </li>
-            <li class = "real-li"><a href="feynman.html">Feynman's Trick</a></li>
-            <li class = "real-li"><a href="about.html">About</a></li>
+            <li class = "first-nav-item"><a href="feynman.html">Feynman's Trick</a></li>
+            <li class = "first-nav-item"><a href="about.html">About</a></li>
         </ul>
     </nav>
 
-    <div class="quantum">
+    <div class="page-content">
         <h1>
             Quantum Computing (in development)
         </h1>
@@ -47,7 +52,7 @@
             While in some movies the plot can get a bit overambitious and use the notion of quantum physics to introduce concepts such as time travel, teleportation and various magically working gadgets - which cannot be explained based on our day-to-day experiences of physics - it is also true that quantum physics, which deals with how things at an atomic level work, behaves in a different way than our intuition is used to.
         </p>
 
-        <img src="imgs/quantum.png" alt="Quantum" class = "qmeme">
+        <img src="imgs/quantum.png" alt="Quantum" class = "centered-image">
 
         <p>
             Quantum computers are based on the properties of quantum physics and, although they will not help with the time-traveling part, they do possess some power over classical computers and can help us solve tasks that would not be possible with current technology.
@@ -66,7 +71,7 @@
         </p>
 
         <p>
-            In contrast, for a quantum computer, the fundamental unit of information is the <span class ="important">qubit</span>. However, a qubit is not limited to only two states, and instead, it can be represented as a two-dimensional vector, taking into account the constraint from below:
+            In contrast, for a quantum computer, the fundamental unit of information is the <span class ="important-text">qubit</span>. However, a qubit is not limited to only two states, and instead, it can be represented as a two-dimensional vector, taking into account the constraint from below:
         </p>
         
         \[\newcommand\col[1]{\begin{bmatrix}#1\end{bmatrix}}
@@ -80,7 +85,7 @@
             Without loss of generality, we will assume that we work only with real numbers for now. Therefore, the state space for a single qubit can be visualized as any point on the surface of a unit circle, as seen below.
         </p>
 
-        <img src="imgs/unit_circ.jpg" alt="Quantum" class = "qcircle">
+        <img src="imgs/unit_circ.jpg" alt="Quantum" class = "scaled-image">
 
         <p>
             For ease of notation, we introduced above a new notation: \(\ket{\cdot}\), called "ket", which simply represents a vector. Also, two special cases corresponding to the classical bits \(0\) and \(1\) can be distinguished as:
@@ -124,8 +129,9 @@
 		
 
     </div>
-    <script src="main.js"></script>
 
+    <script src="main.js"></script>
+    <script src="dark_mode.js"></script>
 </body>
 
 </html>

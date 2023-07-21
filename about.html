@@ -20,16 +20,21 @@
 </head>
 
 <body>
+    <div class="dark-mode-switch">
+        <input type="checkbox" id="darkModeToggle">
+        <label for="darkModeToggle"></label>
+    </div>
+
     <nav class="sidebar">
-        <ul class = "nav-ul">
-            <li class = "real-li"><a href="index.html">Home</a></li>
-            <li class = "real-li"><a href="quantum.html">Quantum Computing</a></li>
-            <li class = "real-li"><a href="feynman.html">Feynman's Trick</a></li>
-            <li class = "real-li"><a class="active" href="about.html">About</a></li>
+        <ul class = "nav-list">
+            <li class = "first-nav-item"><a href="index.html">Home</a></li>
+            <li class = "first-nav-item"><a href="quantum.html">Quantum Computing</a></li>
+            <li class = "first-nav-item"><a href="feynman.html">Feynman's Trick</a></li>
+            <li class = "first-nav-item"><a class="active" href="about.html">About</a></li>
         </ul>
     </nav>
 
-    <div class="about">
+    <div class="page-content">
         <div class="description">
             <p>
                 Hello! I'm Zacky - programmer with a Bachelor's Degree in Computer Science and a Master's Degree in Advanced Computing Systems. I am fascinated by Machine Learning, Computer Vision, Quantum Computing and mostly anything related to Artificial Intelligence. Although I tend to enjoy using programming languages that aren't exceedingly popular, such as Racket, Julia or Haskell, I have spent most of my time using Python, C, C++, C# or MatLab.
@@ -46,6 +51,8 @@
             </p>
         </div>
     </div>
+
+    <script src="dark_mode.js"></script>
 </body>
 
 </html>

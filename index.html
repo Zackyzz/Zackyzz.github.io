@@ -21,16 +21,21 @@
 </head>
 
 <body>
+    <div class="dark-mode-switch">
+        <input type="checkbox" id="darkModeToggle">
+        <label for="darkModeToggle"></label>
+    </div>
+
     <nav class="sidebar">
-        <ul class = "nav-ul">
-            <li class = "real-li"><a class="active" href="index.html">Home</a></li>
-            <li class = "real-li"><a href="quantum.html">Quantum Computing</a></li>
-            <li class = "real-li"><a href="feynman.html">Feynman's Trick</a></li>
-            <li class = "real-li"><a href="about.html">About</a></li>
+        <ul class = "nav-list">
+            <li class = "first-nav-item"><a class="active" href="index.html">Home</a></li>
+            <li class = "first-nav-item"><a href="quantum.html">Quantum Computing</a></li>
+            <li class = "first-nav-item"><a href="feynman.html">Feynman's Trick</a></li>
+            <li class = "first-nav-item"><a href="about.html">About</a></li>
         </ul>
     </nav>
 
-    <div class="welcome">
+    <div class="page-content">
         <h1>
             Greetings!
         </h1>
@@ -39,6 +44,8 @@
             The goal of this website is to gather and share in one place some of the cool stuff that I have learned over the years in areas related to mathematics and computer science.
         </p>
     </div>
+
+    <script src="dark_mode.js"></script>
 </body>
 
 </html>

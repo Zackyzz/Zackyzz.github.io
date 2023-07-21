@@ -5,7 +5,7 @@ window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(section => {
         let sectionTop = section.offsetTop;
-        if (scrollY >= sectionTop - 100) {
+        if (scrollY >= sectionTop - 250) {
             current = section.getAttribute('id');
         }
     });
