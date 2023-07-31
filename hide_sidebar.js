@@ -8,5 +8,5 @@ const toggleSidebar = () => {
 
 handle.addEventListener('click', function() {
     toggleSidebar();
-    document.querySelector('.page-content').style.paddingLeft = sidebar.classList.contains('collapsed') ? '10%' : '27.5%';
+    document.querySelector('.page-content').style.paddingLeft = sidebar.classList.contains('collapsed') ? '12.5%' : '27.5%';
 });
