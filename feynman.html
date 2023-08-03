@@ -987,11 +987,11 @@
         </p>
 
         <div class="math-content">
-            \[I(t)=\int_0^\infty \frac{\cos x}{t^2+x^2}dx\]
+            \[I(t)=\int_0^\infty \frac{\cos x}{t^2+x^2}dx \Rightarrow I'(t)=-2t\int_0^\infty \frac{\cos x}{(t^2+x^2)^2}dx\Rightarrow I=-\frac12I'(1)\]
         </div>
 
         <p>
-            And now it is true that we can use \(\frac{1}{t^2+x^2}=\int_0^\infty\frac{1}{t}\sin(yt)e^{-xy}dy\) in order to switch to double integrals, however we'll run in circles as the resulting integral will be \(\frac{1}{t}\int_0^\infty \frac{\sin x}{t^2+x^2}dx\) after changing the order of integration.
+            And now we can deal with \(I(t)\). Here, it is true that we can use \(\frac{1}{t^2+x^2}=\int_0^\infty\frac{1}{t}\sin(yt)e^{-xy}dy\) in order to switch to double integrals, however we'll run in circles as the resulting integral will be \(\frac{1}{t}\int_0^\infty \frac{\sin x}{t^2+x^2}dx\) after changing the order of integration.
             Instead, we'll first substitute \(x\to t x\) in order to move the parameter up to the cosine function and get rid of it from the denominator. Afterwards we'll use the accelerated Feynman's trick as mentioned above, but for \(\frac{1}{1+x^2}\).
         </p>
 
@@ -1011,7 +1011,7 @@
         </div>
 
         <p>
-            Finally, we are looking to find \(I=-\frac{1}{2}I'(1)\), since \(\frac{\partial}{\partial t}\frac{1}{t^2+x^2}\) is \(-\frac{2t}{(t^2+x^2)^2}\), therefore we have:
+            Finally, we are looking to find \(I=-\frac{1}{2}I'(1)\), therefore:
         </p>
 
         <div class="math-content">
