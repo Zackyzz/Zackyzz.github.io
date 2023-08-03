@@ -979,7 +979,7 @@
         </p>
 
         <div class="math-content">
-            \[I=\int_0^\infty \frac{\cos x}{(1+x^2)^2}dx\]
+            \[I=\int_0^\infty \frac{\cos x}{1+x^2}dx\]
         </div>
 
         <p>
@@ -987,11 +987,11 @@
         </p>
 
         <div class="math-content">
-            \[I(t)=\int_0^\infty \frac{\cos x}{t^2+x^2}dx \Rightarrow I'(t)=-2t\int_0^\infty \frac{\cos x}{(t^2+x^2)^2}dx\Rightarrow I=-\frac12I'(1)\]
+            \[I(t)=\int_0^\infty \frac{\cos x}{t^2+x^2}dx\]
         </div>
 
         <p>
-            And now we can deal with \(I(t)\). Here, it is true that we can use \(\frac{1}{t^2+x^2}=\int_0^\infty\frac{1}{t}\sin(yt)e^{-xy}dy\) in order to switch to double integrals, however we'll run in circles as the resulting integral will be \(\frac{1}{t}\int_0^\infty \frac{\sin x}{t^2+x^2}dx\) after changing the order of integration.
+            And here it is true that we can use \(\frac{1}{t^2+x^2}=\int_0^\infty\frac{1}{t}\sin(yt)e^{-xy}dy\) in order to switch to double integrals, however we'll run in circles as the resulting integral will be \(\frac{1}{t}\int_0^\infty \frac{\sin x}{t^2+x^2}dx\) after changing the order of integration.
             Instead, we'll first substitute \(x\to t x\) in order to move the parameter up to the cosine function and get rid of it from the denominator. Afterwards we'll use the accelerated Feynman's trick as mentioned above, but for \(\frac{1}{1+x^2}\).
         </p>
 
@@ -1011,11 +1011,11 @@
         </div>
 
         <p>
-            Finally, we are looking to find \(I=-\frac{1}{2}I'(1)\), therefore:
+            Finally, we are looking to find \(I=I(1)\), therefore:
         </p>
 
         <div class="math-content">
-            \[I(t)=\frac{f(t)}{t}\Rightarrow I'(t)=\frac{\pi}{2}\left(\frac{1}{t}e^{-t}\right)' = -\frac{\pi}{2}\frac{(1+t)e^{-t}}{t^2}\Rightarrow I=\frac{\pi}{2e}\]
+            \[I(t)=\frac{f(t)}{t} = \frac{\pi}{2t}e^{-t} \Rightarrow I = \frac{\pi}{2e}\]
         </div>
 
         <hr>
