@@ -96,7 +96,7 @@
         </p>
 
         <p>
-            In the following section, we will embark on a journey to develop some rules of thumb to have at our disposal when using Feynman's trick. These are merely some heuristics that I tend to use, so deviating from them can be perfectly acceptable. However, I hope that they can provide a path to follow when nothing obvious or intuitive occurs when someone tries to use this trick, or even better, if they can serve as motivation for someone to start using the method.
+            In the following section, we will embark on a journey to develop some rules of thumb to have at our disposal when using Feynman's trick. These are merely some heuristics that I tend to use, so deviating from them can be perfectly acceptable. However, I hope that they can provide a path to follow when nothing obvious or intuitive occurs when someone tries to use this trick, or even better, so that they can serve as motivation for someone to start using the method.
         </p>
 
         <hr>
@@ -104,22 +104,18 @@
         <hr>
 
         <p>
-            Feynman already provided a significant hint about the trick when he mentioned <span class ="important-text">differentiating under the integral sign</span>, which is also an alternative name for the technique. More explicitly, the following holds if \(f(x,t)\) is well-behaved - meaning that the function is continuous, differentiable, and its partial derivatives with respect to \(t\) are continuous and integrable over the \([a,b]\) interval.
+            Feynman already provided a significant hint about the trick when he mentioned <span class ="important-text">differentiating under the integral sign</span>, which is also an alternative name for the technique. More explicitly, if \(f(x,t)\) is well-behaved - meaning that the function is continuous, differentiable, and its partial derivatives with respect to \(t\) are continuous and integrable over the \([a,b]\) interval - then the following holds:
         </p>
         <div class ="math-content">
             \[\frac{d}{dt} \int_a^b f(x, t)dx = \int_a^b \frac{\partial f(x, t)}{\partial t}dx\]
         </div>
 
         <p>
-            This is nice, but not so useful by itself. A common challenge when learning something new, be it a game, a programming language, or even a field, is that without practice, nothing will stick.
+            This is nice, but not so useful by itself. A common challenge when learning something new, be it a game, a programming language, or even a field, is that without practice, very little information will remain. Put in other words, <span class ="important-text">learning is not a spectator sport</span>, and there is not shortcut to it.
         </p>
         
         <p>
-            Take chess, for example. Most people can understand the rules in a few minutes. However, if they were to play a game, they would likely be defeated by a more experienced player who has learned some techniques through practice, even though both players are playing under the same rules. With this in mind, I believe it is important to dive straight into practice to become familiar with Feynman's trick.
-        </p>
-
-        <p>
-            As a "Hello, World!" example let's take a look at the following integral:
+            With this in mind, we will dive straight into action and approach Feynman's trick using practical examples. As a "Hello, World!" introduction, let's take a look at the following integral:
         </p>
 
         <div class ="math-content">
@@ -128,12 +124,12 @@
 
         <p>
             You are encouraged to try and evaluate the integral with basic methods, but the logarithm being in the
-            denominator makes this integral quite stubborn to deal with. Feynman's trick aims to get rid of this issue by differentiating under the intgeral sign with respect to a parameter in order to obtain an
+            denominator makes this integral quite stubborn to deal with. Feynman's trick aims to get rid of this issue by differentiating under the intgeral sign, with respect to a parameter, in order to obtain an
             integral that is easier to evaluate.
         </p>
 
         <p>
-            Unfortunately in the integral from above we lack a parameter, therefore the first step is to parameterise the integral, which can even mean introducing a whole function, but for this example we'll simply consider:
+            Unfortunately in the integral from above we lack a parameter, therefore the first step is to parameterise the integral, which can even mean introducing a whole function, but for this example we will simply consider:
         </p>
 
         <div class ="math-content">
@@ -159,7 +155,7 @@
 
         <p>
             Notice how easy it was to evaluate the integral \(I'(t)=\int_0^1x^tdx\) from above, had we kept \(I(a)\), \(I(b)\)
-            or \(I(c)\) the things wouldn't had simplified at all after differentiating and most devastating is that we would still
+            or \(I(c)\) the things wouldn't had simplified at all after differentiating, and most significantly is that we would still
             have the \(\ln x\) in the denominator, a thing which made the integral hard to deal with in the first place.
         </p>
 
@@ -179,7 +175,7 @@
         </div>
 
         <p>
-            For us \(f(x)\) is just \(I(t)\) in the above expression. Luckily \(I(0)=0\) and as we are looking for
+            For us, \(f(x)\) is just \(I(t)\) in the above expression. Luckily \(I(0)=0\), and as we are looking for
             \(I=I(1)\) we have:
         </p>
 
@@ -188,9 +184,9 @@
         </div>
         
         <p>
-            So that's the big picture of how Feynman's trick works - we have an integral that is hard to evaluate
+            So that is the big picture of Feynman's trick - we have an integral that is hard to evaluate
             in it's original form, therefore by differentiating under the integral sign
-            we attempt to transform the integral so that it can be easier integrated and in the end we go back to
+            we attempt to transform the integral so that it can be easier integrated, and in the end we go back to
             undo the differentiation step.
         </p>
 
@@ -200,7 +196,7 @@
 
         <p>
             As emphasized above the main goal of the trick is to obtain an integral that is easier to evaluate after
-            differentiating with respect to a parameter and one issue is that it is not always obvious where to place it.
+            differentiating with respect to a parameter, and one issue is that it is not always obvious where to place it.
             In order to make things more intuitively we will play around with the integral from below.
         </p>
 
@@ -227,10 +223,10 @@
         </div>
 
         <p>
-            Therefore if we would try to go back to what we're looking, which is \(I(1)\), we would end up with
+            Therefore, if we would try to go back to what we're looking, which is \(I(1)\), we would end up with
             \(I=I+\text{other stuff}\). This cancels out \(I\) and we wouldn't be able to recover it.
-            Unfortunately there's no magic formula that tells a priori whether placing a parameter in a specific place would
-            succeed or fail evaluating an integral - and sometimes we are simply unlucky.
+            Unfortunately, there's no magic formula that tells a priori whether placing a parameter in a specific place would
+            succeed or fail in evaluating an integral - and sometimes we are simply unlucky.
         </p>
 
         <p>
@@ -243,7 +239,7 @@
         </div>
 
         <p>
-            Again, we are looking to find \(I(1)\) and as \(I(0) = 0\) we have:
+            Again, we are looking to find \(I(1)\), and as \(I(0) = 0\), we have:
         </p>
 
         <div class="math-content">
@@ -259,7 +255,7 @@
         </p>
 
         <p>
-            In order to achieve this with our integral we would need to get rid of \(1+x^2\) and by using \(\ln x=\frac12\ln(x^2)\) we can rewrite the integral as:
+            In order to achieve this with our integral we would need to get rid of \(1+x^2\), and by using \(\ln x=\frac12\ln(x^2)\) we can rewrite the integral as:
         </p>
 
         <div class="math-content">
@@ -288,7 +284,7 @@
         </p>
 
         <p>
-            As mentioned previously, practicing is the best approach to get along with new techniques, therefore below are more integrals to evaluate alongside some hidden steps in case those will be needed. However I strongly recommend to try and deal with the integrals before looking at any hints and only check them afterwards for correctness.
+            As mentioned previously, practicing is the best approach to get along with new techniques, therefore below are more integrals to evaluate alongside some hidden steps in case those will be needed. However, I strongly recommend to try and deal with the integrals before looking at any hints, and only check them afterwards for correctness.
         </p>
 
         <div class ="math-content">
@@ -420,7 +416,7 @@
 
         <p>
             This will seem obscure, but fear not as we will never use this approach again.
-            The whole point is to simplify \(1+x^4\) and the above function was created explicitly to achieve that, as \(\frac{\partial}{\partial t}e^{-tx^2}(x^2\sin t+\cos t)\) is \(-(1+x^4)e^{-tx^2}\sin t\). Note that even though we introduced a couple other terms, those aren't disturbing.
+            The whole point is to simplify \(1+x^4\), and the above function was created explicitly to achieve that, as \(\frac{\partial}{\partial t}e^{-tx^2}(x^2\sin t+\cos t)\) is \(-(1+x^4)e^{-tx^2}\sin t\). Note that even though we introduced a couple other terms, those aren't disturbing.
         </p>
         
         <div class="math-content">
@@ -428,7 +424,7 @@
         </div>
 
         <p>
-            Here we are looking to find \(I=I(0)\) and we also have \(I(t\to\infty)=0\), therefore:
+            Here we are looking to find \(I=I(0)\), and we also have \(I(t\to\infty)=0\), therefore:
         </p>
 
         <div class="math-content">
@@ -438,11 +434,11 @@
         </div>
 
         <p>
-            Where \(S(x)\) and \(C(x)\) are Fresnel integrals, however the approach is important here, not the result itself.
+            Where \(S(x)\) and \(C(x)\) are the Fresnel integrals. However, the approach is important here, not the result itself.
         </p>
 
         <p>
-            We can avoid the parametrisation from above by directly using \(\frac{1}{1+x^4}=\int_0^\infty e^{-tx^2}\sin t \, dt\) and switch to double integrals, or put in other words: employ the <span class ="important-text">accelerated Feynman's trick</span> (in which we skip the usual parameterisation step).
+            We can avoid the parametrisation from above by directly using \(\frac{1}{1+x^4}=\int_0^\infty e^{-tx^2}\sin t \, dt\), and then switch to double integrals, or put in other words: employ the <span class ="important-text">accelerated Feynman's trick</span> (in which we skip the usual parameterisation step).
         </p>
 
         <div class="math-content">
@@ -451,11 +447,11 @@
         </div>
 
         <p>
-            The rest goes exactly as with the previous method as all we did here was to skip differentiation step and instead we switched to double integrals.
+            The rest goes exactly as with the previous method, as all we did here was to skip differentiation step, and instead we switched to double integrals.
         </p>
 
         <p>
-            A natural question that arises here is how did \(\frac{1}{1+x^4}=\int_0^\infty e^{-tx^2}\sin t\, dt\) appear? Or even better, how can on come up with similar results for other integrals? In the case from above simply the Laplace transform of the sine function was used, however in general it's useful to have a list of such identities. There are tables of integral results that can be used - for example: Table of Integrals, Series, and Products by Gradshteyn and Ryzhik - alternatively one can build up their own list of results which tend to appear often while evaluating other integrals.
+            A natural question that arises here is how did \(\frac{1}{1+x^4}=\int_0^\infty e^{-tx^2}\sin t\, dt\) appear? Or even better, how can someone come up with similar results for other integrals? In the case from above, simply the Laplace transform of the sine function was used, however in general it's useful to have a list of such identities. There are tables of integral results that can be used - for example: Table of Integrals, Series, and Products by Gradshteyn and Ryzhik - but alternatively one can build up their own list of results which tend to appear often, while evaluating other integrals.
         </p>
 
         <hr>
@@ -528,7 +524,7 @@
         <hr>
 
         <p>
-            With all the previous integrals there was a common thing: we were able to parameterise them as they appeared in their original form, however most of the time we don't have this luxury and we need to manipulate the integrals up to a point where we can introduce a parameter. Our goal here will be to find a few heuristics that will help us manipulate the integrals up to a point where Feynman's trick will be helpful.
+            With the previous integrals, there was a common thing in which we were able to parameterise them as they appeared in their original form, however most of the time we don't have this luxury, so we need to manipulate the integrals up to a point where we can introduce an useful parameter. Our goal here will be to find a few heuristics that will help us to manipulate the integrals before effctively applying Feynman's.
         </p>
 
         <hr>
@@ -615,7 +611,7 @@
         </div>
 
         <p>
-            In general when we have rational functions it is prefered to integrate over \((0,\infty)\), if possible, as it drastically reduces the result and when there's the derivative of \(\arcsin x\) in the denominator one way to map \((0,1)\) to \((0,\infty)\) is to directly substitute \(x \to \frac{1}{\sqrt{1+x^2}}\).
+            In general when we have rational functions it is prefered to integrate over \((0,\infty)\), if possible, as it drastically reduces the result, and when there's the derivative of \(\arcsin x\) in the denominator one way to map \((0,1)\) to \((0,\infty)\) is to directly substitute \(x \to \frac{1}{\sqrt{1+x^2}}\).
         </p>
             
         <div class="math-content">
@@ -806,8 +802,8 @@
         </div>
 
         <p>
-            We can notice that the derivative of \(ax-\frac{b}{x}\) is \(a+\frac{b}{x^2}\) so it would be quite helpful if we had that additional term.
-            In the same time if we differentiate the integrand with respect to \(b\) we'll produce \(a-\frac{b}{x^2}\), which is quite useful as \((ax-b/x)^2\) is equal to \((ax+b/x)^2+4ab\) and the derivative of \(ax+\frac{b}{x}\) is \(a-\frac{b}{x^2}\), so let's differentiate as mentioned above:
+            First, we can notice that the derivative of \(ax-\frac{b}{x}\) is \(a+\frac{b}{x^2}\) so it would be quite helpful if we had that additional term.
+            In the same time if we differentiate the integrand with respect to \(b\) we'll produce \(a-\frac{b}{x^2}\), which is really useful as \((ax-b/x)^2\) is equal to \((ax+b/x)^2+4ab\) and the derivative of \(ax+\frac{b}{x}\) is \(a-\frac{b}{x^2}\). So let's differentiate as mentioned above:
         </p>
            
         <div class="math-content">
@@ -848,7 +844,7 @@
         </p>
 
         <p>
-            As a small note, it's true that the name, differentiating under the integral sign, tends to be used as an alternative name for Feynman's trick, however I prefer to keep this for the variant where only the differentiating process takes part, or as mentioned above, when there's no need to integrate back the result and the name describes quite literally what we are doing.
+            As a small note, it's true that the name, differentiating under the integral sign, tends to be used as an alternative name for Feynman's trick, however I prefer to keep this for the variant where only the differentiating process takes part, or as mentioned above, when there's no need to integrate back the result, and the name describes quite literally what we are doing.
         </p>
 
         <p>
@@ -868,7 +864,7 @@
         </div>
 
         <p>
-            Differentiating with respect to \(a\), \(m\) times followed by setting \(a=0\) will gives us the desired integral, ignoring the \((-1)^m\) term. However the denominator is still troublesome and to deal with that we will introduce one more parameter:
+            Differentiating with respect to \(a\), \(m\) times followed by setting \(a=0\) will gives us the desired integral, ignoring the \((-1)^m\) term. However the denominator is still troublesome, and to deal with that we will introduce one more parameter:
         </p>
             
         <div class="math-content">
@@ -876,7 +872,7 @@
         </div>
 
         <p>
-            This is perfect as we can recover our original integral by differentiating with respect to \(a\), \(m\) times and with respect to \(z\), \(m-1\) times followed by setting \(a=0\) and respectively \(z=1\), ignoring some coefficients.
+            This is perfect as we can recover our original integral by differentiating with respect to \(a\), \(m\) times, and with respect to \(z\), \(m-1\) times, followed by setting \(a=0\) and respectively \(z=1\) - ignoring some coefficients.
         </p>
 
         <p>
@@ -889,7 +885,7 @@
         </div>
 
         <p>
-            And now we will take \(m\) derivatives with respect to \(a\) and set it to \(0\).
+            Now we will take \(m\) derivatives with respect to \(a\) and then set it to \(0\).
         </p>
 
         <div class="math-content">
@@ -1067,7 +1063,7 @@
         </div>
 
         <p>
-            We're looking to find \(I=2I\left(\sqrt 2\right)\) and since \(I\left(1\right)=0\), we have:
+            We're looking to find \(I=2I\left(\sqrt 2\right)\), and since \(I\left(1\right)=0\), we have:
         </p>
 
         <div class="math-content">
@@ -1106,7 +1102,7 @@
         </div>
 
         <p>
-            In retrospect, this integral also appeared in disguise as an exercise in the second chapter and with the same suggestion from there, we can evaluate the integral by applying Feynman's trick to:
+            In retrospect, this integral also appeared in disguise as an exercise in the second chapter, and with the same suggestion from there, we can evaluate the integral by applying Feynman's trick to:
         </p>
         
         <div class="math-content">
@@ -1181,12 +1177,6 @@
                 Split into two integrals, then substitute \(x\to tx\) and respectively \(x\to \frac{x}{t}\) in the resulting integrals to obtain:
                 \[I(t)= \int_0^1 \ln x \left(\frac{1}{t+x}+\frac{1}{\frac{1}{t}+x}\right)dx = \int_0^\frac{1}{t} \frac{\ln(tx)}{1+x}dx + \int_0^t \frac{\ln\left(\frac{x}{t}\right)}{1+x}dx\]
                 Now employ the Feynman's trick (in the generalized variant).
-            <br>
-                Also, in disguise this exercise is a reformulation of the following identity:
-                \[
-                    \operatorname{Li}_2(-t)+\operatorname{Li}_2\left(-\frac{1}{t}\right) = -\frac{\pi^2}{6} - \frac{1}{2}\ln^2 t
-                \]
-                Where \(\operatorname{Li}_2(x)\) is the dilogarithm function.
             </p>
         </div>
 
@@ -1210,7 +1200,7 @@
         </p>
 
         <p>
-            For further exercises, I recommend exploring math forums and magazines such as Art of Problem Solving, Mathematics Stack Exchange, The American Mathematical Monthly, Crux Mathematicorum, or the Romanian Mathematical Magazine, where dozens of fascinating integrals are often posted or published. Additionally, delving into other fields like Statistics, Physics, or Quantum Physics will present you with many remarkable integrals—some of which might be solvable using Feynman's trick.
+            For further exercises, I recommend exploring math forums and magazines such as Art of Problem Solving, Mathematics Stack Exchange, The American Mathematical Monthly, Crux Mathematicorum, or the Romanian Mathematical Magazine, where dozens of fascinating integrals are often posted or published. Additionally, delving into other fields like Statistics, Physics, or Quantum Physics will present you with many remarkable integrals — some of which might be solvable using Feynman's trick.
         </p>
 
         <hr>
@@ -1220,7 +1210,7 @@
         </p>
 
         <p>
-            This work is licensed under a <a href = "https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution 4.0 International License</a> and it can be cited as: <cite>https://zackyzz.github.io/feynman</cite>.
+            This work is licensed under a <a href = "https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution 4.0 International License</a>, and it can be cited as: <cite>https://zackyzz.github.io/feynman</cite>.
         </p>
     </div>
     
