@@ -50,17 +50,17 @@
         <hr>
 
         <p>
-            While in some movies the plot can get a bit overambitious and use the notion of quantum physics to introduce concepts such as time travel, teleportation and various magically working gadgets - which cannot be explained based on our day-to-day experiences of physics - it is also true that quantum physics, which deals with how things at an atomic level work, behaves in a different way than our intuition is used to.
+            While in some movies the plot can get a bit overambitious and use the notion of quantum physics to introduce concepts such as time travel, teleportation and various magically working gadgets - that defy our everyday understanding of physics - it is also true that quantum physics, which deals with how things work at the atomic and subatomic scales, behaves in a different way than our intuition is used to.
         </p>
 
         <img src="imgs/quantum.png" alt="Quantum" class = "centered-image">
 
         <p>
-            Quantum computers are based on the properties of quantum physics and, although they will not help with the time-traveling part, they do possess some power over classical computers and can help us solve tasks that would not be possible with current technology.
+            Quantum computers are based on the principles of quantum physics, and although they will not help with the time-traveling part, they do possess some advantages over classical computers, and can help us solve tasks that would not be possible with the current technology.
         </p>
 
         <p>
-            It should be mentioned that a classical computer is a Turing machine, which means that it is capable of implementing any computer algorithm - even one that simulates a quantum computer - but this assumes that we have infinite time and memory at our disposal. Rather, quantum computers can help us solve tasks more efficiently than a classical computer, which could even mean that something that would require hundreds of years to perform can be reduced to a matter of minutes.
+            It's worth noting that a classical computer is a Turing machine, which means that it is theoretically capable of implementing any computer algorithm - even one that simulates a quantum computer - but this assumes that we have infinite time and memory at our disposal. So rather said, a quantum computer can help us solve tasks more efficiently than a classical computer, which could even mean that something that would require hundreds of years to perform classically can be reduced to a matter of minutes.
         </p>
 
         <hr>
@@ -68,28 +68,31 @@
         <hr>
 
         <p>
-            At a low level, in an ordinary computer, everything is made of bits. A bit is the basic unit of information which represents two possible states - in a physical representation, some circuits recognize a voltage lower than \(0.8V\) as a state, whereas the other state can be identified by a voltage higher than \(2.2V\) - in a logical representation, however, the two states are simplified to \(0\) and \(1\). Fortunately for us, the bits are hidden by high-level routines which make life way easier, as it would be burdensome to manipulate them into performing a desired task.
+            At a low level, in an ordinary computer, everything is made out of bits. A bit is the basic unit of information which represents two possible states. In a physical representation, some circuits recognize a voltage lower than \(0.8V\) as a state, whereas the other state can be identified by a voltage higher than \(2.2V\).
+        </p>
+        <p>
+            In computing terminology, these two states are however simplified to \(0\) and \(1\). Fortunately for us, the bits are hidden by high-level routines which makes our life way easier, as it would be burdensome to manipulate them into performing a desired task.
         </p>
 
         <p>
-            In contrast, for a quantum computer, the fundamental unit of information is the <span class ="important-text">qubit</span>. However, a qubit is not limited to only two states, and instead, it can be represented as a two-dimensional vector, taking into account the constraint from below:
+            In contrast to bits, the fundamental unit of information in quantum computing is the <span class ="important-text">qubit</span>. A qubit is not limited to only two states, and instead, it can be represented as a two-dimensional vector, taking into account the constraint from below:
         </p>
         
         \[\newcommand\col[1]{\begin{bmatrix}#1\end{bmatrix}}
         \col{a \\ b}, \quad |a|^2+|b|^2 = 1; \ a,b\in \mathbb{C}\]
 
         <p>
-            This is similar to probabilities, where for any event, the probabilities for all its outcomes must sum to \(1\), but for a qubit, those should be squared and also taken in modulus (if \(a\) and \(b\) are complex numbers).
+            This principle is analogous as for probabilities, where for any event, the probabilities for all its outcomes must sum to \(1\). However, for a qubit, those values should be squared, and also taken in modulus (if \(a\) and \(b\) are complex numbers).
         </p>
 
         <p>
-            Without loss of generality, we will assume that we work only with real numbers for now. Therefore, the state space for a single qubit can be visualized as any point on the surface of a unit circle, as seen below.
+            In order to grasp this concept visually, we will assume that we work with real numbers for now. Therefore, the state space for a single qubit can be visualized as any point on the circumference of a unit circle, as seen below.
         </p>
 
         <img src="imgs/unit_circ.jpg" alt="Quantum" class = "scaled-image">
 
         <p>
-            For ease of notation, we introduced above a new notation: \(\ket{\cdot}\), called "ket", which simply represents a vector. Also, two special cases corresponding to the classical bits \(0\) and \(1\) can be distinguished as:
+            To differentiate between classical bits, we introduced in the picture from above a new notation: \(\ket{\cdot}\), called "ket", which denotes a special kind of vector which represents a quantum state. Also, two special cases corresponding to the classical bits \(0\) and \(1\) can be distinguished as:
         </p>
 
         \[\require{braket}
@@ -97,26 +100,13 @@
         \]
 
         <p>
-            Using this, the two basis states for a qubit can be represented as \(\ket{0}\) and \(\ket{1}\), and any general state of a qubit can be expressed as a linear combination of these two basis states:
+            Using this, any quantum states can be represented as a linear combination of \(\ket{0}\) and \(\ket{1}\):
         </p>
         
         \[
         \col{a \\ b} = a \col{1 \\ 0} + b\col{0 \\ 1} = a \ket{0} + b \ket{1}
         \]
 
-        <p>
-            Another example of a qubit (seen in the above picture) is \(\ket{+}\), which is quite special since for this state \(a\) and \(b\) are equal (this happens when \(a=b=\frac{1}{\sqrt 2}\)).
-        </p>
-
-        \[
-        \ket{+} = \frac{1}{\sqrt 2} \ket{0} + \frac{1}{\sqrt 2} \ket{1} = \col{\frac{1}{\sqrt 2} \\ \frac{1}{\sqrt 2}}
-        \]
-
-        <pre>
-            <code>
-                TBA
-            </code>
-        </pre>
 
         <hr>
         <section id="chapter2"> <h3>Developing a quantum computing simulator</h3> </section>
