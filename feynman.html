@@ -52,7 +52,7 @@
         </h1>
 
         <p>
-            Among a few other integral tricks and techniques, Feynman's trick was a primary reason that made me love evaluating integrals. While the technique itself goes back to Leibniz and is commonly known as the <span class ="important-text">Leibniz integral rule</span>, it was Feynman who popularized it, which is why it is also referred to as  <span class ="important-text">Feynman's trick</span>.
+            Among a few other integral tricks and techniques, Feynman's trick was a strong reason that made me love evaluating integrals. While the technique itself goes back to Leibniz and is commonly known as the <span class ="important-text">Leibniz integral rule</span>, it was Richard Feynman who popularized it, which is why it is also referred to as  <span class ="important-text">Feynman's trick</span>.
             Here's an excerpt from his book, <span class ="important-text">Surely You're Joking, Mr. Feynman</span>:
         </p>
 
@@ -111,9 +111,13 @@
         </div>
 
         <p>
-            This is nice, but not so useful by itself. A common challenge when learning something new, be it a game, a programming language, or even a field, is that without practice, very little information will remain. Put in other words, <span class ="important-text">learning is not a spectator sport</span>, and there is no shortcut to it.
+            This is nice, but not so useful by itself. A common challenge when learning something new, be it a game, a programming language, or even a field, is that without practice, very little information will remain. In other words, <span class ="important-text">learning is not a spectator sport</span>, and there is no shortcut to it.
         </p>
         
+        <p>
+            Take for example chess, most people could understand the rules in a few minutes. However, if they would go on to play a game, then most likely they would get stomped by a more experienced player - while playing under the same rules, because the other player, through practice, learned some strategies to employ when playing.
+        </p>
+
         <p>
             With this in mind, we will dive straight into action and approach Feynman's trick using practical examples. As a "Hello, World!" introduction, let's take a look at the following integral:
         </p>
@@ -123,7 +127,7 @@
         </div>
 
         <p>
-            You are encouraged to try and evaluate the integral with basic methods, but the logarithm being in the
+            You are encouraged to try and evaluate the integral using basic methods, but the logarithm being in the
             denominator makes this integral quite stubborn to deal with. Feynman's trick aims to get rid of this issue by differentiating under the intgeral sign, with respect to a parameter, in order to obtain an
             integral that is easier to evaluate.
         </p>
@@ -146,7 +150,7 @@
         </div>
 
         <p>
-            However the main idea behind the trick is to obtain an integral that we can evaluate easier after differentiating with respect to the new parameter. Let's put this in action and see what happens to \(I(t)\).
+            However, the main idea behind the trick is to obtain an integral that we can evaluate easier, after differentiating with respect to the new parameter. Let's put this in action and see what happens to \(I(t)\).
         </p>
 
         <div class ="math-content">
@@ -481,7 +485,7 @@
         </p>
 
         <p>
-            Like in the previous chapter below are more integrals alongside some hints in order to practice with the accelerated variation of Feynman's trick. However in this case I do recommend to peek at hints faster in case nothing obvious comes immediate to mind and afterwards attempt to understand why the mentioned result can be used.
+            Like in the previous chapter below are more integrals alongside some hints in order to practice with the accelerated variation of Feynman's trick. However in this case I do recommend to peek at hints faster in case nothing obvious comes to mind, and afterwards to attempt and understand why the mentioned identity can be used.
         </p>
 
         <div class ="math-content">
@@ -1174,7 +1178,7 @@
 
         <div class="hidden-content">
             <p class="hint-content">
-                Split into two integrals, then substitute \(x\to tx\) and respectively \(x\to \frac{x}{t}\) in the resulting integrals to obtain:
+                Split the integral in two parts, then substitute \(x\to tx\) and respectively \(x\to \frac{x}{t}\) in the resulting integrals to obtain:
                 \[I(t)= \int_0^1 \ln x \left(\frac{1}{t+x}+\frac{1}{\frac{1}{t}+x}\right)dx = \int_0^\frac{1}{t} \frac{\ln(tx)}{1+x}dx + \int_0^t \frac{\ln\left(\frac{x}{t}\right)}{1+x}dx\]
                 Now employ the Feynman's trick (in the generalized variant).
             </p>
