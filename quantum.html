@@ -33,7 +33,7 @@
             <li class = "first-nav-item"><a class="active" href="quantum.html">Quantum Computing</a></li>
             <li class = "second-nav-item">
                 <ul>
-                    <li><a href="#chapter1">The Big Picture</a></li>
+                    <li><a href="#chapter1">Classical Computing</a></li>
                 </ul>
             </li>
             <li class = "first-nav-item"><a href="feynman.html">Feynman's Trick</a></li>
@@ -63,7 +63,7 @@
         </p>
 
         <hr>
-        <section id="chapter1"> <h3>The Big Picture</h3> </section>
+        <section id="chapter1"> <h3>Classical Computing - in the Matrix Form</h3> </section>
         <hr>
 
         <p>
@@ -75,11 +75,30 @@
         </p>
 
         <p>
+            However, to better contrast with what's to come, let's stick to the level of bits. We can represent these \(0\) and \(1\) states using some equivalent vectors, as:
+        </p>
+        \[\newcommand\col[1]{\begin{bmatrix}#1\end{bmatrix}}\]
+        \[ 0:=\col{1 \\ 0}, \quad 1:=\col{0 \\ 1}\]
+
+        <p>
+            Having a single bit, all that we can do is switch from \(0\) to \(1\) back and forth. Using the standard logical NOT gate we directly have:
+        </p>
+        \[ \operatorname{NOT}(0) = 1,\quad \operatorname{NOT}(1) =0\]
+        <p>
+            Furthermore, the \(\operatorname{NOT}\) operator, performed to the vector representation of the bits, takes the form of a marix, namely:
+        </p>
+        \[\operatorname{NOT} = \col{0 \quad 1 \\ 1 \quad 0}\]
+        \[\Rightarrow \operatorname{NOT}(0) = \operatorname{NOT} \col{1 \\ 0} =  \col{0 \quad 1 \\ 1 \quad 0}\cdot \col{1 \\ 0} = \col{0 \\ 1} = 1\]
+        \[\Rightarrow \operatorname{NOT}(1) = \operatorname{NOT} \col{0 \\ 1} =  \col{0 \quad 1 \\ 1 \quad 0}\cdot \col{0 \\ 1} = \col{1 \\ 0} = 0\]
+
+        <hr>
+        <section id="chapter2"> <h3>Quantum Computing</h3> </section>
+        <hr>
+
+        <p>
             In contrast to bits, the fundamental unit of information in quantum computing is the <span class ="important-text">qubit</span>. A qubit isn't limited to only two states, and instead, it is represented by a two-dimensional vector. This means that a qubit can exist in an infinite number of states, but with the following constraint taken into account:
         </p>
-        
-        \[\newcommand\col[1]{\begin{bmatrix}#1\end{bmatrix}}
-        \col{a \\ b}, \quad |a|^2+|b|^2 = 1; \ a,b\in \mathbb{C}\]
+        \[\col{a \\ b}, \quad |a|^2+|b|^2 = 1; \ a,b\in \mathbb{C}\]
 
         <p>
             This principle is analogous to that of probabilities, where for any event, the probabilities for all its outcomes must sum up to \(1\). However, for a qubit, those values should be squared, and also taken in modulus (this matters only if \(a\) or \(b\) are complex numbers).
