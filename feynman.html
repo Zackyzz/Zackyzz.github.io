@@ -111,8 +111,8 @@
         </div>
 
         <p>
-            This is nice, but not so useful by itself since learning is not a spectator sport.
-            Take for example chess, most people could understand the rules in a few minutes, however, if they would go on to play a game then most likely they would get stomped by a more experienced player. This is because the other player, through practice, learned some strategies to use when playing.
+            This is nice, but not so useful by itself since it doesn't say anything about how and when to apply it. Moreover, learning is not a spectator sport and one has to get their hands dirty as there are no shortcuts to it.
+            Take for example chess, most people could read and understand the rules in a few minutes, however, if they would go on to play a game then most likely they would get stomped by a more experienced player. This is because the other player, through practice, learned some strategies to use when playing.
         </p>
 
         <p>
@@ -196,8 +196,8 @@
         <hr>
 
         <p>
-            As emphasized above, the main goal of the trick is to obtain an integral that is easier to evaluate after
-            differentiating with respect to a parameter, and one issue is that it is not always obvious where to place it.
+            As emphasized above, the main goal of the technique is to obtain an integral that is easier to evaluate after
+            differentiating with respect to a parameter, and one issue is that it is not always obvious how to parameterise the integral.
             In order to make things more intuitively we will play around with the integral from below.
         </p>
 
@@ -264,7 +264,7 @@
         </div>
 
         <p>
-            Now it's more naturally to place the parameter so that it simplifies \(1+x^2\) when differentiating with respect to \(t\), namely we consider:
+            In this form it's more natural to place the parameter so that it simplifies \(1+x^2\) when differentiating with respect to \(t\), namely we consider:
         </p>
 
         <div class="math-content">
@@ -368,7 +368,7 @@
                 Consider parameterising the integral as:
                 \[I(t)=\int_0^\infty \frac{e^{-t(1+x^2)}}{1+x^2}dx\Rightarrow I'(t) = -\frac{\sqrt \pi}{2\sqrt t}e^{-t}\]
                 This should lead to:
-                \[\int_0^\infty \frac{e^{-x^2}}{1+x^2}dx = e\left(I(1)-I(t\to \infty)\right) = -e\int_1^\infty I'(t)dt= \frac{\pi e}{2}\operatorname{erfc}(1)\]
+                \[\int_0^\infty \frac{e^{-x^2}}{1+x^2}dx = e\left(I(1)-I(\infty)\right) = -e\int_1^\infty I'(t)dt= \frac{\pi e}{2}\operatorname{erfc}(1)\]
                 Where \(\operatorname{erfc}(x)\) is the complementary error function.
             </p>
         </div>
@@ -381,7 +381,7 @@
             <p class="hint-content">
                 Since \(1-x^2+x^4=(1+x^2)^2-3x^2\), consider parameterising the integral as:
                 \[I(t)=\int_0^\infty \frac{\ln\left(\frac{t(1+x^2)^2-3x^2}{(1-x^2)^2}\right)}{(1+x^2)^2}dx\Rightarrow I'(t)=\frac{\pi}{2\sqrt{t(4t-3)}}\]
-                And in order to go back it should be observed that \(\frac34(1+x^2)^2-3x^2=\frac34(1-x^2)^2\):
+                And in order to go back it should be observed that \(\frac34(1+x^2)^2-3x^2=\frac34(1-x^2)^2\).
                 \[\int_0^\infty \frac{\ln\left(\frac{1-x^2+x^4}{(1-x^2)^2}\right)}{(1+x^2)^2}dx=I(1)- I\left(\frac34\right)+ I\left(\frac34\right)\]
                 \[=\int_\frac34^1 I'(t)dt + \frac{\pi}{4}\ln\left(\frac{3}{4}\right) = \frac{\pi}{2}\ln\left(\frac32\right)\]
             </p>
@@ -466,7 +466,7 @@
         </div>
 
         <p>
-            Since \(\int_0^\infty e^{-xt} dt = \frac{1}{x}\) we can make use of this to rewrite the integral as:
+            Since \(\int_0^\infty e^{-xt} dt = \frac{1}{x}\), we can make use of this to rewrite the integral as:
         </p>
 
         <div class="math-content">
@@ -474,7 +474,7 @@
         </div>
 
         <p>
-            Alternatively we can also consider the parameter version of this integral, \(\int_0^\infty \frac{\sin x}{x}e^{-xt}dx\), however I feel like switching to double integrals is way more intuitively.
+            Alternatively, we can also consider the parameter version of this integral, \(\int_0^\infty \frac{\sin x}{x}e^{-xt}dx\), however I feel like switching to double integrals is way more intuitively.
         </p>
 
         <p>
@@ -491,8 +491,9 @@
 
         <div class="hidden-content">
             <p class="hint-content">
-                Start by substituting \(x^2\to x\) and then switch to double integrals using:
+                This is one particular case of the Fresnel integral. One approach is to start by substituting \(x^2\to x\) and then switch to double integrals using:
                 \[\int_0^\infty e^{-xt^2}dt = \frac{\sqrt \pi}{2\sqrt x}\]
+                Where the latter result is due to the Gaussian integral (this can be shown in many ways, but it is also given as an exercise in the last chapter).
             </p>
         </div>
 
@@ -504,6 +505,10 @@
             <p class="hint-content">
                 Switch directly to double integrals by using:
                 \[\int_0^1 \frac{\ln t}{t-\frac{1}{x}}dt = \operatorname{Li}_2(x)\]
+
+                For reference, this integral arised while computing the following integral:
+                \[\int_0^1 \frac{\operatorname{Li}_2\left(\frac{2x}{1+x^2}\right)}{1+x}dx\]
+                In case you get stuck, you can find my approach <a href="https://math.stackexchange.com/a/3461058/515527"> here </a> on MSE.
             </p>
         </div>
 
@@ -517,7 +522,42 @@
                 \[\frac{x}{\pi^2+x^2}=\Im\left(-\frac{1}{\pi+ix}\right)=-\Im\int_0^\infty e^{-(\pi+ix)t}dt\]
                 It's also really useful to try and see what happens when the Laplace transform of the cosine function is used instead, or the equivalent:
                 \[\frac{x}{\pi^2+x^2}=\Re\left(\frac{1}{i\pi+x}\right)=\Re\int_0^\infty e^{-(i\pi+x)t}dt\]
+
+                For reference, this integral arised while trying to show that:
+                \[\int_0^\infty \frac{1-x^2}{(1+x^2)^2}\operatorname{sech}^2 \left(\frac{\pi x}{2}\right)dx = \frac{\zeta(3)}{\pi}\]
+                In case you get stuck, you can find my approach <a href="https://math.stackexchange.com/a/4253441/515527"> here </a> on MSE.
             </p>
+        </div>
+
+        <div class ="math-content">
+            \[\int_0^\infty x\left(\operatorname{Ci}^2(x)+\operatorname{si}^2(x)\right)\operatorname{Ci}(x)dx\]
+        </div>
+
+        <div class="hidden-content">
+            <p class="hint-content">
+                Consider switching to double integrals using:
+                \[\operatorname{Ci}^2(x)+\operatorname{si}^2(x)=\int_0^\infty \frac{e^{-xy}\ln(1+y^2)}{y}dy\]
+                
+                In case you get stuck, you can find my approach <a href="https://math.stackexchange.com/a/4613659/515527"> here </a> on MSE, alongisde a proof for the mentioned result.
+            </p>
+        </div>
+
+
+        <p>
+            For clarity, above \(\operatorname{Li}_2(x)\) denotes the dilogarithm function:
+        </p>
+
+        <div class ="math-content">
+                \[\operatorname{Li}_2(x) = \sum_{n=1}^\infty \frac{x^n}{n^2}\]
+        </div>
+
+        <p>
+            And \(\operatorname{Ci}(x)\), \(\operatorname{si}(x)\) are the cosine and the sine integral functions, defined as:
+        </p>
+
+
+        <div class ="math-content">
+            \[\operatorname{Ci}(x) = - \int_x^\infty \frac{\cos t}{t}dt,\ \operatorname{si}(x) = - \int_x^\infty \frac{\sin t}{t}dt\]
         </div>
 
         <hr>
@@ -525,13 +565,13 @@
         <hr>
 
         <p>
-            With the previous integrals, there was a common thing in which we were able to parameterise them as they appeared in their original form, however most of the time we don't have this luxury, so we need to manipulate the integrals up to a point where we can introduce an useful parameter. Our goal here will be to find a few heuristics that will help us to manipulate the integrals before effctively applying Feynman's.
+            With the previous integrals, there was a common thing in which we were able to parameterise them as they appeared in their original form, however most of the time we don't have this luxury, so we need to manipulate the integrals up to a point where we can introduce an useful parameter. Our goal here will be to find a few heuristics that will help us to manipulate the integrals before effctively applying Feynman's trick.
         </p>
 
         <hr>
 
         <p>
-            Consistence is quite important when dealing with integral, so stick with rational functions. We will see what exactly is meant by that when dealing with the following integral:
+            Maybe it's just a personal preference, but having rational functions tends to give a higher visibility of how to parameterise the integrals. We'll see what is meant by this when dealing with the following integral:
         </p>
 
         <div class="math-content">
@@ -539,7 +579,7 @@
         </div>
 
         <p>
-            Two possible ways to parameterise the integral are as follows:
+            In this form, two immediate ways to parameterise the integral are as follows:
         </p>
 
         <div class="math-content">
@@ -547,7 +587,7 @@
         </div>
 
         <p>
-            Turns out both works, but we can do better. Another rule of thumb that I follow is to use almost exclusive rational functions as they often provide the most visibility to work with. Let's do that for our integral too.
+            It turns out that both variants work, but we can do better. Another rule of thumb that I follow is to use almost exclusive rational functions as they often provide the most visibility to work with. Let's do that for our integral too.
         </p>
             
         <div class="math-content">
@@ -564,7 +604,7 @@
         </div>
 
         <p>
-            Obviously, if you're already more used to trigonometric functions, hyperbolic functions or anything else, then this can be ignored. I however recommend switching to rational functions, a few exceptions being when there's a clear way to parameterise the integral directly or when at least one of the bounds is \(\infty\).
+            Obviously, if you're already more used to trigonometric functions, hyperbolic functions or anything else, then this can be ignored. I however recommend switching to rational functions. A few exceptions being when there's a clear way to parameterise the integral directly or when at least one of the bounds is \(\infty\).
         </p>
 
         <hr>
@@ -578,7 +618,7 @@
         </div>
 
         <p>
-            At the first glance it might seem like a super complicated integral. However, as we have trigonometric functions all over the place we will perform the Weierstrass substitution \(\tan\left(\frac{x}{2}\right)\to x\) in order to obtain only rational functions, as per our first heuristic.
+            As we have trigonometric functions all over the place, we will perform the Weierstrass substitution \(\tan\left(\frac{x}{2}\right)\to x\) in order to obtain only rational functions, as per our first heuristic.
         </p>
             
         <div class="math-content">
@@ -628,15 +668,15 @@
         </div>
 
         <p>
-            In order to finish this integral we'll subsitute \(t = \frac{1-x}{1+x}\).
+            Finally, to finish this integral we'll subsitute \(t = \frac{1-x}{1+x}\).
         </p>
     
         <div class="math-content">
-            \[\Rightarrow \mathcal J = \frac{\pi}{4}\int_{-\frac12}^\infty \frac{1}{x}\left(\frac{1+x}{\sqrt 2 \sqrt{1+x^2}}-\frac{1}{\sqrt 2}\right)dx=\frac{\pi}{\sqrt 2}\ln \left(\frac{1+\sqrt 5}{2}\right)\]
+            \[\Rightarrow \mathcal J = \frac{\pi}{4\sqrt 2}\int_{-\frac12}^\infty \frac{1}{x}\left(\frac{1+x}{\sqrt{1+x^2}}-1\right)dx=\frac{\pi}{\sqrt 2}\ln \left(\frac{1+\sqrt 5}{2}\right)\]
         </div>
 
         <p>
-            And finally, we can conclude that:
+            As such, we can conclude that:
         </p>
 
         <div class="math-content">
@@ -761,6 +801,7 @@
         <div class="hidden-content">
             <p class="hint-content">
                 Map the bounds from \((0,1)\) to \((0,\infty)\) by substituting \(x\to\frac{1}{x}\) - here it is necessary to add the resulting integral with the original one - afterwards use Feynman's trick.
+                Also, in case you get stuck, you can find my approach <a href="https://math.stackexchange.com/a/3357236/515527"> here </a> on MSE.
             </p>
         </div>
 
@@ -980,26 +1021,17 @@
         </div>
 
         <p>
-            Similarly to what we did at the second variation of Feynman's trick described previously, we can start by placing the parameter as:
+            We can start by parameterising the cosine function and then employ the accelerated Feynman's trick.
         </p>
 
         <div class="math-content">
-            \[I(t)=\int_0^\infty \frac{\cos x}{t^2+x^2}dx\]
-        </div>
-
-        <p>
-            And here it is true that we can use \(\frac{1}{t^2+x^2}=\int_0^\infty\frac{1}{t}\sin(yt)e^{-xy}dy\) in order to switch to double integrals, however we'll run in circles as the resulting integral will be \(\frac{1}{t}\int_0^\infty \frac{\sin x}{t^2+x^2}dx\) after changing the order of integration.
-            Instead, we'll first substitute \(x\to t x\) in order to move the parameter up to the cosine function and get rid of it from the denominator. Afterwards we'll use the accelerated Feynman's trick as mentioned above, but for \(\frac{1}{1+x^2}\).
-        </p>
-
-        <div class="math-content">
-            \[I(t)\overset{x\to tx}=\frac{1}{t}\int_0^\infty \frac{\cos(tx)}{1+x^2}dx=\frac{1}{t}\int_0^\infty \int_0^\infty \cos(tx)\sin y e^{-xy}dydx\]
-            \[\small =\frac{1}{t}\int_0^\infty \sin y \int_0^\infty \cos(tx)e^{-xy}dxdy=\frac{1}{t}\int_0^\infty \frac{y\sin y}{t^2+y^2}dy\overset{y\to tx}=\frac{1}{t}\int_0^\infty \frac{x\sin(tx)}{1+x^2}dx\]
+            \[I(t)=\int_0^\infty \frac{\cos(tx)}{1+x^2}dx=\int_0^\infty \int_0^\infty \cos(tx)\sin y e^{-xy}dydx\]
+            \[\small =\int_0^\infty \sin y \int_0^\infty \cos(tx)e^{-xy}dxdy=\int_0^\infty \frac{y\sin y}{t^2+y^2}dy\overset{y\to tx}=\int_0^\infty \frac{x\sin(tx)}{1+x^2}dx\]
             \[\Rightarrow f(t)=\int_0^\infty \frac{\cos(tx)}{1+x^2}dx = \int_0^\infty \frac{x\sin(tx)}{1+x^2}dx \]
         </div>
 
         <p>
-            This is really useful as differentiating the first form of \(f(t)\) also gives us:
+            Furthermore, differentiating \(I(t)\) gives us a differential equation to work with, namely:
         </p>
 
         <div class="math-content">
@@ -1008,7 +1040,7 @@
         </div>
 
         <p>
-            Finally, we are looking to find \(I=I(1)\), therefore:
+            In the end, we are looking to find \(I=I(1)\), therefore:
         </p>
 
         <div class="math-content">
@@ -1178,6 +1210,13 @@
                 Split the integral in two parts, then substitute \(x\to tx\) and respectively \(x\to \frac{x}{t}\) in the resulting integrals to obtain:
                 \[I(t)= \int_0^1 \ln x \left(\frac{1}{t+x}+\frac{1}{\frac{1}{t}+x}\right)dx = \int_0^\frac{1}{t} \frac{\ln(tx)}{1+x}dx + \int_0^t \frac{\ln\left(\frac{x}{t}\right)}{1+x}dx\]
                 Now employ the Feynman's trick (in the generalized variant).
+            </p>
+            <p class="hint-content"> 
+                Also, in disguise this exercise is a reformulation of the following identity:
+                \[
+                    \operatorname{Li}_2(-t)+\operatorname{Li}_2\left(-\frac{1}{t}\right) = -\frac{\pi^2}{6} - \frac{1}{2}\ln^2 t
+                \]
+                Where \(\operatorname{Li}_2(x)\) is the dilogarithm function.
             </p>
         </div>
 
