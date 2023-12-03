@@ -208,7 +208,15 @@ body.dark-mode .hidden-content {
 }
 
 .hidden-content:hover .hint-content {
-    display: inline-block;
+    display: block;
+}
+
+.hidden-hr {
+    display:none
+}
+
+.hidden-content:hover .hidden-hr {
+    display: block;
 }
 
 /* Extra */

@@ -505,8 +505,10 @@
             <p class="hint-content">
                 Switch directly to double integrals by using:
                 \[\int_0^1 \frac{\ln t}{t-\frac{1}{x}}dt = \operatorname{Li}_2(x)\]
-
-                For reference, this integral arised while computing the following integral:
+            </p>
+            <hr class="hidden-hr">
+            <p class="hint-content">
+                This integral arised while computing the following integral:
                 \[\int_0^1 \frac{\operatorname{Li}_2\left(\frac{2x}{1+x^2}\right)}{1+x}dx\]
                 In case you get stuck, you can find my approach <a href="https://math.stackexchange.com/a/3461058/515527"> here </a> on MSE.
             </p>
@@ -522,8 +524,10 @@
                 \[\frac{x}{\pi^2+x^2}=\Im\left(-\frac{1}{\pi+ix}\right)=-\Im\int_0^\infty e^{-(\pi+ix)t}dt\]
                 It's also really useful to try and see what happens when the Laplace transform of the cosine function is used instead, or the equivalent:
                 \[\frac{x}{\pi^2+x^2}=\Re\left(\frac{1}{i\pi+x}\right)=\Re\int_0^\infty e^{-(i\pi+x)t}dt\]
-
-                For reference, this integral arised while trying to show that:
+            </p>
+            <hr class="hidden-hr">
+            <p class="hint-content">
+                This integral arised while trying to show that:
                 \[\int_0^\infty \frac{1-x^2}{(1+x^2)^2}\operatorname{sech}^2 \left(\frac{\pi x}{2}\right)dx = \frac{\zeta(3)}{\pi}\]
                 In case you get stuck, you can find my approach <a href="https://math.stackexchange.com/a/4253441/515527"> here </a> on MSE.
             </p>
@@ -537,14 +541,13 @@
             <p class="hint-content">
                 Consider switching to double integrals using:
                 \[\operatorname{Ci}^2(x)+\operatorname{si}^2(x)=\int_0^\infty \frac{e^{-xy}\ln(1+y^2)}{y}dy\]
-                
                 In case you get stuck, you can find my approach <a href="https://math.stackexchange.com/a/4613659/515527"> here </a> on MSE, alongisde a proof for the mentioned result.
             </p>
         </div>
 
 
         <p>
-            For clarity, above \(\operatorname{Li}_2(x)\) denotes the dilogarithm function and \(\operatorname{Ci}(x)\), \(\operatorname{si}(x)\) are the cosine and the sine integral functions, defined as:
+            Above \(\operatorname{Li}_2(x)\) denotes the dilogarithm function and \(\operatorname{Ci}(x)\), \(\operatorname{si}(x)\) are the cosine and the sine integral functions, defined as:
         </p>
 
 
@@ -557,7 +560,7 @@
         <hr>
 
         <p>
-            With the previous integrals, there was a common thing in which we were able to parameterise them as they appeared in their original form, however most of the time we don't have this luxury, so we need to manipulate the integrals up to a point where we can introduce an useful parameter. Our goal here will be to find a few heuristics that will help us to manipulate the integrals before effctively applying Feynman's trick.
+            A common thing that we had so far with the previous examples was the luxury to parameterise the integrals as they appeared, however most of the time things are quite different, and we might need to manipulate the integrals up to a point where we can introduce an useful parameter. Our goal here will be to find a few heuristics that will help us in doing those manipulations easier.
         </p>
 
         <hr>
@@ -793,7 +796,10 @@
         <div class="hidden-content">
             <p class="hint-content">
                 Map the bounds from \((0,1)\) to \((0,\infty)\) by substituting \(x\to\frac{1}{x}\) - here it is necessary to add the resulting integral with the original one - afterwards use Feynman's trick.
-                Also, in case you get stuck, you can find my approach <a href="https://math.stackexchange.com/a/3357236/515527"> here </a> on MSE.
+            </p>
+            <hr class="hidden-hr">
+            <p class="hint-content"> 
+                In case you get stuck, you can find my approach <a href="https://math.stackexchange.com/a/3357236/515527"> here </a> on MSE.
             </p>
         </div>
 
@@ -820,23 +826,24 @@
         </div>
 
         <p>
-            In this form it makes no sense to differentiate the integral with respect to any parameter, but we can extend the integral with temporary bounds.
+            In this form it makes no sense to differentiate the integral with respect to any parameter, but we can extend the integral with temporary bounds by writing:
         </p>
 
         <div class="math-content">
-            \[I(a,b,t)=\int_0^t\frac{1}{\sqrt{x^3}} \exp\left({-\frac{(a-bx)^2}{2x}}\right) dx\]
+            \[\int f(x)dx = F(x) + C = F(x) - F(0) = \int_0^x f(t)dt\]
+            \[\Rightarrow I(a,b,t)=\int_0^t\frac{1}{\sqrt{x^3}} \exp\left({-\frac{(a-bx)^2}{2x}}\right) dx\]
         </div>
-        
+
         <p>
-            And now it's fine to differentiate under the integral sign, however the first thing that we're going to do here is to get rid of the square root, via the substitution \(\frac{1}{\sqrt x}\to x\).
+            After this we can go on apply Feynman's trick, however, first we are going get rid of the square root via the substitution \(\frac{1}{\sqrt x}\to x\).
         </p>
 
         <div class="math-content">
-            \[\Rightarrow I(a,b,t)=2\int_\frac{1}{\sqrt t}^\infty \exp\left(-\frac12 \left(ax-b/x\right)^2\right)dx\]
+            \[I(a,b,t)=2\int_\frac{1}{\sqrt t}^\infty \exp\left(-\frac12 \left(ax-b/x\right)^2\right)dx\]
         </div>
 
         <p>
-            First, we can notice that the derivative of \(ax-\frac{b}{x}\) is \(a+\frac{b}{x^2}\) so it would be quite helpful if we had that additional term.
+            Here, we can notice that the derivative of \(ax-\frac{b}{x}\) is \(a+\frac{b}{x^2}\) so it would be quite helpful if we had that additional term.
             In the same time if we differentiate the integrand with respect to \(b\) we'll produce \(a-\frac{b}{x^2}\), which is really useful as \((ax-b/x)^2\) is equal to \((ax+b/x)^2+4ab\) and the derivative of \(ax+\frac{b}{x}\) is \(a-\frac{b}{x^2}\). So let's differentiate as mentioned above:
         </p>
            
@@ -1145,27 +1152,27 @@
         </p>
 
         <div class="math-content">
-            \[\int \frac{\ln(1+\cos x)}{\cos x} dx = ?\]
+            \[\int x^4\cos(nx)dx = ?\]
         </div>
 
         <div class="hidden-content">
             <p class="hint-content">
-                After extending the indefinite integral temporary to a definite one with bounds, consider parameterising the new integral as:
+                Differentiate four times with respect to \(n\) the following extended indefinite integral:
                 \[
-                    I(a,t) = \int_0^t \frac{\ln(1+\cos a\cos x)}{\cos x} dx
+                    I(n,t) = \int_0^t \cos(nx) dx
                 \]
             </p>
         </div>
 
         <div class ="math-content">
-            \[\int_0^\infty x^2e^{-\left(4x^2+\frac{9}{x^2}\right)}dx = ?\]
+            \[\int_1^\infty \int_1^\infty (x+y)^2 e^{-(x+y)}dxdy = ?\]
         </div>
 
         <div class="hidden-content">
             <p class="hint-content">
-                This was already given as an exercise in the second chapter, however in the spirit of this chapter consider starting by evaluating the following integral:
-                \[I(t)=\int_0^\infty e^{-\left(tx^2+\frac{9}{x^2}\right)}dx\]
-                Afterwards differentiate the result once with respect to \(t\).
+                Start by showing that:
+                \[I(t)=\int_1^\infty \int_1^\infty e^{-t(x+y)}dxdy = \left(\frac{e^{-t}}{t}\right)^2\]
+                Then differentiate two times with respect to \(t\) both sides.
             </p>
         </div>
 
@@ -1203,8 +1210,9 @@
                 \[I(t)= \int_0^1 \ln x \left(\frac{1}{t+x}+\frac{1}{\frac{1}{t}+x}\right)dx = \int_0^\frac{1}{t} \frac{\ln(tx)}{1+x}dx + \int_0^t \frac{\ln\left(\frac{x}{t}\right)}{1+x}dx\]
                 Now employ the Feynman's trick (in the generalized variant).
             </p>
+            <hr class="hidden-hr">
             <p class="hint-content"> 
-                Also, in disguise this exercise is a reformulation of the following identity:
+                In disguise this exercise is a reformulation of the following identity:
                 \[
                     \operatorname{Li}_2(-t)+\operatorname{Li}_2\left(-\frac{1}{t}\right) = -\frac{\pi^2}{6} - \frac{1}{2}\ln^2 t
                 \]
