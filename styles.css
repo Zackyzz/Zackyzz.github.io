@@ -3,12 +3,12 @@ body {
 }
 
 body.dark-mode {
-    background-color: #000;
-    color: #fff;
+    background-color: #222;
+    color: #ccc;
 }
 
 body.dark-mode a {
-    color: #fff;
+    color: #ccc;
 }
 
 /* Dark Mode Toggle Button */
@@ -63,23 +63,21 @@ body.dark-mode a {
     background-color: #fff;
     width: 17.5%;
     box-shadow: 0 0.5rem 1.5rem rgba(59, 10, 208, 0.5);
-    transition: width 0.5s;
 }
 
 body.dark-mode .sidebar {
     box-shadow: 0 0.5rem 1.5rem rgba(255, 255, 255, 0.75);
-    background-color: #000;
-    color: #fff;
+    background-color: #222;
+    color: #ccc;
 }
 
 .sidebar a {
     color: black;
     text-decoration: none;
-    transition: color 0.1s;
 }
 
 body.dark-mode .sidebar a {
-    color: #fff;
+    color: #ccc;
 }
 
 body.dark-mode .sidebar a:hover, body.dark-mode .sidebar a.active {
@@ -130,7 +128,6 @@ body.dark-mode .sidebar a:hover, body.dark-mode .sidebar a.active {
     height: 100%;
     background-color: rgba(255, 255, 255, 0.5);
     cursor: pointer;
-    transition: 0.5s;
 }
 
 .sidebar.collapsed .nav-list {
@@ -150,7 +147,6 @@ body.dark-mode .sidebar a:hover, body.dark-mode .sidebar a.active {
     height: 50px;
     background-color: rgba(0, 0, 0, 0.5);
     transform: translate(-50%, -50%);
-    transition: transform 0.5s;
 }
 
 .sidebar.collapsed .handle::before {
@@ -163,7 +159,6 @@ body.dark-mode .sidebar a:hover, body.dark-mode .sidebar a.active {
     font-size: 1.3em;
     padding-left: 27.5%;
     padding-right: 10%;
-    transition: padding-left 0.5s;
 }
 
 .citation-text {
@@ -192,7 +187,7 @@ body.dark-mode .sidebar a:hover, body.dark-mode .sidebar a.active {
     overflow-x: scroll;
     justify-content: center;
     text-align: center;
-    box-shadow: 0 0.5rem 1.5rem rgba(58, 10, 202, 0.3);
+    box-shadow: 0 0.5rem 1rem rgba(58, 10, 202, 0.3);
 }
 
 .hidden-content::-webkit-scrollbar {
@@ -200,7 +195,7 @@ body.dark-mode .sidebar a:hover, body.dark-mode .sidebar a.active {
 }
 
 body.dark-mode .hidden-content {
-    box-shadow: 0 0 3.5rem rgba(255, 255, 255, 0.5); 
+    box-shadow: 0 0 1rem rgba(255, 255, 255, 0.5); 
 }
 
 .hint-content {
@@ -217,6 +212,8 @@ body.dark-mode .hidden-content {
 
 .hidden-content:hover .hidden-hr {
     display: block;
+    width: 75%;
+    margin: 0 auto;
 }
 
 /* Extra */
