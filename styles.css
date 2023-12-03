@@ -4,11 +4,11 @@ body {
 
 body.dark-mode {
     background-color: #222;
-    color: #ccc;
+    color: #bbb;
 }
 
 body.dark-mode a {
-    color: #ccc;
+    color: #bbb;
 }
 
 /* Dark Mode Toggle Button */
@@ -68,7 +68,7 @@ body.dark-mode a {
 body.dark-mode .sidebar {
     box-shadow: 0 0.5rem 1.5rem rgba(255, 255, 255, 0.75);
     background-color: #222;
-    color: #ccc;
+    color: #bbb;
 }
 
 .sidebar a {
@@ -77,7 +77,7 @@ body.dark-mode .sidebar {
 }
 
 body.dark-mode .sidebar a {
-    color: #ccc;
+    color: #bbb;
 }
 
 body.dark-mode .sidebar a:hover, body.dark-mode .sidebar a.active {
@@ -163,8 +163,8 @@ body.dark-mode .sidebar a:hover, body.dark-mode .sidebar a.active {
 
 .citation-text {
     font-family: Garamond, serif;
-    padding-left: 3%;
-    padding-right: 6%;
+    padding-left: 1%;
+    padding-right: 1%;
 }
 
 .important-text {
