@@ -1023,13 +1023,12 @@
         </div>
 
         <p>
-            We can start by parameterising the cosine function and then employ the accelerated Feynman's trick.
+            We can start by parameterising the cosine function and then employ the accelerated Feynman's trick:
         </p>
 
         <div class="math-content">
             \[I(t)=\int_0^\infty \frac{\cos(tx)}{1+x^2}dx=\int_0^\infty \int_0^\infty \cos(tx)\sin y e^{-xy}dydx\]
             \[\small =\int_0^\infty \sin y \int_0^\infty \cos(tx)e^{-xy}dxdy=\int_0^\infty \frac{y\sin y}{t^2+y^2}dy\overset{y\to tx}=\int_0^\infty \frac{x\sin(tx)}{1+x^2}dx\]
-            \[\Rightarrow f(t)=\int_0^\infty \frac{\cos(tx)}{1+x^2}dx = \int_0^\infty \frac{x\sin(tx)}{1+x^2}dx \]
         </div>
 
         <p>
