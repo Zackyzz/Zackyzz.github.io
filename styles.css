@@ -181,6 +181,12 @@ body.dark-mode .sidebar a:hover, body.dark-mode .sidebar a.active {
     display: none;
 }
 
+@media screen and (max-width:600px){
+    .math-content{
+        font-size: larger;
+    }
+}
+
 .hidden-content {
     min-height: 4em;
     overflow: hidden;
