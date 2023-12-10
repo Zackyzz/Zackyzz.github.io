@@ -41,8 +41,8 @@
                     <li><a href="#chapter1">Hello, World!</a></li>
                     <li><a href="#chapter2">The parameter</a></li>
                     <li><a href="#chapter3">Accelerated FT</a></li>
-                    <li><a href="#chapter4">Heuristics</a></li>
-                    <li><a href="#chapter5">Variations</a></li>
+                    <li><a href="#chapter4">More variants</a></li>
+                    <li><a href="#chapter5">FT in practice</a></li>
                 </ul>
             </li>
             <li class = "first-nav-item"><a href="about.html">About</a></li>
@@ -107,7 +107,7 @@
         <hr>
 
         <p>
-            Feynman already provided a significant hint about the trick when he mentioned differentiating under the integral sign, which is also an alternative name for the technique. More explicitly, if \(f(x,t)\) is well-behaved - meaning that the function is continuous, differentiable, and its partial derivatives with respect to \(t\) are continuous and integrable over the \([a,b]\) interval - then the following holds:
+            Feynman already provided a significant hint about the trick when he mentioned differentiating under the integral sign, which is also an alternative name for the technique. More explicitly, if \(f(x,t)\) and \(\frac{\partial f(x,t)}{\partial t}\) is continuous with respect to both variables over the \([a,b]\) interval, then the following holds:
         </p>
         <div class ="math-content">
             \[\frac{d}{dt} \int_a^b f(x, t)dx = \int_a^b \frac{\partial f(x, t)}{\partial t}dx\]
@@ -227,7 +227,7 @@
         </div>
 
         <p>
-            Therefore, if we would try to go back to what we're looking, which is \(I(1)\), we would end up with
+            Therefore, if we would try to go back to what we're looking, which is \(I=I(1)-I(0)\), we would end up with
             \(I=I+\text{other stuff}\). This cancels out \(I\) and we wouldn't be able to recover it.
             Unfortunately, there's no magic formula that tells a priori whether placing a parameter in a specific place would
             succeed or fail in evaluating an integral - and sometimes we are simply unlucky.
@@ -344,6 +344,7 @@
             <p class="hint-content">
                 Consider introducing the following parameter:
                 \[I(t)=\int_0^\infty x^2e^{-\left(4x^2+\frac{t}{x^2}\right)}dx\Rightarrow I'(t)=-\frac{\sqrt \pi}{4} e^{-4\sqrt t}\]
+                Where the above result follows by using Glasser's master theorem alongside the Gaussian integral.
                 This should lead to:
                 \[\int_0^\infty x^2e^{-\left(4x^2+\frac{9}{x^2}\right)}dx = I(9)- I(0) + I(0) = \int_0^9 I'(t) dt +\frac{\sqrt \pi}{32}=\frac{13}{32}\frac{\sqrt \pi}{e^{12}}\]
             </p>
@@ -428,7 +429,7 @@
         </div>
 
         <p>
-            Here we are looking to find \(I=I(0)\), and we also have \(I(t\to\infty)=0\), therefore:
+            Here we are looking to find \(I=I(0)\), and we also have \(I(\infty)=0\), therefore:
         </p>
 
         <div class="math-content">
@@ -451,11 +452,11 @@
         </div>
 
         <p>
-            The rest goes exactly as with the previous method, as all we did here was to skip differentiation step, and instead we switched to double integrals.
+            The rest goes exactly as with the previous method, as all we did here was to skip differentiation step and instead we switched to double integrals.
         </p>
 
         <p>
-            A natural question that arises here is how did \(\frac{1}{1+x^4}=\int_0^\infty e^{-tx^2}\sin t\, dt\) appear? Or even better, how can someone come up with similar results for other integrals? In the case from above, simply the Laplace transform of the sine function was used, however in general it's useful to have a list of such identities. There are tables of integral results that can be used - for example: Table of Integrals, Series, and Products by Gradshteyn and Ryzhik - but alternatively one can build up their own list of results which tend to appear often, while evaluating other integrals.
+            A natural question that arises here is how did \(\frac{1}{1+x^4}=\int_0^\infty e^{-tx^2}\sin t\, dt\) appear? Or even better, how can someone come up with similar results for other integrals? In the case from above, simply the Laplace transform of the sine function was used, however in general it's useful to have a list of such identities. There are tables of integral results that can be used - for example: Table of Integrals, Series, and Products by Gradshteyn and Ryzhik - but alternatively one can build up their own list of results which tend to appear often while evaluating other integrals.
         </p>
 
         <hr>
@@ -494,9 +495,9 @@
 
         <div class="hidden-content">
             <p class="hint-content">
-                This is one particular case of the Fresnel integral. One approach is to start by substituting \(x^2\to x\) and then switch to double integrals using:
+                Start by substituting \(x^2\to x\) and then switch to double integrals using:
                 \[\int_0^\infty e^{-xt^2}dt = \frac{\sqrt \pi}{2\sqrt x}\]
-                Where the latter result is due to the Gaussian integral (this can be shown in many ways, but it is also given as an exercise in the last chapter).
+                Where the latter result is due to the Gaussian integral. Also, this integral is one particular case of the Fresnel integral. 
             </p>
         </div>
 
@@ -562,14 +563,453 @@
         </div>
 
         <hr>
-        <section id="chapter4"> <h2>Heuristics</h2> </section>
+        <section id="chapter4"> <h2>More Feynman's trick variants</h2> </section>
         <hr>
 
         <p>
-            A common thing that we had so far with the previous examples was the luxury to parameterise the integrals as they appeared, however most of the time things are quite different, and we might need to manipulate the integrals up to a point where we can introduce an useful parameter. Our goal here will be to find a few heuristics that will help us in doing those manipulations easier.
+            We already got familiar with a popular version of Feynman's trick in the previous chapter, similarly now we will take a look at other interesting variants of Feynman's trick, which although might appear less often, they can still help to enlarge the applicability of the technique.
         </p>
 
         <hr>
+
+        <h3>
+            Differentiating under the integral sign
+        </h3>
+
+        <p>
+            We will start by taking a look at a much simpler case of Feynman's trick. Namely, in the situation when it would be enough to simply differentiate under the integral sign without performing that "undo" step to integrate back.
+        </p>
+
+        <p>
+            As a small note, it's true that "differentiating under the integral sign" tends to be used as an alternative name for Feynman's trick, however I prefer to keep this for the variant where only the differentiating process takes part, or as mentioned above, when there's no need to integrate back the result, and the name describes quite literally what we are doing.
+        </p>
+
+        <p>
+            Let's make this more clear by looking at the following integral:
+        </p>
+
+        <div class="math-content">
+            \[I=\int_0^1 x^3 \ln^2 x \, dx \]
+        </div>
+
+        <p>
+            We are already aware from the "Hello, World!" integral how \(\ln x\) can be simplified, since \(\frac{\partial}{\partial t}x^a = x^a \ln x\). However, by introducing the parameter in that original form as \(x^a \ln^2 x\), we would just produce a third logarithm, so that's going in the opposite direction.
+        </p>
+
+        <p>
+            Fortunatelly, if we take a step back, we can observe that after we find the result of \(\int_0^1 x^a dx\), then differentiating it w.r.t.\(a\) would give us as many logarithms as we want. So, let's put that integral to use.
+        </p>
+
+        <div class="math-content">
+            \[\mathcal J(a)=\int_0^1 x^a dx  = \frac{1}{a+1}\]
+            \[\Rightarrow \mathcal J'(a) = \int_0^1 x^a \ln x \, dx = \left(\frac{1}{a+1}\right)' = - \frac{1}{(a+1)^2}\]
+            \[\Rightarrow \mathcal J''(a) = \int_0^1 x^a \ln^2 x \, dx = \left(- \frac{1}{(a+1)^2}\right)' = \frac{2}{(a+1)^3}\]
+            \[\Rightarrow I= \mathcal J''(3) = \int_0^1 x^3 \ln^2 x \, dx = \frac{1}{32}\]
+        </div>
+
+        <p>
+            Of course the integral itself was quite simple this time, however the important part that should be highlighted is that not always we need to perform that "undo" step after differentiating under the integral sign - and sometimes knowing a general integral result can provide us more useful integrals by differentiating it.
+        </p>
+
+        <hr>
+
+        <h3>
+            Feynman's trick & indefinite integrals
+        </h3>
+
+        <p>
+            Further, we will take a look at how Feynman's trick can be applied to indefinite integrals. Let's consider:
+        </p>
+
+        <div class="math-content">
+            \[\int \frac{1}{\sqrt{x^3}} \exp\left({-\frac{(a-bx)^2}{2x}}\right) dx\]
+        </div>
+
+        <p>
+            In this form it makes no sense to differentiate the integral with respect to any parameter, but we can extend the integral with temporary bounds by writing:
+        </p>
+
+        <div class="math-content">
+            \[\int f(x)dx = F(x) + C = F(x) - F(0) = \int_0^x f(t)dt\]
+            \[\Rightarrow I(a,b,t)=\int_0^t\frac{1}{\sqrt{x^3}} \exp\left({-\frac{(a-bx)^2}{2x}}\right) dx\]
+        </div>
+
+        <p>
+            After this we can go on apply Feynman's trick, however, first we are going get rid of the square root via the substitution \(\frac{1}{\sqrt x}\to x\).
+        </p>
+
+        <div class="math-content">
+            \[I(a,b,t)=2\int_\frac{1}{\sqrt t}^\infty \exp\left(-\frac12 \left(ax-b/x\right)^2\right)dx\]
+        </div>
+
+        <p>
+            Here, we can notice that the derivative of \(ax-\frac{b}{x}\) is \(a+\frac{b}{x^2}\) so it would be quite helpful if we had that additional term.
+            In the same time if we differentiate the integrand with respect to \(b\) we'll produce \(a-\frac{b}{x^2}\), which is really useful as \((ax-b/x)^2\) is equal to \((ax+b/x)^2+4ab\) and the derivative of \(ax+\frac{b}{x}\) is \(a-\frac{b}{x^2}\). So let's differentiate as mentioned above:
+        </p>
+           
+        <div class="math-content">
+            \[\frac{\partial}{\partial b}I(a,b,t)=2\int_\frac{1}{\sqrt t}^\infty \exp\left(-\frac12 \left(ax-b/x\right)^2\right)\left(a-\frac{b}{x^2}\right)dx\]
+            \[=2e^{2ab}\int_\frac{1}{\sqrt t}^\infty \exp\left(-\frac12 (ax+b/x)^2\right)\left(a-\frac{b}{x^2}\right)dx\]
+            \[\overset{ax+b/x\to x}=2e^{2ab}\int_{\frac{a}{\sqrt t}+b\sqrt t}^\infty \exp{\left(-\frac{x^2}{2}\right)}dx=\sqrt{2\pi}e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+b\sqrt t}{\sqrt 2}\right)\]
+        </div>
+
+        <p>
+            Where \(\operatorname{erfc}(x)\) is the complementary error function. Now we'll go back to \(I(a,b,t)\), but we should be careful to replace the dummy variable \(b\), with something else as the \(b\) parameter does also appear in the bounds.
+        </p>
+            
+        <div class="math-content">
+            \[\lim_{b\to -\infty}I(a,b,t)=0\Rightarrow I(a,b,t)=\sqrt{2\pi}\int_{-\infty}^be^{2ax}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+x\sqrt t}{\sqrt 2}\right)dx\]
+            \[\overset{IBP}=\frac{\sqrt{\pi}}{\sqrt 2a}e^{2ax}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+x\sqrt t}{\sqrt 2}\right)\bigg|_{-\infty}^b+\frac{\sqrt t}{a}\int_{-\infty}^b e^{2ax}\exp\left(-\frac{(a+xt)^2}{2t}\right)dx\]
+            \[=\sqrt{\frac{\pi}{2}}\frac{1}{a}e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+b\sqrt t}{\sqrt 2}\right)+\frac{\sqrt t}{a}\int_{-\infty}^b \exp\left(-\frac12\left(x\sqrt{t}-\frac{a}{\sqrt{t}}\right)^2\right)dx\]
+            \[\overset{x\sqrt t-\frac{a}{\sqrt t}\to -x}=\sqrt{\frac{\pi}{2}}\frac{1}{a}e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+b\sqrt t}{\sqrt 2}\right)+\frac{1}{a}\int^{\infty}_{\frac{a}{\sqrt t}-b\sqrt t}\exp\left(-\frac{x^2}{2}\right)dx\]
+            \[=\sqrt{\frac{\pi}{2}}\frac{1}{a}\left(e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+b\sqrt t}{\sqrt 2}\right)+\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}-b\sqrt t}{\sqrt 2}\right)\right)\]
+        </div>
+
+        <p>
+            Or for the indefinite integral, this would lead to:
+        </p>
+        
+        <div class="math-content">
+            \[\small \int \frac{1}{\sqrt{x^3}} \exp\left({-\frac{(a-bx)^2}{2x}}\right) dx=\sqrt{\frac{\pi}{2}}\frac{1}{a}\left(e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt x}+b\sqrt x}{\sqrt 2}\right)+\operatorname{erfc}\left(\frac{\frac{a}{\sqrt x}-b\sqrt x}{\sqrt 2}\right)\right)+C\]
+        </div>
+
+        <hr>
+        
+        <h3>
+            Feynman's trick & power series
+        </h3>
+
+        <p>
+            Next, we will take a look at how to combine Feynman's trick with power series. For this we are going to look at:
+        </p>
+
+        <div class="math-content">
+            \[I=\int_{0}^{1}\int_{0}^{1}\frac{x\ln x\ln y}{1-xy}\frac{dxdy}{\ln(xy)}\]
+        </div>
+
+        <p>
+            We are already got familiar with what to do when there is a logarithm in the denominator as we saw that we can get rid of them by using \(\frac{d}{dt} x^t = x^t\ln x\), however here also the \(1-xy\) term appears. In order to solve this issue we'll make use of the geoemtric series, namely \(\frac{1}{1-x}=\sum_{n=0}^\infty x^n\), but we will expand into series a bit later and for now continue with the following integral:
+        </p>
+
+        <div class="math-content">
+            \[I(n)=\int_{0}^{1}\int_{0}^{1}\frac{(xy)^{n-1}x\ln x\ln y}{\ln(xy)}dxdy\Rightarrow I'(n)=\int_0^1\int_0^1  (xy)^{n-1} x \ln x \ln y dxdy\]
+            \[=\int_0^1 x^{n} \ln x \, dx \int_0^1 y^{n-1} \ln y\, dy=\frac{1}{(n+1)^2}\frac{1}{n^2}\]
+        </div>
+
+        <p>
+            Now we have to to get back to \(I(n)\):
+        </p>
+
+        <div class="math-content">
+            \[I(n)=-(I(\infty)-I(n))=-\int_n^\infty \frac{1}{(x+1)^2 x^2 } dx=-\frac{1}{n}-\frac{1}{n+1}+2\ln\left(1+\frac{1}{n}\right)\]
+        </div>
+
+        <p>
+            And finally, we'll put the geometric series to use.
+        </p>
+
+        <div class="math-content">
+            \[\int_0^1\int_0^1 \frac{ x\ln x\ln y}{(1-xy)\ln(xy)}dx\ dy=\sum_{n=1}^\infty \int_0^1\int_0^1 \frac{(xy)^{n-1} x\ln x\ln y}{\ln(xy)}dxdy\]
+            \[\small =\sum_{n=1}^\infty \left(-\frac{1}{n}-\frac{1}{n+1}+2\ln\left(1+\frac{1}{n}\right)\right)=\sum_{n=1}^\infty \left(\underbrace{\frac{1}{n}-\frac{1}{n+1}}_{1}-2\left(\underbrace{\frac{1}{n}-\ln\left(1+\frac{1}{n}\right)}_{\gamma}\right)\right)\]
+        </div>
+
+        <p>
+            So the result is simply \(1-2\gamma\), where \(\gamma\) is the Euler-Mascheroni constant.
+        </p>
+
+        <hr>
+
+        <h3>
+            Feynman's trick & differential equations
+        </h3>
+
+        <p>
+            In what's to come we are going to take a look at a combination between Feynman's trick and differential equations. Let's consider the following integral:
+        </p>
+
+        <div class="math-content">
+            \[I=\int_0^\infty \frac{\cos x}{1+x^2}dx\]
+        </div>
+
+        <p>
+            We can start by parameterising the cosine function and then employ the accelerated Feynman's trick:
+        </p>
+
+        <div class="math-content">
+            \[I(t)=\int_0^\infty \frac{\cos(tx)}{1+x^2}dx=\int_0^\infty \int_0^\infty \cos(tx)\sin y e^{-xy}dydx\]
+            \[\small =\int_0^\infty \sin y \int_0^\infty \cos(tx)e^{-xy}dxdy=\int_0^\infty \frac{y\sin y}{t^2+y^2}dy\overset{y\to tx}=\int_0^\infty \frac{x\sin(tx)}{1+x^2}dx\]
+        </div>
+
+        <p>
+            We haven't made much progress above, since we simply arrived at another integral with \(x\sin(tx)\) instead of \(\cos(tx)\), thus  complexity is the same. However, as \(\frac{\partial}{\partial t}\cos(tx)\) is \(x\sin(tx)\), differentiating \(I(t)\) gives us a differential equation to work with, namely:
+        </p>
+
+        <div class="math-content">
+            \[I'(t)=- \int_0^\infty \frac{x\sin(tx)}{1+x^2}dx = - I(t) \Rightarrow \frac{I'(t)}{I(t)}=-1\Rightarrow I(t) = C e^{-t}\]
+            \[I(0)=\int_0^\infty \frac{1}{1+x^2}dx=\frac{\pi}{2} \Rightarrow I(t)=\frac{\pi}{2}e^{-t}\]
+            \[ I = I(1) \Rightarrow I = \frac{\pi}{2e}\]
+        </div>
+
+        <p>
+            As a small note for the starting step, although employing the accelerated Feynman's trick was rather obvious as to get rid of the denominator, the additional introduction of the \(t\) parameter might be weird first. However performing the same steps without this parameter gives us:
+        </p>
+
+        <div class="math-content">
+            \[\int_0^\infty \frac{\cos x}{1+x^2}dx=\int_0^\infty \frac{x\sin x}{1+x^2}dx\]
+        </div>
+
+        <p>
+            Which indicates that one might put to use the fact that \(I(1)=-I'(1)\), by adding the additional \(t\) parameter.
+        </p>
+
+        <hr>
+
+        <h3>
+            Generalizing Feynman's trick
+        </h3>
+
+        <p>
+            So far we've seen the Feynman's trick applied only when the parameter was inside the integrand, however it can also be used when the bounds are parameterised as wells. More generally, the following holds:
+        </p>
+
+        <div class="math-content">
+            \[\frac{d}{dt} \int_{a(t)}^{b(t)} f(x, t)dx = \frac{d}{dt}b(t)f(x,b(t))-\frac{d}{dt}a(t)f(x,a(t))+\int_{a(t)}^{b(t)} \frac{\partial f(x, t)}{\partial t}dx\]
+        </div>
+
+        <p>
+            We'll put this to use with the integral from below.
+        </p>
+
+        <div class="math-content">
+            \[I=\int_\frac{1}{\sqrt 2}^1 \frac{\operatorname{arccosh}\left(\sqrt 2 x\right)}{\sqrt{1-x^2}}dx\]
+        </div>
+
+        <p>
+            Above we can see that the same \(\sqrt 2\) appears in both the lower bound and the \(\operatorname{arccosh}\) function, so we'll parameterise the integral as:
+        </p>
+        
+        <div class="math-content">
+            \[I(t)=\int_\frac{1}{t}^1 \frac{\operatorname{arccosh}\left(t x\right)}{\sqrt{1-x^2}}dx
+            \Rightarrow I'(t) = \frac{1}{t^2}\frac{\cancelto{0}{\operatorname{arccosh}\left(t\frac{1}{t}\right)}}{\sqrt{1-\frac{1}{t^2}}}+\int_\frac{1}{t}^1\frac{x}{\sqrt{1-t^2x^2}\sqrt{1-x^2}}dx\]
+            \[\overset{1-x^2\to x^2}=\frac1t\int_0^{\sqrt{1-\frac{1}{t^2}}}\frac{1}{\sqrt{1-\frac{1}{t^2}-x^2}}dx=\frac1t\arcsin\left(\frac{x}{\sqrt{1-\frac{1}{t^2}}}\right)\bigg|_0^\sqrt{1-\frac1{t^2}}=\frac{\pi}{2t}\]
+        </div>
+
+        <p>
+            We're looking to find \(I=I\left(\sqrt 2\right)\), and since \(I\left(1\right)=0\), we have:
+        </p>
+
+        <div class="math-content">
+            \[I=\int_1^\sqrt 2I'(t)dt = \frac{\pi}{2} \int_1^\sqrt 2 \frac{1}{t}dt=\frac{\pi}{4}\ln 2\]
+        </div>
+
+        <hr>
+
+        <h3>
+            Generating integrals using Feynman's trick
+        </h3>
+
+        <p>
+            Now we'll take a look at a fancier way to use Feynman's trick, especially in order to generate new integrals, for this we're considering:
+        </p>
+
+        <div class="math-content">
+            \[I(t)=\int_0^\frac{\pi}{2} \arctan\left(\frac{\sin x-\tan\frac{t}{2}}{\cos x}\right)dx\]
+        </div>
+
+        <p>
+            Note that we are not trying to evaluate the above integral, instead we are simply using it in order to build up new integrals with the result that follows after differentiating w.r.t. \(t\).
+        </p>
+
+        <div class="math-content">
+            \[I'(t)=-\frac12\int_0^\frac{\pi}{2}\frac{\cos x}{1-\sin t\sin x}dx=\frac12 \frac{\ln(1-\sin t)}{\sin t}\]
+        </div>
+
+        <p>
+            We also have that \(I(\pi)=-\frac{\pi^2}{4}\) and \(I(0)=\frac{\pi^2}{8}\), therefore:
+        </p>
+
+        <div class="math-content">
+            \[I(\pi)-I(0)=-\frac{\pi^2}{4}-\frac{\pi^2}{8}=\frac12\int_0^\pi \frac{\ln(1-\sin x)}{\sin x}dx\]
+            \[\Rightarrow \int_0^\pi \frac{\ln(1-\sin x)}{\sin x}dx=-\frac{3\pi^2}{4}\]
+        </div>
+
+        <p>
+            In retrospect, this integral also appeared as an exercise in the second chapter, and with the same suggestion from there, we can evaluate the integral by applying Feynman's trick to:
+        </p>
+        
+        <div class="math-content">
+            \[I(t)=\int_0^\pi \frac{\ln(1-\sin t\sin x)}{\sin x}dx\]
+        </div>
+
+        <p>
+            Admittedly, following this parameterisation is much more intuitevely than what we've shown with the new variation, however it's also useful to have this trick in the bag.
+        </p>
+
+        <hr>
+
+        <p>
+            To keep the practice going, underneath are listed some integrals that can be evaluated with one version of Feynman's trick described in this chapter.
+        </p>
+
+        <div class ="math-content">
+            \[\int_1^\infty \int_1^\infty (x+y)^2 e^{-(x+y)}dxdy = ?\]
+        </div>
+
+        <div class="hidden-content">
+            <p class="hint-content">
+                Start by showing that:
+                \[I(t)=\int_1^\infty \int_1^\infty e^{-t(x+y)}dxdy = \left(\frac{e^{-t}}{t}\right)^2\]
+                Then differentiate both sides two times with respect to \(t\) and set \(t=1\).
+            </p>
+        </div>
+
+        <div class="math-content">
+            \[\int x^4\cos(nx)dx = ?\]
+        </div>
+
+        <div class="hidden-content">
+            <p class="hint-content">
+                Differentiate four times with respect to \(n\) the following extended indefinite integral:
+                \[
+                    I(n,t) = \int_0^t \cos(nx) dx
+                \]
+            </p>
+        </div>
+
+        <div class="math-content">
+            \[\int_0^1 \int_0^1 \frac{dxdy}{(1+xy)\ln(xy)} = ?\]
+        </div>
+
+        <div class="hidden-content">
+            <p class="hint-content">
+                Combine the geometric series \(\sum\limits_{n=0}^\infty (-1)^n x^n = \frac{1}{1+x}\) with:
+                \[I(t)=\int_0^1 \int_0^1 \frac{(xy)^t}{\ln(xy)}dxdy\]
+            </p>
+        </div>
+
+        <div class="math-content">
+            \[\int_0^\infty \frac{\sin^2 x}{x^2(1+x^2)}dx = ?\]
+        </div>
+
+        <div class="hidden-content">
+            <p class="hint-content">
+                Solve the resulting differential equation after differentiating twice the following integral:
+                \[
+                    I(t) = \int_0^\infty \frac{\sin^2 (tx)}{x^2(1+x^2)}dx
+                \]
+            </p>
+        </div>
+
+        <div class="math-content">
+            \[\int_0^1 \ln x \left(\frac{1}{t+x}+\frac{1}{\frac{1}{t}+x}\right)dx = ?\]
+        </div>
+
+        <div class="hidden-content">
+            <p class="hint-content">
+                Split the integral in two parts, then substitute \(x\to tx\) and respectively \(x\to \frac{x}{t}\) in the resulting integrals to obtain:
+                \[I(t)= \int_0^1 \ln x \left(\frac{1}{t+x}+\frac{1}{\frac{1}{t}+x}\right)dx = \int_0^\frac{1}{t} \frac{\ln(tx)}{1+x}dx + \int_0^t \frac{\ln\left(\frac{x}{t}\right)}{1+x}dx\]
+                Now employ the Feynman's trick (in the generalized variant).
+            </p>
+            <hr class="hidden-hr">
+            <p class="hint-content"> 
+                In disguise this exercise is a reformulation of the following identity:
+                \[
+                    \operatorname{Li}_2(-t)+\operatorname{Li}_2\left(-\frac{1}{t}\right) = -\frac{\pi^2}{6} - \frac{1}{2}\ln^2 t
+                \]
+                Where \(\operatorname{Li}_2(x)\) is the dilogarithm function.
+            </p>
+        </div>
+
+        <div class="math-content">
+            \[\int_0^\infty e^{-x^2}dx = ?\]
+        </div>
+
+        <div class="hidden-content">
+            <p class="hint-content">
+                This integral can be generated starting from:
+                \[I(t)=\int_0^\infty \frac{e^{-t(1+x^2)}}{1+x^2}dx\Rightarrow I'(t)=-e^{-t}\int_0^\infty e^{-tx^2} dx\overset{\sqrt t x \to x}= -\frac{e^{-t}}{\sqrt t}\int_0^\infty e^{-x^2} dx\]
+                Afterwards it should be observed that \(I(0)=\frac{\pi}{2}\) and \(I(\infty)=0\), therefore:
+                \[\frac{\pi}{2} = \int_0^\infty \frac{e^{-t}}{\sqrt t} dt \int_0^\infty e^{-x^2} dx \overset{t\to t^2} = 2\left(\int_0^\infty e^{-x^2}dx\right)^2 \]
+            </p>
+        </div>
+
+
+        <hr>
+        <section id="chapter5"> <h2>Feynman's trick in practice</h2> </section>
+        <hr>
+
+        <p>
+            In this last chapter we will dive into some "real-world" integrals and observe how Feynman's trick can be adapted for them.
+            More exactly, with most of the previous examples we had the luxury to parameterise the integrals as they appeared, however often we might need to manipulate the integrals up to a point where we can introduce an useful parameter. Therefore, in the meantime we will attempt to build up some heuristics for this.
+        </p>
+
+        <hr>
+
+
+        <h3>
+            Breaking the rules
+        </h3>
+
+        <p>
+            In the second chapter we've observed how parameterising the integral so that it also simplifies some parts of the integral can make things more intuitively. However, we can always look for better, especially when our approach doesn't seem elegant enough.
+        </p>
+
+        <p>
+            Let's see how can we break the rules with the following integral:
+        </p>
+
+        <div class="math-content">
+            \[I=\int_0^1 \frac{\ln(1-x^2+x^4)}{1-x^2} dx\]
+        </div>
+
+        <p>
+            As with our first rule of thumb it's straightforward to introduce the new parameter as:
+        </p>
+
+        <div class="math-content">
+            \[I(a)=\int_0^1 \frac{\ln(a(1-x^2)+x^4)}{1-x^2} dx \Rightarrow I'(a)= \int_0^1 \frac{1}{a(1-x^2)+x^4}dx\]
+        </div>
+
+        <p>
+            You are encouraged to proceed forward with the above integral, however computing \(I'(a)\) might not give the most pleasant result. So to overcome this, we'll manipulate the integral a bit before parametersing it.
+        </p>
+
+        <p>
+            One extremely useful substitution (which might deserve its own special chapter) is \(x\to \frac{1-x}{1+x}\). This one great is here especially since it has the following property (among many others):
+        </p>
+
+        <div class="math-content">
+            \[\int_0^1 \frac{f(x)}{1-x^2}dx \overset{x\to\frac{1-x}{1+x}}= \frac12\int_0^1 \frac{f\left(\frac{1-x}{1+x}\right)}{x}dx\]
+            \[\Rightarrow I \overset{x\to\frac{1-x}{1+x}}= \frac12\underbrace{\int_0^1 \frac{\ln(1+14x^2+x^4)}{x}dx}_{x^2\to x} - \frac12 \int_0^1 \frac{\ln((1+x)^4)}{x}dx\]
+            \[= \frac14\int_0^1 \frac{\ln(1+14x+x^2)}{x}dx - 2 \int_0^1 \frac{\ln(1+x)}{x}dx = \frac14 I(\operatorname{arccosh} 7) -  I(0)\]
+        </div>
+    
+        <p>
+            And above, although we could have introduced a simple parameter, for a smoother result we parameterised the integral as:
+        </p>
+
+        <div class="math-content">
+            \[I(t)=\int_0^1 \frac{\ln(1+2\cosh t+x^2)}{x} dx \Rightarrow I'(t)= \int_0^1 \frac{2\sinh t}{1+2\cosh t+x^2}dx\]
+            \[= \int_0^1 \frac{2\sinh t}{(x+\cosh t)^2-\sinh^2 t}dx = 2\operatorname{arctanh}\left(\frac{x+\cosh t}{\sinh t}\right)\bigg|_0^1 = t\]
+        </div>
+
+        <p>
+            Finally, to find to find \(I\) we can combine \(I(\operatorname{arccosh} 7)\) with \(I(0)\).
+        </p>
+
+        <div class="math-content">
+            \[I = \frac14 \int_0^{\operatorname{arccosh 7}} t dt - \frac34 I(0) = \frac{\ln^2(2+\sqrt 3)}{2} - \frac{\pi^2}{8}\]
+        </div>
+
+        <p>
+            The result from above includes \(I(0) = \frac{\pi^2}{6}\), which was given as an exercise in the second chapter (integrating by parts gets you there).
+        </p>
+
+        <hr>
+
+        <h3>
+            Switching to rational functions
+        </h3>
 
         <p>
             Maybe it's just a personal preference, but I observed that having rational functions tends to give a higher visibility of how to parameterise the integrals. We'll see what is meant by this when dealing with the following integral:
@@ -610,6 +1050,10 @@
 
         <hr>
         
+        <h3>
+            Cleaning up the functions
+        </h3>
+
         <p>
             Before parameterising the integrals is quite useful to clean the disturbing functions as much as possible before any parameterisation. Let's elucidate this by considering:
         </p>
@@ -619,7 +1063,7 @@
         </div>
 
         <p>
-            As we have trigonometric functions all over the place, we will perform the Weierstrass substitution \(\tan\left(\frac{x}{2}\right)\to x\) in order to obtain only rational functions, as per our first heuristic.
+            As we have trigonometric functions all over the place, we will perform the Weierstrass substitution \(\tan\left(\frac{x}{2}\right)\to x\) in order to obtain only rational functions, as per the previous heuristic.
         </p>
             
         <div class="math-content">
@@ -686,6 +1130,10 @@
 
         <hr>
 
+        <h3>
+            Preparing better integral bounds
+        </h3>
+
         <p>
             Another useful thing to consider before using Feynman's trick is to manipulate the bounds prior to parameterising the integral so that they get rid of any complicated functions for the differentiated integral, \(I'(t)\). This will almost always give a smoother and easier integral that we have to undo. We will show this in action with the integral from below.
         </p>
@@ -695,7 +1143,7 @@
         </div>
 
         <p>
-            With the integral from the previous heuristic we've already seen that it is useful to integrate over \((0,\infty)\) when there are some rational functions - therefore we will attempt to do the same with this integral. You are encouraged to try and see what kind of mess it would be produced by parameterising the integral as it is, when the bounds are \((0,1)\). However we will jump straightforward to get our bounds to \((0,\infty)\).
+            With the previous heuristic we've already seen that it is useful to integrate over \((0,\infty)\) when there are some rational functions - therefore we will attempt to do the same with this integral. You are encouraged to try and see what kind of mess it would be produced by parameterising the integral as it is, when the bounds are \((0,1)\). However we will jump straightforward to get our bounds to \((0,\infty)\).
         </p>
 
         <p>
@@ -771,131 +1219,12 @@
 
         <hr>
 
-        <p>
-            Surely there can be found many heuristics to manipulate integrals up to a point where Feynman's trick becomes usable, but we'll stick with those as the main ones for now and display indirectly more in the next chapter. As usual, some integrals for practice with those heuristics are found below.
-        </p>
-
-        <div class="math-content">
-                \[\int_0^\frac{\pi}{2} \ln(\sec^2 x +\tan^4 x)dx=?\]
-        </div>
-
-        <div class="hidden-content">
-            <p class="hint-content">
-                Start by substituting \(\tan x \to x\) then employ Feynman's trick.
-            </p>
-        </div>
-
-        <div class="math-content">
-                \[\int_0^\pi \arctan\left(\frac{1+2\cos x}{\sqrt 3}\right)dx=?\]
-        </div>
-
-        <div class="hidden-content">
-            <p class="hint-content">
-                Start by substituting \(\tan\left(\frac{x}{2}\right) \to x\), then split the arctangent function into two parts and use Feynman's trick.
-            </p>
-        </div>
-
-        <div class="math-content">
-                \[\int_0^1 \frac{\ln^2 x\ln(1+x)}{1+x^2}dx=?\]
-        </div>
-
-        <div class="hidden-content">
-            <p class="hint-content">
-                Map the bounds from \((0,1)\) to \((0,\infty)\) by substituting \(x\to\frac{1}{x}\) - here it is necessary to add the resulting integral with the original one - afterwards use Feynman's trick.
-            </p>
-            <hr class="hidden-hr">
-            <p class="hint-content"> 
-                In case you get stuck, you can find my approach <a href="https://math.stackexchange.com/a/3357236/515527"> here </a> on MSE.
-            </p>
-        </div>
-
-        <hr>
-        <section id="chapter5"> <h2>Variations</h2> </section>
-        <hr>
+        <h3>
+            Multiple parameters
+        </h3>
 
         <p>
-            We have already described a variant of Feynman's trick in the third chapter, similarly in this last chapter we'll take a look at other interesting variations of Feynman's trick which can help to enlarge the applicability of the technique. In the same time we'll also use other heuristics to manipulate the integrals up to a point where Feynman's trick can be employed.
-        </p>
-
-        <hr>
-
-        <section id="v1"><h3>
-            Feynman's trick & indefinite integrals
-        </h3></section>
-
-        <p>
-            We will start by taking a look at how Feynman's trick can be applied to indefinite integrals. Let's consider:
-        </p>
-
-        <div class="math-content">
-            \[\int \frac{1}{\sqrt{x^3}} \exp\left({-\frac{(a-bx)^2}{2x}}\right) dx\]
-        </div>
-
-        <p>
-            In this form it makes no sense to differentiate the integral with respect to any parameter, but we can extend the integral with temporary bounds by writing:
-        </p>
-
-        <div class="math-content">
-            \[\int f(x)dx = F(x) + C = F(x) - F(0) = \int_0^x f(t)dt\]
-            \[\Rightarrow I(a,b,t)=\int_0^t\frac{1}{\sqrt{x^3}} \exp\left({-\frac{(a-bx)^2}{2x}}\right) dx\]
-        </div>
-
-        <p>
-            After this we can go on apply Feynman's trick, however, first we are going get rid of the square root via the substitution \(\frac{1}{\sqrt x}\to x\).
-        </p>
-
-        <div class="math-content">
-            \[I(a,b,t)=2\int_\frac{1}{\sqrt t}^\infty \exp\left(-\frac12 \left(ax-b/x\right)^2\right)dx\]
-        </div>
-
-        <p>
-            Here, we can notice that the derivative of \(ax-\frac{b}{x}\) is \(a+\frac{b}{x^2}\) so it would be quite helpful if we had that additional term.
-            In the same time if we differentiate the integrand with respect to \(b\) we'll produce \(a-\frac{b}{x^2}\), which is really useful as \((ax-b/x)^2\) is equal to \((ax+b/x)^2+4ab\) and the derivative of \(ax+\frac{b}{x}\) is \(a-\frac{b}{x^2}\). So let's differentiate as mentioned above:
-        </p>
-           
-        <div class="math-content">
-            \[\frac{\partial}{\partial b}I(a,b,t)=2\int_\frac{1}{\sqrt t}^\infty \exp\left(-\frac12 \left(ax-b/x\right)^2\right)\left(a-\frac{b}{x^2}\right)dx\]
-            \[=2e^{2ab}\int_\frac{1}{\sqrt t}^\infty \exp\left(-\frac12 (ax+b/x)^2\right)\left(a-\frac{b}{x^2}\right)dx\]
-            \[\overset{ax+b/x\to x}=2e^{2ab}\int_{\frac{a}{\sqrt t}+b\sqrt t}^\infty \exp{\left(-\frac{x^2}{2}\right)}dx=\sqrt{2\pi}e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+b\sqrt t}{\sqrt 2}\right)\]
-        </div>
-
-        <p>
-            Where \(\operatorname{erfc}(x)\) is the complementary error function. Now we'll go back to \(I(a,b,t)\), but we should be careful to replace the dummy variable \(b\), with something else as the \(b\) parameter does also appear in the bounds.
-        </p>
-            
-        <div class="math-content">
-            \[\lim_{b\to -\infty}I(a,b,t)=0\Rightarrow I(a,b,t)=\sqrt{2\pi}\int_{-\infty}^be^{2ax}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+x\sqrt t}{\sqrt 2}\right)dx\]
-            \[\overset{IBP}=\frac{\sqrt{\pi}}{\sqrt 2a}e^{2ax}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+x\sqrt t}{\sqrt 2}\right)\bigg|_{-\infty}^b+\frac{\sqrt t}{a}\int_{-\infty}^b e^{2ax}\exp\left(-\frac{(a+xt)^2}{2t}\right)dx\]
-            \[=\sqrt{\frac{\pi}{2}}\frac{1}{a}e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+b\sqrt t}{\sqrt 2}\right)+\frac{\sqrt t}{a}\int_{-\infty}^b \exp\left(-\frac12\left(x\sqrt{t}-\frac{a}{\sqrt{t}}\right)^2\right)dx\]
-            \[\overset{x\sqrt t-\frac{a}{\sqrt t}\to -x}=\sqrt{\frac{\pi}{2}}\frac{1}{a}e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+b\sqrt t}{\sqrt 2}\right)+\frac{1}{a}\int^{\infty}_{\frac{a}{\sqrt t}-b\sqrt t}\exp\left(-\frac{x^2}{2}\right)dx\]
-            \[=\sqrt{\frac{\pi}{2}}\frac{1}{a}\left(e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}+b\sqrt t}{\sqrt 2}\right)+\operatorname{erfc}\left(\frac{\frac{a}{\sqrt t}-b\sqrt t}{\sqrt 2}\right)\right)\]
-        </div>
-
-        <p>
-            Or for the indefinite integral, this would lead to:
-        </p>
-        
-        <div class="math-content">
-            \[\small \int \frac{1}{\sqrt{x^3}} \exp\left({-\frac{(a-bx)^2}{2x}}\right) dx=\sqrt{\frac{\pi}{2}}\frac{1}{a}\left(e^{2ab}\operatorname{erfc}\left(\frac{\frac{a}{\sqrt x}+b\sqrt x}{\sqrt 2}\right)+\operatorname{erfc}\left(\frac{\frac{a}{\sqrt x}-b\sqrt x}{\sqrt 2}\right)\right)+C\]
-        </div>
-
-        <hr>
-        
-        <section id="v2"><h3>
-            Differentiating under the integral sign
-        </h3></section>
-
-
-        <p>
-            There are cases where it would be enough to simply differentiate under the integral sign without performing the undo step.
-        </p>
-
-        <p>
-            As a small note, it's true that the name, differentiating under the integral sign, tends to be used as an alternative name for Feynman's trick, however I prefer to keep this for the variant where only the differentiating process takes part, or as mentioned above, when there's no need to integrate back the result, and the name describes quite literally what we are doing.
-        </p>
-
-        <p>
-            Let's make this more clear by looking at the following integral:
+            We mostly got familiar to apply Feynman's trick by introducing a parameter somewhere, however sometimes even multiple parameters can be used when encountering new integrals. To exemplify such a situation, let's take a look at the following unit square integral arising in geometric probability:
         </p>
 
         <div class="math-content">
@@ -903,7 +1232,7 @@
         </div>
 
         <p>
-            In order to generate the \(\ln(xy)\) part it's straightforward if we remember the process from the "Hello, World!" integral, namely that \(\frac{\partial}{\partial t}x^t = x^t \ln x\). Therefore here we will introduce the following integral:
+            In order to generate the \(\ln(xy)\) part it's straightforward to consider the following integral:
         </p>
 
         <div class="math-content">
@@ -919,7 +1248,7 @@
         </div>
 
         <p>
-            This is perfect as we can recover our original integral by differentiating with respect to \(a\), \(m\) times, and with respect to \(z\), \(m-1\) times, followed by setting \(a=0\) and respectively \(z=1\) - ignoring some coefficients.
+            This is perfect now, as we can recover our original integral by differentiating with respect to \(a\), \(m\) times, and with respect to \(z\), \(m-1\) times, followed by setting \(a=0\) and respectively \(z=1\) - ignoring some coefficients.
         </p>
 
         <p>
@@ -968,284 +1297,54 @@
         </p>
 
         <hr>
-        
-        <section id="v3"><h3>
-            Feynman's trick & power series
-        </h3></section>
 
         <p>
-            Next, we will take a look at how to combine Feynman's trick with power series. For this we are going to look at:
+            As usual, some final integrals to practice are found below.
         </p>
 
         <div class="math-content">
-            \[I=\int_{0}^{1}\int_{0}^{1}\frac{x\ln x\ln y}{1-xy}\frac{dxdy}{\ln(xy)}\]
-        </div>
-
-        <p>
-            We are already got familiar with what to do when there is a logarithm in the denominator as we saw that we can get rid of them by using \(\frac{d}{dt} x^t = x^t\ln x\), however here also the \(1-xy\) term appears. In order to solve this issue we'll make use of the geoemtric series, namely \(\frac{1}{1-x}=\sum_{n=0}^\infty x^n\), but we will expand into series a bit later and for now continue with the following integral:
-        </p>
-
-        <div class="math-content">
-            \[I(n)=\int_{0}^{1}\int_{0}^{1}\frac{(xy)^{n-1}x\ln x\ln y}{\ln(xy)}dxdy\Rightarrow I'(n)=\int_0^1\int_0^1  (xy)^{n-1} x \ln x \ln y dxdy\]
-            \[=\int_0^1 x^{n} \ln x \, dx \int_0^1 y^{n-1} \ln y\, dy=\frac{1}{(n+1)^2}\frac{1}{n^2}\]
-        </div>
-
-        <p>
-            Now we have to to get back to \(I(n)\).
-        </p>
-
-        <div class="math-content">
-            \[I(n)=-(I(\infty)-I(n))=-\int_n^\infty \frac{1}{(x+1)^2 x^2 } dx=-\frac{1}{n}-\frac{1}{n+1}+2\ln\left(1+\frac{1}{n}\right)\]
-        </div>
-
-        <p>
-            And finally, we'll put the geometric series to use.
-        </p>
-
-        <div class="math-content">
-            \[\int_0^1\int_0^1 \frac{ x\ln x\ln y}{(1-xy)\ln(xy)}dx\ dy=\sum_{n=1}^\infty \int_0^1\int_0^1 \frac{(xy)^{n-1} x\ln x\ln y}{\ln(xy)}dxdy\]
-            \[\small =\sum_{n=1}^\infty \left(-\frac{1}{n}-\frac{1}{n+1}+2\ln\left(1+\frac{1}{n}\right)\right)=\sum_{n=1}^\infty \left(\underbrace{\frac{1}{n}-\frac{1}{n+1}}_{1}-2\left(\underbrace{\frac{1}{n}-\ln\left(1+\frac{1}{n}\right)}_{\gamma}\right)\right)\]
-        </div>
-
-        <p>
-            So the result is simply \(1-2\gamma\), where \(\gamma\) is the Euler-Mascheroni constant.
-        </p>
-
-        <hr>
-
-        <section id="v4"><h3>
-            Feynman's trick & differential equations
-        </h3></section>
-
-        <p>
-            In what's to come we are going to take a look at a combination between Feynman's trick and differential equations. Let's consider the following integral:
-        </p>
-
-        <div class="math-content">
-            \[I=\int_0^\infty \frac{\cos x}{1+x^2}dx\]
-        </div>
-
-        <p>
-            We can start by parameterising the cosine function and then employ the accelerated Feynman's trick:
-        </p>
-
-        <div class="math-content">
-            \[I(t)=\int_0^\infty \frac{\cos(tx)}{1+x^2}dx=\int_0^\infty \int_0^\infty \cos(tx)\sin y e^{-xy}dydx\]
-            \[\small =\int_0^\infty \sin y \int_0^\infty \cos(tx)e^{-xy}dxdy=\int_0^\infty \frac{y\sin y}{t^2+y^2}dy\overset{y\to tx}=\int_0^\infty \frac{x\sin(tx)}{1+x^2}dx\]
-        </div>
-
-        <p>
-            Furthermore, differentiating \(I(t)\) gives us a differential equation to work with, namely:
-        </p>
-
-        <div class="math-content">
-            \[I'(t)=- \int_0^\infty \frac{x\sin(tx)}{1+x^2}dx = - I(t) \Rightarrow \frac{I'(t)}{I(t)}=-1\Rightarrow I(t) = C e^{-t}\]
-            \[I(0)=\int_0^\infty \frac{1}{1+x^2}dx=\frac{\pi}{2} \Rightarrow I(t)=\frac{\pi}{2}e^{-t}\]
-        </div>
-
-        <p>
-            In the end, we are looking to find \(I=I(1)\), therefore:
-        </p>
-
-        <div class="math-content">
-            \[I(t)=\frac{f(t)}{t} = \frac{\pi}{2t}e^{-t} \Rightarrow I = \frac{\pi}{2e}\]
-        </div>
-
-        <hr>
-
-        <section id="v5"><h3>
-            Generalizing Feynman's trick
-        </h3></section>
-
-        <p>
-            So far we've seen the Feynman's trick applied only when the parameter was inside the integrand, however it can also be used when the bounds are parameterised as wells. More generally, the following holds:
-        </p>
-
-        <div class="math-content">
-            \[\frac{d}{dt} \int_{a(t)}^{b(t)} f(x, t)dx = \frac{d}{dt}b(t)f(x,b(t))-\frac{d}{dt}a(t)f(x,a(t))+\int_{a(t)}^{b(t)} \frac{\partial f(x, t)}{\partial t}dx\]
-        </div>
-
-        <p>
-            We'll put this to use with the integral from below.
-        </p>
-
-        <div class="math-content">
-            \[I=\int_0^\frac{\pi}{2}\ln\left(\sqrt{\sin x}+\sqrt{1+\sin x}\right)dx\]
-        </div>
-
-        <p>
-            First off, since there are \(2\) square roots, we will attempt to get rid of one by writing \(1+\sin x\) as \(2\cos^2\left(\frac{\pi}{4}-\frac{x}{2}\right)\), so:
-        </p>
-
-        <div class="math-content">
-            \[\Rightarrow I=\int_0^\frac{\pi}{2} \ln\left(\sqrt{\sin x}+\sqrt 2\cos\left(\frac{\pi}{4}-\frac{x}{2}\right)\right)dx\overset{\frac{\pi}{4}-\frac{x}{2}\to x}=2\int_0^\frac{\pi}{4}\ln\left(\sqrt{\cos(2x)}+\sqrt 2 \cos x\right)dx\]
-        </div>
-
-        <p>
-            And finally, we switch from trigonometric to rational functions by substituting \(\cos x\to x\).
-        </p>
-
-        <div class="math-content">
-            \[\Rightarrow I= 2\int_\frac{1}{\sqrt 2}^1 \frac{\ln\left(\sqrt 2 x+\sqrt{2x^2-1}\right)}{\sqrt{1-x^2}}dx=2\int_\frac{1}{\sqrt 2}^1 \frac{\operatorname{arccosh}\left(\sqrt 2 x\right)}{\sqrt{1-x^2}}dx\]
-        </div>
-
-        <p>
-            At this point we can see that the same \(\sqrt 2\) appears in both the lower bound and the \(\operatorname{arccosh}\) function, so we'll parameterise the integral as:
-        </p>
-        
-        <div class="math-content">
-            \[I(t)=\int_\frac{1}{t}^1 \frac{\operatorname{arccosh}\left(t x\right)}{\sqrt{1-x^2}}dx
-            \Rightarrow I'(t) = \frac{1}{t^2}\frac{\cancelto{0}{\operatorname{arccosh}\left(t\frac{1}{t}\right)}}{\sqrt{1-\frac{1}{t^2}}}+\int_\frac{1}{t}^1\frac{x}{\sqrt{1-t^2x^2}\sqrt{1-x^2}}dx\]
-            \[\overset{1-x^2\to x^2}=\frac1t\int_0^{\sqrt{1-\frac{1}{t^2}}}\frac{1}{\sqrt{1-\frac{1}{t^2}-x^2}}dx=\frac1t\arcsin\left(\frac{x}{\sqrt{1-\frac{1}{t^2}}}\right)\bigg|_0^\sqrt{1-\frac1{t^2}}=\frac{\pi}{2t}\]
-        </div>
-
-        <p>
-            We're looking to find \(I=2I\left(\sqrt 2\right)\), and since \(I\left(1\right)=0\), we have:
-        </p>
-
-        <div class="math-content">
-            \[I=2\int_1^\sqrt 2I'(t)dt = \pi \int_1^\sqrt 2 \frac{1}{t}dt=\frac{\pi}{2}\ln 2\]
-        </div>
-
-        <hr>
-
-        <section id="v4"><h3>
-            Generating integrals using Feynman's trick
-        </h3></section>
-
-        <p>
-            Now we'll take a look at a fancier way to use Feynman's trick, especially in order to generate new integrals, for this we're considering:
-        </p>
-
-        <div class="math-content">
-            \[I(t)=\int_0^\frac{\pi}{2} \arctan\left(\frac{\sin x-\tan\frac{t}{2}}{\cos x}\right)dx\]
-        </div>
-
-        <p>
-            Note that we are not trying to evaluate the above integral, instead we are simply using it in order to build up new integrals with the result that follows after differentiating w.r.t. \(t\).
-        </p>
-
-        <div class="math-content">
-            \[I'(t)=-\frac12\int_0^\frac{\pi}{2}\frac{\cos x}{1-\sin t\sin x}dx=\frac12 \frac{\ln(1-\sin t)}{\sin t}\]
-        </div>
-
-        <p>
-            We also have that \(I(\pi)=-\frac{\pi^2}{4}\) and \(I(0)=\frac{\pi^2}{8}\), therefore:
-        </p>
-
-        <div class="math-content">
-            \[I(\pi)-I(0)=-\frac{\pi^2}{4}-\frac{\pi^2}{8}=\frac12\int_0^\pi \frac{\ln(1-\sin x)}{\sin x}dx\]
-            \[\Rightarrow \int_0^\pi \frac{\ln(1-\sin x)}{\sin x}dx=-\frac{3\pi^2}{4}\]
-        </div>
-
-        <p>
-            In retrospect, this integral also appeared in disguise as an exercise in the second chapter, and with the same suggestion from there, we can evaluate the integral by applying Feynman's trick to:
-        </p>
-        
-        <div class="math-content">
-            \[I(t)=\int_0^\pi \frac{\ln(1-\sin t\sin x)}{\sin x}dx\]
-        </div>
-
-        <p>
-            Admittedly, following this parameterisation is much more intuitevely than what we've shown with the new variation, however it's also useful to have this trick in the bag.
-        </p>
-
-        <hr>
-
-        <p>
-            To keep the practice going, underneath are listed some integrals that can be evaluated with one of the variations of Feynman's trick described in this last chapter.
-        </p>
-
-        <div class="math-content">
-            \[\int x^4\cos(nx)dx = ?\]
+                \[\int_0^\frac{\pi}{2} \ln(\sec^2 x +\tan^4 x)dx=?\]
         </div>
 
         <div class="hidden-content">
             <p class="hint-content">
-                Differentiate four times with respect to \(n\) the following extended indefinite integral:
-                \[
-                    I(n,t) = \int_0^t \cos(nx) dx
-                \]
-            </p>
-        </div>
-
-        <div class ="math-content">
-            \[\int_1^\infty \int_1^\infty (x+y)^2 e^{-(x+y)}dxdy = ?\]
-        </div>
-
-        <div class="hidden-content">
-            <p class="hint-content">
-                Start by showing that:
-                \[I(t)=\int_1^\infty \int_1^\infty e^{-t(x+y)}dxdy = \left(\frac{e^{-t}}{t}\right)^2\]
-                Then differentiate both sides two times with respect to \(t\) and set \(t=1\).
+                Start by substituting \(\tan x \to x\) then employ Feynman's trick.
             </p>
         </div>
 
         <div class="math-content">
-            \[\int_0^1 \int_0^1 \frac{dxdy}{(1+xy)\ln(xy)} = ?\]
+                \[\int_0^\pi \arctan\left(\frac{1+2\cos x}{\sqrt 3}\right)dx=?\]
         </div>
 
         <div class="hidden-content">
             <p class="hint-content">
-                Combine the geometric series \(\sum\limits_{n=0}^\infty (-1)^n x^n = \frac{1}{1+x}\) with:
-                \[I(t)=\int_0^1 \int_0^1 \frac{(xy)^t}{\ln(xy)}dxdy\]
+                Start by substituting \(\tan\left(\frac{x}{2}\right) \to x\), then split the arctangent function into two parts and use Feynman's trick.
             </p>
         </div>
 
         <div class="math-content">
-            \[\int_0^\infty \frac{\sin^2 x}{x^2(1+x^2)}dx = ?\]
+                \[\int_0^1 \frac{\ln^2 x\ln(1+x)}{1+x^2}dx=?\]
         </div>
 
         <div class="hidden-content">
             <p class="hint-content">
-                Solve the resulting differential equation after differentiating twice the following integral:
-                \[
-                    I(t) = \int_0^\infty \frac{\sin^2 (tx)}{x^2(1+x^2)}dx
-                \]
-            </p>
-        </div>
-
-        <div class="math-content">
-            \[\int_0^1 \ln x \left(\frac{1}{t+x}+\frac{1}{\frac{1}{t}+x}\right)dx = ?\]
-        </div>
-
-        <div class="hidden-content">
-            <p class="hint-content">
-                Split the integral in two parts, then substitute \(x\to tx\) and respectively \(x\to \frac{x}{t}\) in the resulting integrals to obtain:
-                \[I(t)= \int_0^1 \ln x \left(\frac{1}{t+x}+\frac{1}{\frac{1}{t}+x}\right)dx = \int_0^\frac{1}{t} \frac{\ln(tx)}{1+x}dx + \int_0^t \frac{\ln\left(\frac{x}{t}\right)}{1+x}dx\]
-                Now employ the Feynman's trick (in the generalized variant).
+                Map the bounds from \((0,1)\) to \((0,\infty)\) by substituting \(x\to\frac{1}{x}\) - here it is necessary to add the resulting integral with the original one - afterwards use Feynman's trick.
             </p>
             <hr class="hidden-hr">
             <p class="hint-content"> 
-                In disguise this exercise is a reformulation of the following identity:
-                \[
-                    \operatorname{Li}_2(-t)+\operatorname{Li}_2\left(-\frac{1}{t}\right) = -\frac{\pi^2}{6} - \frac{1}{2}\ln^2 t
-                \]
-                Where \(\operatorname{Li}_2(x)\) is the dilogarithm function.
+                In case you get stuck, you can find my approach <a href="https://math.stackexchange.com/a/3357236/515527"> here </a> on MSE.
             </p>
         </div>
 
-        <div class="math-content">
-            \[\int_0^\infty e^{-x^2}dx = ?\]
-        </div>
-
-        <div class="hidden-content">
-            <p class="hint-content">
-                This integral can be generated starting from:
-                \[I(t)=\int_0^\infty \frac{e^{-t(1+x^2)}}{1+x^2}dx\Rightarrow I'(t)=-e^{-t}\int_0^\infty e^{-tx^2} dx\overset{\sqrt t x \to x}= -\frac{e^{-t}}{\sqrt t}\int_0^\infty e^{-x^2} dx\]
-                Afterwards it should be observed that \(I(0)=\frac{\pi}{2}\) and \(I(\infty)=0\), therefore:
-                \[\frac{\pi}{2} = \int_0^\infty \frac{e^{-t}}{\sqrt t} dt \int_0^\infty e^{-x^2} dx \overset{t\to t^2} = 2\left(\int_0^\infty e^{-x^2}dx\right)^2 \]
-            </p>
-        </div>
 
         <hr>
 
         <p>
-            This marks the conclusion of the essay, which aimed to provide a good starting point for evaluating integrals using Feynman's trick. While more heuristics and variations can be developed, this should cover most of the popular ones.
+            Although this marks the conclusion of the essay - which aimed to provide a good starting point for evaluating integrals using Feynman's trick - this isn't a static website, thus I might upgrade it when I encounter new interesting integrals that are worth to be shown. So far most of the integrals comes from <a href = "https://math.stackexchange.com/users/515527/zacky?tab=answers">my posts</a> on Mathematics Stack Exchange and others are some of the most popular integrals.
         </p>
 
         <p>
-            For further exercises, I recommend exploring math forums and magazines such as Art of Problem Solving, Mathematics Stack Exchange, The American Mathematical Monthly, Crux Mathematicorum, or the Romanian Mathematical Magazine, where dozens of fascinating integrals are often posted or published. Additionally, delving into other fields like Statistics, Physics, or Quantum Physics will present you with many remarkable integrals — some of which might be solvable using Feynman's trick.
+            For further exercises, I suggest you to explore math forums and magazines such as Art of Problem Solving, Mathematics Stack Exchange, The American Mathematical Monthly, Crux Mathematicorum, or the Romanian Mathematical Magazine, where dozens of fascinating integrals are often posted or published. Additionally, delving into other fields like Statistics, Physics, or Quantum Physics will present you with many remarkable integrals — some of which might be solvable using Feynman's trick.
         </p>
 
         <hr>
