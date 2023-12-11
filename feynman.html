@@ -510,12 +510,6 @@
                 Switch directly to double integrals by using:
                 \[\int_0^1 \frac{\ln t}{t-\frac{1}{x}}dt = \operatorname{Li}_2(x)\]
             </p>
-            <hr class="hidden-hr">
-            <p class="hint-content">
-                This integral arised while computing the following integral:
-                \[\int_0^1 \frac{\operatorname{Li}_2\left(\frac{2x}{1+x^2}\right)}{1+x}dx\]
-                In case you get stuck, you can find my approach <a href="https://math.stackexchange.com/a/3461058/515527"> here </a> on MSE.
-            </p>
         </div>
 
         <div class ="math-content">
@@ -529,12 +523,6 @@
                 It's also really useful to try and see what happens when the Laplace transform of the cosine function is used instead, or the equivalent:
                 \[\frac{x}{\pi^2+x^2}=\Re\left(\frac{1}{i\pi+x}\right)=\Re\int_0^\infty e^{-(i\pi+x)t}dt\]
             </p>
-            <hr class="hidden-hr">
-            <p class="hint-content">
-                This integral arised while trying to show that:
-                \[\int_0^\infty \frac{1-x^2}{(1+x^2)^2}\operatorname{sech}^2 \left(\frac{\pi x}{2}\right)dx = \frac{\zeta(3)}{\pi}\]
-                In case you get stuck, you can find my approach <a href="https://math.stackexchange.com/a/4253441/515527"> here </a> on MSE.
-            </p>
         </div>
 
         <div class ="math-content">
@@ -545,10 +533,6 @@
             <p class="hint-content">
                 Consider switching to double integrals using:
                 \[\operatorname{Ci}^2(x)+\operatorname{si}^2(x)=\int_0^\infty \frac{e^{-xy}\ln(1+y^2)}{y}dy\]
-            </p>
-            <hr class="hidden-hr">
-            <p class="hint-content">
-                In case you get stuck, you can find my approach <a href="https://math.stackexchange.com/a/4613659/515527"> here </a> on MSE, alongisde a proof for the mentioned result.
             </p>
         </div>
 
@@ -567,7 +551,7 @@
         <hr>
 
         <p>
-            We already got familiar with a popular version of Feynman's trick in the previous chapter, similarly now we will take a look at other interesting variants of Feynman's trick, which although might appear less often, they can still help to enlarge the applicability of the technique.
+            We already got familiar with a popular version of Feynman's trick in the previous chapter. Similarly, now we will take a look at other interesting variants of Feynman's trick, which although might appear less often, they can still help to expand the applicability of the technique.
         </p>
 
         <hr>
@@ -940,7 +924,7 @@
 
         <p>
             In this last chapter we'll dive into some "real-world" integrals and observe how Feynman's trick can be adapted for them.
-            More exactly, with most of the previous examples we had the luxury to parameterise the integrals as they appeared, however often we might need to manipulate the integrals up to a point where we can introduce an useful parameter.
+            Additionally, we will also attempt to build up some heuristics that'll help us manipulate the integrals up to a point where we can introduce an useful parameter, since with most of the previous examples we had the luxury to parameterise the integrals as they appeared, however often this might not be the case.
         </p>
 
         <hr>
@@ -955,7 +939,7 @@
         </p>
 
         <p>
-            Let's see how can we break the rules with the following integral:
+            Let's see how can we break this rule with the following integral:
         </p>
 
         <div class="math-content">
@@ -1049,6 +1033,22 @@
         </p>
 
         <hr>
+
+        <p>
+            For more practice you can also attempt to tackle the following integral:
+        </p>
+
+        <div class="math-content">
+            \[\int_0^\frac{\pi}{2} \ln(\sec^2 x +\tan^4 x)dx=?\]
+        </div>
+
+        <div class="hidden-content">
+            <p class="hint-content">
+                Start by substituting \(\tan x \to x\) then employ Feynman's trick.
+            </p>
+        </div>
+
+        <hr>
         
         <h3>
             Cleaning up the functions
@@ -1126,6 +1126,22 @@
 
         <div class="math-content">
             \[\int_0^\frac{\pi}{2}\arctan\left(\frac{2\sin x}{2\cos x -1}\right)\frac{\sin\left(\frac{x}{2}\right)}{\sqrt{\cos x}}dx=\sqrt 2 \pi \ln \left(\frac{1+\sqrt 5}{2}\right)- \frac{\pi}{\sqrt 2}\ln(2+\sqrt 3)\]
+        </div>
+
+        <hr>
+
+        <p>
+            Similarly you can practice the following integral:
+        </p>
+
+        <div class="math-content">
+            \[\int_0^\pi \arctan\left(\frac{1+2\cos x}{\sqrt 3}\right)dx=?\]
+        </div>
+
+        <div class="hidden-content">
+            <p class="hint-content">
+                Start by substituting \(\tan\left(\frac{x}{2}\right) \to x\), then split the arctangent function into two parts and use Feynman's trick.
+            </p>
         </div>
 
         <hr>
@@ -1219,6 +1235,22 @@
 
         <hr>
 
+        <p>
+            With the same idea one can attempt to calculate the following integral:
+        </p>        
+
+        <div class="math-content">
+            \[\int_0^1 \frac{\ln^2 x\ln(1+x)}{1+x^2}dx=?\]
+        </div>
+
+        <div class="hidden-content">
+            <p class="hint-content">
+                Map the bounds from \((0,1)\) to \((0,\infty)\) by substituting \(x\to\frac{1}{x}\) - here it is necessary to add the resulting integral with the original one - afterwards use Feynman's trick.
+            </p>
+        </div>
+
+        <hr>
+
         <h3>
             Multiple parameters
         </h3>
@@ -1299,48 +1331,7 @@
         <hr>
 
         <p>
-            As usual, a small final list (at least for now) of integrals to practice is found below.
-        </p>
-
-        <div class="math-content">
-                \[\int_0^\frac{\pi}{2} \ln(\sec^2 x +\tan^4 x)dx=?\]
-        </div>
-
-        <div class="hidden-content">
-            <p class="hint-content">
-                Start by substituting \(\tan x \to x\) then employ Feynman's trick.
-            </p>
-        </div>
-
-        <div class="math-content">
-                \[\int_0^\pi \arctan\left(\frac{1+2\cos x}{\sqrt 3}\right)dx=?\]
-        </div>
-
-        <div class="hidden-content">
-            <p class="hint-content">
-                Start by substituting \(\tan\left(\frac{x}{2}\right) \to x\), then split the arctangent function into two parts and use Feynman's trick.
-            </p>
-        </div>
-
-        <div class="math-content">
-                \[\int_0^1 \frac{\ln^2 x\ln(1+x)}{1+x^2}dx=?\]
-        </div>
-
-        <div class="hidden-content">
-            <p class="hint-content">
-                Map the bounds from \((0,1)\) to \((0,\infty)\) by substituting \(x\to\frac{1}{x}\) - here it is necessary to add the resulting integral with the original one - afterwards use Feynman's trick.
-            </p>
-            <hr class="hidden-hr">
-            <p class="hint-content"> 
-                In case you get stuck, you can find my approach <a href="https://math.stackexchange.com/a/3357236/515527"> here </a> on MSE.
-            </p>
-        </div>
-
-
-        <hr>
-
-        <p>
-            Although this marks the conclusion of the essay, this isn't a static website, thus I might update it when I encounter new interesting integrals that are worth to be shown. So far most of the integrals comes from <a href = "https://math.stackexchange.com/users/515527/zacky?tab=answers">my posts</a> on Mathematics Stack Exchange, combined with some of the most popular integrals - thus you can also check them directly there.
+            Although this marks the conclusion of the essay, this isn't a static website, and I might update it when I encounter new interesting integrals that are worth to be shown. So far most of the integrals comes from <a href = "https://math.stackexchange.com/users/515527/zacky?tab=answers">my posts</a> on Mathematics Stack Exchange, combined with some of the most popular integrals - thus you can also check them directly there.
         </p>
 
         <p>
