@@ -7,8 +7,6 @@ if (!darkModeOn) {
 if (darkModeOn === 'false') {
     document.body.classList.add('light-mode');
     darkModeToggle.checked = false;
-} else {
-    darkModeToggle.checked = true;
 }
 
 darkModeToggle.addEventListener('change', () => {
