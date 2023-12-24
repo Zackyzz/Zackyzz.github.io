@@ -1,12 +1,12 @@
 const darkModeToggle = document.querySelector('#darkModeToggle');
-const darkMode = localStorage.getItem('darkMode') === 'true';
+const darkMode = localStorage.getItem('darkMode') !== 'false';
 
-if (darkMode === false) {
-    document.body.classList.add('light-mode');
-    darkModeToggle.checked = false;
-} else {
+if (darkMode) {
     document.body.classList.remove('light-mode');
     darkModeToggle.checked = true;
+} else {
+    document.body.classList.add('light-mode');
+    darkModeToggle.checked = false;
 }
 
 darkModeToggle.addEventListener('change', () => {

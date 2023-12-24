@@ -2,9 +2,10 @@
     --background-dark: #222;
     --text-dark: #ccc;
     --background-light: #f2f2f2;
+    --menu-background-light: #eaeaea;
     --text-light: #333;
     --link-color-dark: #4ab7fa;
-    --link-color-light: rgb(149, 99, 248);
+    --link-color-light: rgb(150, 100, 255);
     --box-shadow-dark: rgba(255, 255, 255, 0.5);
     --box-shadow-light: rgba(200, 200, 200, 0.5);
 }
@@ -153,7 +154,7 @@ body.light-mode .sidebar a {
 }
 
 body.light-mode .sidebar {
-    background-color: var(--background-light);
+    background-color: var(--menu-background-light);
     color: var(--text-light);
     box-shadow: 0 0.5rem 1.5rem var(--box-shadow-light);
 }
