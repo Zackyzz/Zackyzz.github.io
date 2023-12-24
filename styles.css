@@ -19,7 +19,6 @@ body {
 
 a {
     color: var(--text-dark);
-    text-decoration: none;
 }
 
 body.light-mode {
@@ -51,7 +50,7 @@ body.light-mode a {
     cursor: pointer;
     width: 52px;
     height: 27px;
-    background: #ffcc00;
+    background: #ff9900;
     display: block;
     border-radius: 100px;
     position: relative;
