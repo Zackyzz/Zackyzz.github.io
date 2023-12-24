@@ -27,11 +27,16 @@
 <body>
     <div class="dark-mode-switch">
         <input type="checkbox" id="darkModeToggle">
-        <label for="darkModeToggle"></label>
+        <label for="darkModeToggle">
+            <img src="svgs/sun.svg" alt="Light Mode" class="icon sun-icon">
+            <img src="svgs/moon.svg" alt="Dark Mode" class="icon moon-icon">
+        </label>
     </div>
 
     <nav class="sidebar" id="sidebar">
-        <div class="handle" id="handle"></div>
+        <div class="handle" id="handle">
+            <img src="svgs/arrow-left.svg" alt="Toggle" class="handle-icon" />
+        </div>
         <ul class = "nav-list">
             <li class = "first-nav-item"><a href="index.html">Home</a></li>
             <li class = "first-nav-item"><a href="quantum.html">Quantum Computing</a></li>
@@ -1349,9 +1354,9 @@
         </p>
     </div>
     
-    <script src="main.js"></script>
-    <script src="dark_mode.js"></script>
-    <script src="hide_sidebar.js"></script>
+    <script src="js/scrolling_color.js"></script>
+    <script src="js/dark_mode.js"></script>
+    <script src="js/hide_sidebar.js"></script>
 </body>
 
 </html>

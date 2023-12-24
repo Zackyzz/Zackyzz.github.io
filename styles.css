@@ -1,21 +1,43 @@
+:root {
+    --background-dark: #222;
+    --text-dark: #ccc;
+    --background-light: #f2f2f2;
+    --text-light: #333;
+    --link-color-dark: #4ab7fa;
+    --link-color-light: rgb(149, 99, 248);
+    --box-shadow-dark: rgba(255, 255, 255, 0.5);
+    --box-shadow-light: rgba(200, 200, 200, 0.5);
+}
+
+/*General*/
 body {
     font-family: 'Lato', sans-serif;
+    background-color: var(--background-dark);
+    color: var(--text-dark);
 }
 
-body.dark-mode {
-    background-color: #222;
-    color: #ccc;
+a {
+    color: var(--text-dark);
+    text-decoration: none;
 }
 
-body.dark-mode a {
-    color: #ccc;
+body.light-mode {
+    background-color: var(--background-light);
+    color: var(--text-light);
 }
+
+body.light-mode a {
+    color: var(--text-light);
+}
+
 
 /* Dark Mode Toggle Button */
 .dark-mode-switch {
     position: fixed;
     top: 10px;
     right: 10px;
+    width: 52px;
+    height: 27px;
 }
 
 .dark-mode-switch input {
@@ -26,67 +48,78 @@ body.dark-mode a {
 
 .dark-mode-switch label {
     cursor: pointer;
-    text-indent: -9999px;
     width: 52px;
     height: 27px;
     background: #1ba1f3;
     display: block;
     border-radius: 100px;
     position: relative;
+    overflow: hidden;
 }
 
-.dark-mode-switch label::after {
-    content: '';
+.icon {
     position: absolute;
-    top: 2px;
-    left: 2px;
     width: 23px;
     height: 23px;
-    background: #fff;
-    border-radius: 90px;
-    transition: 0.1s;
+    transition: opacity 0.3s ease;
+}
+
+.sun-icon {
+    top: 1.5px;
+    left: 1.5px;
+    opacity: 1;
+}
+
+.moon-icon {
+    top: 1.5px;
+    right: 1.5px;
+    opacity: 0;
 }
 
 .dark-mode-switch input:checked + label {
     background: #1ba1f3;
 }
 
+.dark-mode-switch input:checked + label .sun-icon {
+    opacity: 0;
+}
+
+.dark-mode-switch input:checked + label .moon-icon {
+    opacity: 1;
+}
+
+.dark-mode-switch label::after {
+    content: none;
+}
+
 .dark-mode-switch input:checked + label::after {
-    left: calc(100% - 2px);
+    left: calc(100% - 1.5px);
     transform: translateX(-100%);
 }
 
-/* Menu Sidebar */
+
+/* Menu Sidebar*/
 .sidebar {
     position: fixed;
     height: 100%;
-    background-color: #fff;
+    background-color: var(--background-dark);
+    color: var(--text-dark);
     width: 17.5%;
-    box-shadow: 0 0.5rem 1.5rem rgba(59, 10, 208, 0.5);
-}
-
-body.dark-mode .sidebar {
-    box-shadow: 0 0.5rem 1.5rem rgba(255, 255, 255, 0.75);
-    background-color: #222;
-    color: #ccc;
+    box-shadow: 0 0.5rem 1.5rem var(--box-shadow-dark);
 }
 
 .sidebar a {
-    color: black;
+    color: var(--text-dark);
     text-decoration: none;
 }
 
-body.dark-mode .sidebar a {
-    color: #ccc;
-}
-
-body.dark-mode .sidebar a:hover, body.dark-mode .sidebar a.active {
-    color: #1ba1f3;
+.sidebar a:hover, .sidebar a.active {
+    color: var(--link-color-dark);
     text-shadow: none;
 }
 
 .sidebar a:hover {
-    color: rgb(10, 10, 170);
+    color: var(--link-color-dark);
 }
 
 .sidebar ul {
@@ -94,8 +127,7 @@ body.dark-mode .sidebar a:hover, body.dark-mode .sidebar a.active {
 }
 
 .sidebar ul li a.active {
-    color: rgb(10, 10, 170);
-    text-shadow: 0.25px 0.25px #448ff1;
+    color: var(--link-color-dark);
 }
 
 .nav-list {
@@ -116,6 +148,24 @@ body.dark-mode .sidebar a:hover, body.dark-mode .sidebar a.active {
     padding-bottom: 0.5em;
 }
 
+body.light-mode .sidebar a {
+    color: var(--text-light);
+}
+
+body.light-mode .sidebar {
+    background-color: var(--background-light);
+    color: var(--text-light);
+    box-shadow: 0 0.5rem 1.5rem var(--box-shadow-light);
+}
+
+body.light-mode .sidebar a:hover, 
+body.light-mode .sidebar a.active {
+    color: var(--link-color-light);
+    text-shadow: 0.25px 0.25px 0.25px var(--link-color-light);
+
+}
+
+
 /* Sidebar Toggle Button */
 .sidebar.collapsed {
     width: 2%;
@@ -126,8 +176,25 @@ body.dark-mode .sidebar a:hover, body.dark-mode .sidebar a.active {
     right: 0;
     width: 15px;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: var(--box-shadow-dark);
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.light-mode .handle {
+    background-color: var(--box-shadow-light);
+}
+
+
+.handle-icon {
+    width: 90%;
+    height: auto;
+}
+
+.sidebar.collapsed .handle-icon {
+    transform: rotate(180deg);
 }
 
 .sidebar.collapsed .nav-list {
@@ -138,20 +205,6 @@ body.dark-mode .sidebar a:hover, body.dark-mode .sidebar a.active {
     display: none;
 }
 
-.handle::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 15px;
-    height: 50px;
-    background-color: rgba(0, 0, 0, 0.5);
-    transform: translate(-50%, -50%);
-}
-
-.sidebar.collapsed .handle::before {
-    transform: translate(-50%, -50%);
-}
 
 /* Page Content */
 .page-content {
@@ -171,20 +224,11 @@ body.dark-mode .sidebar a:hover, body.dark-mode .sidebar a.active {
     font-family: 'Roboto', sans-serif;
 }
 
+
 /* MathJax Content */
 .math-content {
     overflow-x: scroll;
     overflow-y: hidden;
-}
-
-.math-content::-webkit-scrollbar {
-    display: none;
-}
-
-@media screen and (max-width:600px){
-    .math-content{
-        font-size: larger;
-    }
 }
 
 .hidden-content {
@@ -193,15 +237,11 @@ body.dark-mode .sidebar a:hover, body.dark-mode .sidebar a.active {
     overflow-x: scroll;
     justify-content: center;
     text-align: center;
-    box-shadow: 0 0.5rem 1rem rgba(58, 10, 202, 0.3);
+    box-shadow: 0 0.5rem 1rem var(--box-shadow-dark);
 }
 
-.hidden-content::-webkit-scrollbar {
-    display: none;
-}
-
-body.dark-mode .hidden-content {
-    box-shadow: 0 0 1rem rgba(255, 255, 255, 0.5); 
+body.light-mode .hidden-content {
+    box-shadow: 0 0.25rem 1rem rgba(58, 10, 202, 0.3);
 }
 
 .hint-content {
@@ -222,18 +262,29 @@ body.dark-mode .hidden-content {
     margin: 0 auto;
 }
 
-/* Extra */
+@media screen and (max-width:600px){
+    .math-content{
+        font-size: larger;
+    }
+}
+
+@media screen and (min-width:600px){
+    .math-content::-webkit-scrollbar, .hidden-content::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+
+/* Code Content */
 pre {
     box-shadow: 0 0.5rem 2.5rem rgba(227, 2, 247, 0.1);
 }
 
-a:visited {
-    text-decoration: none;
+.codeBlock { 
+    font-family: monospace;
+    white-space: pre-wrap;
 }
 
-a:active {
-    text-decoration: none;
-}
 
 /* Images */
 .centered-image {
