@@ -2,10 +2,10 @@
     --background-dark: #222;
     --text-dark: #ccc;
     --background-light: #f2f2f2;
-    --menu-background-light: #eaeaea;
+    --menu-background-light: #ebebeb;
     --text-light: #333;
     --link-color-dark: #4ab7fa;
-    --link-color-light: rgb(150, 100, 255);
+    --link-color-light: rgb(151, 10, 202);
     --box-shadow-dark: rgba(255, 255, 255, 0.5);
     --box-shadow-light: rgba(200, 200, 200, 0.5);
 }
@@ -51,7 +51,7 @@ body.light-mode a {
     cursor: pointer;
     width: 52px;
     height: 27px;
-    background: #1ba1f3;
+    background: #ffcc00;
     display: block;
     border-radius: 100px;
     position: relative;
@@ -156,14 +156,13 @@ body.light-mode .sidebar a {
 body.light-mode .sidebar {
     background-color: var(--menu-background-light);
     color: var(--text-light);
-    box-shadow: 0 0.5rem 1.5rem var(--box-shadow-light);
+    box-shadow: 0 1.5rem 1.5rem var(--box-shadow-light);
 }
 
 body.light-mode .sidebar a:hover, 
 body.light-mode .sidebar a.active {
     color: var(--link-color-light);
-    text-shadow: 0.25px 0.25px 0.25px var(--link-color-light);
-
+    text-shadow: 0.15px 0.15px 0.15px var(--link-color-light);
 }
 
 
