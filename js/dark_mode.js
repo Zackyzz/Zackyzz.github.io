@@ -3,10 +3,10 @@ const darkMode = localStorage.getItem('darkMode') === 'true';
 
 if (darkMode === false) {
     document.body.classList.add('light-mode');
-    darkModeToggle.checked = true;
+    darkModeToggle.checked = false;
 } else {
     document.body.classList.remove('light-mode');
-    darkModeToggle.checked = false;
+    darkModeToggle.checked = true;
 }
 
 darkModeToggle.addEventListener('change', () => {
