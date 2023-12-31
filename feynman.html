@@ -60,7 +60,7 @@
         </h1>
 
         <p>
-            Among a few other integral tricks and techniques, Feynman's trick was a strong reason that made me love evaluating integrals. While the technique itself goes back to Leibniz and is commonly known as the Leibniz integral rule, it was Richard Feynman who popularized it, which is why it is also referred to as Feynman's trick.
+            Among a few other integral tricks and techniques, Feynman's trick was a strong reason that made me love evaluating integrals. Although the technique itself goes back to Leibniz and is commonly known as the Leibniz integral rule, it was Richard Feynman who popularized it, which is why it is also referred to as Feynman's trick.
             Here's an excerpt from his book, Surely You're Joking, Mr. Feynman:
         </p>
 
@@ -518,6 +518,17 @@
         </div>
 
         <div class ="math-content">
+            \[\int_0^1 \frac{\arctan x\ln(1+x^2)}{x(1+x)}dx = ?\]
+        </div>
+
+        <div class="hidden-content">
+            <p class="hint-content">
+                Switch to double integral by making use of the following result:
+                \[\int_0^x \frac{\arctan t}{1+xt}dt = \frac{\arctan x \ln(1+x^2)}{2x}\]
+            </p>
+        </div>
+
+        <div class ="math-content">
             \[\int_{-\infty}^\infty \frac{x}{\pi^2+x^2}\frac{e^{2x}}{(1+e^{x})^3}dx\]
         </div>
 
@@ -823,7 +834,7 @@
         </div>
 
         <p>
-            In retrospect, this integral also appeared as an exercise in the second chapter, and with the same suggestion from there, we can evaluate the integral by applying Feynman's trick to:
+            In retrospect, this integral also appeared as an exercise in the  <a href="#chapter2">second chapter</a>, and with the same suggestion from there, we can evaluate the integral by applying Feynman's trick to:
         </p>
         
         <div class="math-content">
@@ -991,8 +1002,24 @@
         </div>
 
         <p>
-            The result from above follows since includes \(I(0) = \frac{\pi^2}{6}\), which is also the Basel problem in disguise.
+            The result from above follows since includes \(I(0) = \frac{\pi^2}{6}\), which is also the Basel problem in disguise, but you're further encouraged to approach it by employing Feynman's trick.
         </p>
+
+        <div class="math-content">
+            \[\int_0^1 \frac{\ln(1+x)}{x}dx=\frac{\pi^2}{12}\]
+        </div>
+
+        <div class="hidden-content">
+            <p class="hint-content">
+                One idea is to rewrite the integral as:
+                \[ I=\int_0^1 \frac{\ln(1+x)}{x}dx\overset{x\to x^3}=3\int_0^1 \frac{\ln(1+x^3)}{x}dx\]
+                \[\Rightarrow \frac13I-I=\int_0^1 \frac{\ln\left(\frac{1+x^3}{1+x}\right)}{x}dx\Rightarrow I = -\frac32 \int_0^1 \frac{\ln(1-x+x^2)}{x}dx \]
+                Now put Feynman's trick to use for:
+                \[I(t)=\int_0^1 \frac{\ln(1-tx+x^2)}{x}dx\]
+                But also take into account that:
+                \[I(0)=\int_0^1 \frac{\ln(1+x^2)}{x}dx\overset{x^2\to x}=\frac12 \int_0^1 \frac{\ln(1+x)}{x}dx=\frac12I\]
+            </p>
+        </div>
 
         <hr>
 
@@ -1136,7 +1163,7 @@
         <hr>
 
         <p>
-            Similarly you can practice with the following integral:
+            Similarly you can try and tackle the following integral:
         </p>
 
         <div class="math-content">
@@ -1332,6 +1359,81 @@
         <p>
             Where \(s(n,m)\) is the Stirling number of the first kind and \(\zeta(z)\) is the Riemann zeta function.
         </p>
+
+        <p>
+            A similar idea can be applied for the following integral:
+        </p>        
+
+        <div class="math-content">
+            \[\int_0^\infty \frac{\cos(3x)}{(1+x^2)^4}dx=?\]
+        </div>
+
+        <div class="hidden-content">
+            <p class="hint-content">
+                Make use of a more general integral that was evaluated in the <a href="#chapter4">fourth chapter</a>:
+                \[\int_0^\infty \frac{\cos(tx)}{a^2+x^2}dx = \frac{\pi}{2a}e^{-at}\]
+                Then differentiate \(3\) times w.r.t. \(a\).
+            </p>
+        </div>
+
+        <hr>
+
+        <h3>
+            Feynman's trick before Feynman's trick
+        </h3>
+
+        <p>
+            The name might be confusing at first, but sometimes to enable an application of Feynman's trick it's actually needed to apply another Feynman's trick. Let's look at the following integral:
+        </p>
+
+        <div class="math-content">
+            \[I = \int_0^\frac{\pi}{2}\int_0^\frac{\pi}{2}\cot x \csc^2 y\ln(\cos y)\ln(1-2\sin x+\sin^2 x\csc^2y)dxdy\] 
+        </div>
+
+        <p>
+            The first step should be pretty obvious by now, namely to get rid of the trigonometric functions.
+        </p>
+
+        <div class="math-content">
+            \[I \overset{\large \sin x\to x \atop  \large \cot y \to y}=-\frac12\int_0^\infty \int_0^1 \frac{\ln\left(1+\frac{1}{y^2}\right)\ln((1-x)^2+x^2y^2)}{x}dxdy\]
+        </div>
+
+        <p>
+            Now we can notice that we have two logarithms and only one of them contains the \(x\) term, however since the bounds are \((0,1)\) dealing with that integral won't produce much success (as the result would be quite complicated).
+        </p>
+
+        <p>
+            However we also have the bounds as \((0,\infty)\) for the \(y\) integral, thus we can get rid of one logarithm before dealing with the \(y\) integral. To do this we'll use:
+        </p>
+
+        <div class="math-content">
+            \[\int_0^1 \frac{t}{t^2+y^2}dt=\frac12\ln\left(1+\frac{1}{y^2}\right)\] 
+            \[\Rightarrow I=-\int_0^\infty \int_0^1 \int_0^1 \frac{t\ln((1-x)^2+x^2y^2)}{x(t^2+y^2)}dtdxdy \]
+            \[\overset{y\to ty}=-\int_0^1 \frac{1}{x}\int_0^1 \int_0^\infty \frac{\ln((1-x)^2+x^2t^2y^2)}{1+y^2} dydtdx\]
+        </div>
+
+        <p>
+            In the <a href="#chapter3">third chapter</a> we saw how it's useful to have a list of integral results. One more such useful integral that tend to appear quite often is:
+        </p>
+
+        <div class="math-content">
+            \[\int_0^\infty \frac{\ln(a^2+b^2 x^2)}{1+x^2}dx= \pi \ln(|a|+|b|)\]
+        </div>
+
+        <div class="hidden-content">
+            <p class="hint-content">
+                There's no huge simplification here, use \(I(a)\), \(I(b)\) or directly employ the accelerated Feynman's trick by writing the logarithm as an integral.
+            </p>
+        </div>
+
+        <p>
+            Now back to our integral, by using the above result, we can easily finish the integral.
+        </p>
+
+        <div class="math-content">
+            \[I=-\pi\int_0^1 \frac{1}{x}\int_0^1 \ln((1-x)+xt)dtdx\]
+            \[=\pi\underbrace{\int_0^1 \left(\frac1x+\frac{\ln(1-x)}{x^2}\right)dx}_{\large -1}-\pi\underbrace{\int_0^1\frac{\ln(1-x)}{x}dx}_{\large -\frac{\pi^2}{6}}=\frac{\pi^3}{6}-\pi\]
+        </div>
 
         <hr>
 
