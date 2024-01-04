@@ -18,21 +18,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/scheme.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </head>
 
 <body>
     <div class="dark-mode-switch">
         <input type="checkbox" id="darkModeToggle">
-        <label for="darkModeToggle"></label>
+        <label for="darkModeToggle">
+            <img src="svgs/sun.svg" alt="Light Mode" class="icon sun-icon">
+            <img src="svgs/moon.svg" alt="Dark Mode" class="icon moon-icon">
+        </label>
     </div>
 
     <nav class="sidebar" id="sidebar">
-        <div class="handle" id="handle"></div>
+        <div class="handle" id="handle">
+            <img src="svgs/arrow-left.svg" alt="Toggle" class="handle-icon" />
+        </div>
         <ul class = "nav-list">
             <li class = "first-nav-item"><a href="index.html">Home</a></li>
             <li class = "first-nav-item"><a href="quantum.html">Quantum Computing</a></li>
             <li class = "first-nav-item"><a href="feynman.html">Feynman's Trick</a></li>
-            <li class = "first-nav-item"><a class="active" href="fractals.html">Fractal Compression</a></li>
+            <li class = "first-nav-item"><a class="active" href="fractal.html">Fractal Compression</a></li>
             <li class = "first-nav-item"><a href="about.html">About</a></li>
         </ul>
     </nav>
@@ -50,11 +59,8 @@
             After we got the image's values into a matrix we can proceed with retrieving the ranges in a list, but also remembering to precompute \(r_i\) and \(r_i^2\).
         </p>
 
-        <div id = "codeBox">
-            <button onclick="showCode('racket')">Racket</button>
-            <button onclick="showCode('julia')">Julia</button>
-
-            <pre id="racketCode" class="codeBlock"><code>
+        <div class="codeBlock">
+            <pre><code class="language-scheme">
                 (define (get-ranges matrix [nr 64] [size 8] [step 8])
                  (apply
                   append
@@ -71,30 +77,14 @@
                             bi)))
                         (list (vector->list (apply vector-append (vector->list block))) sum sum^2)))))
             </code></pre>
-
-            <pre id="juliaCode" class="codeBlock"><code>
-                #Julia indexes are starting from 1 not 0
-                ranges = []
-                for w in 1:S:WIDTH-S+1
-                    for h in 1:S:HEIGHT-S+1
-                        temporary_range = img_vals[w:w+S-1, h:h+S-1]
-                        ri = sum(temporary_range)
-                        ri2 = sum(temporary_range.^2)
-                        push!(ranges, [temporary_range, ri, ri2])
-                    end
-                end
-            </code></pre>
         </div>
 
         <p>
             Next up are the domains, which are somewhat similarly to the ranges with 2 exceptions: the blocks initially are 16x16 which must be downscaled (by averaging every 2x2 group of pixels) and also by taking the eight isometries into account.
         </p>
 
-        <div id = "codeBox">
-            <button onclick="showCode('racket')">Racket</button>
-            <button onclick="showCode('julia')">Julia</button>
-
-            <pre id="racketCode" class="codeBlock"><code>
+        <div class="codeBlock">
+            <pre><code>
                 (define (make-isometry matrix iso [size 8])
                 (for/vector ([i size])
                   (for/vector ([j size])
@@ -133,53 +123,13 @@
                         (list (vector->list (apply vector-append (vector->list (make-isometry block i))))
                             sum sum^2)))))))
             </code></pre>
-
-            <pre id="juliaCode" class="codeBlock"><code>
-                function downscale_block(block)
-                    downscaled_block = zeros(S,S)
-                        for i in 1:S
-                            for j in 1:S
-                                downscaled_block[i,j] = div(block[2*i, 2*j] + block[2*i-1, 2*j] + block[2*i, 2*j-1] + block[2*i-1, 2*j-1], 4)
-                            end
-                        end
-                    return downscaled_block
-                end
-
-                function apply_isometry(block, index)
-                    isometries = [
-                        block,
-                        reverse(transpose(block), dims=2),
-                        reverse(reverse(block, dims=1), dims=2),
-                        reverse(transpose(block), dims=1),
-                        reverse(block, dims=1),
-                        reverse(block, dims=2),
-                        transpose(block),
-                        transpose(reverse(reverse(block, dims=1), dims=2))
-                    ]
-                    return isometries[index]
-                end
-
-                domains = []
-                for w in 1:S:WIDTH-2*S+1
-                    for h in 1:S:HEIGHT-2*S+1
-                        domain = downscale_block(img_vals[w: w+2*S-1, h:h+2*S-1])
-                        for i in 1:8
-                            transformed_domain = apply_isometry(domain, i)
-                            di = sum(transformed_domain)
-                            di2 = sum(transformed_domain.^2)
-                            push!(domains, [transformed_domain, di, di2])
-                        end
-                    end
-                end
-            </code></pre>
         </div>
 
     </div>
 
-    <script src="switch_code.js"></script>
-    <script src="main.js"></script>
-    <script src="dark_mode.js"></script>
-    <script src="hide_sidebar.js"></script>
+    <script src="js/scrolling_color.js"></script>
+    <script src="js/dark_mode.js"></script>
+    <script src="js/hide_sidebar.js"></script>
 </body>
 
 </html>
