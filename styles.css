@@ -276,12 +276,11 @@ body.light-mode .hidden-content {
 
 /* Code Content */
 pre {
-    box-shadow: 0 0.5rem 2.5rem rgba(227, 2, 247, 0.1);
+    box-shadow: 0 0.5rem 0.5rem rgba(227, 2, 247, 0.1);
 }
 
 .codeBlock { 
     font-family: monospace;
-    white-space: pre-wrap;
 }
 
 
