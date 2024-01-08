@@ -2,7 +2,6 @@
     --background-dark: #222;
     --text-dark: #ccc;
     --background-light: #f2f2f2;
-    --menu-background-light: #ebebeb;
     --text-light: #333;
     --link-color-dark: #4ab7fa;
     --link-color-light: rgb(151, 10, 202);
@@ -153,7 +152,7 @@ body.light-mode .sidebar a {
 }
 
 body.light-mode .sidebar {
-    background-color: var(--menu-background-light);
+    background-color: var(--background-light);
     color: var(--text-light);
     box-shadow: 0 1.5rem 1.5rem var(--box-shadow-light);
 }
@@ -236,7 +235,7 @@ body.light-mode .handle {
     overflow-x: scroll;
     justify-content: center;
     text-align: center;
-    box-shadow: 0 0.5rem 1rem var(--box-shadow-dark);
+    box-shadow: 0 0.25rem 1rem var(--box-shadow-dark);
 }
 
 body.light-mode .hidden-content {
