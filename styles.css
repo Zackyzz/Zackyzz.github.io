@@ -222,6 +222,10 @@ body.light-mode .handle {
     font-family: 'Roboto', sans-serif;
 }
 
+.center-text {
+    text-align: center;
+}
+
 
 /* MathJax Content */
 .math-content {
