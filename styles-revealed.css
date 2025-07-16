@@ -1,7 +1,7 @@
 :root {
     --background-dark: #222;
     --text-dark: #ccc;
-    --background-light: #f2f2f2;
+    --background-light: #f7f7f7;
     --text-light: #333;
     --link-color-dark: #4ab7fa;
     --link-color-light: rgb(151, 10, 202);
@@ -207,9 +207,9 @@ body.light-mode .handle {
 /* Page Content */
 .page-content {
     font-family: 'Lato', sans-serif;
-    font-size: 1.3em;
-    padding-left: 27.5%;
-    padding-right: 10%;
+    font-size: 1.4em;
+    padding-left: 17.5%;
+    padding-right: 17.5%;
 }
 
 .citation-text {
