@@ -1,11 +1,11 @@
 :root {
-    --background-dark: #222;
-    --text-dark: #ccc;
+    --background-dark: #f7f7f7;
+    --text-dark: #333;
     --background-light: #f7f7f7;
     --text-light: #333;
-    --link-color-dark: #4ab7fa;
+    --link-color-dark: rgb(151, 10, 202);
     --link-color-light: rgb(151, 10, 202);
-    --box-shadow-dark: rgba(255, 255, 255, 0.5);
+    --box-shadow-dark: rgba(200, 200, 200, 0.5);
     --box-shadow-light: rgba(200, 200, 200, 0.5);
 }
 
